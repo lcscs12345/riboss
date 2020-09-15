@@ -11,3 +11,7 @@ Dependencies:
 - scipy=1.5.2
 - matplotlib=3.3.1
 - seaborn=0.10.1
+
+if you find this useful, please consider citing:
+- Lim, C.S. & Brown, C.M. (2020) Synergistic effects of upstream open reading frames and leader exon-exon junctions on protein expression. bioRxiv.
+- Lim, C.S., Wardell, S.J.T., Kleffmann, T. & Brown, C.M. (2018) The exon-intron gene structure upstream of the initiation codon predicts translation efficiency. Nucleic Acids Res. 46: 4575-4591.
