@@ -1,7 +1,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2020-09-15 22:00:36
+@modify date 2020-09-16 06:34:51
 @desc        RIBOSS pipline
 """
 
@@ -175,7 +175,6 @@ rule index:
         ci=directory(star_contam_index),
         pci=directory(star_riboseq_index)
     params:
-        star=star,
         t=thread,
     run:
         shell(r"""
@@ -290,7 +289,6 @@ rule quant:
     output:
         smq=sm_quant
     params:
-        salmon=salmon,
         sp=salmon_params,
         t=thread,
         smd=sm_dir
