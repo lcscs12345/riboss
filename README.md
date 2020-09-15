@@ -13,6 +13,8 @@ Dependencies:
 - matplotlib=3.3.1
 - seaborn=0.10.1
 
+```riboprof``` is available as a precompiled executable. Other dependencies can be installed through ```conda``` or ```pip```.
+
 The python scripts can be executed independently. 
 - ```prep_reference_files.py``` prepares the reference transcriptome files for ```STAR```, ```salmon```, ```riboprof```, and ```riboss.py```.
 - ```select_footprint_size.py``` selects the best ribosome footprint sizes by triplet periodicity using Fisher's exact test.
