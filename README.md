@@ -14,7 +14,7 @@ Dependencies:
 - seaborn=0.10.1
 
 The python scripts can be executed independently. 
-- ```prep_reference_files.py``` prepares the reference transcriptome files for ```STAR```, ```salmon``` and ```riboss.py```.
+- ```prep_reference_files.py``` prepares the reference transcriptome files for ```STAR```, ```salmon```, ```riboprof```, and ```riboss.py```.
 - ```select_footprint_size.py``` selects the best ribosome footprint sizes by triplet periodicity using Fisher's exact test.
 - ```riboss.py``` compares the strength of upstream and downstream ORFs with main ORFs using Fisher's exact test.
 
