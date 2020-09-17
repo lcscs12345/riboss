@@ -1,5 +1,6 @@
 ![logo](./riboss_logo.svg)
-A pipeline for comparing the strength of open reading frames (ORFs) within individual transcripts.
+
+### A pipeline for comparing the strength of open reading frames (ORFs) within individual transcripts.
 
 Dependencies:
 - snakemake=5.24.0
