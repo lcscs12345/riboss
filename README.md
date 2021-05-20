@@ -27,6 +27,5 @@ snakemake -j1 -s riboss.smk
 ```
 ![dag](./riboss_dag.svg)
 
-if you find this useful, please consider citing:
-- Lim, C.S. & Brown, C.M. Synergistic effects of upstream open reading frames and leader exon-exon junctions on protein expression. (In preparation).
+Related article:
 - Lim, C.S., Wardell, S.J.T., Kleffmann, T. & Brown, C.M. (2018) The exon-intron gene structure upstream of the initiation codon predicts translation efficiency. Nucleic Acids Res. 46: 4575-4591.
