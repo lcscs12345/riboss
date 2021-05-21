@@ -1,6 +1,6 @@
 ![logo](./riboss_logo.svg)
 
-### A pipeline for comparing the strength of open reading frames (ORFs) within individual transcripts.
+### Comparison of the ability of open reading frames to recruit ribosomes within individual transcripts.
 
 Dependencies:
 - snakemake=5.24.0
