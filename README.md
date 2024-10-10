@@ -1,6 +1,7 @@
 ![logo](./riboss_logo.svg)
 
 ## Comparing the translatability of open reading frames within individual transcripts
+See styphimurium.ipynb for analysis of _Salmonella enterica_ serovar Typhimurium.
 
 ### Install dependencies
 
