@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 28	15
-=======
-28,15
->>>>>>> refs/remotes/origin/master

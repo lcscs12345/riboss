@@ -4,11 +4,7 @@
 """
 @author      CS Lim
 @create date 2024-09-13 15:26:12
-<<<<<<< HEAD
 @modify date 2024-10-13 19:40:02
-=======
-@modify date 2024-09-14 10:40:54
->>>>>>> refs/remotes/origin/master
 @desc        RIBOSS module for finding ORFs
 """
 
@@ -331,7 +327,6 @@ def orf_resolver(df, gtf):
 
 
 
-<<<<<<< HEAD
 def operon_distribution(op, displot_prefix):
     """
     Plot the distribution of operons.
@@ -362,8 +357,6 @@ def operon_distribution(op, displot_prefix):
     
 
 
-=======
->>>>>>> refs/remotes/origin/master
 def operon_finder(tx_assembly, bed, outdir=None, delim=None, start_codon=["ATG", "CTG", "GTG", "TTG"]):
 
     """
@@ -437,11 +430,7 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None, start_codon=["ATG",
     oorf = oorf[['tid','start_codon','ORF_start','ORF_end','ORF_type']]
     oorf['ORF_type'] = 'oORF'
 
-<<<<<<< HEAD
     df = pd.concat([cds[['tid','start_codon','ORF_start','ORF_end','ORF_type']], oorf, sorf])
-=======
-    df = pd.concat([orfs,oorf])
->>>>>>> refs/remotes/origin/master
     df.drop_duplicates(['tid','start_codon','ORF_start','ORF_end'], inplace=True)
        
     # remove ORFs that are in-frame with mORFs
@@ -470,7 +459,6 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None, start_codon=["ATG",
     df_ = pr.PyRanges(df_)
     cds_ = pr.PyRanges(cds_)
     cdstx_ = cds_.join(df_)
-<<<<<<< HEAD
     cdstx_.length = cdstx_.df['seq'].apply(len)
     op = cdstx_.df.value_counts(['tid','length']).reset_index()
     
@@ -482,15 +470,3 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None, start_codon=["ATG",
     logging.info('saved CDS range as ' + fname + '.cds_range.txt')
     
     return cds_range, df
-=======
- 
-    sns.displot(cdstx_.df.value_counts('tid').reset_index()['count'], height=3)
-    plt.title('Operons predicted from transcriptome assembly')
-    plt.xlabel('Number of ORFs per mRNA')
-    plt.savefig(fname + '.operons.pdf', bbox_inches='tight') 
-
-    logging.info('saved the distribution of operons as ' + fname + '.operons.pdf')
-    logging.info('saved CDS range as ' + fname + '.cds_range.txt')
-    
-    return cds_range, fname + '.cds_range.txt', df
->>>>>>> refs/remotes/origin/master

@@ -4,11 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-<<<<<<< HEAD
 @modify date 2024-10-13 19:40:40
-=======
-@modify date 2020-09-15 21:46:10
->>>>>>> refs/remotes/origin/master
 @desc        Main RIBOSS module
 """
 
@@ -34,11 +30,7 @@ from Bio import Entrez as ez
 from io import StringIO
 from .chisquare import chi_square_posthoc
 from .orfs import orf_finder
-<<<<<<< HEAD
 from .wrapper import filename, merge_scores
-=======
-from .wrapper import filename
->>>>>>> refs/remotes/origin/master
 from .read import read_blast_xml
 
 
@@ -59,7 +51,6 @@ logging.config.dictConfig(DEFAULT_LOGGING)
 
 
 
-<<<<<<< HEAD
 
 def base_to_bedgraph(df, bedgraph_outfname, delim=None, outdir=None):
     """
@@ -128,14 +119,10 @@ def parse_ribomap(superkingdom, base, delim=None, outdir=None):
         * a dataframe
     """
     
-=======
-def parse_ribomap(base, delim=None):
->>>>>>> refs/remotes/origin/master
     dt = pd.read_csv(base, sep=r':\s', engine='python', header=None)
     dt = dt[(dt[0]=='tid') | (dt[0]=='ribo profile')]
     dt.columns = ['id','val']
     dt = pd.DataFrame({'tid':dt['val'].iloc[::2].values, 'rprofile':dt['val'].iloc[1::2].values})
-<<<<<<< HEAD
 
     pbar = tqdm.pandas(desc="parsing ribomap output ", unit_scale = True)
     dt['rprofile'] = dt.rprofile.str.split().progress_apply(lambda x: [float(i) for i in x])
@@ -145,14 +132,6 @@ def parse_ribomap(base, delim=None):
     # TO DO
     # elif superkingdom=='Eukaryota':
     
-=======
-    
-    if delim!=None:
-        dt['tid'] = dt.tid.str.split(delim).str[0]
-
-    pbar = tqdm.pandas(desc="parsing ribomap output ", unit_scale = True)
-    dt['rprofile'] = dt.rprofile.str.split().progress_apply(lambda x: [float(i) for i in x])
->>>>>>> refs/remotes/origin/master
     return dt
 
 
@@ -432,23 +411,15 @@ def efetch(acc, tries=5, sleep=1, email=None, api_key=None):
         ez.email = email
     if api_key!=None:
         ez.api_key = api_key
-<<<<<<< HEAD
     
     logging.info('efetch IPG for ' + str(len(acc)) + ' accession numbers')
     
-=======
-
->>>>>>> refs/remotes/origin/master
     if type(acc)==str:
         
         tries = tries
         for n in range(tries):
             try:
-<<<<<<< HEAD
                 # logging.info('efetching IPG for ' + acc)
-=======
-                logging.info('efetching IPG for ' + acc)
->>>>>>> refs/remotes/origin/master
                 e = ez.efetch(db="protein", id=acc, rettype="ipg", retmode="txt")
                 ipg = pd.read_csv(StringIO(e.read().decode('utf-8')), sep='\t', header=None)
             except HTTPError:
@@ -465,11 +436,7 @@ def efetch(acc, tries=5, sleep=1, email=None, api_key=None):
             tries = tries
             for n in range(tries):
                 try:
-<<<<<<< HEAD
                     # logging.info('efetching IPG for ' + i)
-=======
-                    logging.info('efetching IPG for ' + i)
->>>>>>> refs/remotes/origin/master
                     e = ez.efetch(db="protein", id=i, rettype="ipg", retmode="txt")
                     e = pd.read_csv(StringIO(e.read().decode('utf-8')), sep='\t', header=None)
                     entries.append(e)
@@ -491,7 +458,6 @@ def efetch(acc, tries=5, sleep=1, email=None, api_key=None):
 
 
 
-<<<<<<< HEAD
 def predicted_orf_profile(rp, df, utr, title, barplot_outfname):
     """
     Plot metagene ribosome profiles for unannotated ORFs
@@ -529,9 +495,6 @@ def predicted_orf_profile(rp, df, utr, title, barplot_outfname):
 
 def riboss(superkingdom, df, riboprof_base, tx_assembly, utr=30, tie=False, num_simulations=1000, run_blastp=False, run_efetch=False, tries=5, sleep=1, email=None, api_key=None, delim=None, outdir=None):
     
-=======
-def riboss(superkingdom, df, riboprof_base, tx_assembly, tie=False, num_simulations=1000, run_blastp=False, run_efetch=False, tries=5, sleep=1, email=None, api_key=None, outdir=None):
->>>>>>> refs/remotes/origin/master
     """
     A wrapper for the functions above and construct metagene plots for unannotated ORFs.
      
@@ -540,10 +503,7 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, tie=False, num_simulati
         * df: dataframe from orf_finder/operon_finder (required)
         * riboprof_base: dataframe from parse_ribomap (required)
         * tx_assembly: transcript fasta file extracted using bedtools getfasta. Headers with genomic coordinates (required)
-<<<<<<< HEAD
         * bedgraph_outfname: filename prefix for bedgraph (required)
-=======
->>>>>>> refs/remotes/origin/master
         * tie: if adjusted p-values between ORFs is not significant (default=False)
         * num_simulations: number of simulations (default=1000)
         * run_blastp: run BLASTP for significant RIBOSS results (default=False)
@@ -551,12 +511,8 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, tie=False, num_simulati
         * tries: number of attempts (default=5)
         * sleep: pause time seconds (default=1)
         * email: email address (default=None)
-<<<<<<< HEAD
         * api_key: NCBI API key https://support.nlm.nih.gov/knowledgebase/article/KA-05317/en-us (default=None)
         * delim: use :: for tx_assembly extracted using bedtools getfasta -name flag, as this appends name (column #4) to the genomic coordinates (default: None)
-=======
-        * api_key: NCBI API key https://support.nlm.nih.gov/knowledgebase/article/KA-05317/en-us (default=None) 
->>>>>>> refs/remotes/origin/master
         * outdir: output directory (default=None)
         
     Output:
@@ -566,12 +522,8 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, tie=False, num_simulati
         
     fname = filename(riboprof_base, 'riboss', outdir)
     
-<<<<<<< HEAD
     base = parse_ribomap(superkingdom, riboprof_base, delim=delim, outdir=outdir)
 
-=======
-    base = parse_ribomap(riboprof_base)
->>>>>>> refs/remotes/origin/master
     dt = footprint_counts(superkingdom, df, base)
     sig, boss_df = boss(superkingdom, dt, tx_assembly, riboprof_base, tie, num_simulations, outdir)
 
@@ -580,11 +532,7 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, tie=False, num_simulati
             refseq = 'NP_|WP_'
         elif superkingdom=='Eukaryota':
             refseq = 'NP_|XP_'
-<<<<<<< HEAD
         blast = pd.read_pickle(fname + '.sig.blastp.pkl.gz') # TO REMOVE
-=======
-
->>>>>>> refs/remotes/origin/master
         blast = blastp(sig, riboprof_base, email, outdir)
         blast.to_pickle(fname + '.sig.blastp.pkl.gz')
         
@@ -595,12 +543,8 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, tie=False, num_simulati
         rhits = chits.dropna()[chits.dropna().title.str.contains(refseq)]
         tophits = pd.concat([rhits, chits.sort_values('bits', ascending=False)]).drop_duplicates('oid')#.drop(['start','end'], axis=1)
         tophits.to_pickle(fname + '.tophits.pkl.gz')
-<<<<<<< HEAD
         tophits = pd.read_pickle('results/ERR9130942_3.riboss.tophits.pkl.gz') # TO REMOVE
 
-=======
-    
->>>>>>> refs/remotes/origin/master
         if (run_blastp==True) & (run_efetch==True):
             w = blast.dropna()[blast.dropna().accession.str.contains(refseq)].accession.unique()
             t = tophits.accession.dropna().unique()
@@ -608,7 +552,6 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, tie=False, num_simulati
             ipg = efetch(acc, tries, sleep, email, api_key)
             ipg.to_pickle(fname + '.sig.ipg.pkl.gz')
         
-<<<<<<< HEAD
             # plot top hits
             tb = pd.merge(tophits, base[['tid','rprofile']])
             tb['start'] = tb['start'] - utr
@@ -663,82 +606,4 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, tie=False, num_simulati
             return tophits, blast, sig, boss_df            
             
     else:
-=======
-        # plot top hits
-        tb = pd.merge(tophits, base)
-        tb['ORF_rprofile_x'] = tb[['rprofile','start','end']].values.tolist()
-        tb['ORF_rprofile_x'] = tb.ORF_rprofile_x.apply(lambda x: x[0][x[1]:x[2]])
-        tb['zeros'] = (np.max(tb.end - tb.start) - tb.ORF_rprofile_x.apply(len))
-        tb['ORF_rprofile_x'] = tb[['ORF_rprofile_x','zeros']].values.tolist()
-        tb['start_rprofile_x'] = tb['ORF_rprofile_x'].apply(lambda x: x[0] + (x[1]*[0]))
-        tb['stop_rprofile_x'] = tb['ORF_rprofile_x'].apply(lambda x: (x[1]*[0]) + x[0])
-        blastp_hits = tb[~pd.isnull(tb).any(axis=1)]
-        no_hits = tb[pd.isnull(tb).any(axis=1)]
-    
-        # BLAST hits
-        start_rprofile = np.sum(np.array(blastp_hits['start_rprofile_x'].tolist()), axis=0)
-        stop_rprofile = np.sum(np.array(blastp_hits['stop_rprofile_x'].tolist()), axis=0)
-        frames = [0,1,2] * int(start_rprofile.shape[0]/3)
-        blastp_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
-        blastp_rp['Position from predicted start codon'] = blastp_rp.index
-        blastp_rp['Position to stop codon'] = blastp_rp.index-blastp_rp.index.stop
-    
-        plt.set_loglevel('WARNING')
-        plt.figure(figsize=(3,3))
-        ax = sns.barplot(data=blastp_rp, x='Position from predicted start codon', y='Ribosome profile from start codon', hue='Frames', width=1)
-        ax.xaxis.set_major_locator(ticker.MultipleLocator(3))
-        plt.title('sORFs with BLASTP hits (n=' + str(blastp_hits.shape[0]) + ', median peptide length=' + str(np.median(blastp_hits.aa.apply(len))) + ')')
-        plt.ylabel('Aggregated ribosome profile')
-        plt.xlim(-1, 31)
-        plt.savefig(fname + '.blastp_hits.start_codon.pdf', bbox_inches='tight')
-
-        plt.set_loglevel('WARNING')
-        plt.figure(figsize=(3,3))
-        ax = sns.barplot(data=blastp_rp, x='Position to stop codon', y='Ribosome profile to stop codon', hue='Frames', width=1)
-        ax.xaxis.set_major_locator(ticker.MultipleLocator(3))
-        plt.title('sORFs with BLASTP hits (n=' + str(blastp_hits.shape[0]) + ', median peptide length=' + str(np.median(blastp_hits.aa.apply(len))) + ')')
-        plt.ylabel('Aggregated ribosome profile')
-        plt.xlim(blastp_rp.index.stop-31, blastp_rp.index.stop)
-        plt.savefig(fname + '.blastp_hits.stop_codon.pdf', bbox_inches='tight')
-        
-        # no BLAST hits
-        start_rprofile = np.sum(np.array(no_hits['start_rprofile_x'].tolist()), axis=0)
-        stop_rprofile = np.sum(np.array(no_hits['stop_rprofile_x'].tolist()), axis=0)
-        frames = [0,1,2] * int(start_rprofile.shape[0]/3)
-        no_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
-        no_rp['Position from predicted start codon'] = no_rp.index
-        no_rp['Position to stop codon'] = no_rp.index-no_rp.index.stop
-
-        plt.set_loglevel('WARNING')
-        plt.figure(figsize=(3,3))
-        ax = sns.barplot(data=no_rp, x='Position from predicted start codon', y='Ribosome profile from start codon', hue='Frames', width=1)
-        ax.xaxis.set_major_locator(ticker.MultipleLocator(3))
-        plt.title('sORFs with no BLASTP hits (n=' + str(no_hits.shape[0]) + ', median peptide length=' + str(np.median(no_hits.aa.apply(len))) + ')')
-        plt.ylabel('Aggregated ribosome profile')
-        plt.xlim(-1, 31)
-        plt.savefig(fname + '.no_hits.start_codon.pdf', bbox_inches='tight')
-
-        plt.set_loglevel('WARNING')
-        plt.figure(figsize=(3,3))
-        ax = sns.barplot(data=no_rp, x='Position to stop codon', y='Ribosome profile to stop codon', hue='Frames', width=1)#, order=no_rp.sort_index(ascending=False)['Position to predicted stop codon'])
-        ax.xaxis.set_major_locator(ticker.MultipleLocator(3))
-        plt.title('sORFs with no BLASTP hits (n=' + str(no_hits.shape[0]) + ', median peptide length=' + str(np.median(no_hits.aa.apply(len))) + ')')
-        plt.ylabel('Aggregated ribosome profile')
-        plt.xlim(no_rp.index.stop-31, no_rp.index.stop)
-        plt.savefig(fname + '.no_hits.stop_codon.pdf', bbox_inches='tight')
-    
-        hits.drop(['start', 'end'], axis=1, inplace=True)
-        hits.to_csv(fname + '.sig.blastp.csv', index=None)
-        hits.to_json(fname + '.sig.blastp.json', index=None)
-        
-        logging.info('saved BLASTP results for RIBOSS hits as ' + fname + '.tophits.pkl.gz, ' + fname + '.sig.blastp.csv, ' + fname + '.sig.blastp.json, ' + fname + '.sig.blastp.pkl.gz, ' + fname + '.blastp_hits.start_codon.pdf, ' + fname + '.blastp_hits.stop_codon.pdf, ' + fname + '.no_hits.start_codon.pdf, and ' + fname + '.no_hits.stop_codon.pdf')
-        
-        if (run_blastp==True) & (run_efetch==False): 
-            return tophits, blast, sig, boss_df
-            
-        elif (run_blastp==True) & (run_efetch==True):  
-            return ipg, tophits, blast, sig, boss_df
-
-    else: 
->>>>>>> refs/remotes/origin/master
         return sig, boss_df
