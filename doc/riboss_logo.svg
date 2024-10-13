@@ -2,22 +2,23 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="72mm"
-   height="20mm"
-   viewBox="0 0 72 20"
+   width="73.6922mm"
+   height="20.5038mm"
+   viewBox="0 0 73.6922 20.5038"
    version="1.1"
    id="svg1193"
-   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
-   sodipodi:docname="riboss_logo.svg">
-   <style>
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="riboss_logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <style
+     id="style2">
     g { fill: white; }
     @media (prefers-color-scheme: white) {
       g { fill: dark; }
@@ -68,16 +69,19 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="135.423"
-     inkscape:cy="31.0054"
+     inkscape:cx="110.357"
+     inkscape:cy="31.0714"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1864"
-     inkscape:window-height="1016"
-     inkscape:window-x="368"
-     inkscape:window-y="1467"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="1870"
+     inkscape:window-height="1003"
+     inkscape:window-x="50"
+     inkscape:window-y="40"
+     inkscape:window-maximized="1"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
   <metadata
      id="metadata1190">
     <rdf:RDF>
@@ -86,7 +90,6 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -94,13 +97,17 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-277)">
+     transform="translate(0.454454,-276.991)">
+    <path
+       d="M 2.51374,297.225 H 70.2696 C 72.0675,297.225 72.9678,297.01 72.9678,296.578 V 277.909 C 72.9678,277.477 72.0675,277.261 70.2696,277.261 H 2.51374 C 0.713311,277.261 -0.184534,277.477 -0.184534,277.909 V 296.578 C -0.184534,297.01 0.713311,297.225 2.51374,297.225 Z"
+       style="fill:#ffffff;fill-opacity:0.8;fill-rule:nonzero;stroke:#cccccc;stroke-width:0.539839;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.8"
+       id="path11249-9-6" />
     <g
        id="g982"
        transform="matrix(0.837096,0,0,0.837096,0.669668,49.4918)">
       <text
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:25.400026px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.074673px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;font-size:25.4px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.074673px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          x="-1.23352"
          y="293.049"
          id="text861"><tspan
@@ -111,7 +118,7 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:Roboto;stroke-width:0.074673px">RI</tspan></text>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:25.40003px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.074673px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;font-size:25.4px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.074673px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          x="37.8024"
          y="293.049"
          id="text861-3"><tspan

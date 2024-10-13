@@ -4,7 +4,7 @@
 
 RIBOSS consists of Python modules for analysing ribosome profiling data from prokaryotes and eukaryotes. See `styphimurium.ipynb` for an example, where RIBOSS combines ribosome profiling with long/short-read sequencing technologies.
 
-![Flow Chart](doc/flow.svg)
+![Flow Chart](doc/flow_chart.svg)
 
 ### Install dependencies
 
