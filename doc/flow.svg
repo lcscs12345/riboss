@@ -16,6 +16,12 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+   <style>
+    g { fill: white; }
+    @media (prefers-color-scheme: white) {
+      g { fill: dark; }
+    }
+  </style>
   <sodipodi:namedview
      id="namedview7"
      pagecolor="#ffffff"

@@ -1,10 +1,10 @@
-![logo](./riboss_logo.svg)
+![logo](doc/riboss_logo.svg)
 
 ## Comparing the translatability of open reading frames within individual transcripts
 
 RIBOSS consists of Python modules for analysing ribosome profiling data from prokaryotes and eukaryotes. See `styphimurium.ipynb` for an example, where RIBOSS combines ribosome profiling with long/short-read sequencing technologies.
 
-[![Flow Chart](./flow.svg)
+![Flow Chart](doc/flow.svg)
 
 ### Install dependencies
 
