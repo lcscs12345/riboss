@@ -4,7 +4,11 @@
 """
 @author      CS Lim
 @create date 2024-09-14 10:42:41
+<<<<<<< HEAD
 @modify date 2024-10-13 19:39:45
+=======
+@modify date 2024-09-14 10:43:11
+>>>>>>> refs/remotes/origin/master
 @desc        RIBOSS module for analysing aligned ribosome footprints
 """
 
@@ -101,7 +105,11 @@ def bam_sampling(bamfile, fraction=0.1):
 
 
 
+<<<<<<< HEAD
 def footprint_summary(superkingdom, cds_range, sample, quality, min_size, max_size, offset_prefix):
+=======
+def footprint_summary(superkingdom, cds_range, sample, quality, min_size, max_size, offset_outfname):
+>>>>>>> refs/remotes/origin/master
     """
     Compare the periodicity of ribosome footprint by sizes using odds ratio and chi-square post-hoc test.
     All vs the most abundance footprint size.
@@ -113,7 +121,11 @@ def footprint_summary(superkingdom, cds_range, sample, quality, min_size, max_si
         * quality: quality of selected footprints. Option: best, good, or fair (required)
         * min_size: minimum footprint size for analysis (required)
         * max_size: maximum footprint size for analysis (required)
+<<<<<<< HEAD
         * offset_prefix: filename prefix for footprint length(s) with offset
+=======
+        * offset_outfname: output filename for footprint length(s) with offset
+>>>>>>> refs/remotes/origin/master
     Output:
         * stats: dataframe with p-values for odds ratio and chi-square post-hoc test
         * frame_stats: dataframe for heatmaps
@@ -171,8 +183,13 @@ def footprint_summary(superkingdom, cds_range, sample, quality, min_size, max_si
         sys.exit('Please provide footprint quality!')
     
     fplen['offset'] = adj
+<<<<<<< HEAD
     fplen.to_csv(offset_prefix + '.offset.txt', sep='\t', index=None, header=None)
     logging.info('saved selected footprint sizes with an offset as ' + offset_prefix + '.offset.txt')
+=======
+    fplen.to_csv(offset_outfname + '.offset.txt', index=None, header=None)
+    logging.info('saved selected footprint sizes with an offset as ' + offset_outfname + '.offset.txt')
+>>>>>>> refs/remotes/origin/master
     
     selected_footprints = pd.merge(dt,fplen)
     selected_footprints['adj_start'] = selected_footprints.pos - selected_footprints.CDS_start + adj
@@ -182,13 +199,21 @@ def footprint_summary(superkingdom, cds_range, sample, quality, min_size, max_si
 
 
 
+<<<<<<< HEAD
 def heatmap_periodicity(frame_stats, heatmap_prefix):
+=======
+def heatmap_periodicity(frame_stats, heatmap_outfname):
+>>>>>>> refs/remotes/origin/master
     """
     Plot heatmaps by frames. Using frame_stats dataframe from footprint_summary.
     
     Input:
         * frame_stats: dataframe from footprint_summary (required)
+<<<<<<< HEAD
         * heatmap_prefix: filename prefix for heatmaps (required)
+=======
+        * heatmap_outfname: filename prefix for heatmaps (required)
+>>>>>>> refs/remotes/origin/master
     Output:
         * heatmaps as PDFs
     """
@@ -205,11 +230,19 @@ def heatmap_periodicity(frame_stats, heatmap_prefix):
     pv[1] = pv['% counts'].apply(lambda x: x[1])
     pv[2] = pv['% counts'].apply(lambda x: x[2])
     
+<<<<<<< HEAD
     if re.search('Aligned.out',heatmap_prefix):
         bam = heatmap_prefix.replace('Aligned.out','')
         bam = os.path.basename(bam)
     else:
         bam = heatmap_prefix
+=======
+    if re.search('Aligned.out',heatmap_outfname):
+        bam = heatmap_outfname.replace('Aligned.out','')
+        bam = os.path.basename(bam)
+    else:
+        bam = heatmap_outfname
+>>>>>>> refs/remotes/origin/master
         bam = os.path.basename(bam)
         
     sns.set(style='ticks',font_scale=1)
@@ -237,19 +270,32 @@ def heatmap_periodicity(frame_stats, heatmap_prefix):
     fig.supxlabel('Footprint positions on reading frames', fontsize='medium')
     fig.supylabel('Footprint size', fontsize='medium')
 
+<<<<<<< HEAD
     plt.savefig(heatmap_prefix + '.frames.pdf', bbox_inches='tight')
     logging.info('converted mapped frames into heatmaps as ' + heatmap_prefix + '.frames.pdf')
 
 
 
 def footprint_periodicity(selected_footprints, downsampling, barplot_prefix, ylim=None):
+=======
+    plt.savefig(heatmap_outfname + '.frames.pdf', bbox_inches='tight')
+    logging.info('converted mapped frames into heatmaps as ' + heatmap_outfname + '.frames.pdf')
+
+
+
+def footprint_periodicity(selected_footprints, downsampling, barplot_outfname, ylim=None):
+>>>>>>> refs/remotes/origin/master
     """
     Plot metagene barplots by footprint sizes.
     
     Input:
         * selected_footprints: dataframe from footprint_summary (required)
         * downsampling: fraction used in bam_sampling (required)
+<<<<<<< HEAD
         * barplot_prefix: filename prefix for barplots (required)
+=======
+        * barplot_outfname: filename prefix for barplots (required)
+>>>>>>> refs/remotes/origin/master
         * ylim: option to use the same ylim for all barplots (default: None)
     Output:
         * metagene plots as PDFs
@@ -269,11 +315,19 @@ def footprint_periodicity(selected_footprints, downsampling, barplot_prefix, yli
     df_start = pd.merge(selected_footprints[(selected_footprints.adj_start<=21) & (selected_footprints.adj_start>=-21)],fl)
     df_end = pd.merge(selected_footprints[(selected_footprints.adj_end<=21) & (selected_footprints.adj_end>=-21)],fl)
 
+<<<<<<< HEAD
     if re.search('Aligned.out',barplot_prefix):
         bam = barplot_prefix.replace('Aligned.out','')
         bam = os.path.basename(bam)
     else:
         bam = barplot_prefix
+=======
+    if re.search('Aligned.out',barplot_outfname):
+        bam = barplot_outfname.replace('Aligned.out','')
+        bam = os.path.basename(bam)
+    else:
+        bam = barplot_outfname
+>>>>>>> refs/remotes/origin/master
         bam = os.path.basename(bam)
         
     g = sns.FacetGrid(df_start, col='footprint_len', height=3, sharey=False, ylim=ylim) 
@@ -282,7 +336,11 @@ def footprint_periodicity(selected_footprints, downsampling, barplot_prefix, yli
     g.set_titles(col_template='{col_name}-nt')
     g.fig.suptitle(str(int(downsampling*100)) + '% of footprints sampled from ' + bam, y=1.05)
     g.fig.supxlabel('Footprint positions from start codons',fontsize='medium')
+<<<<<<< HEAD
     plt.savefig(barplot_prefix + '.start_codon.pdf', bbox_inches='tight')
+=======
+    plt.savefig(barplot_outfname + '.start_codon.pdf', bbox_inches='tight')
+>>>>>>> refs/remotes/origin/master
     
     g = sns.FacetGrid(df_end, col='footprint_len', height=3, sharey=False, ylim=ylim) 
     g.map_dataframe(sns.histplot, x='adj_end', hue='frame', discrete=True)
@@ -290,9 +348,15 @@ def footprint_periodicity(selected_footprints, downsampling, barplot_prefix, yli
     g.set_titles(col_template='{col_name}-nt')
     g.fig.suptitle(str(int(downsampling*100)) + '% footprints sampled from ' + bam, y=1.05)
     g.fig.supxlabel('Footprint positions from stop codons',fontsize='medium')
+<<<<<<< HEAD
     plt.savefig(barplot_prefix + '.stop_codon.pdf', bbox_inches='tight')
 
     logging.info('saved metagene plots as ' + barplot_prefix + '.start_codon.pdf and ' + barplot_prefix + '.stop_codon.pdf')
+=======
+    plt.savefig(barplot_outfname + '.stop_codon.pdf', bbox_inches='tight')
+
+    logging.info('saved metagene plots as ' + barplot_outfname + '.start_codon.pdf and ' + barplot_outfname + '.stop_codon.pdf')
+>>>>>>> refs/remotes/origin/master
     
 
 

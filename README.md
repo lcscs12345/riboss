@@ -1,6 +1,7 @@
 ![logo](./riboss_logo.svg)
 
 ## Comparing the translatability of open reading frames within individual transcripts
+<<<<<<< HEAD
 
 RIBOSS consists of Python modules for analysing ribosome profiling data from prokaryotes and eukaryotes. See `styphimurium.ipynb` for an example, where RIBOSS combines ribosome profiling with long/short-read sequencing technologies.
 
@@ -10,6 +11,14 @@ RIBOSS consists of Python modules for analysing ribosome profiling data from pro
 
 #### install Anaconda
 
+=======
+See styphimurium.ipynb for analysis of _Salmonella enterica_ serovar Typhimurium.
+
+### Install dependencies
+
+#### install Anaconda
+
+>>>>>>> refs/remotes/origin/master
 ```
 wget https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh -O ~/Anaconda3.sh
 bash ~/Anaconda3.sh -b -p $HOME/Anaconda3
@@ -20,8 +29,13 @@ bash ~/Anaconda3.sh -b -p $HOME/Anaconda3
 ```
 conda create -n riboss -y
 conda activate riboss
+<<<<<<< HEAD
 pip install tables cython pysam quicksect cgatcore pandarallel rseqc # rseqc is optional
 conda install -c bioconda -c conda-forge biopython pysam htslib bedtools minimap2 star fastp tqdm # fastp is optional
+=======
+pip install tables cython pysam quicksect cgatcore pandarallel rseqc
+conda install -c bioconda -c conda-forge biopython pysam htslib bedtools minimap2 star fastp tqdm
+>>>>>>> refs/remotes/origin/master
 git clone https://github.com/cgat-developers/cgat-apps.git
 cd cgat-apps
 python setup.py develop
@@ -49,8 +63,12 @@ chmod +x $DIRNAME/riboprof
 
 wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gtfToGenePred
 wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/genePredToBed
+<<<<<<< HEAD
 wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedSort
 mv gtfToGenePred genePredToBed bedSort $DIRNAME
+=======
+mv gtfToGenePred genePredToBed $DIRNAME
+>>>>>>> refs/remotes/origin/master
 # chmod +x $DIRNAME/gtfToGenePred
 # chmod +x $DIRNAME/genePredToBed
 
@@ -65,12 +83,15 @@ tar zxvf salmon-1.10.0_linux_x86_64.tar.gz
 pwd | awk '{print "export PATH=\"" $1 "/salmon-latest_linux_x86_64/bin:$PATH\""}' >> ~/.bashrc
 ```
 
+<<<<<<< HEAD
 #### Finally
 
 ```
 source ~/.bashrc
 ```
 
+=======
+>>>>>>> refs/remotes/origin/master
 #### Related article:
 
 - Lim, C.S., Wardell, S.J.T., Kleffmann, T. & Brown, C.M. (2018) The exon-intron gene structure upstream of the initiation codon predicts translation efficiency. Nucleic Acids Res. 46: 4575-4591.
