@@ -4,7 +4,11 @@
 """
 @author      CS Lim
 @create date 2020-10-10 16:49:00
+<<<<<<< HEAD
 @modify date 2024-10-13 19:40:51
+=======
+@modify date 2020-10-10 16:49:00
+>>>>>>> refs/remotes/origin/master
 @desc        RIBOSS module for binary wrappers
 """
 
@@ -12,7 +16,10 @@
 
 import subprocess, os, sys, logging
 from io import StringIO
+<<<<<<< HEAD
 import pandas as pd
+=======
+>>>>>>> refs/remotes/origin/master
 
 
 
@@ -289,8 +296,13 @@ def count_reads(read1, fasta_path, index=None):
 
 
 
+<<<<<<< HEAD
 def riboprofiler(
     offset,
+=======
+def riboprof(
+    superkingdom,
+>>>>>>> refs/remotes/origin/master
     ribobam,
     mrnabam,
     fasta,
@@ -298,6 +310,7 @@ def riboprofiler(
     sf,
     out,
     tabd_cutoff=0,    
+<<<<<<< HEAD
     min_fplen=25,
     max_fplen=35):
     
@@ -307,6 +320,16 @@ def riboprofiler(
 
     Input:
         * offset: text file of footprint size(s) with offset value.
+=======
+    min_fplen=23,
+    max_fplen=35):
+    
+    """
+    Riboprof
+
+    Input:
+        * superkingdom: Archaea, Bacteria or Eukaryota (required)
+>>>>>>> refs/remotes/origin/master
         * ribobam: BAM file for ribosome profiling (required)
         * mrnabam: BAM file for paired RNA-seq (required)
         * fasta: transcript fasta file (required, e.g. tx_assembly extracted using bedtools getfasta)
@@ -320,6 +343,16 @@ def riboprofiler(
     Output:
         * file path for .base. Output include .base., .codon, _abundant.list, and _scarce.list
     """
+<<<<<<< HEAD
+=======
+    
+    if superkingdom in ['Archaea','Bacteria']:
+        offset = 15
+    elif superkingdom=='Eukaryota':
+        offset = 12
+    else:
+        sys.exit('Superkingdom is required! Choose either Archaea, Bacteria or Eukaryota.')
+>>>>>>> refs/remotes/origin/master
         
     cmd = [
         'riboprof',
@@ -329,11 +362,19 @@ def riboprofiler(
         '--cds_range', cds_range_file,
         '--sf', sf,
         '--tabd_cutoff', str(tabd_cutoff),
+<<<<<<< HEAD
         '--offset', offset,
         '--out', out,
         '--useSecondary',
         '--min_fplen', str(min_fplen),
         '--max_fplen', str(min_fplen),
+=======
+        '--offset', str(offset),
+        '--min_fplen', str(min_fplen),
+        '--max_fplen', str(min_fplen),
+        '--out', out,
+        '--useSecondary'
+>>>>>>> refs/remotes/origin/master
         ]
     
     subprocess.run(cmd, check=True)
@@ -343,6 +384,7 @@ def riboprofiler(
     else:
         logging.error('No output generated!')
 
+<<<<<<< HEAD
     return out + '.base'
 
 
@@ -365,3 +407,6 @@ def merge_scores(bg):
     mbg = pd.read_csv(StringIO(output.decode('utf-8')), sep='\t', header=None)[[0,2,3,1]]
 
     return mbg
+=======
+    return out + '.base'
+>>>>>>> refs/remotes/origin/master
