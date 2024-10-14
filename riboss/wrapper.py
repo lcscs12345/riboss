@@ -256,29 +256,29 @@ def count_reads(read1, fasta_path, index=None):
         * index: path for index
 
     Output:
-        * [prefix]_pufferfish_idx and [prefix]_salmont_quant
+        * [prefix]_puff and [prefix]_salmont_quant
     """
     
     build_index = ['salmon','index',
                    '-t', fasta_path, 
-                   '-i', index + '_pufferfish_idx/']
+                   '-i', index + '_puff']
 
     quant_dir = read1.split(os.extsep)[0] + '_salmon_quant/'
     quant = ['salmon','quant',
              '-l', 'A', 
-             '-i', index + '_pufferfish_idx/', 
+             '-i', index + '_puff', 
              '-r', read1,
              '-o', quant_dir, '-q']
     
     if index!=None:
-        if os.path.isdir(index + '_pufferfish_idx/') is False:
+        if os.path.isdir(index + '_puff/') is False:
             subprocess.run(build_index, check=True)
             subprocess.run(quant, check=True)
     else:
         subprocess.run(quant, check=True)
 
-    if os.path.isdir(index + '_pufferfish_idx/'):
-        logging.info('saved index to ' + index + '_pufferfish_idx/')
+    if os.path.isdir(index + '_puff/'):
+        logging.info('saved index to ' + index + '_puff/')
     else:
         logging.error('No index generated!')
 
@@ -335,6 +335,11 @@ def riboprofiler(
         '--min_fplen', str(min_fplen),
         '--max_fplen', str(min_fplen),
         ]
+    
+    if os.path.isdir(out)==True:
+        out = out + 'riboprof'
+    elif (os.path.isdir(out)!=True) & (os.path.isdir(os.path.split(out)[0])!=True):
+        os.makedirs(os.path.split(out)[0])
     
     subprocess.run(cmd, check=True)
 

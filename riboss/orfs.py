@@ -358,7 +358,6 @@ def operon_distribution(op, displot_prefix):
 
 
 def operon_finder(tx_assembly, bed, outdir=None, delim=None, start_codon=["ATG", "CTG", "GTG", "TTG"]):
-
     """
     Predict operons from transcriptome.
     
@@ -395,58 +394,42 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None, start_codon=["ATG",
     df['ORF_start'] = df.ORF_range.apply(lambda x: x[0])
     df['ORF_end'] = df.ORF_range.apply(lambda x: x[1])
     df['ORF_length'] = df.ORF_end - df.ORF_start
-
-    tx = pr.PyRanges(df[['Chromosome','Start','End','Strand','tid','start_codon','ORF_start','ORF_end','ORF_length']].drop_duplicates())
+    
+    orf = df[['Chromosome','Start','End','Strand','tid','start_codon','ORF_start','ORF_end','ORF_length']].drop_duplicates()
+    orf_plus = orf[orf.Strand=='+'].copy()
+    orf_minus = orf[orf.Strand=='-'].copy()
+    orf_plus['Start_b'] = orf_plus.Start+orf_plus.ORF_start
+    orf_plus['End_b'] = orf_plus.Start+orf_plus.ORF_end
+    orf_minus['Start_b'] = orf_minus.End-orf_minus.ORF_end
+    orf_minus['End_b'] = orf_minus.End-orf_minus.ORF_start
+    orf = pd.concat([orf_plus, orf_minus])
+    orf = orf.drop(['Start','End'], axis=1).rename(columns={'Start_b':'Start','End_b':'End'})
 
     # Get mORFs encoded by assembled transcripts
     cds = pd.read_csv(bed, sep='\t', header=None)
     cds = cds[[0,1,2,5,3]].drop_duplicates()
     cds.columns = ['Chromosome','Start','End','Strand','Name']
     cds_ = cds
-    cds = pr.PyRanges(cds)
-    cdstx = cds.join(tx).df.drop_duplicates()
-    cds_plus = cdstx[(cdstx.Start_b+cdstx.ORF_start==cdstx.Start) & (cdstx.Start_b+cdstx.ORF_end==cdstx.End)]
-    cds_minus = cdstx[(cdstx.End_b-cdstx.ORF_start==cdstx.End) & (cdstx.End_b-cdstx.ORF_end==cdstx.Start)]
-    cds = pd.concat([cds_plus,cds_minus])
-    cds['ORF_type'] = 'mORF'    
-    cds = cds[['tid','start_codon','ORF_start','ORF_end','ORF_type']].drop_duplicates()
     
-    # Resolve ORFs
-    orf = cdstx[['tid','start_codon','ORF_start','ORF_end']].drop_duplicates().copy()
+    cdsorf = pr.PyRanges(cds).join(pr.PyRanges(orf), strandedness='same')
+    cds = cdsorf.df[(cdsorf.df.Start==cdsorf.df.Start_b) & (cdsorf.df.End==cdsorf.df.End_b)]
+    cds['ORF_type'] = 'mORF'
+
+    # find ORFs in-framed with mORFs
+    cdsorf.frame_plus = (cdsorf.Start-cdsorf.Start_b)%3
+    cdsorf.frame_minus = (cdsorf.End-cdsorf.End_b)%3
+    inframe = cdsorf[(cdsorf.frame_plus==0) | (cdsorf.frame_minus==0)].df
     
-    # find sORFs
-    df = pd.merge(orf, cds, on='tid')
-    sorf = df[(df.ORF_start_x<df.ORF_start_y) | (df.ORF_start_x>=df.ORF_end_y)].copy() # & (df.ORF_end_x<=df.ORF_start_y)
-    sorf.drop_duplicates(['tid','start_codon_x','ORF_start_x','ORF_end_x'], inplace=True)
-    sorf = sorf[['tid','start_codon_x','ORF_start_x','ORF_end_x']]
-    sorf.columns = ['tid','start_codon','ORF_start','ORF_end']
-    sorf['ORF_type'] = 'sORF'
-    
-    # find overlapping ORFs (oORFs)
-    orfs = pd.concat([cds[['tid','start_codon','ORF_start','ORF_end','ORF_type']], sorf])
-    d = df[['tid','start_codon_x','ORF_start_x','ORF_end_x']]
-    d.columns = ['tid','start_codon','ORF_start','ORF_end']
-    oorf = pd.concat([orfs, d]).drop_duplicates(['tid','start_codon','ORF_start','ORF_end'], keep=False)
-    oorf = oorf[['tid','start_codon','ORF_start','ORF_end','ORF_type']]
+    oorf = pd.concat([cdsorf.df, inframe, cds])
+    oorf = oorf[['tid','start_codon','ORF_start','ORF_end','ORF_length']].drop_duplicates(keep=False)
     oorf['ORF_type'] = 'oORF'
 
-    df = pd.concat([cds[['tid','start_codon','ORF_start','ORF_end','ORF_type']], oorf, sorf])
-    df.drop_duplicates(['tid','start_codon','ORF_start','ORF_end'], inplace=True)
-       
-    # remove ORFs that are in-frame with mORFs
-    cds.columns = ['Chromosome','start_codon','Start','End','ORF_type']
-    df.columns = ['Chromosome','start_codon','Start','End','ORF_type']
-    cds = pr.PyRanges(cds)    
-    df = pr.PyRanges(df)
+    sorf = pd.concat([orf, cds, inframe, oorf])[['tid','start_codon','ORF_start','ORF_end','ORF_length']].drop_duplicates(keep=False)
+    sorf['ORF_type'] = 'sORF'
+
+    cds = cds[['tid','start_codon','ORF_start','ORF_end','ORF_length','ORF_type']]
     
-    dfcds = df.join(cds).df
-    dfcds['frame'] = (dfcds.Start-dfcds.Start_b)%3
-    inframeorf = pd.concat([dfcds[(dfcds.frame==0) & (dfcds.ORF_type!='mORF')]])
-    inframeorf = inframeorf[['Chromosome','start_codon','Start','End']]
-    
-    df = pd.concat([df.df,inframeorf]).drop_duplicates(['Chromosome','start_codon','Start','End'], keep=False)
-    df.columns = ['tid','start_codon','ORF_start','ORF_end','ORF_type']
-    df['ORF_range'] = df[['ORF_start','ORF_end']].values.tolist()
+    df = pd.concat([cds, oorf, sorf]).drop_duplicates(['tid','start_codon','ORF_start','ORF_end','ORF_length'])
 
     # Export CDS_range
     fname = filename(tx_assembly, None, outdir)

@@ -147,6 +147,9 @@ def footprint_counts(superkingdom, df, d, gencode=None):
         * dt: dataframe with lists of footprint counts by frames.
     """
     
+    if 'ORF_range' not in df.columns:
+        df['ORF_range'] = df[['ORF_start','ORF_end']].values.tolist()
+            
     dt = pd.merge(df, d, on='tid')
     
     if gencode:
@@ -472,7 +475,7 @@ def predicted_orf_profile(rp, df, utr, title, barplot_outfname):
         * metagene plots as PDFs
     """
 
-    infix = '_'.join(title.lower().split()[2:])
+    infix = title.lower().split()[0] + '_' + '_'.join(title.lower().split()[2:])
     
     peptide_len = np.median(df.aa.apply(len))
     if round(peptide_len)==peptide_len:
@@ -532,7 +535,7 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, utr=30, tie=False, num_
             refseq = 'NP_|WP_'
         elif superkingdom=='Eukaryota':
             refseq = 'NP_|XP_'
-        blast = pd.read_pickle(fname + '.sig.blastp.pkl.gz') # TO REMOVE
+
         blast = blastp(sig, riboprof_base, email, outdir)
         blast.to_pickle(fname + '.sig.blastp.pkl.gz')
         
@@ -541,9 +544,9 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, utr=30, tie=False, num_
         # export cleaner results as pickle
         chits = hits.drop(['boss','odds_ratio','statistical test','result','hit_id','hit_def','e_value','xml'], axis=1)
         rhits = chits.dropna()[chits.dropna().title.str.contains(refseq)]
-        tophits = pd.concat([rhits, chits.sort_values('bits', ascending=False)]).drop_duplicates('oid')#.drop(['start','end'], axis=1)
+        tophits = pd.concat([rhits, chits.sort_values('bits', ascending=False)]).drop_duplicates('oid')
         tophits.to_pickle(fname + '.tophits.pkl.gz')
-        tophits = pd.read_pickle('results/ERR9130942_3.riboss.tophits.pkl.gz') # TO REMOVE
+
 
         if (run_blastp==True) & (run_efetch==True):
             w = blast.dropna()[blast.dropna().accession.str.contains(refseq)].accession.unique()
@@ -566,33 +569,34 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, utr=30, tie=False, num_
             no_hits = tb[pd.isnull(tb).any(axis=1)].copy()
 
             # BLAST hits
-            start_rprofile = np.sum(np.array(blastp_hits['start_rprofile_x'].tolist()), axis=0)
-            stop_rprofile = np.sum(np.array(blastp_hits['stop_rprofile_x'].tolist()), axis=0)
-
-            frames = [0,1,2] * int(start_rprofile.shape[0]/3)
-            if start_rprofile.shape[0]-len(frames)==-1:
-                frames = frames[:-1]
-            elif start_rprofile.shape[0]-len(frames)==1:
-                frames = frames + [1]
+            for ot in tb.ORF_type_x.unique():
+                start_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x==ot]['start_rprofile_x'].tolist()), axis=0)
+                stop_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x==ot]['stop_rprofile_x'].tolist()), axis=0)
+    
+                frames = [0,1,2] * int(start_rprofile.shape[0]/3)
+                if start_rprofile.shape[0]-len(frames)==-1:
+                    frames = frames[:-1]
+                elif start_rprofile.shape[0]-len(frames)==1:
+                    frames = frames + [1]
+                    
+                blastp_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
+                blastp_rp['Position from predicted start codon'] = blastp_rp.index -utr
+                blastp_rp['Position to stop codon'] = blastp_rp.index-blastp_rp.index.stop -utr
+                predicted_orf_profile(blastp_rp, blastp_hits[blastp_hits.ORF_type_x==ot], utr, str(ot) + ' with BLASTP hits', fname)
                 
-            blastp_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
-            blastp_rp['Position from predicted start codon'] = blastp_rp.index -utr
-            blastp_rp['Position to stop codon'] = blastp_rp.index-blastp_rp.index.stop -utr
-            predicted_orf_profile(blastp_rp, blastp_hits, utr, 'sORFs with BLASTP hits', fname)
-            
-            # no BLAST hits
-            start_rprofile = np.sum(np.array(no_hits['start_rprofile_x'].tolist()), axis=0)
-            stop_rprofile = np.sum(np.array(no_hits['stop_rprofile_x'].tolist()), axis=0)
-            frames = [0,1,2] * int(start_rprofile.shape[0]/3)
-            if start_rprofile.shape[0]-len(frames)==-1:
-                frames = frames[:-1]
-            elif start_rprofile.shape[0]-len(frames)==1:
-                frames = frames + [1]
-                
-            no_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
-            no_rp['Position from predicted start codon'] = no_rp.index -utr
-            no_rp['Position to stop codon'] = no_rp.index-no_rp.index.stop -utr
-            predicted_orf_profile(no_rp, no_hits, utr, 'sORFs with no BLASTP hits', fname)
+                # no BLAST hits
+                start_rprofile = np.sum(np.array(no_hits[no_hits.ORF_type_x==ot]['start_rprofile_x'].tolist()), axis=0)
+                stop_rprofile = np.sum(np.array(no_hits[no_hits.ORF_type_x==ot]['stop_rprofile_x'].tolist()), axis=0)
+                frames = [0,1,2] * int(start_rprofile.shape[0]/3)
+                if start_rprofile.shape[0]-len(frames)==-1:
+                    frames = frames[:-1]
+                elif start_rprofile.shape[0]-len(frames)==1:
+                    frames = frames + [1]
+                    
+                no_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
+                no_rp['Position from predicted start codon'] = no_rp.index -utr
+                no_rp['Position to stop codon'] = no_rp.index-no_rp.index.stop -utr
+                predicted_orf_profile(no_rp, no_hits[no_hits.ORF_type_x==ot], utr, str(ot) + ' with no BLASTP hits', fname)
         
             hits.drop(['start', 'end'], axis=1, inplace=True)
             hits.to_csv(fname + '.sig.blastp.csv', index=None)

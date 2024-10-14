@@ -2,13 +2,13 @@
 
 ## Comparing the translatability of open reading frames within individual transcripts
 
-RIBOSS consists of Python modules for analysing ribosome profiling data from prokaryotes and eukaryotes. See `styphimurium.ipynb` for an example, where RIBOSS combines ribosome profiling with long/short-read sequencing technologies.
+RIBOSS consists of Python modules for analysis of ribosome profiling data from prokaryotes and eukaryotes. See `styphimurium.ipynb` for an example, where RIBOSS combines ribosome profiling with long/short-read sequencing technologies.
 
 ![Flow Chart](doc/flow_chart.svg)
 
 ### Install dependencies
 
-#### install Anaconda
+#### Install Anaconda
 
 ```
 wget https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh -O ~/Anaconda3.sh
@@ -71,7 +71,7 @@ pwd | awk '{print "export PATH=\"" $1 "/salmon-latest_linux_x86_64/bin:$PATH\""}
 source ~/.bashrc
 ```
 
-#### Related article:
+#### References:
 
 - Lim, C.S., Wardell, S.J.T., Kleffmann, T. & Brown, C.M. (2018) The exon-intron gene structure upstream of the initiation codon predicts translation efficiency. Nucleic Acids Res. 46: 4575-4591.
 - Bryant, O.J., Lastovka, F., Powell, J. et al. (2023) The distinct translational landscapes of gram-negative Salmonella and gram-positive Listeria. Nat Commun 14, 8167.

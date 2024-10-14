@@ -35,14 +35,14 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.840965"
-     inkscape:cx="208.094"
+     inkscape:cx="181.339"
      inkscape:cy="243.173"
      inkscape:window-width="1870"
      inkscape:window-height="1003"
      inkscape:window-x="50"
      inkscape:window-y="40"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="g89380" />
   <defs
      id="defs2">
     <inkscape:path-effect
@@ -478,14 +478,14 @@
         <text
            xml:space="preserve"
            style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-           x="70.2263"
+           x="70.1924"
            y="20.8982"
            id="text236-3-1"><tspan
              sodipodi:role="line"
              id="tspan234-6-0"
              style="fill:#00b0eb;fill-opacity:1;stroke-width:0.264583"
-             x="70.2263"
-             y="20.8982">Minimap2</tspan></text>
+             x="70.1924"
+             y="20.8982">minimap2</tspan></text>
         <text
            xml:space="preserve"
            style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
