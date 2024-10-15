@@ -2,7 +2,7 @@
 
 ## Comparing the translatability of open reading frames within individual transcripts
 
-RIBOSS consists of Python modules for analysis of ribosome profiling data for prokaryotes and eukaryotes. See the example in [`styphimurium.ipynb`](https://github.com/lcscs12345/riboss/blob/master/styphimurium.ipynb) where RIBOSS combines long and short-read sequencing data with ribosome profiling for _Salmonella_ Typhimurium.
+RIBOSS consists of Python modules for analysis of ribosome profiling data for prokaryotes and eukaryotes. See the example in [`styphimurium.ipynb`](https://github.com/lcscs12345/riboss/blob/master/styphimurium.ipynb) where RIBOSS detects new ORFs in _S_. Typhimurium operons. This includes transcriptome assembly using long and short-read RNA-seq data and combines that with ribosome profiling data.
 
 ![Flow Chart](doc/flow_chart.svg)
 

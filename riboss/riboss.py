@@ -587,35 +587,42 @@ def tophits_to_biggenepred(orf, tophits, fai, big_fname, delim=None):
     # sORFs
     ons = pd.concat([ono,on]).drop_duplicates(['Chromosome','Start','End','Strand'], keep=False)
     ons['Name'] = ons.name2 + '__' + ons.ORF_type_x
-    
-    bb = pd.concat([ob,ono,ons])[['Chromosome','Start','End','Name','bits','Strand','Start','End','reserved','blockCount','blockSizes',
-     'chromStarts','name2','cdsStartStat','cdsEndStat','exonFrames','type','Name','name2','geneType']]
-    bb['bits'] = bb.bits.astype(int)
-    bb.drop_duplicates(inplace=True)  
-    bb.to_csv(big_fname + '.tophits.bed', index=None, header=None, sep='\t')
 
-    subprocess.run(['wget','https://genome.ucsc.edu/goldenpath/help/examples/bigGenePred.as',
-                    '-O', os.path.split(big_fname)[0] +'/bigGenePred.as'], check=True)
-    bas = os.path.split(big_fname)[0] + '/bigGenePred.as'
-    
-    pre = big_fname + '.tophits.sorted.bed'
-    subprocess.run(['bedSort',big_fname + '.tophits.bed', pre], check=True)
-    
+    # Create a dataframe for pre-bigGenePred
+    bb = pd.concat([ob,ono,ons])[['Chromosome','Start','End','Name','bits','Strand','Start','End','reserved','blockCount','blockSizes',
+     'chromStarts','name2','cdsStartStat','cdsEndStat','exonFrames','type','Name','name2','geneType','ORF_type_x']]
+    bb['bits'] = bb.bits.astype(int)
+    bb.drop_duplicates(inplace=True)
+
+    # Prepare required files for making bigGenePred
     faidx = pd.read_csv(fai, sep='\t', header=None)
     chromsizes = os.path.splitext(fai)[0] + '.chrom.sizes'
     faidx[[0,1]].to_csv(chromsizes, header=None, index=None, sep='\t')
 
-    bb = big_fname + '.tophits.bb'
-    subprocess.run(['bedToBigBed','-as=' + bas,
-                    '-type=bed12+8', pre, chromsizes, bb], check=True)
-
-    os.remove(big_fname + '.tophits.bed')
-    os.remove(bas)
-    os.remove(pre)
-    os.remove(chromsizes)
+    bas = os.path.split(big_fname)[0] + '/bigGenePred.as'
+    subprocess.run(['wget','https://genome.ucsc.edu/goldenpath/help/examples/bigGenePred.as',
+                    '-O', bas], check=True)
     
-    if os.path.exists(bb):
-        logging.info('saved bigGenePred for RIBOSS top hits as ' + bb)
+    # Create bigGenePred by ORF_type
+    for orftype in bb.ORF_type_x.unique():
+        bed = big_fname + '.' + orftype + '.tophits.bed'
+        bb[bb.ORF_type_x==orftype].drop('ORF_type_x',axis=1).to_csv(bed, index=None, header=None, sep='\t')
+        
+        pre = big_fname + '.' + orftype + '.tophits.sorted.bed'
+        subprocess.run(['bedSort', bed, pre], check=True)
+            
+        bgp = big_fname + '.' + orftype + '.tophits.bb'
+        subprocess.run(['bedToBigBed','-as=' + bas,
+                        '-type=bed12+8', pre, chromsizes, bgp], check=True)
+    
+        os.remove(bed)        
+        os.remove(pre)
+        
+        if os.path.exists(bgp):
+            logging.info('saved bigGenePred for RIBOSS top hits as ' + bgp)
+        
+    os.remove(chromsizes)
+    os.remove(bas)
 
 
 
