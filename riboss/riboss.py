@@ -11,7 +11,7 @@
 
 
 
-import os, re, sys, time, argparse, textwrap, csv, logging
+import os, re, sys, time, argparse, textwrap, csv, logging, subprocess
 from urllib.request import HTTPError
 import numpy as np
 import pandas as pd
@@ -496,7 +496,106 @@ def predicted_orf_profile(rp, df, utr, title, barplot_outfname):
     
 
 
-def riboss(superkingdom, df, riboprof_base, tx_assembly, utr=30, tie=False, num_simulations=1000, run_blastp=False, run_efetch=False, tries=5, sleep=1, email=None, api_key=None, delim=None, outdir=None):
+def tophits_to_biggenepred(orf, tophits, fai, big_fname, delim=None):
+    """
+    Create UCSC bigGenePred for RIBOSS top hits
+
+    Input:
+        * orf: dataframe from operon_finder (required)
+        * tophits: dataframe for RIBOSS top hits (required)
+        * fai: genome fasta index to generate chrom.sizes (required)
+        * big_fname: output filename prefix for bigGenePred
+        * delim: use :: for tx_assembly extracted using bedtools getfasta -name flag, as this appends name (column #4) to the genomic coordinates (default: None)
+        
+    Output:
+        * bigGenePred
+    """
+    
+    if delim!=None:
+        pos = 1
+    else:
+        pos = 0
+
+    orf['Chromosome'] = orf.tid.str.split(':').apply(lambda x: x[pos+1])
+    orf['Start'] = orf.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('-').apply(lambda x: x[0]).astype(int)
+    orf['End'] = orf.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('-').apply(lambda x: x[1]).str.split('(').apply(lambda x: x[0]).astype(int)
+    orf['Strand'] = orf.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('(').apply(lambda x: x[1]).str.replace(')','')
+    orf.drop(['Strand_b', 'frame_plus', 'frame_minus'], axis=1, inplace=True)
+    orf_plus = orf[orf.Strand=='+'].copy()
+    orf_minus = orf[orf.Strand=='-'].copy()
+    orf_plus['Start_b'] = orf_plus.Start+orf_plus.ORF_start
+    orf_plus['End_b'] = orf_plus.Start+orf_plus.ORF_end
+    orf_minus['Start_b'] = orf_minus.End-orf_minus.ORF_end
+    orf_minus['End_b'] = orf_minus.End-orf_minus.ORF_start
+    orf = pd.concat([orf_plus, orf_minus])
+    orf = orf.drop(['Start','End'], axis=1).rename(columns={'Start_b':'Start','End_b':'End','ORF_start':'start','ORF_end':'end'})
+    
+    toporf = pd.merge(orf.drop(['ORF_length', 'ORF_type'], axis=1), tophits)
+    toporf['name2'] = toporf.Chromosome + ':' + toporf['Start'].astype(str) + '-' + toporf['End'].astype(str) + '(' + toporf.Strand + ')' 
+    toporf['reserved'] = '255,128,0'
+    toporf['blockCount'] = 1
+    toporf['blockSizes'] = toporf.ORF_range_x.apply(lambda x: x[1]-x[0])
+    toporf['chromStarts'] = 0
+    toporf['cdsStartStat'] = 'none'
+    toporf['cdsEndStat'] = 'none'
+    toporf['exonFrames'] = 0
+    toporf['type'] = 'none'
+    toporf['geneType'] = 'none'
+    
+    
+    # BLASTP hits
+    ob = toporf[~toporf.title.isna()].copy()
+    ob['Name'] = ob.title.str.split().str[0].str.split('|').str[1] + '__' + ob.ORF_type_x + '-BLASTP'
+    
+    # No hits
+    on = toporf[toporf.title.isna()].copy()
+    on['bits'] = 0
+    
+    bed = '/home/limch05p/lim_group/riboss/ref/NC_003197.2.bed'
+    cds = pd.read_csv(bed, sep='\t', header=None)
+    cds = cds[[0,1,2,5,3]].drop_duplicates()
+    cds.columns = ['Chromosome','Start','End','Strand','Name']
+    
+    # oORFs
+    ono = pr.PyRanges(on).join(pr.PyRanges(cds), strandedness='same').df
+    ono['Name'] = ono.name2 + '__' + ono.ORF_type_x + '-Ref'
+    
+    # sORFs
+    ons = pd.concat([ono,on]).drop_duplicates(['Chromosome','Start','End','Strand'], keep=False)
+    ons['Name'] = ons.name2 + '__' + ons.ORF_type_x
+    
+    bb = pd.concat([ob,ono,ons])[['Chromosome','Start','End','Name','bits','Strand','Start','End','reserved','blockCount','blockSizes',
+     'chromStarts','name2','cdsStartStat','cdsEndStat','exonFrames','type','Name','name2','geneType']]
+    bb['bits'] = bb.bits.astype(int)
+    bb.drop_duplicates(inplace=True)  
+    bb.to_csv(big_fname + '.tophits.bed', index=None, header=None, sep='\t')
+
+    subprocess.run(['wget','https://genome.ucsc.edu/goldenpath/help/examples/bigGenePred.as',
+                    '-O', os.path.split(big_fname)[0] +'/bigGenePred.as'], check=True)
+    bas = os.path.split(big_fname)[0] + '/bigGenePred.as'
+    
+    pre = big_fname + '.tophits.sorted.bed'
+    subprocess.run(['bedSort',big_fname + '.tophits.bed', pre], check=True)
+    
+    faidx = pd.read_csv(fai, sep='\t', header=None)
+    chromsizes = os.path.splitext(fai)[0] + '.chrom.sizes'
+    faidx[[0,1]].to_csv(chromsizes, header=None, index=None, sep='\t')
+
+    bb = big_fname + '.tophits.bb'
+    subprocess.run(['bedToBigBed','-as=' + bas,
+                    '-type=bed12+8', pre, chromsizes, bb], check=True)
+
+    os.remove(big_fname + '.tophits.bed')
+    os.remove(bas)
+    os.remove(pre)
+    os.remove(chromsizes)
+    
+    if os.path.exists(bb):
+        logging.info('saved bigGenePred for RIBOSS top hits as ' + bb)
+
+
+
+def riboss(superkingdom, df, riboprof_base, tx_assembly, fai, utr=30, tie=False, num_simulations=1000, run_blastp=False, run_efetch=False, tries=5, sleep=1, email=None, api_key=None, delim=None, outdir=None):
     
     """
     A wrapper for the functions above and construct metagene plots for unannotated ORFs.
@@ -506,7 +605,8 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, utr=30, tie=False, num_
         * df: dataframe from orf_finder/operon_finder (required)
         * riboprof_base: dataframe from parse_ribomap (required)
         * tx_assembly: transcript fasta file extracted using bedtools getfasta. Headers with genomic coordinates (required)
-        * bedgraph_outfname: filename prefix for bedgraph (required)
+        * fai: genome fasta index (required)
+        * utr: padding for metagene plot (default=30)
         * tie: if adjusted p-values between ORFs is not significant (default=False)
         * num_simulations: number of simulations (default=1000)
         * run_blastp: run BLASTP for significant RIBOSS results (default=False)
@@ -547,67 +647,72 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, utr=30, tie=False, num_
         tophits = pd.concat([rhits, chits.sort_values('bits', ascending=False)]).drop_duplicates('oid')
         tophits.to_pickle(fname + '.tophits.pkl.gz')
 
+        # plot top hits
+        tb = pd.merge(tophits, base[['tid','rprofile']])
+        tb['start'] = tb['start'] - utr
+        tb['end'] = tb['end'] + utr
+        tb['ORF_rprofile_x'] = tb[['rprofile','start','end']].values.tolist()
+        tb['ORF_rprofile_x'] = tb.ORF_rprofile_x.apply(lambda x: x[0][x[1]:x[2]])
+        tb['zeros'] = (np.max(tb.end - tb.start) - tb.ORF_rprofile_x.apply(len))
+        tb['ORF_rprofile_x'] = tb[['ORF_rprofile_x','zeros']].values.tolist()
+        tb['start_rprofile_x'] = tb['ORF_rprofile_x'].apply(lambda x: x[0] + (x[1]*[0]))
+        tb['stop_rprofile_x'] = tb['ORF_rprofile_x'].apply(lambda x: (x[1]*[0]) + x[0])
+        blastp_hits = tb[~pd.isnull(tb).any(axis=1)].copy()
+        no_hits = tb[pd.isnull(tb).any(axis=1)].copy()
 
+        # BLAST hits
+        for ot in tb.ORF_type_x.unique():
+            start_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x==ot]['start_rprofile_x'].tolist()), axis=0)
+            stop_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x==ot]['stop_rprofile_x'].tolist()), axis=0)
+
+            frames = [0,1,2] * int(start_rprofile.shape[0]/3)
+            if start_rprofile.shape[0]-len(frames)==-1:
+                frames = frames[:-1]
+            elif start_rprofile.shape[0]-len(frames)==1:
+                frames = frames + [1]
+                
+            blastp_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
+            blastp_rp['Position from predicted start codon'] = blastp_rp.index -utr
+            blastp_rp['Position to stop codon'] = blastp_rp.index-blastp_rp.index.stop -utr
+            predicted_orf_profile(blastp_rp, blastp_hits[blastp_hits.ORF_type_x==ot], utr, str(ot) + ' with BLASTP hits', fname)
+            
+            # no BLAST hits
+            start_rprofile = np.sum(np.array(no_hits[no_hits.ORF_type_x==ot]['start_rprofile_x'].tolist()), axis=0)
+            stop_rprofile = np.sum(np.array(no_hits[no_hits.ORF_type_x==ot]['stop_rprofile_x'].tolist()), axis=0)
+            frames = [0,1,2] * int(start_rprofile.shape[0]/3)
+            if start_rprofile.shape[0]-len(frames)==-1:
+                frames = frames[:-1]
+            elif start_rprofile.shape[0]-len(frames)==1:
+                frames = frames + [1]
+                
+            no_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
+            no_rp['Position from predicted start codon'] = no_rp.index -utr
+            no_rp['Position to stop codon'] = no_rp.index-no_rp.index.stop -utr
+            predicted_orf_profile(no_rp, no_hits[no_hits.ORF_type_x==ot], utr, str(ot) + ' with no BLASTP hits', fname)
+    
+        hits.drop(['start', 'end'], axis=1, inplace=True)
+        hits.to_csv(fname + '.sig.blastp.csv', index=None)
+        hits.to_json(fname + '.sig.blastp.json', index=None)
+        
+        logging.info('saved BLASTP results for RIBOSS hits as ' + fname + '.tophits.pkl.gz, ' + fname + '.sig.blastp.csv, ' + fname + '.sig.blastp.json, and ' + fname + '.sig.blastp.pkl.gz')
+        
+        tophits_to_biggenepred(df, tophits, fai, fname, delim)
+        
         if (run_blastp==True) & (run_efetch==True):
             w = blast.dropna()[blast.dropna().accession.str.contains(refseq)].accession.unique()
             t = tophits.accession.dropna().unique()
             acc = np.unique(np.concatenate([w, t]))
             ipg = efetch(acc, tries, sleep, email, api_key)
             ipg.to_pickle(fname + '.sig.ipg.pkl.gz')
-        
-            # plot top hits
-            tb = pd.merge(tophits, base[['tid','rprofile']])
-            tb['start'] = tb['start'] - utr
-            tb['end'] = tb['end'] + utr
-            tb['ORF_rprofile_x'] = tb[['rprofile','start','end']].values.tolist()
-            tb['ORF_rprofile_x'] = tb.ORF_rprofile_x.apply(lambda x: x[0][x[1]:x[2]])
-            tb['zeros'] = (np.max(tb.end - tb.start) - tb.ORF_rprofile_x.apply(len))
-            tb['ORF_rprofile_x'] = tb[['ORF_rprofile_x','zeros']].values.tolist()
-            tb['start_rprofile_x'] = tb['ORF_rprofile_x'].apply(lambda x: x[0] + (x[1]*[0]))
-            tb['stop_rprofile_x'] = tb['ORF_rprofile_x'].apply(lambda x: (x[1]*[0]) + x[0])
-            blastp_hits = tb[~pd.isnull(tb).any(axis=1)].copy()
-            no_hits = tb[pd.isnull(tb).any(axis=1)].copy()
-
-            # BLAST hits
-            for ot in tb.ORF_type_x.unique():
-                start_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x==ot]['start_rprofile_x'].tolist()), axis=0)
-                stop_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x==ot]['stop_rprofile_x'].tolist()), axis=0)
-    
-                frames = [0,1,2] * int(start_rprofile.shape[0]/3)
-                if start_rprofile.shape[0]-len(frames)==-1:
-                    frames = frames[:-1]
-                elif start_rprofile.shape[0]-len(frames)==1:
-                    frames = frames + [1]
-                    
-                blastp_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
-                blastp_rp['Position from predicted start codon'] = blastp_rp.index -utr
-                blastp_rp['Position to stop codon'] = blastp_rp.index-blastp_rp.index.stop -utr
-                predicted_orf_profile(blastp_rp, blastp_hits[blastp_hits.ORF_type_x==ot], utr, str(ot) + ' with BLASTP hits', fname)
-                
-                # no BLAST hits
-                start_rprofile = np.sum(np.array(no_hits[no_hits.ORF_type_x==ot]['start_rprofile_x'].tolist()), axis=0)
-                stop_rprofile = np.sum(np.array(no_hits[no_hits.ORF_type_x==ot]['stop_rprofile_x'].tolist()), axis=0)
-                frames = [0,1,2] * int(start_rprofile.shape[0]/3)
-                if start_rprofile.shape[0]-len(frames)==-1:
-                    frames = frames[:-1]
-                elif start_rprofile.shape[0]-len(frames)==1:
-                    frames = frames + [1]
-                    
-                no_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
-                no_rp['Position from predicted start codon'] = no_rp.index -utr
-                no_rp['Position to stop codon'] = no_rp.index-no_rp.index.stop -utr
-                predicted_orf_profile(no_rp, no_hits[no_hits.ORF_type_x==ot], utr, str(ot) + ' with no BLASTP hits', fname)
-        
-            hits.drop(['start', 'end'], axis=1, inplace=True)
-            hits.to_csv(fname + '.sig.blastp.csv', index=None)
-            hits.to_json(fname + '.sig.blastp.json', index=None)
             
-            logging.info('saved BLASTP results for RIBOSS hits as ' + fname + '.tophits.pkl.gz, ' + fname + '.sig.blastp.csv, ' + fname + '.sig.blastp.json, and ' + fname + '.sig.blastp.pkl.gz')
             return ipg, tophits, blast, sig, boss_df
-        
+            
         elif (run_blastp==True) & (run_efetch==False): 
             logging.info('saved BLASTP results for RIBOSS hits as ' + fname + '.tophits.pkl.gz, ' + fname + '.sig.blastp.csv, ' + fname + '.sig.blastp.json, and ' + fname + '.sig.blastp.pkl.gz')
-            return tophits, blast, sig, boss_df            
+            return tophits, blast, sig, boss_df
+            
+        elif (run_blastp==False) & (run_efetch==True):
+             logging.error('Please enable BLASTP!')
             
     else:
         return sig, boss_df
