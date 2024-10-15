@@ -70,6 +70,8 @@ def base_to_bedgraph(df, bedgraph_outfname, delim=None, outdir=None):
     else:
         pos = 0
 
+    fname = filename(bedgraph_outfname, 'riboprof', outdir)
+        
     df['chr'] = df.tid.str.split(':').str[pos+1]
     df['start'] = df.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('-').apply(lambda x: x[0]).astype(int)
     df['end'] = df.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('-').apply(lambda x: x[1]).str.split('(').apply(lambda x: x[0]).astype(int)
@@ -86,23 +88,45 @@ def base_to_bedgraph(df, bedgraph_outfname, delim=None, outdir=None):
     df.rename(columns={'range':'start'}, inplace=True)
     df['rprofile'] = df.rprofile.astype(int)
     df = df[df.rprofile!=0].copy()
-    
-    fname = filename(bedgraph_outfname, 'riboprof', outdir)
-    df[df.strand=='+'][['chr','start','end','rprofile']].to_csv(fname + '.plus.bg', index=None, header=None, sep='\t')
-    df[df.strand=='-'][['chr','start','end','rprofile']].to_csv(fname + '.minus.bg', index=None, header=None, sep='\t')
 
-    bg = merge_scores(fname + '.plus.bg')
-    f = open(fname + '.plus.bg', 'w')
-    f.write('track type=bedGraph name="Plus strand" description="Ribosome profile" visibility=full color=0,0,0 priority=20\n')
-    bg.to_csv(f, index=None, header=None, sep='\t', mode='a')
-    f.close()
-
-    bg = merge_scores(fname + '.minus.bg')
-    f = open(fname + '.minus.bg', 'w')
-    f.write('track type=bedGraph name="Minus strand" description="Ribosome profile" visibility=full color=0,0,0 priority=20\n')
-    bg.to_csv(f, index=None, header=None, sep='\t', mode='a')
-    f.close()
+    # Split by strands
+    plus = df[df.strand=='+'][['chr','start','end','rprofile']]    
+    minus = df[df.strand=='-'][['chr','start','end','rprofile']]
+    df_merged = pd.merge(plus,minus, on=['chr','start','end'])
     
+    if df_merged.shape[0]!=0:
+        plus.to_csv(fname + '.plus.bg', index=None, header=None, sep='\t')
+        bg = merge_scores(fname + '.plus.bg')
+        f = open(fname + '.plus.bg', 'w')
+        f.write('track type=bedGraph name="Plus strand" description="Ribosome profile" visibility=full color=0,0,0 priority=20\n')
+        bg.to_csv(f, index=None, header=None, sep='\t', mode='a')
+        f.close()
+        
+        minus.to_csv(fname + '.minus.bg', index=None, header=None, sep='\t')
+        bg = merge_scores(fname + '.minus.bg')
+        f = open(fname + '.minus.bg', 'w')
+        f.write('track type=bedGraph name="Minus strand" description="Ribosome profile" visibility=full color=0,0,0 priority=20\n')
+        bg.to_csv(f, index=None, header=None, sep='\t', mode='a')
+        f.close()
+
+        if bg[bg[0].str.contains('ERROR')].shape[0]!=0:
+            logging.error('Failed generating BedGraph!')        
+        else:
+            logging.info('saved ribosome profiles as ' + fname + '.plus.bg and ' + fname + '.minus.bg')
+            
+    else:
+        df[['chr','start','end','rprofile']].to_csv(fname + '.bg', index=None, header=None, sep='\t')
+        bg = merge_scores(fname + '.bg')
+        f = open(fname + '.bg', 'w')
+        f.write('track type=bedGraph name="riboprof" description="Ribosome profile" visibility=full color=0,0,0 priority=20\n')
+        bg.to_csv(f, index=None, header=None, sep='\t', mode='a')
+        f.close()
+        
+        if bg[bg[0].str.contains('ERROR')].shape[0]!=0:
+            logging.error('Failed generating BedGraph!')
+        else:
+            logging.info('saved ribosome profiles as ' + fname + '.bg')
+
 
 
 def parse_ribomap(superkingdom, base, delim=None, outdir=None):

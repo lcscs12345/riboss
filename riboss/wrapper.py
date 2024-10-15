@@ -33,6 +33,7 @@ logging.config.dictConfig(DEFAULT_LOGGING)
 
 
 
+
 def filename(infname, outfname=None, outdir=None):
     if outdir:
         os.makedirs(outdir, exist_ok=True)
@@ -369,7 +370,7 @@ def merge_scores(bg):
     
     cmd = 'bedSort ' + bg  + ' stdout | groupBy -g 1,4 -c 2,3 -o min,max'
     ps = subprocess.Popen(cmd ,shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    output = ps.communicate()[0]
+    output, error = ps.communicate()
     mbg = pd.read_csv(StringIO(output.decode('utf-8')), sep='\t', header=None)[[0,2,3,1]]
-
+        
     return mbg
