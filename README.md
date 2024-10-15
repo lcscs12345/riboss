@@ -2,7 +2,7 @@
 
 ## Comparing the translatability of open reading frames within individual transcripts
 
-RIBOSS consists of Python modules for analysis of ribosome profiling data from prokaryotes and eukaryotes. See `styphimurium.ipynb` for an example, where RIBOSS combines ribosome profiling with long/short-read sequencing technologies.
+RIBOSS consists of Python modules for analysis of ribosome profiling data for prokaryotes and eukaryotes. See the example in [`styphimurium.ipynb`](https://github.com/lcscs12345/riboss/blob/master/styphimurium.ipynb) where RIBOSS combines long and short-read sequencing data with ribosome profiling for _Salmonella_ Typhimurium.
 
 ![Flow Chart](doc/flow_chart.svg)
 
@@ -73,6 +73,6 @@ source ~/.bashrc
 
 #### References:
 
-- Lim, C.S., Wardell, S.J.T., Kleffmann, T. & Brown, C.M. (2018) The exon-intron gene structure upstream of the initiation codon predicts translation efficiency. Nucleic Acids Res. 46: 4575-4591.
-- Bryant, O.J., Lastovka, F., Powell, J. et al. (2023) The distinct translational landscapes of gram-negative Salmonella and gram-positive Listeria. Nat Commun 14, 8167.
-- Ondari, E.M., Klemm, E.J., Msefula, C.L. et al. (2019) Rapid transcriptional responses to serum exposure are associated with sensitivity and resistance to antibody-mediated complement killing in invasive Salmonella Typhimurium ST313 [version 1; peer review: 2 approved]. Wellcome Open Res, 4:74
+- Lim, C.S., Wardell, S.J.T., Kleffmann, T. & Brown, C.M. (2018) The exon-intron gene structure upstream of the initiation codon predicts translation efficiency. _Nucleic Acids Res_, 46:4575-4591. DOI: [10.1093/nar/gky282](https://doi.org/10.1093/nar/gky282)
+- Bryant, O.J., Lastovka, F., Powell, J. et al. (2023) The distinct translational landscapes of gram-negative _Salmonella_ and gram-positive _Listeria_. _Nat Commun_, 14:8167. DOI: [10.1038/s41467-023-43759-1](https://doi.org/10.1038/s41467-023-43759-1)
+- Ondari, E.M., Klemm, E.J., Msefula, C.L. et al. (2019) Rapid transcriptional responses to serum exposure are associated with sensitivity and resistance to antibody-mediated complement killing in invasive _Salmonella_ Typhimurium ST313 [version 1; peer review: 2 approved]. _Wellcome Open Res_, 4:74. DOI: [10.12688/wellcomeopenres.15059.1](https://doi.org/10.12688/wellcomeopenres.15059.1)
