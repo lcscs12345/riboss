@@ -93,13 +93,13 @@ def base_to_bedgraph(df, bedgraph_outfname, delim=None, outdir=None):
 
     bg = merge_scores(fname + '.plus.bg')
     f = open(fname + '.plus.bg', 'w')
-    f.write('track type=bedGraph name="Plus strand" description="Ribosome profile" visibility=full color=200,100,0 altColor=0,100,200 priority=20\n')
+    f.write('track type=bedGraph name="Plus strand" description="Ribosome profile" visibility=full color=0,0,0 priority=20\n')
     bg.to_csv(f, index=None, header=None, sep='\t', mode='a')
     f.close()
 
     bg = merge_scores(fname + '.minus.bg')
     f = open(fname + '.minus.bg', 'w')
-    f.write('track type=bedGraph name="Minus strand" description="Ribosome profile" visibility=full color=200,100,0 altColor=0,100,200 priority=20\n')
+    f.write('track type=bedGraph name="Minus strand" description="Ribosome profile" visibility=full color=0,0,0 priority=20\n')
     bg.to_csv(f, index=None, header=None, sep='\t', mode='a')
     f.close()
     

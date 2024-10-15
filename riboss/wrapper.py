@@ -104,6 +104,9 @@ def transcriptome_assembly(superkingdom, genome, long_reads, short_reads=None, s
     subprocess.run(['gtfToGenePred', fname + '.gtf', fname + '.gp'], check=True)
     subprocess.run(['genePredToBed', fname + '.gp', fname + '.bed'], check=True)
 
+    track = 'track name="Transcriptome" description="Transcriptome assembly" visibility=2 colorByStrand="255,0,0 0,0,255"'
+    subprocess.run(['sed','-i','1i '+ track, fname + '.bed'], check=True)
+    
     subprocess.run(['bedtools', 'getfasta',
                     '-bed', fname + '.bed',
                     '-fi', genome,

@@ -419,17 +419,23 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None, start_codon=["ATG",
     cdsorf.frame_plus = (cdsorf.Start-cdsorf.Start_b)%3
     cdsorf.frame_minus = (cdsorf.End-cdsorf.End_b)%3
     inframe = cdsorf[(cdsorf.frame_plus==0) | (cdsorf.frame_minus==0)].df
-    
+
+    # find overlapping ORFs
     oorf = pd.concat([cdsorf.df, inframe, cds])
     oorf = oorf[['tid','start_codon','ORF_start','ORF_end','ORF_length']].drop_duplicates(keep=False)
     oorf['ORF_type'] = 'oORF'
 
-    sorf = pd.concat([orf, cds, inframe, oorf])[['tid','start_codon','ORF_start','ORF_end','ORF_length']].drop_duplicates(keep=False)
+    # find sORFs
+    sorf = pd.concat([orf, cds, inframe, oorf]).drop_duplicates(['tid','start_codon','ORF_start','ORF_end','ORF_length'],keep=False)
     sorf['ORF_type'] = 'sORF'
+    # find ORFs overlaped with partial mORFs (due to partial transcripts)
+    oporf = pr.PyRanges(sorf).join(pr.PyRanges(cds_), strandedness='same').df
+    oporf['ORF_type'] = 'opORF'
+    oporf = oporf[['tid','start_codon','ORF_start','ORF_end','ORF_length','ORF_type']]
 
     cds = cds[['tid','start_codon','ORF_start','ORF_end','ORF_length','ORF_type']]
     
-    df = pd.concat([cds, oorf, sorf]).drop_duplicates(['tid','start_codon','ORF_start','ORF_end','ORF_length'])
+    df = pd.concat([cds, oorf, oporf, sorf]).drop_duplicates(['tid','start_codon','ORF_start','ORF_end','ORF_length'])
 
     # Export CDS_range
     fname = filename(tx_assembly, None, outdir)
