@@ -413,9 +413,10 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None, start_codon=["ATG",
     cds_ = cds   
 
     # Remove ORFs on ncRNAs
-    orf = pr.PyRanges(orf).join(pr.PyRanges(cds_), strandedness=False).df
-    orf = orf[orf.thickStart!=orf.thickEnd].reset_index(drop=True)
-    orf = orf[['Chromosome','Start','End','Strand','tid','start_codon','ORF_start','ORF_end','ORF_length']].drop_duplicates()
+    ncorf = pr.PyRanges(orf).join(pr.PyRanges(cds_), strandedness=False).df
+    ncorf = ncorf[ncorf.thickStart==ncorf.thickEnd].copy()
+    ncorf = ncorf[['Chromosome','Start','End','Strand','tid','start_codon','ORF_start','ORF_end','ORF_length']]
+    orf = pd.concat([orf,ncorf]).drop_duplicates(keep=False)
     orf['Strand'] = orf.Strand.astype(str)
     
     cdsorf = pr.PyRanges(cds).join(pr.PyRanges(orf), strandedness='same').df
