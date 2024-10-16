@@ -520,42 +520,30 @@ def predicted_orf_profile(rp, df, utr, title, barplot_outfname):
     
 
 
-def tophits_to_biggenepred(orf, tophits, fai, big_fname, delim=None):
+def tophits_to_biggenepred(orf, tophits, bed, fai, big_fname, delim=None):
     """
     Create UCSC bigGenePred for RIBOSS top hits
 
     Input:
         * orf: dataframe from operon_finder (required)
         * tophits: dataframe for RIBOSS top hits (required)
+        * bed: genome BED file (required)
         * fai: genome fasta index to generate chrom.sizes (required)
         * big_fname: output filename prefix for bigGenePred
         * delim: use :: for tx_assembly extracted using bedtools getfasta -name flag, as this appends name (column #4) to the genomic coordinates (default: None)
         
     Output:
-        * bigGenePred
+        * bigGenePred for tophits and dataframes for both tophits and all ORFs 
     """
     
     if delim!=None:
         pos = 1
     else:
         pos = 0
-
-    orf['Chromosome'] = orf.tid.str.split(':').apply(lambda x: x[pos+1])
-    orf['Start'] = orf.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('-').apply(lambda x: x[0]).astype(int)
-    orf['End'] = orf.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('-').apply(lambda x: x[1]).str.split('(').apply(lambda x: x[0]).astype(int)
-    orf['Strand'] = orf.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('(').apply(lambda x: x[1]).str.replace(')','')
-    orf.drop(['Strand_b', 'frame_plus', 'frame_minus'], axis=1, inplace=True)
-    orf_plus = orf[orf.Strand=='+'].copy()
-    orf_minus = orf[orf.Strand=='-'].copy()
-    orf_plus['Start_b'] = orf_plus.Start+orf_plus.ORF_start
-    orf_plus['End_b'] = orf_plus.Start+orf_plus.ORF_end
-    orf_minus['Start_b'] = orf_minus.End-orf_minus.ORF_end
-    orf_minus['End_b'] = orf_minus.End-orf_minus.ORF_start
-    orf = pd.concat([orf_plus, orf_minus])
-    orf = orf.drop(['Start','End'], axis=1).rename(columns={'Start_b':'Start','End_b':'End','ORF_start':'start','ORF_end':'end'})
     
-    toporf = pd.merge(orf.drop(['ORF_length', 'ORF_type'], axis=1), tophits)
-    toporf['name2'] = toporf.Chromosome + ':' + toporf['Start'].astype(str) + '-' + toporf['End'].astype(str) + '(' + toporf.Strand + ')' 
+    orf = orf.rename(columns={'start_codon':'start_codon_x','ORF_start':'start','ORF_end':'end'}).drop('ORF_length', axis=1)
+    toporf = pd.merge(orf, tophits)
+    toporf['name2'] = toporf.Chromosome.astype(str) + ':' + toporf['Start'].astype(str) + '-' + toporf['End'].astype(str) + '(' + toporf.Strand.astype(str) + ')' 
     toporf['reserved'] = '255,128,0'
     toporf['blockCount'] = 1
     toporf['blockSizes'] = toporf.ORF_range_x.apply(lambda x: x[1]-x[0])
@@ -566,7 +554,6 @@ def tophits_to_biggenepred(orf, tophits, fai, big_fname, delim=None):
     toporf['type'] = 'none'
     toporf['geneType'] = 'none'
     
-    
     # BLASTP hits
     ob = toporf[~toporf.title.isna()].copy()
     ob['Name'] = ob.title.str.split().str[0].str.split('|').str[1] + '__' + ob.ORF_type_x + '-BLASTP'
@@ -575,13 +562,14 @@ def tophits_to_biggenepred(orf, tophits, fai, big_fname, delim=None):
     on = toporf[toporf.title.isna()].copy()
     on['bits'] = 0
     
-    bed = '/home/limch05p/lim_group/riboss/ref/NC_003197.2.bed'
     cds = pd.read_csv(bed, sep='\t', header=None)
+    # cds_ = cds
     cds = cds[[0,1,2,5,3]].drop_duplicates()
     cds.columns = ['Chromosome','Start','End','Strand','Name']
     
     # oORFs
     ono = pr.PyRanges(on).join(pr.PyRanges(cds), strandedness='same').df
+    ono['Strand'] = ono.Strand.astype(str)
     ono['Name'] = ono.name2 + '__' + ono.ORF_type_x + '-Ref'
     
     # sORFs
@@ -593,7 +581,15 @@ def tophits_to_biggenepred(orf, tophits, fai, big_fname, delim=None):
      'chromStarts','name2','cdsStartStat','cdsEndStat','exonFrames','type','Name','name2','geneType','ORF_type_x']]
     bb['bits'] = bb.bits.astype(int)
     bb.drop_duplicates(inplace=True)
+    bb.columns = ['Chromosome','Start','End','Name','bits','Strand','thickStart','thickEnd','reserved','blockCount','blockSizes',
+                  'chromStarts','name2','cdsStartStat','cdsEndStat','exonFrames','type','geneName','geneName2','geneType','ORF_type_x']
 
+    # # Remove hits on ncRNAs
+    # cds_.columns = ['Chromosome','Start','End','Name','Score','Strand','thickStart','thickEnd','itemRgb','blockCount','blockSizes','blockStarts']
+    # br = pr.PyRanges(bb).join(pr.PyRanges(cds_), strandedness=False).df
+    # bb = br[br.thickStart_b!=br.thickEnd_b][['Chromosome','Start','End','Name','bits','Strand','thickStart','thickEnd','reserved','blockCount','blockSizes',
+    #               'chromStarts','name2','cdsStartStat','cdsEndStat','exonFrames','type','geneName','geneName2','geneType','ORF_type_x']].drop_duplicates()
+    
     # Prepare required files for making bigGenePred
     faidx = pd.read_csv(fai, sep='\t', header=None)
     chromsizes = os.path.splitext(fai)[0] + '.chrom.sizes'
@@ -623,10 +619,12 @@ def tophits_to_biggenepred(orf, tophits, fai, big_fname, delim=None):
         
     os.remove(chromsizes)
     os.remove(bas)
+    
+    # return bb, orf
 
 
 
-def riboss(superkingdom, df, riboprof_base, tx_assembly, fai, utr=30, tie=False, num_simulations=1000, run_blastp=False, run_efetch=False, tries=5, sleep=1, email=None, api_key=None, delim=None, outdir=None):
+def riboss(superkingdom, df, orf, riboprof_base, tx_assembly, bed, fai, utr=30, tie=False, num_simulations=1000, run_blastp=False, run_efetch=False, tries=5, sleep=1, email=None, api_key=None, delim=None, outdir=None):
     
     """
     A wrapper for the functions above and construct metagene plots for unannotated ORFs.
@@ -636,6 +634,7 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, fai, utr=30, tie=False,
         * df: dataframe from orf_finder/operon_finder (required)
         * riboprof_base: dataframe from parse_ribomap (required)
         * tx_assembly: transcript fasta file extracted using bedtools getfasta. Headers with genomic coordinates (required)
+        * bed: genome BED file (required)
         * fai: genome fasta index (required)
         * utr: padding for metagene plot (default=30)
         * tie: if adjusted p-values between ORFs is not significant (default=False)
@@ -677,7 +676,8 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, fai, utr=30, tie=False,
         rhits = chits.dropna()[chits.dropna().title.str.contains(refseq)]
         tophits = pd.concat([rhits, chits.sort_values('bits', ascending=False)]).drop_duplicates('oid')
         tophits.to_pickle(fname + '.tophits.pkl.gz')
-
+        tophits_to_biggenepred(orf, tophits, bed, fai, fname, delim)
+        
         # plot top hits
         tb = pd.merge(tophits, base[['tid','rprofile']])
         tb['start'] = tb['start'] - utr
@@ -726,8 +726,7 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, fai, utr=30, tie=False,
         hits.to_json(fname + '.sig.blastp.json', index=None)
         
         logging.info('saved BLASTP results for RIBOSS hits as ' + fname + '.tophits.pkl.gz, ' + fname + '.sig.blastp.csv, ' + fname + '.sig.blastp.json, and ' + fname + '.sig.blastp.pkl.gz')
-        
-        tophits_to_biggenepred(df, tophits, fai, fname, delim)
+
         
         if (run_blastp==True) & (run_efetch==True):
             w = blast.dropna()[blast.dropna().accession.str.contains(refseq)].accession.unique()

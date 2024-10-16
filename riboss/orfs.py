@@ -404,32 +404,46 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None, start_codon=["ATG",
     orf_minus['End_b'] = orf_minus.End-orf_minus.ORF_start
     orf = pd.concat([orf_plus, orf_minus])
     orf = orf.drop(['Start','End'], axis=1).rename(columns={'Start_b':'Start','End_b':'End'})
+    orf = orf[['Chromosome','Start','End','Strand','tid','start_codon','ORF_start','ORF_end','ORF_length']]
 
     # Get mORFs encoded by assembled transcripts
     cds = pd.read_csv(bed, sep='\t', header=None)
-    cds = cds[[0,1,2,5,3]].drop_duplicates()
-    cds.columns = ['Chromosome','Start','End','Strand','Name']
-    cds_ = cds
+    cds.columns = ['Chromosome','Start','End','Name','Score','Strand','thickStart','thickEnd','itemRgb','blockCount','blockSizes','blockStarts']
+    cds['Strand'] = cds.Strand.astype(str)
+    cds_ = cds   
+
+    # Remove ORFs on ncRNAs
+    orf = pr.PyRanges(orf).join(pr.PyRanges(cds_), strandedness=False).df
+    orf = orf[orf.thickStart!=orf.thickEnd].reset_index(drop=True)
+    orf = orf[['Chromosome','Start','End','Strand','tid','start_codon','ORF_start','ORF_end','ORF_length']].drop_duplicates()
+    orf['Strand'] = orf.Strand.astype(str)
     
-    cdsorf = pr.PyRanges(cds).join(pr.PyRanges(orf), strandedness='same')
-    cds = cdsorf.df[(cdsorf.df.Start==cdsorf.df.Start_b) & (cdsorf.df.End==cdsorf.df.End_b)]
+    cdsorf = pr.PyRanges(cds).join(pr.PyRanges(orf), strandedness='same').df
+    cds = cdsorf[(cdsorf.Start==cdsorf.Start_b) & (cdsorf.End==cdsorf.End_b) & (cdsorf.Strand==cdsorf.Strand_b)]
+    cds = cds.drop_duplicates(['Chromosome','Start','End','Strand','Name']) 
+    cds['Strand'] = cds.Strand.astype(str)
     cds['ORF_type'] = 'mORF'
 
     # find ORFs in-framed with mORFs
-    cdsorf.frame_plus = (cdsorf.Start-cdsorf.Start_b)%3
-    cdsorf.frame_minus = (cdsorf.End-cdsorf.End_b)%3
-    inframe = cdsorf[(cdsorf.frame_plus==0) | (cdsorf.frame_minus==0)].df
+    cdsorf['frame_plus'] = (cdsorf.Start-cdsorf.Start_b)%3
+    cdsorf['frame_minus'] = (cdsorf.End-cdsorf.End_b)%3
+    inframe = cdsorf[(cdsorf.frame_plus==0) | (cdsorf.frame_minus==0)]
 
     # find overlapping ORFs
-    oorf = pd.concat([cdsorf.df, inframe, cds])
+    oorf = pd.concat([cdsorf, inframe, cds])
     oorf = oorf[['tid','start_codon','ORF_start','ORF_end','ORF_length']].drop_duplicates(keep=False)
     oorf['ORF_type'] = 'oORF'
 
     # find sORFs
-    sorf = pd.concat([orf, cds, inframe, oorf]).drop_duplicates(['tid','start_codon','ORF_start','ORF_end','ORF_length'],keep=False)
+    sorf = pd.concat([orf, cds, inframe, oorf])
+    sorf = sorf[['Chromosome','Start','End','Strand','tid','start_codon','ORF_start','ORF_end','ORF_length']]
+    sorf.drop_duplicates(['tid','start_codon','ORF_start','ORF_end','ORF_length'], keep=False, inplace=True)
+    sorf['Strand'] = sorf.Strand.astype(str)
     sorf['ORF_type'] = 'sORF'
+
     # find ORFs overlaped with partial mORFs (due to partial transcripts)
-    oporf = pr.PyRanges(sorf).join(pr.PyRanges(cds_), strandedness='same').df
+    oporf = pr.PyRanges(sorf).join(pr.PyRanges(cds_[['Chromosome','Start','End','Strand']]), strandedness='same').df
+    oporf = oporf[(oporf.Strand==oporf.Strand_b)].copy()
     oporf['ORF_type'] = 'opORF'
     oporf = oporf[['tid','start_codon','ORF_start','ORF_end','ORF_length','ORF_type']]
 
@@ -458,4 +472,4 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None, start_codon=["ATG",
     logging.info('saved operons and ORFs as ' + fname + '.operon_finder.pkl.gz')
     logging.info('saved CDS range as ' + fname + '.cds_range.txt')
     
-    return cds_range, df
+    return cds_range, orf, df
