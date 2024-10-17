@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2024-10-13 19:40:40
+@modify date 2024-10-17 18:27:07
 @desc        Main RIBOSS module
 """
 
@@ -16,6 +16,7 @@ from urllib.request import HTTPError
 import numpy as np
 import pandas as pd
 import seaborn as sns
+import seaborn.objects as so
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import scipy.stats as stats
@@ -29,9 +30,10 @@ from Bio.Blast import NCBIWWW
 from Bio import Entrez as ez
 from io import StringIO
 from .chisquare import chi_square_posthoc
-from .orfs import orf_finder
+from .orfs import orf_finder, CODON_TO_AA
 from .wrapper import filename, merge_scores
 from .read import read_blast_xml
+ 
 
 
 DEFAULT_LOGGING = {
@@ -52,13 +54,13 @@ logging.config.dictConfig(DEFAULT_LOGGING)
 
 
 
-def base_to_bedgraph(df, bedgraph_outfname, delim=None, outdir=None):
+def base_to_bedgraph(df, bedgraph_prefix, delim=None, outdir=None):
     """
     Convert a dataframe from parse_ribomap to BedGraph format.
 
     Input:
         * df: dataframe from parse_ribomap (required)
-        * bedgraph_outfname: output filename prefix for BedGraph (required)
+        * bedgraph_prefix: output filename prefix for BedGraph (required)
         * delim: use :: for tx_assembly extracted using bedtools getfasta -name flag, as this appends name (column #4) to the genomic coordinates (default: None)
         * outdir: output directory (default=None)
     Output:
@@ -70,29 +72,29 @@ def base_to_bedgraph(df, bedgraph_outfname, delim=None, outdir=None):
     else:
         pos = 0
 
-    fname = filename(bedgraph_outfname, 'riboprof', outdir)
+    fname = filename(bedgraph_prefix, 'riboprof', outdir)
         
-    df['chr'] = df.tid.str.split(':').str[pos+1]
-    df['start'] = df.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('-').apply(lambda x: x[0]).astype(int)
-    df['end'] = df.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('-').apply(lambda x: x[1]).str.split('(').apply(lambda x: x[0]).astype(int)
-    df['strand'] = df.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('(').apply(lambda x: x[1]).str.replace(')','')
+    df['Chromosome'] = df.tid.str.split(':').str[pos+1]
+    df['Start'] = df.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('-').apply(lambda x: x[0]).astype(int)
+    df['End'] = df.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('-').apply(lambda x: x[1]).str.split('(').apply(lambda x: x[0]).astype(int)
+    df['Strand'] = df.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('(').apply(lambda x: x[1]).str.replace(')','')
     
-    df['range'] = df[['start','end']].values.tolist()
+    df['range'] = df[['Start','End']].values.tolist()
     df['range'] = df['range'].apply(lambda x: list(range(x[0],x[1])))
-    df_plus = df[df.strand=='+'].copy()
-    df_minus = df[df.strand=='-'].copy()
+    df_plus = df[df.Strand=='+'].copy()
+    df_minus = df[df.Strand=='-'].copy()
     df_minus['range'] = df_minus.range.apply(lambda x: list(reversed(x)))
     df = pd.concat([df_plus, df_minus])
-    df = df.drop(['tid','start','end'],axis=1).explode(['range','rprofile'])
-    df['end'] = df['range'] +1
-    df.rename(columns={'range':'start'}, inplace=True)
+    df = df.drop(['tid','Start','End'],axis=1).explode(['range','rprofile'])
+    df['End'] = df['range'] +1
+    df.rename(columns={'range':'Start'}, inplace=True)
     df['rprofile'] = df.rprofile.astype(int)
     df = df[df.rprofile!=0].copy()
 
     # Split by strands
-    plus = df[df.strand=='+'][['chr','start','end','rprofile']]    
-    minus = df[df.strand=='-'][['chr','start','end','rprofile']]
-    df_merged = pd.merge(plus,minus, on=['chr','start','end'])
+    plus = df[df.Strand=='+'][['Chromosome','Start','End','rprofile']]    
+    minus = df[df.Strand=='-'][['Chromosome','Start','End','rprofile']]
+    df_merged = pd.merge(plus,minus, on=['Chromosome','Start','End'])
     
     if df_merged.shape[0]!=0:
         plus.to_csv(fname + '.plus.bg', index=None, header=None, sep='\t')
@@ -103,11 +105,13 @@ def base_to_bedgraph(df, bedgraph_outfname, delim=None, outdir=None):
         f.close()
         
         minus.to_csv(fname + '.minus.bg', index=None, header=None, sep='\t')
-        bg = merge_scores(fname + '.minus.bg')
+        bg_ = merge_scores(fname + '.minus.bg')
         f = open(fname + '.minus.bg', 'w')
         f.write('track type=bedGraph name="Minus strand" description="Ribosome profile" visibility=full color=0,0,0 priority=20\n')
-        bg.to_csv(f, index=None, header=None, sep='\t', mode='a')
+        bg_.to_csv(f, index=None, header=None, sep='\t', mode='a')
         f.close()
+
+        bg = pd.concat([bg,bg_])
 
         if bg[bg[0].str.contains('ERROR')].shape[0]!=0:
             logging.error('Failed generating BedGraph!')        
@@ -115,7 +119,7 @@ def base_to_bedgraph(df, bedgraph_outfname, delim=None, outdir=None):
             logging.info('saved ribosome profiles as ' + fname + '.plus.bg and ' + fname + '.minus.bg')
             
     else:
-        df[['chr','start','end','rprofile']].to_csv(fname + '.bg', index=None, header=None, sep='\t')
+        df[['Chromosome','Start','End','rprofile']].to_csv(fname + '.bg', index=None, header=None, sep='\t')
         bg = merge_scores(fname + '.bg')
         f = open(fname + '.bg', 'w')
         f.write('track type=bedGraph name="riboprof" description="Ribosome profile" visibility=full color=0,0,0 priority=20\n')
@@ -126,6 +130,10 @@ def base_to_bedgraph(df, bedgraph_outfname, delim=None, outdir=None):
             logging.error('Failed generating BedGraph!')
         else:
             logging.info('saved ribosome profiles as ' + fname + '.bg')
+    
+    bg.columns = ['Chromosome','Start','End','rprofile']
+    
+    return bg
 
 
 
@@ -152,11 +160,11 @@ def parse_ribomap(superkingdom, base, delim=None, outdir=None):
     dt['rprofile'] = dt.rprofile.str.split().progress_apply(lambda x: [float(i) for i in x])
     
     if superkingdom in ['Archaea','Bacteria']:
-        base_to_bedgraph(dt, base, delim=delim, outdir=outdir)
+        bg = base_to_bedgraph(dt, base, delim=delim, outdir=outdir)
     # TO DO
     # elif superkingdom=='Eukaryota':
     
-    return dt
+    return bg, dt
 
 
 
@@ -287,7 +295,7 @@ def statistical_test(f, num_simulations=1000):
 
 
 
-def boss(superkingdom, df, tx_assembly, boss_outfname, tie=False, num_simulations=1000, outdir=None):  
+def boss(superkingdom, df, tx_assembly, boss_prefix, tie=False, num_simulations=1000, outdir=None):  
     """
     Compare uORFs, oORFs and dORFs to mORFs, and assign which ORFs are the bosses.
     
@@ -334,7 +342,7 @@ def boss(superkingdom, df, tx_assembly, boss_outfname, tie=False, num_simulation
     else:
         sys.exit('Superkingdom is required! Choose either Archaea, Bacteria or Eukaryota.')
         
-    fname = filename(boss_outfname, 'riboss', outdir)
+    fname = filename(boss_prefix, 'riboss', outdir)
     
     boss.dropna(inplace=True)
     boss.reset_index(drop=True, inplace=True)
@@ -378,13 +386,13 @@ def boss(superkingdom, df, tx_assembly, boss_outfname, tie=False, num_simulation
 
 
 
-def blastp(sig, blastp_outfname, email=None, outdir=None):
+def blastp(sig, blastp_prefix, email=None, outdir=None):
     """
     BLASTP for ORFs with significantly greater triplet periodicity than mORFs
 
     Input:
         * sig: significant RIBOSS hits (required)
-        * blastp_outfname: output filename (required)
+        * blastp_prefix: output filename (required)
         * outdir: output directory (default: None)
 
     Output:
@@ -400,7 +408,7 @@ def blastp(sig, blastp_outfname, email=None, outdir=None):
     logging.info('perform BLASTP for RIBOSS hits (n=' + str(sig.shape[0]) + ')')
     result_handle = NCBIWWW.qblast('blastp', 'nr', '\n'.join(sig.fa.tolist()))
     
-    fname = filename(blastp_outfname, 'riboss', outdir)
+    fname = filename(blastp_prefix, 'riboss', outdir)
     
     with open(fname + '.sig.blastp.xml', 'w') as save_to:
         save_to.write(result_handle.read())
@@ -485,7 +493,7 @@ def efetch(acc, tries=5, sleep=1, email=None, api_key=None):
 
 
 
-def predicted_orf_profile(rp, df, utr, title, barplot_outfname):
+def predicted_orf_profile(rp, df, utr, title, barplot_prefix):
     """
     Plot metagene ribosome profiles for unannotated ORFs
     
@@ -493,7 +501,7 @@ def predicted_orf_profile(rp, df, utr, title, barplot_outfname):
         * rp: ribosome profiles for ORFs extracted from riboprof (required)
         * df: merged dataframe from blastp and riboprof (required)
         * title: (required)
-        * barplot_outfname: filename prefix for barplots (required)
+        * barplot_prefix: filename prefix for barplots (required)
 
     Output:
         * metagene plots as PDFs
@@ -514,9 +522,9 @@ def predicted_orf_profile(rp, df, utr, title, barplot_outfname):
     plt.title(title + ' (n=' + str(df.shape[0]) + ', median peptide length=' + str(peptide_len) + ')')
     plt.ylabel('Metagene ribosome profile')
     plt.xlim(-12+utr, 30+utr)
-    plt.savefig(barplot_outfname + '.' + infix + '.start_codon.pdf', bbox_inches='tight')
+    plt.savefig(barplot_prefix + '.' + infix + '.start_codon.pdf', bbox_inches='tight')
             
-    logging.info('saved metagene plots as ' + barplot_outfname + '.' + infix + '.start_codon.pdf')
+    logging.info('saved metagene plots as ' + barplot_prefix + '.' + infix + '.start_codon.pdf')
     
 
 
@@ -535,11 +543,6 @@ def tophits_to_biggenepred(orf, tophits, bed, fai, big_fname, delim=None):
     Output:
         * bigGenePred for tophits and dataframes for both tophits and all ORFs 
     """
-    
-    if delim!=None:
-        pos = 1
-    else:
-        pos = 0
     
     orf = orf.rename(columns={'start_codon':'start_codon_x','ORF_start':'start','ORF_end':'end'}).drop('ORF_length', axis=1)
     toporf = pd.merge(orf, tophits)
@@ -583,12 +586,6 @@ def tophits_to_biggenepred(orf, tophits, bed, fai, big_fname, delim=None):
     bb.drop_duplicates(inplace=True)
     bb.columns = ['Chromosome','Start','End','Name','bits','Strand','thickStart','thickEnd','reserved','blockCount','blockSizes',
                   'chromStarts','name2','cdsStartStat','cdsEndStat','exonFrames','type','geneName','geneName2','geneType','ORF_type_x']
-
-    # # Remove hits on ncRNAs
-    # cds_.columns = ['Chromosome','Start','End','Name','Score','Strand','thickStart','thickEnd','itemRgb','blockCount','blockSizes','blockStarts']
-    # br = pr.PyRanges(bb).join(pr.PyRanges(cds_), strandedness=False).df
-    # bb = br[br.thickStart_b!=br.thickEnd_b][['Chromosome','Start','End','Name','bits','Strand','thickStart','thickEnd','reserved','blockCount','blockSizes',
-    #               'chromStarts','name2','cdsStartStat','cdsEndStat','exonFrames','type','geneName','geneName2','geneType','ORF_type_x']].drop_duplicates()
     
     # Prepare required files for making bigGenePred
     faidx = pd.read_csv(fai, sep='\t', header=None)
@@ -620,11 +617,79 @@ def tophits_to_biggenepred(orf, tophits, bed, fai, big_fname, delim=None):
     os.remove(chromsizes)
     os.remove(bas)
     
-    # return bb, orf
+    return bb
 
 
 
-def riboss(superkingdom, df, orf, riboprof_base, tx_assembly, bed, fai, utr=30, tie=False, num_simulations=1000, run_blastp=False, run_efetch=False, tries=5, sleep=1, email=None, api_key=None, delim=None, outdir=None):
+def profile_anomaly(bedgraph, bb, bed, fasta, scatterplot_prefix=None):
+    """
+    Find anomalous ribosome profiles by the encoded amino acids
+    
+    Input:
+        * bedgraph: dataframe for BedGraph from base_to_bedgraph (requied)
+        * bb: dataframe for pre-bigGenePred from tophits_to_biggenepred (required)
+        * bed: genome BED file (required)
+        * fasta: genome fasta file (required)
+        * scatterplot_prefix: output filename prefix for scatterplot (default=None)
+
+    Output:
+        * scatterplot and dataframe for anomalous ribosome profiles
+    """
+    
+    bb['range'] = bb[['Start','End']].values.tolist()
+    bb['Start'] = bb['range'].apply(lambda x: [x[0] + 3*n for n in range(int((x[1]-x[0])/3))])
+    bb = bb.explode('Start')
+    bb['End'] = bb['Start']+3
+    bb = bb[['Chromosome','Start','End','Name','Strand']]
+    
+    cds = pd.read_csv(bed, sep='\t', header=None)
+    cds = cds[cds[6]!=cds[7]].copy()
+    cds['Start'] = cds[[1,2]].values.tolist()
+    cds['Start'] = cds['Start'].apply(lambda x: [x[0] + 3*n for n in range(int((x[1]-x[0])/3))])
+    cds = cds.explode('Start')
+    cds['End'] = cds['Start']+3
+    cds = cds[[0,'Start','End',3,5]]
+    cds.columns = ['Chromosome','Start','End','Name','Strand']
+    
+    bg_codon = pr.PyRanges(cds).join(pr.PyRanges(bedgraph))
+    bg_codon.dna = pr.get_sequence(bg_codon, fasta)
+    bg_codon.aa = bg_codon.dna.apply(lambda x: CODON_TO_AA[x])
+    
+    tbg_codon = pr.PyRanges(bb).join(pr.PyRanges(bg_codon.df.drop(['Start_b', 'End_b'],axis=1)))
+    tbg_codon.ORF_type = tbg_codon.Name.str.split('__').str[1]
+    tbg_codon = tbg_codon.df[~tbg_codon.df.aa.str.contains('stop')].copy()
+    codon = pd.concat([tbg_codon,bg_codon.df])
+    codon['ORF_type'] = codon.ORF_type.fillna('mORF')
+    codon = codon.drop_duplicates(['Chromosome','Start','End','Strand']).copy()
+    ocodon = codon[codon.ORF_type.str.contains('oORF')][['ORF_type','aa','rprofile']].groupby('aa')['rprofile'].agg(['count','min', 'max','median','mean','sem']).reset_index()
+    mcodon = codon[codon.ORF_type=='mORF'][['ORF_type','aa','rprofile']].groupby('aa')['rprofile'].agg(['count','min', 'max','median','mean','sem']).reset_index()
+    cc = pd.merge(ocodon,mcodon,on='aa')
+    
+    fig,ax = plt.subplots(figsize=(4,4))
+    p = so.Plot(cc,x='mean_x', y='mean_y',text='aa')\
+                .add(so.Dot(marker='o'))\
+                .add(so.Text(halign='left'))\
+                .label(title='Ribosome profiles by the encoded amino acids',
+                       x='Codons deviating from triplet periodicity', y='Other codons')
+    plt.errorbar(x='mean_x', y='mean_y', xerr="sem_x", fmt=' ',
+                  yerr="sem_y", elinewidth=0.5,data=cc, label='aa', capsize=2, capthick=0.5)
+    
+    p.on(ax).show()
+    plt.savefig(scatterplot_prefix + '.riboprof_aa.pdf', bbox_inches='tight')
+    
+    if os.path.exists(scatterplot_prefix + '.riboprof_aa.pdf'):
+        logging.info('saved scatterplot for anomaly ribosome profiles as ' + scatterplot_prefix + '.riboprof_aa.pdf')
+        
+    return cc
+
+
+
+def riboss(superkingdom, df, orf, riboprof_base, tx_assembly, fasta, fai, bed, 
+           utr=30, tie=False, num_simulations=1000, 
+           run_blastp=False, run_efetch=False, 
+           tries=5, sleep=1, 
+           email=None, api_key=None, 
+           delim=None, outdir=None):
     
     """
     A wrapper for the functions above and construct metagene plots for unannotated ORFs.
@@ -634,6 +699,7 @@ def riboss(superkingdom, df, orf, riboprof_base, tx_assembly, bed, fai, utr=30, 
         * df: dataframe from orf_finder/operon_finder (required)
         * riboprof_base: dataframe from parse_ribomap (required)
         * tx_assembly: transcript fasta file extracted using bedtools getfasta. Headers with genomic coordinates (required)
+        * fasta: genome fasta file (required)
         * bed: genome BED file (required)
         * fai: genome fasta index (required)
         * utr: padding for metagene plot (default=30)
@@ -655,7 +721,7 @@ def riboss(superkingdom, df, orf, riboprof_base, tx_assembly, bed, fai, utr=30, 
         
     fname = filename(riboprof_base, 'riboss', outdir)
     
-    base = parse_ribomap(superkingdom, riboprof_base, delim=delim, outdir=outdir)
+    bedgraph, base = parse_ribomap(superkingdom, riboprof_base, delim=delim, outdir=outdir)
 
     dt = footprint_counts(superkingdom, df, base)
     sig, boss_df = boss(superkingdom, dt, tx_assembly, riboprof_base, tie, num_simulations, outdir)
@@ -676,7 +742,8 @@ def riboss(superkingdom, df, orf, riboprof_base, tx_assembly, bed, fai, utr=30, 
         rhits = chits.dropna()[chits.dropna().title.str.contains(refseq)]
         tophits = pd.concat([rhits, chits.sort_values('bits', ascending=False)]).drop_duplicates('oid')
         tophits.to_pickle(fname + '.tophits.pkl.gz')
-        tophits_to_biggenepred(orf, tophits, bed, fai, fname, delim)
+        bb = tophits_to_biggenepred(orf, tophits, bed, fai, fname, delim)
+        _ = profile_anomaly(bedgraph, bb, bed, fasta, fname)
         
         # plot top hits
         tb = pd.merge(tophits, base[['tid','rprofile']])
@@ -691,11 +758,10 @@ def riboss(superkingdom, df, orf, riboprof_base, tx_assembly, bed, fai, utr=30, 
         blastp_hits = tb[~pd.isnull(tb).any(axis=1)].copy()
         no_hits = tb[pd.isnull(tb).any(axis=1)].copy()
 
-        # BLAST hits
         for ot in tb.ORF_type_x.unique():
+            # BLAST hits
             start_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x==ot]['start_rprofile_x'].tolist()), axis=0)
             stop_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x==ot]['stop_rprofile_x'].tolist()), axis=0)
-
             frames = [0,1,2] * int(start_rprofile.shape[0]/3)
             if start_rprofile.shape[0]-len(frames)==-1:
                 frames = frames[:-1]

@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2024-09-13 15:26:12
-@modify date 2024-10-13 19:40:02
+@modify date 2024-10-17 17:53:29
 @desc        RIBOSS module for finding ORFs
 """
 
@@ -469,8 +469,10 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None, start_codon=["ATG",
     operon_distribution(op, fname)
 
     df.to_pickle(fname + '.operon_finder.pkl.gz')
-
+    orf.to_pickle(fname + '.genomic_range.pkl.gz')
+    
     logging.info('saved operons and ORFs as ' + fname + '.operon_finder.pkl.gz')
+    logging.info('saved operons and ORFs as ' + fname + '.genomic_range.pkl.gz')
     logging.info('saved CDS range as ' + fname + '.cds_range.txt')
     
     return cds_range, orf, df

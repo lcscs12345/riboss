@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2024-09-14 10:42:41
-@modify date 2024-10-13 19:39:45
+@modify date 2024-10-17 17:53:11
 @desc        RIBOSS module for analysing aligned ribosome footprints
 """
 
