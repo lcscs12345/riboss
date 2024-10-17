@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2024-10-17 18:27:07
+@modify date 2024-10-17 19:21:10
 @desc        Main RIBOSS module
 """
 
@@ -666,13 +666,13 @@ def profile_anomaly(bedgraph, bb, bed, fasta, scatterplot_prefix=None):
     cc = pd.merge(ocodon,mcodon,on='aa')
     
     fig,ax = plt.subplots(figsize=(4,4))
-    p = so.Plot(cc,x='mean_x', y='mean_y',text='aa')\
+    p = so.Plot(cc,x='mean_y', y='mean_x',text='aa')\
                 .add(so.Dot(marker='o'))\
                 .add(so.Text(halign='left'))\
-                .label(title='Ribosome profiles by the encoded amino acids',
-                       x='Codons deviating from triplet periodicity', y='Other codons')
-    plt.errorbar(x='mean_x', y='mean_y', xerr="sem_x", fmt=' ',
-                  yerr="sem_y", elinewidth=0.5,data=cc, label='aa', capsize=2, capthick=0.5)
+                .label(x='Ribosome profiles by amino acids encoded',
+                    y='Ribosome profiles deviating from triplet periodicity')
+    plt.errorbar(x='mean_y', y='mean_x', xerr="sem_y", fmt=' ',
+                yerr="sem_x", elinewidth=0.5,data=cc, label='aa', capsize=2, capthick=0.5, alpha=0.5)
     
     p.on(ax).show()
     plt.savefig(scatterplot_prefix + '.riboprof_aa.pdf', bbox_inches='tight')
