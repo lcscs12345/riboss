@@ -674,8 +674,7 @@ def profile_anomaly(bedgraph, bb, bed, fasta, scatterplot_prefix=None):
     plt.errorbar(x='mean_y', y='mean_x', xerr="sem_y", fmt=' ',
                 yerr="sem_x", elinewidth=0.5,data=cc, label='aa', capsize=2, capthick=0.5, alpha=0.5)
     
-    p.on(ax).show()
-    plt.savefig(scatterplot_prefix + '.riboprof_aa.pdf', bbox_inches='tight')
+    p.on(ax).save(scatterplot_prefix + '.riboprof_aa.pdf', bbox_inches='tight').show()
     
     if os.path.exists(scatterplot_prefix + '.riboprof_aa.pdf'):
         logging.info('saved scatterplot for anomaly ribosome profiles as ' + scatterplot_prefix + '.riboprof_aa.pdf')
