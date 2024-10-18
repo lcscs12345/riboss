@@ -250,7 +250,7 @@ def align_short_reads(
 
 
 
-def count_reads(read1, fasta_path, index=None):
+def quantify_transcripts(read1, fasta_path, index=None):
     """
     Build pufferfish index and count reads by mRNA isoforms using Salmon.
 
