@@ -2,7 +2,7 @@
 
 ## Comparing the translatability of open reading frames within individual transcripts
 
-RIBOSS consists of Python modules for analysis of ribosome profiling data for prokaryotes and eukaryotes. See the example in [`styphimurium.ipynb`](https://github.com/lcscs12345/riboss/blob/master/styphimurium.ipynb) where RIBOSS detects new ORFs in _S_. Typhimurium operons. This includes transcriptome assembly using long and short-read RNA-seq data and combines that with ribosome profiling data.
+RIBOSS consists of Python modules for analysis of ribosome profiling data for prokaryotes and eukaryotes. See [`styphimurium.ipynb`](https://github.com/lcscs12345/riboss/blob/master/styphimurium.ipynb) where RIBOSS detects new ORFs in _S_. Typhimurium operons. This example starts from transcriptome assembly using long- and short-read RNA-seq data. It leverages the newly assembled transcriptome and highly phased ribosome profiling data to discover novel translation events.
 
 ![Flow Chart](doc/flow_chart.svg)
 
@@ -21,7 +21,7 @@ bash ~/Anaconda3.sh -b -p $HOME/Anaconda3
 conda create -n riboss -y
 conda activate riboss
 pip install tables cython pysam quicksect cgatcore pandarallel rseqc # rseqc is optional
-conda install -c bioconda -c conda-forge biopython pysam htslib bedtools minimap2 star fastp tqdm # fastp is optional
+conda install -c bioconda -c conda-forge biopython pysam htslib bedtools pyranges minimap2 star fastp tqdm # fastp is optional
 git clone https://github.com/cgat-developers/cgat-apps.git
 cd cgat-apps
 python setup.py develop
@@ -50,6 +50,7 @@ chmod +x $DIRNAME/riboprof
 wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gtfToGenePred
 wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/genePredToBed
 wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedSort
+wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedToBigBed
 mv gtfToGenePred genePredToBed bedSort $DIRNAME
 # chmod +x $DIRNAME/gtfToGenePred
 # chmod +x $DIRNAME/genePredToBed

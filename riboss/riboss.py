@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2024-10-17 19:21:10
+@modify date 2024-10-19 07:03:24
 @desc        Main RIBOSS module
 """
 
@@ -139,7 +139,7 @@ def base_to_bedgraph(df, bedgraph_prefix, delim=None, outdir=None):
 
 def parse_ribomap(superkingdom, base, delim=None, outdir=None):
     """
-    Parse a ribomap/riboprof base file into a dataframe
+    Parse a ribomap/riboprof base file into a dataframe.
     
     Input:
         * superkingdom: Archaea, Bacteria or Eukaryota (required)
@@ -388,7 +388,7 @@ def boss(superkingdom, df, tx_assembly, boss_prefix, tie=False, num_simulations=
 
 def blastp(sig, blastp_prefix, email=None, outdir=None):
     """
-    BLASTP for ORFs with significantly greater triplet periodicity than mORFs
+    BLASTP for ORFs with significantly greater triplet periodicity than mORFs.
 
     Input:
         * sig: significant RIBOSS hits (required)
@@ -495,7 +495,7 @@ def efetch(acc, tries=5, sleep=1, email=None, api_key=None):
 
 def predicted_orf_profile(rp, df, utr, title, barplot_prefix):
     """
-    Plot metagene ribosome profiles for unannotated ORFs
+    Plot metagene ribosome profiles for unannotated ORFs.
     
     Input:
         * rp: ribosome profiles for ORFs extracted from riboprof (required)
@@ -530,7 +530,7 @@ def predicted_orf_profile(rp, df, utr, title, barplot_prefix):
 
 def tophits_to_biggenepred(orf, tophits, bed, fai, big_fname, delim=None):
     """
-    Create UCSC bigGenePred for RIBOSS top hits
+    Create UCSC bigGenePred for RIBOSS top hits.
 
     Input:
         * orf: dataframe from operon_finder (required)
@@ -623,7 +623,7 @@ def tophits_to_biggenepred(orf, tophits, bed, fai, big_fname, delim=None):
 
 def profile_anomaly(bedgraph, bb, bed, fasta, scatterplot_prefix=None):
     """
-    Find anomalous ribosome profiles by the encoded amino acids
+    Find anomalous ribosome profiles by the encoded amino acids for oORFs.
     
     Input:
         * bedgraph: dataframe for BedGraph from base_to_bedgraph (requied)
@@ -669,7 +669,8 @@ def profile_anomaly(bedgraph, bb, bed, fasta, scatterplot_prefix=None):
     p = so.Plot(cc,x='mean_y', y='mean_x',text='aa')\
                 .add(so.Dot(marker='o'))\
                 .add(so.Text(halign='left'))\
-                .label(x='Ribosome profiles by amino acids encoded',
+                .label(title='oORFs vs mORFs',
+                       x='Ribosome profiles by amino acids encoded',
                     y='Ribosome profiles deviating from triplet periodicity')
     plt.errorbar(x='mean_y', y='mean_x', xerr="sem_y", fmt=' ',
                 yerr="sem_x", elinewidth=0.5,data=cc, label='aa', capsize=2, capthick=0.5, alpha=0.5)
@@ -691,7 +692,11 @@ def riboss(superkingdom, df, orf, riboprof_base, tx_assembly, fasta, fai, bed,
            delim=None, outdir=None):
     
     """
-    A wrapper for the functions above and construct metagene plots for unannotated ORFs.
+    This wrapper is the main RIBOSS function, which 
+    - compares the translatability of ORFs within individual transcripts, 
+    - runs BLASTP for statistically significant results, 
+    - create annotation tracks and metagene plots for novel ORFs, and 
+    - compare the ribosome profiles between oORFs and mORFs.
      
     Input:
         * superkingdom: Archaea, Bacteria or Eukaryota (required)
