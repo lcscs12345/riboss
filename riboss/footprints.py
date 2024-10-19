@@ -122,8 +122,10 @@ def footprint_summary(superkingdom, cds_range, sample, quality, min_size, max_si
 
     if superkingdom in ['Archaea','Bacteria']:
         adj = 15
+        fplen = pd.DataFrame({'footprint_len':range(22,32), 'offset':range(9,19)})
     elif superkingdom=='Eukaryota':
         adj = 12
+        fplen = pd.DataFrame({'footprint_len':range(22,32), 'offset':range(6,16)})
     else:
         sys.exit('Superkingdom is required! Choose either Archaea, Bacteria or Eukaryota.')
         
@@ -164,19 +166,20 @@ def footprint_summary(superkingdom, cds_range, sample, quality, min_size, max_si
     stats = statistical_test(footprint_stats, 1000)
     
     if quality=='best':
-        fplen = pd.DataFrame({'footprint_len':[best]})
+        best = pd.DataFrame({'footprint_len':[best]})
+        fplen = pd.merge(best, fplen)
     elif quality=='good':
-        fplen = stats[(stats.odds_ratio.apply(lambda x: x.statistic)<2) | (stats.adj_posthoc_pval.apply(lambda x: x[0]<0.05))][['footprint_len']]
+        good = stats[(stats.odds_ratio.apply(lambda x: x.statistic)<2) | (stats.adj_posthoc_pval.apply(lambda x: x[0]<0.05))][['footprint_len']]
+        fplen = pd.merge(good, fplen)
     else:
         sys.exit('Please provide footprint quality!')
     
-    fplen['offset'] = adj
     fplen.to_csv(offset_prefix + '.offset.txt', sep='\t', index=None, header=None)
     logging.info('saved selected footprint sizes with an offset as ' + offset_prefix + '.offset.txt')
     
     selected_footprints = pd.merge(dt,fplen)
-    selected_footprints['adj_start'] = selected_footprints.pos - selected_footprints.CDS_start + adj
-    selected_footprints['adj_end'] = selected_footprints.pos - selected_footprints.CDS_end + adj
+    selected_footprints['adj_start'] = selected_footprints.pos - selected_footprints.CDS_start + selected_footprints.offset
+    selected_footprints['adj_end'] = selected_footprints.pos - selected_footprints.CDS_end + selected_footprints.offset
     
     return stats, frame_stats, selected_footprints
 

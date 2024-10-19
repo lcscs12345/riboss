@@ -2,7 +2,7 @@
 --ribobam /home/limch05p/lim_group/riboss/doc/styphimurium/riboseq/ERR9130942_3.bam \
 --mrnabam /home/limch05p/lim_group/riboss/doc/styphimurium/riboseq/ERR9130946Aligned.out.bam \
 --fasta /home/limch05p/lim_group/riboss/doc/styphimurium/rnaseq/D23005-sc-1962750.fa \
---cds_range /home/limch05p/lim_group/riboss/results/D23005-sc-1962750.cds_range.txt \
+--cds_range /home/limch05p/lim_group/riboss/results/operon_finder/D23005-sc-1962750.cds_range.txt \
 --sf /home/limch05p/lim_group/riboss/doc/styphimurium/riboseq/ERR9130946_salmon_quant/quant.sf \
 --tabd_cutoff 0 \
 --offset /home/limch05p/lim_group/riboss/results/analyse_footprints/offset.txt \
