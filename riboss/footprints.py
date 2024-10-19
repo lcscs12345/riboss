@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2024-09-14 10:42:41
-@modify date 2024-10-17 17:53:11
+@modify date 2024-10-20 09:50:52
 @desc        RIBOSS module for analysing aligned ribosome footprints
 """
 
@@ -101,13 +101,14 @@ def bam_sampling(bamfile, fraction=0.1):
 
 
 
-def footprint_summary(superkingdom, cds_range, sample, quality, min_size, max_size, offset_prefix):
+def footprint_summary(offset_method, adj, cds_range, sample, quality, min_size, max_size, offset_prefix):
     """
     Compare the periodicity of ribosome footprint by sizes using odds ratio and chi-square post-hoc test.
-    All vs the most abundance footprint size.
+    All vs the most abundant footprint size.
     
     Input (all required):
-        * superkingdom: Archaea, Bacteria or Eukaryota (required)
+        * offset_method: 5p or 3p (required)
+        * adj: offset value for the footprint size of 28 nt (required)
         * cds_range: dataframe or tsv file from orf_finder or operon_finder (orfs.py) (required)
         * sample: dataframe from bam_sampling (footprints.py) (required)
         * quality: quality of selected footprints. Option: best, good, or fair (required)
@@ -119,15 +120,12 @@ def footprint_summary(superkingdom, cds_range, sample, quality, min_size, max_si
         * frame_stats: dataframe for heatmaps
         * selected_footprints: dataframe for footprint_periodicity
     """
-
-    if superkingdom in ['Archaea','Bacteria']:
-        adj = 15
-        fplen = pd.DataFrame({'footprint_len':range(22,32), 'offset':range(9,19)})
-    elif superkingdom=='Eukaryota':
-        adj = 12
-        fplen = pd.DataFrame({'footprint_len':range(22,32), 'offset':range(6,16)})
-    else:
-        sys.exit('Superkingdom is required! Choose either Archaea, Bacteria or Eukaryota.')
+    
+    if isinstance(cds_range, str):
+        cds = pd.read_csv(cds_range, sep='\t', header=None)
+        cds.columns = ['tid','CDS_start','CDS_end']
+    elif isinstance(cds_range, pd.DataFrame):
+        cds = cds_range
         
     df = pd.DataFrame(sample)
     df.columns = ['tid','read']
@@ -139,18 +137,22 @@ def footprint_summary(superkingdom, cds_range, sample, quality, min_size, max_si
     df['pos'] = df.pos.astype(int) -1
     df['footprint_len'] = df.footprint_len.astype(int)
     df = df[(df.footprint_len>=int(min_size)) & (df.footprint_len<=int(max_size))]
-    
-    if isinstance(cds_range, str):
-        cds = pd.read_csv(cds_range, sep='\t', header=None)
-        cds.columns = ['tid','CDS_start','CDS_end']
-    elif isinstance(cds_range, pd.DataFrame):
-        cds = cds_range
         
     dt = pd.merge(cds,df,on='tid')
-    dt['adj_start'] = dt.pos.astype(int) - dt.CDS_start.astype(int) + adj
-    dt['adj_end'] = dt.pos.astype(int) - dt.CDS_end.astype(int) + adj
-    dt['frame'] = dt['adj_start']%3
-    
+    adj = int(adj)
+    fplen = pd.DataFrame({'footprint_len':range(28-6,28+4), 'offset':range(adj-6,adj+4)})
+
+    if offset_method=='5p':     
+        dt['adj_start'] = dt.pos - dt.CDS_start + adj
+        dt['adj_end'] = dt.pos - dt.CDS_end + adj
+        dt['frame'] = dt['adj_start']%3        
+    elif offset_method=='3p':
+        dt['adj_start'] = dt.pos - dt.CDS_start + dt.footprint_len - adj
+        dt['adj_end'] = dt.pos - dt.CDS_end + dt.footprint_len - adj
+        dt['frame'] = dt['adj_start']%3
+    else:
+        sys.exit('Offset method is required! Choose either 5p, 3p or centre.')
+            
     frame_stats = dt[(dt.frame>=0) & (dt['adj_start']<=90) & (dt['adj_start']>=-30)].copy()
     frame_stats = frame_stats.groupby(['footprint_len','frame']).count().reset_index()[['footprint_len','frame','tid']]
     frame_stats.columns = ['footprint_len','frame','counts']
@@ -178,9 +180,15 @@ def footprint_summary(superkingdom, cds_range, sample, quality, min_size, max_si
     logging.info('saved selected footprint sizes with an offset as ' + offset_prefix + '.offset.txt')
     
     selected_footprints = pd.merge(dt,fplen)
-    selected_footprints['adj_start'] = selected_footprints.pos - selected_footprints.CDS_start + selected_footprints.offset
-    selected_footprints['adj_end'] = selected_footprints.pos - selected_footprints.CDS_end + selected_footprints.offset
+
+    if offset_method=='5p':
+        selected_footprints['adj_start'] = selected_footprints.pos - selected_footprints.CDS_start + selected_footprints.offset
+        selected_footprints['adj_end'] = selected_footprints.pos - selected_footprints.CDS_end + selected_footprints.offset
     
+    elif offset_method=='3p':
+        selected_footprints['adj_start'] = selected_footprints.pos - selected_footprints.CDS_start + selected_footprints.footprint_len - selected_footprints.offset
+        selected_footprints['adj_end'] = selected_footprints.pos - selected_footprints.CDS_end + selected_footprints.footprint_len - selected_footprints.offset
+        
     return stats, frame_stats, selected_footprints
 
 
@@ -299,12 +307,12 @@ def footprint_periodicity(selected_footprints, downsampling, barplot_prefix, yli
     
 
 
-def analyse_footprints(superkingdom, bam, downsampling, cds_range, quality, outdir=None, min_size=25, max_size=35, ylim=None):
+def analyse_footprints(offset_method, adj, bam, downsampling, cds_range, quality, outdir=None, min_size=25, max_size=35, ylim=None):
     """
     A wrapper for the above functions.
 
     Input:
-        * superkingdom: Archaea, Bacteria or Eukaryota (required)        
+        * offset_method: 5p or 3p (required)        
         * bam: BAM file path for ribosome footprint BAM (required)
         * downsampling: fraction used in bam_sampling (required)
         * cds_range: dataframe or tsv file from orf_finder or operon_finder (orfs.py) (required)
@@ -324,9 +332,9 @@ def analyse_footprints(superkingdom, bam, downsampling, cds_range, quality, outd
     sample = bam_sampling(bam, downsampling)
 
     if quality=='best':
-        stats,fp,df = footprint_summary(superkingdom, cds_range, sample, 'best', min_size, max_size, fname)
+        stats,fp,df = footprint_summary(offset_method, adj, cds_range, sample, 'best', min_size, max_size, fname)
     else:
-        stats,fp,df = footprint_summary(superkingdom, cds_range, sample, 'good', min_size, max_size, fname)
+        stats,fp,df = footprint_summary(offset_method, adj, cds_range, sample, 'good', min_size, max_size, fname)
         
     heatmap_periodicity(fp, fname)
     footprint_periodicity(df, downsampling, fname, ylim=ylim) # metagene plots
