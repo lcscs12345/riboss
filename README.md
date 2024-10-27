@@ -8,11 +8,16 @@ RIBOSS consists of Python modules for analysis of ribosome profiling data for pr
 
 ### Install dependencies
 
-#### Install Anaconda
+#### Install Miniforge3
+
+<!-- wget https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh -O ~/Anaconda3.sh
+bash ~/Anaconda3.sh -b -p $HOME/anaconda3
+eval "$(/$HOME/anaconda3/bin/conda shell.bash hook)" -->
 
 ```
-wget https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh -O ~/Anaconda3.sh
-bash ~/Anaconda3.sh -b -p $HOME/Anaconda3
+wget https://github.com/conda-forge/miniforge/releases/download/24.7.1-2/Miniforge3-24.7.1-2-Linux-x86_64.sh
+bash Miniforge3-24.7.1-2-Linux-x86_64.sh -b -p $HOME/miniforge3
+eval "$(/$HOME/miniforge3/bin/conda shell.bash hook)"
 ```
 
 #### Create a conda environment and install packages
@@ -20,13 +25,14 @@ bash ~/Anaconda3.sh -b -p $HOME/Anaconda3
 ```
 conda create -n riboss -y
 conda activate riboss
-pip install tables cython pysam quicksect cgatcore pandarallel rseqc # rseqc is optional
-conda install -c bioconda -c conda-forge biopython pysam htslib bedtools pyranges minimap2 star fastp tqdm # fastp is optional
-git clone https://github.com/cgat-developers/cgat-apps.git
-cd cgat-apps
-python setup.py develop
+conda install \
+    -c conda-forge -c bioconda \
+    boost-cpp=1.75 seqan-library=1.4.2 \
+    biopython pysam htslib samtools bedtools pyranges minimap2 star tqdm \
+    rseqc fastp # rseqc and fastp are optional
 ```
 
+<!--
 #### Install samtools
 
 ```
@@ -37,7 +43,7 @@ autoheader
 autoconf -Wno-syntax
 make
 pwd | awk '{print "export PATH=\"" $1 ":$PATH\""}' >> ~/.bashrc
-```
+``` -->
 
 #### Download precompiled tools
 
@@ -48,17 +54,23 @@ cp riboss/bin/riboprof $DIRNAME
 chmod +x $DIRNAME/riboprof
 
 wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gtfToGenePred
+wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gff3ToGenePred
+wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedToGenePred
 wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/genePredToBed
 wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedSort
 wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedToBigBed
-mv gtfToGenePred genePredToBed bedSort $DIRNAME
-# chmod +x $DIRNAME/gtfToGenePred
-# chmod +x $DIRNAME/genePredToBed
+mv gtfToGenePred bedToGenePred genePredToBed bedSort bedToBigBed $DIRNAME
+chmod +x $DIRNAME/gtfToGenePred
+chmod +x $DIRNAME/gff3ToGenePred
+chmod +x $DIRNAME/bedToGenePred
+chmod +x $DIRNAME/genePredToBed
+chmod +x $DIRNAME/bedSort
+chmod +x $DIRNAME/bedToBigBed
 
 wget https://github.com/gpertea/stringtie/releases/download/v2.2.3/stringtie-2.2.3.Linux_x86_64.tar.gz
 tar zxvf stringtie-2.2.3.Linux_x86_64.tar.gz
 mv stringtie-2.2.3.Linux_x86_64/stringtie $DIRNAME
-# chmod +x $DIRNAME/stringtie
+chmod +x $DIRNAME/stringtie
 
 cd DIRNAME
 wget https://github.com/COMBINE-lab/salmon/releases/download/v1.10.0/salmon-1.10.0_linux_x86_64.tar.gz

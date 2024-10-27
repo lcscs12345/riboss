@@ -123,7 +123,9 @@ def bootstrap_chi_abs(observed_data, num_simulations=10000, with_replacement=Tru
     Parameters:
         observed_data (np.array or pd.DataFrame): n*n contingency table with observed frequencies.
         num_simulations (int): Number of bootstrap samples to generate.
-        with_replacement (bool): Indicates whether sampling should be with replacement."""
+        with_replacement (bool): Indicates whether sampling should be with replacement.
+    """
+    
     if isinstance(observed_data, pd.DataFrame):
         observed_data = observed_data.values
 

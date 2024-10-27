@@ -11,15 +11,15 @@
 
 
 
-import os, re, time, argparse, csv, gzip, logging
+import os, re, time, argparse, csv, gzip, logging, subprocess
 import pandas as pd 
 import seaborn as sns
 import matplotlib.pyplot as plt
 from mimetypes import guess_type
 from functools import partial
 from Bio import SeqIO
-from cgat import GTF
-from .converter import TranscriptCoordInterconverter
+# from cgat import GTF
+# from .converter import TranscriptCoordInterconverter
 from .wrapper import filename
 import pyranges as pr
 from tqdm import tqdm
@@ -68,12 +68,23 @@ def translate(seq):
     return aa
 
 
+    
+def fasta_to_dataframe(seq):
+    fasta_df = pd.read_csv(seq, sep='>', lineterminator='>', header=None)
+    df = fasta_df[0].str.split('\n', n=1, expand=True)
+    df[1] = df[1].replace('\n','', regex=True)
+    df = df[df[1] != '']
+    df = df.dropna()
+    df.columns = ['tid','seq']
+    return df
+    
 
-def check_database(db_name):
-    if db_name in ['refseq', 'ensembl', 'gencode', 'flybase']:
-        return db_name
-    else:
-        raise argparse.ArgumentTypeError('Database not supported!')
+
+# def check_database(db_name):
+#     if db_name in ['refseq', 'ensembl', 'gencode', 'flybase']:
+#         return db_name
+#     else:
+#         raise argparse.ArgumentTypeError('Database not supported!')
 
 
 # def io(seq, outdir):
@@ -96,84 +107,73 @@ def check_database(db_name):
 #     return pkl, txt, fname
 
 
+
+# def ensembl_flybase_parser(tx_seq, cds_seq, db_name):
+#     tx = fasta_to_dataframe(tx_seq)
+#     tx['tid'] = tx.tid.str.split().apply(lambda x: x[0])
+#     cds = fasta_to_dataframe(cds_seq)
     
-def fasta_to_dataframe(seq):
-    fasta_df = pd.read_csv(seq, sep='>', lineterminator='>', header=None)
-    df = fasta_df[0].str.split('\n', n=1, expand=True)
-    df[1] = df[1].replace('\n','', regex=True)
-    df = df[df[1] != '']
-    df = df.dropna()
-    df.columns = ['tid','seq']
-    return df
+#     if db_name == 'ensembl':
+#         cds['tid'] = cds.tid.str.split().apply(lambda x: x[0])
+#     elif db_name == 'flybase':
+#         cds['tid'] = cds.tid.str.split().\
+#         apply(lambda x: [i for i in x if re.search('FBtr',i)]).\
+#         apply(lambda x: re.sub(';','',x[0].split(',')[1]))
+#     else:
+#         logging.error('Failed! Please check your input files and arguments.', exc_info=True)
 
-
-
-def ensembl_flybase_parser(tx_seq, cds_seq, db_name):
-    tx = fasta_to_dataframe(tx_seq)
-    tx['tid'] = tx.tid.str.split().apply(lambda x: x[0])
-    cds = fasta_to_dataframe(cds_seq)
-    
-    if db_name == 'ensembl':
-        cds['tid'] = cds.tid.str.split().apply(lambda x: x[0])
-    elif db_name == 'flybase':
-        cds['tid'] = cds.tid.str.split().\
-        apply(lambda x: [i for i in x if re.search('FBtr',i)]).\
-        apply(lambda x: re.sub(';','',x[0].split(',')[1]))
-    else:
-        logging.error('Failed! Please check your input files and arguments.', exc_info=True)
-
-    df = pd.merge(cds, tx,on='tid')
-    df['seq'] = df[['seq_x','seq_y']].values.tolist()
-    df = df[df.seq.apply(lambda x: x[0] in x[1])]
-    df['CDS_range'] = df.seq.apply(lambda x: [x[1].index(x[0]), x[1].index(x[0]) + len(x[0])])
-    df.drop(['seq_x','seq'], inplace=True, axis=1)
-    df.columns = ['tid','seq','CDS_range']
-    df['CDS_start'] = df.CDS_range.apply(lambda x: x[0])
-    df['CDS_end'] = df.CDS_range.apply(lambda x: x[1])
-    df = df[(df.CDS_end-df.CDS_start)%3==0].reset_index(drop=True)
-    return df
+#     df = pd.merge(cds, tx,on='tid')
+#     df['seq'] = df[['seq_x','seq_y']].values.tolist()
+#     df = df[df.seq.apply(lambda x: x[0] in x[1])]
+#     df['CDS_range'] = df.seq.apply(lambda x: [x[1].index(x[0]), x[1].index(x[0]) + len(x[0])])
+#     df.drop(['seq_x','seq'], inplace=True, axis=1)
+#     df.columns = ['tid','seq','CDS_range']
+#     df['CDS_start'] = df.CDS_range.apply(lambda x: x[0])
+#     df['CDS_end'] = df.CDS_range.apply(lambda x: x[1])
+#     df = df[(df.CDS_end-df.CDS_start)%3==0].reset_index(drop=True)
+#     return df
     
 
 
-def gencode_parser(seq):
-    df = fasta_to_dataframe(seq)
-    df['CDS'] = df.tid.str.split('|').apply(lambda x: [i for i in x if i.startswith('CDS:')]).apply(pd.Series)
-    df['tid'] = df.tid.str.split('|').apply(lambda x: x[0])
-    df[['CDS_start','CDS_end']] = df.CDS.str.replace('CDS:','').str.split('-', expand=True)
-    df.dropna(inplace=True)
-    df['CDS_start'] = df.CDS_start.astype('int')
-    df['CDS_start'] = df.CDS_start - 1
-    df['CDS_end'] = df.CDS_end.astype('int')
-    df = df[(df.CDS_end-df.CDS_start)%3==0]
-    df['CDS_range'] = df[['CDS_start','CDS_end']].values.tolist()
-    df = df.drop('CDS', axis=1).reset_index(drop=True)
-    return df
+# def gencode_parser(seq):
+#     df = fasta_to_dataframe(seq)
+#     df['CDS'] = df.tid.str.split('|').apply(lambda x: [i for i in x if i.startswith('CDS:')]).apply(pd.Series)
+#     df['tid'] = df.tid.str.split('|').apply(lambda x: x[0])
+#     df[['CDS_start','CDS_end']] = df.CDS.str.replace('CDS:','').str.split('-', expand=True)
+#     df.dropna(inplace=True)
+#     df['CDS_start'] = df.CDS_start.astype('int')
+#     df['CDS_start'] = df.CDS_start - 1
+#     df['CDS_end'] = df.CDS_end.astype('int')
+#     df = df[(df.CDS_end-df.CDS_start)%3==0]
+#     df['CDS_range'] = df[['CDS_start','CDS_end']].values.tolist()
+#     df = df.drop('CDS', axis=1).reset_index(drop=True)
+#     return df
 
 
 
-def genbank_parser(f):
-    encoding = guess_type(f)[1]  # uses file extension
-    _open = partial(gzip.open, mode='rt') if encoding == 'gzip' else open
+# def genbank_parser(f):
+#     encoding = guess_type(f)[1]  # uses file extension
+#     _open = partial(gzip.open, mode='rt') if encoding == 'gzip' else open
 
-    seq = []
-    with _open(f) as input_handle:
-        for record in SeqIO.parse(input_handle, 'genbank'):
-            if bool(re.search('NM_', record.id)) is True:
-                for feat in record.features:
-                    if feat.type == 'CDS':
-                        try:
-                            seq.append([record.id, 
-                                        feat.location._start.position, 
-                                        feat.location._end.position, 
-                                        str(record.seq)])
-                        except AttributeError:
-                            logging.error('CompoundLocation found in', record.id, '!', exc_info=True)
+#     seq = []
+#     with _open(f) as input_handle:
+#         for record in SeqIO.parse(input_handle, 'genbank'):
+#             if bool(re.search('NM_', record.id)) is True:
+#                 for feat in record.features:
+#                     if feat.type == 'CDS':
+#                         try:
+#                             seq.append([record.id, 
+#                                         feat.location._start.position, 
+#                                         feat.location._end.position, 
+#                                         str(record.seq)])
+#                         except AttributeError:
+#                             logging.error('CompoundLocation found in', record.id, '!', exc_info=True)
 
-    df = pd.DataFrame(seq)
-    df.columns = ['tid','CDS_start','CDS_end','seq']
-    df = df[(df.CDS_end-df.CDS_start)%3==0].reset_index(drop=True)
-    df['CDS_range'] = df[['CDS_start','CDS_end']].values.tolist()
-    return df
+#     df = pd.DataFrame(seq)
+#     df.columns = ['tid','CDS_start','CDS_end','seq']
+#     df = df[(df.CDS_end-df.CDS_start)%3==0].reset_index(drop=True)
+#     df['CDS_range'] = df[['CDS_start','CDS_end']].values.tolist()
+#     return df
 
 
 
@@ -195,55 +195,186 @@ def top_3_frames(seq, start_codon):
         if type(start_codon)==str:
             if (triplet==start_codon):
                 orf = all_orf(seq[i:])
-                positions.append([start_codon, i, i + len(orf)])
+                l = len(orf)
+                l -= l % +3
+                positions.append([start_codon, i, i + l])
         else:
             for codon in start_codon:
                 if (triplet==codon):
                     orf = all_orf(seq[i:])
-                    positions.append([codon, i, i + len(orf)])
+                    l = len(orf)
+                    l -= l % +3
+                    positions.append([codon, i, i + l])
     return positions
 
 
 
-def orf_finder(start_codon, db_name, gtf, seq, cds=None, outdir=None):
+# def orf_finder(db_name, gtf, seq, cds=None, outdir=None, start_codon=["ATG", "CTG", "GTG", "TTG"]):
     
-    """
-    Finding ORFs in all transcript isoforms.
-    """
+#     """
+#     Finding ORFs in all transcript isoforms.
+#     """
     
-    start_time = time.perf_counter()
+#     start_time = time.perf_counter()
     
-    if db_name in ['gencode','refseq']:
-        if cds is not None:
-            logging.warning('Reminder: CDS file not needed.')
-        # pkl,txt,fname = io(seq, output)
-        if db_name=='gencode':
-            df = gencode_parser(seq)
-        else:
-            df = genbank_parser(seq)
+#     if db_name in ['gencode','refseq']:
+#         if cds is not None:
+#             logging.warning('Reminder: CDS file not needed.')
+#         # pkl,txt,fname = io(seq, output)
+#         if db_name=='gencode':
+#             df = gencode_parser(seq)
+#         else:
+#             df = genbank_parser(seq)
 
-    elif db_name in ['ensembl','flybase']:
-        # pkl,txt,fname = io(seq, output)
-        df = ensembl_flybase_parser(seq, cds, db_name)
-    else:
-        logging.error('Check the database name and files!', exc_info=True)
+#     elif db_name in ['ensembl','flybase']:
+#         # pkl,txt,fname = io(seq, output)
+#         df = ensembl_flybase_parser(seq, cds, db_name)
+#     else:
+#         logging.error('Check the database name and files!', exc_info=True)
         
-    fname = filename(seq, None, outdir)
+#     fname = filename(seq, None, outdir)
 
-    cds_range = df[['tid','CDS_start','CDS_end']]
-    cds_range.to_csv(fname + '.cds_range.txt', sep='\t', index=None, header=None)
+#     cds_range = df[['tid','CDS_start','CDS_end']]
+#     cds_range.to_csv(fname + '.cds_range.txt', sep='\t', index=None, header=None)
 
-    df['fasta_header'] = '>' + df.tid
-    df[['fasta_header','seq']].to_csv(fname + '.transcripts.fa', index=None, header=None, sep='\n')
+#     df['fasta_header'] = '>' + df.tid
+#     df[['fasta_header','seq']].to_csv(fname + '.transcripts.fa', index=None, header=None, sep='\n')
     
-    df['start_codon'] = df[['seq','CDS_start']].values.tolist()
-    df['start_codon'] = df['start_codon'].apply(lambda x: x[0][x[1]:x[1]+3])
-    morf = df[['tid','start_codon','CDS_range']].copy()
-    morf['ORF_type'] = 'mORF'
-    morf.columns = ['tid','start_codon','ORF_range','ORF_type']
+#     df['start_codon'] = df[['seq','CDS_start']].values.tolist()
+#     df['start_codon'] = df['start_codon'].apply(lambda x: x[0][x[1]:x[1]+3])
+#     morf = df[['tid','start_codon','CDS_range']].copy()
+#     morf['ORF_type'] = 'mORF'
+#     morf.columns = ['tid','start_codon','ORF_range','ORF_type']
+    
+#     pbar = tqdm.pandas(desc="finding all ORFs       ", unit_scale = True)
+#     df['ORF_range'] = df.seq.progress_apply(lambda x: top_3_frames(x, start_codon))
+#     df = df.explode('ORF_range')
+#     df = df.dropna(axis=0).reset_index(drop=True)
+#     df['start_codon'] = df['ORF_range'].apply(lambda x: x[0])
+#     df['ORF_range'] = df['ORF_range'].apply(lambda x: [x[1],x[2]])
+#     df['ORF_start'] = df.ORF_range.apply(lambda x: x[0])
+#     df['ORF_end'] = df.ORF_range.apply(lambda x: x[1])
+    
+#     uorf = df[(df.ORF_start<df.CDS_start) & 
+#               (df.ORF_end<=df.CDS_start)][['tid','start_codon','ORF_range']].copy()
+#     uorf['ORF_type'] = 'uORF'
+#     dorf = df[df.ORF_start>=df.CDS_end][['tid','start_codon','ORF_range']].copy()
+#     dorf['ORF_type'] = 'dORF'
+#     df = pd.concat([uorf,morf,dorf])
+#     df = orf_resolver(df, gtf)
+#     # df.to_pickle(pkl)
+
+#     logging.info('found ' + str(df.shape[0]) + ' ORFs in ' + 
+#           str(round((time.perf_counter()-start_time)/60)) + ' min ' +
+#           str(round((time.perf_counter()-start_time)%60)) + ' s')
+#     logging.info('saved sequences as ' + fname + '.transcripts.fa')
+#     logging.info('saved CDS range as ' + fname + '.cds_range.txt')
+    
+#     return cds_range, fname + '.cds_range.txt', df
+
+
+
+# def orf_resolver(df, gtf):    
+#     # find overlapping ORFs
+#     u = df.groupby('tid')['ORF_range'].apply(list).reset_index()
+#     u['overlap'] = u['ORF_range'].apply(lambda x: [i[1] for i in x])
+#     u['overlap'] = u['overlap'].apply(lambda x: dict((i,x.count(i)) for i in set(x)))
+#     u.drop('ORF_range', axis=1, inplace=True)
+#     df = pd.merge(df,u)
+#     df['ORF_start'] = df['ORF_range'].apply(lambda x: x[0])
+#     df['ORF_end'] = df['ORF_range'].apply(lambda x: x[1])
+#     df['overlap'] = df[['ORF_end','overlap']].values.tolist()
+#     df['overlap'] = df['overlap'].apply(lambda x: x[1][x[0]])
+#     df['overlap'] = df['overlap'].apply(lambda x: x if x>1 else 0)
+    
+#     # map transcript to genomic coordinates
+#     g = pd.read_csv(gtf,sep='\t',comment='#',header=None,low_memory=False)
+#     g = g[g[2].str.contains('transcript|RNA|pseudogene')]
+#     g['tid'] = g[8].str.split('; ')
+#     g = g.explode('tid')
+#     g = g[g.tid.str.contains('transcript_id')].reset_index(drop=True)
+#     g['tid'] = g.tid.str.split().apply(lambda x: x[1].replace('"',''))
+#     g['transcript_iterator'] = [transcript for transcript in GTF.transcript_iterator(GTF.iterator(gzip.open(gtf, mode="rt") if guess_type(gtf)[1] == 'gzip' else open(gtf)))]
+    
+#     pbar = tqdm.pandas(desc="mapping start positions", unit_scale = True)
+#     t2g_start = pd.merge(df.groupby('tid').ORF_start.apply(list).reset_index(),g)
+#     t2g_start['genomic_start'] = t2g_start[['transcript_iterator','ORF_start']].values.tolist()
+#     t2g_start['genomic_start'] = t2g_start['genomic_start'].progress_apply(lambda x: [TranscriptCoordInterconverter(x[0]).transcript2genome(i)[0] for i in x[1]])
+#     pbar = tqdm.pandas(desc="mapping end positions  ", unit_scale = True)
+#     t2g_end = pd.merge(df.groupby('tid').ORF_end.apply(list).reset_index(),g)
+#     t2g_end['genomic_end'] = t2g_end[['transcript_iterator','ORF_end']].values.tolist()
+#     t2g_end['genomic_end'] = t2g_end['genomic_end'].progress_apply(lambda x: [TranscriptCoordInterconverter(x[0]).transcript2genome(i-3)[0] for i in x[1]])
+    
+#     t2g = pd.merge(t2g_start[['tid','ORF_start','genomic_start']], t2g_end[['tid','ORF_end','genomic_end']])
+#     t2g = t2g.explode(['ORF_start','ORF_end','genomic_start','genomic_end']).drop_duplicates()
+#     df = pd.merge(df[['tid','start_codon','ORF_start','ORF_end','ORF_range','ORF_type','overlap']], t2g)
+    
+#     # remove duplicated ORFs
+#     pbar = tqdm.pandas(desc="finding duplicated ORFs", unit_scale = True)
+#     orfs = df.groupby('genomic_start')['ORF_type'].progress_apply(list).reset_index()
+#     orfs.columns = ['genomic_start','ORF_list_start']
+#     df = pd.merge(df,orfs)
+#     df['ORF_list_unique_number'] = df.ORF_list_start.apply(lambda x: len(set(x)))
+#     df = pd.concat([df[df.ORF_list_unique_number==1], df[(df.ORF_list_unique_number!=1) & (df.ORF_type=='mORF')]])
+#     orfs = df.groupby('genomic_end')['ORF_type'].progress_apply(list).reset_index()
+#     orfs.columns = ['genomic_end','ORF_list_end']
+#     df = pd.merge(df,orfs)
+#     df['ORF_list_unique_number'] = df.ORF_list_end.apply(lambda x: len(set(x)))
+#     df = pd.concat([df[df.ORF_list_unique_number==1], df[(df.ORF_list_unique_number!=1) & (df.ORF_type=='mORF')]])
+
+#     # pbar = tqdm.pandas(desc="creating ORF sets      ", unit_scale = True)
+#     df['ORF_set'] = df[['ORF_list_start','ORF_list_end']].values.tolist()
+#     df['ORF_set'] = df['ORF_set'].apply(lambda x: set([j for i in x for j in i]))
+#     df.drop(['ORF_list_start','ORF_list_end','ORF_list_unique_number'], axis=1, inplace=True)
+
+#     return df
+
+
+
+def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", "CTG", "GTG", "TTG"]):
+    start_time = time.perf_counter()
+
+    fname = filename(annotation, None, outdir)
+    
+    path, ext = os.path.splitext(annotation)
+    genepred = path + '.gp'
+
+    if ext=='gtf':
+        subprocess.run(['gtfToGenePred', annotation, genepred], check=True)
+    elif (ext=='gff') | (ext=='gff3'):
+        subprocess.run(['gff3ToGenePred', annotation, genepred], check=True)
+    elif ext=='bed':
+        subprocess.run(['bedToGenePred', annotation, genepred], check=True)
+    elif ext=='gp':
+        pass
+        
+    gp = pd.read_csv(genepred, sep='\t', header=None)
+    
+    if ncrna==False:
+        gp = gp[gp[5]!=gp[6]]
+        
+    gp[8] = gp[8].str.split(',').str[:-1].apply(lambda x: [int(i) for i in x])
+    gp[9] = gp[9].str.split(',').str[:-1].apply(lambda x: [int(i) for i in x])
+    gp['exons'] = gp[[8,9]].values.tolist()
+    gp['exons'] = gp.exons.apply(lambda x: list(zip(x[0],x[1])))
+    
+    # get transcript sequence
+    exons = gp.explode('exons')
+    exons['Start'] = exons.exons.apply(lambda x: x[0])
+    exons['End'] = exons.exons.apply(lambda x: x[1])
+    exons.rename(columns = {1:'Chromosome',2:'Strand',0:'Name'}, inplace=True)
+    seq = pr.get_transcript_sequence(pr.PyRanges(exons), group_by='Name', path=fasta)
+    
+    # get individual positions as lists
+    gp['exons'] = gp.exons.apply(lambda x: [list(range(i[0],i[1])) for i in x])
+    gp['exons'] = gp.exons.apply(lambda x: [j for i in x for j in i])
+    
+    df = gp[[1,3,4,0,2,5,6,'exons']]
+    df.columns = ['Chromosome','Start','End','Name','Strand','start','end','exons']
+    df = pd.merge(df, seq)
     
     pbar = tqdm.pandas(desc="finding all ORFs       ", unit_scale = True)
-    df['ORF_range'] = df.seq.progress_apply(lambda x: top_3_frames(x, start_codon))
+    df['ORF_range'] = df.Sequence.progress_apply(lambda x: top_3_frames(x, start_codon))
     df = df.explode('ORF_range')
     df = df.dropna(axis=0).reset_index(drop=True)
     df['start_codon'] = df['ORF_range'].apply(lambda x: x[0])
@@ -251,15 +382,62 @@ def orf_finder(start_codon, db_name, gtf, seq, cds=None, outdir=None):
     df['ORF_start'] = df.ORF_range.apply(lambda x: x[0])
     df['ORF_end'] = df.ORF_range.apply(lambda x: x[1])
     
-    uorf = df[(df.ORF_start<df.CDS_start) & 
-              (df.ORF_end<=df.CDS_start)][['tid','start_codon','ORF_range']].copy()
+    pbar = tqdm.pandas(desc="converting coordinates ", unit_scale = True)
+    df_plus = df[df.Strand=='+'].copy()
+    df_plus['genomic_coordinates'] = df_plus[['exons','ORF_range']].values.tolist()
+    df_plus['genomic_range'] = df_plus.genomic_coordinates.progress_apply(lambda x: x[0][x[1][0]:x[1][1]])
+    df_plus['genomic_range'] = df_plus.genomic_range.apply(lambda x: [x[0],x[-1]+1])
+    
+    df_minus = df[df.Strand=='-'].copy()
+    df_minus['genomic_coordinates'] = df_minus.exons.progress_apply(lambda x: list(reversed(x)))
+    df_minus['genomic_coordinates'] = df_minus[['genomic_coordinates','ORF_range']].values.tolist()
+    df_minus['genomic_range'] = df_minus.genomic_coordinates.apply(lambda x: x[0][x[1][0]:x[1][1]])
+    df_minus['genomic_range'] = df_minus.genomic_range.apply(lambda x: [x[-1],x[0]+1])
+    
+    df = pd.concat([df_plus,df_minus]).drop(['exons','genomic_coordinates'], axis=1)
+    df['genomic_start'] = df.genomic_range.apply(lambda x: x[0])
+    df['genomic_end'] = df.genomic_range.apply(lambda x: x[1])
+    
+    cds = df[(df.genomic_start==df.start) & (df.genomic_end==df.end)].copy()
+    # Export CDS_range
+    cds_range = cds
+    cds_range['fasta_header'] = '>' + cds_range['Name']
+    cds_range[['fasta_header','Sequence']].to_csv(fname + '.transcripts.fa', index=None, header=None, sep='\n')
+    cds_range = cds_range[['Name','ORF_start','ORF_end']]
+    cds_range.to_csv(fname + '.cds_range.txt', sep='\t', index=None, header=None)
+    cds = cds.drop(['Start','End','start','end','genomic_range','Sequence'], axis=1).copy()
+    cds.rename(columns={'genomic_start':'Start','genomic_end':'End'}, inplace=True)
+    cds['ORF_type'] = 'mORF'
+    
+    # find uORFs
+    uorf = df[((df.genomic_start<df.start) & (df.Strand=='+')) | ((df.genomic_end>df.end) & (df.Strand=='-'))]
+    uorf = uorf.drop(['Start','End','start','end','genomic_range','Sequence'], axis=1).copy()
+    uorf.rename(columns={'genomic_start':'Start','genomic_end':'End'}, inplace=True)
     uorf['ORF_type'] = 'uORF'
-    dorf = df[df.ORF_start>=df.CDS_end][['tid','start_codon','ORF_range']].copy()
+    
+    # find dORFs
+    dorf = df[((df.genomic_start>=df.end) & (df.Strand=='+')) | ((df.genomic_end<=df.end) & (df.Strand=='-'))]
+    dorf = dorf.drop(['Start','End','start','end','genomic_range','Sequence'], axis=1).copy()
+    dorf.rename(columns={'genomic_start':'Start','genomic_end':'End'}, inplace=True)
     dorf['ORF_type'] = 'dORF'
-    df = pd.concat([uorf,morf,dorf])
-    df = orf_resolver(df, gtf)
-    # df.to_pickle(pkl)
-
+    orf = pd.concat([uorf,dorf])
+    
+    # find ORFs in-framed with mORFs
+    cdsorf = pr.PyRanges(cds[['Chromosome','Start','End','Strand']]).join(pr.PyRanges(orf), strandedness='same').df
+    cdsorf['frame_plus'] = (cdsorf.Start-cdsorf.Start_b)%3
+    cdsorf['frame_minus'] = (cdsorf.End-cdsorf.End_b)%3
+    inframe = cdsorf[(cdsorf.frame_plus==0) | (cdsorf.frame_minus==0)]
+    
+    # find overlapping ORFs
+    oorf = pd.concat([cdsorf, inframe, cds])
+    oorf = oorf.drop_duplicates(['Name','start_codon','ORF_start','ORF_end'], keep=False)
+    oorf = oorf.drop(['Start', 'End'], axis=1).rename(columns={'Start_b':'Start', 'End_b':'End'})
+    oorf['ORF_type'] = 'oORF'
+    
+    df = pd.concat([oorf, orf]).drop_duplicates(['Name','start_codon','ORF_start','ORF_end'])
+    df = pd.concat([df, inframe]).drop_duplicates(['Name','start_codon','ORF_start','ORF_end'], keep=False)
+    df = pd.concat([cds, df]).drop_duplicates(['Name','start_codon','ORF_start','ORF_end'])
+    
     logging.info('found ' + str(df.shape[0]) + ' ORFs in ' + 
           str(round((time.perf_counter()-start_time)/60)) + ' min ' +
           str(round((time.perf_counter()-start_time)%60)) + ' s')
@@ -267,63 +445,6 @@ def orf_finder(start_codon, db_name, gtf, seq, cds=None, outdir=None):
     logging.info('saved CDS range as ' + fname + '.cds_range.txt')
     
     return cds_range, fname + '.cds_range.txt', df
-
-
-
-def orf_resolver(df, gtf):    
-    # find overlapping ORFs
-    u = df.groupby('tid')['ORF_range'].apply(list).reset_index()
-    u['overlap'] = u['ORF_range'].apply(lambda x: [i[1] for i in x])
-    u['overlap'] = u['overlap'].apply(lambda x: dict((i,x.count(i)) for i in set(x)))
-    u.drop('ORF_range', axis=1, inplace=True)
-    df = pd.merge(df,u)
-    df['ORF_start'] = df['ORF_range'].apply(lambda x: x[0])
-    df['ORF_end'] = df['ORF_range'].apply(lambda x: x[1])
-    df['overlap'] = df[['ORF_end','overlap']].values.tolist()
-    df['overlap'] = df['overlap'].apply(lambda x: x[1][x[0]])
-    df['overlap'] = df['overlap'].apply(lambda x: x if x>1 else 0)
-    
-    # map transcript to genomic coordinates
-    g = pd.read_csv(gtf,sep='\t',comment='#',header=None,low_memory=False)
-    g = g[g[2].str.contains('transcript|RNA|pseudogene')]
-    g['tid'] = g[8].str.split('; ')
-    g = g.explode('tid')
-    g = g[g.tid.str.contains('transcript_id')].reset_index(drop=True)
-    g['tid'] = g.tid.str.split().apply(lambda x: x[1].replace('"',''))
-    g['transcript_iterator'] = [transcript for transcript in GTF.transcript_iterator(GTF.iterator(gzip.open(gtf, mode="rt") if guess_type(gtf)[1] == 'gzip' else open(gtf)))]
-    
-    pbar = tqdm.pandas(desc="mapping start positions", unit_scale = True)
-    t2g_start = pd.merge(df.groupby('tid').start.apply(list).reset_index(),g)
-    t2g_start['genomic_start'] = t2g_start[['transcript_iterator','ORF_start']].values.tolist()
-    t2g_start['genomic_start'] = t2g_start['genomic_start'].progress_apply(lambda x: [TranscriptCoordInterconverter(x[0]).transcript2genome(i)[0] for i in x[1]])
-    pbar = tqdm.pandas(desc="mapping end positions  ", unit_scale = True)
-    t2g_end = pd.merge(df.groupby('tid').end.apply(list).reset_index(),g)
-    t2g_end['genomic_end'] = t2g_end[['transcript_iterator','ORF_end']].values.tolist()
-    t2g_end['genomic_end'] = t2g_end['genomic_end'].progress_apply(lambda x: [TranscriptCoordInterconverter(x[0]).transcript2genome(i-3)[0] for i in x[1]])
-    
-    t2g = pd.merge(t2g_start[['tid','ORF_start','genomic_start']], t2g_end[['tid','ORF_end','genomic_end']])
-    t2g = t2g.explode(['ORF_start','ORF_end','genomic_start','genomic_end']).drop_duplicates()
-    df = pd.merge(df[['tid','start_codon','ORF_start','ORF_end','ORF_range','ORF_type','overlap']], t2g)
-    
-    # remove duplicated ORFs
-    pbar = tqdm.pandas(desc="finding duplicated ORFs", unit_scale = True)
-    orfs = df.groupby('genomic_start')['ORF_type'].progress_apply(list).reset_index()
-    orfs.columns = ['genomic_start','ORF_list_start']
-    df = pd.merge(df,orfs)
-    df['ORF_list_unique_number'] = df.ORF_list_start.apply(lambda x: len(set(x)))
-    df = pd.concat([df[df.ORF_list_unique_number==1], df[(df.ORF_list_unique_number!=1) & (df.ORF_type=='mORF')]])
-    orfs = df.groupby('genomic_end')['ORF_type'].progress_apply(list).reset_index()
-    orfs.columns = ['genomic_end','ORF_list_end']
-    df = pd.merge(df,orfs)
-    df['ORF_list_unique_number'] = df.ORF_list_end.apply(lambda x: len(set(x)))
-    df = pd.concat([df[df.ORF_list_unique_number==1], df[(df.ORF_list_unique_number!=1) & (df.ORF_type=='mORF')]])
-
-    # pbar = tqdm.pandas(desc="creating ORF sets      ", unit_scale = True)
-    df['ORF_set'] = df[['ORF_list_start','ORF_list_end']].values.tolist()
-    df['ORF_set'] = df['ORF_set'].apply(lambda x: set([j for i in x for j in i]))
-    df.drop(['ORF_list_start','ORF_list_end','ORF_list_unique_number'], axis=1, inplace=True)
-
-    return df
 
 
 
@@ -357,7 +478,9 @@ def operon_distribution(op, displot_prefix):
     
 
 
-def operon_finder(tx_assembly, bed, outdir=None, delim=None, start_codon=["ATG", "CTG", "GTG", "TTG"]):
+def operon_finder(tx_assembly, bed, outdir=None, delim=None, 
+                  start_codon=["ATG", "CTG", "GTG", "TTG"], 
+                  ncrna=False):
     """
     Predict operons from transcriptome.
     
@@ -367,7 +490,7 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None, start_codon=["ATG",
         * outdir: output directory (default: None)
         * delim: use :: for tx_assembly extracted using bedtools getfasta -name flag, as this appends name (column #4) to the genomic coordinates (default: None)
         * start_codon: any triplets (default: ATG, ACG, CTG, GTG and TTG)
-    
+        * ncrna: remove noncoding RNAs from analysis
     Output:
         * cds_range: as input for analyse_footprints
         * df: as input for footprint_counts
@@ -413,11 +536,12 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None, start_codon=["ATG",
     cds_ = cds   
 
     # Remove ORFs on ncRNAs
-    ncorf = pr.PyRanges(orf).join(pr.PyRanges(cds_), strandedness=False).df
-    ncorf = ncorf[ncorf.thickStart==ncorf.thickEnd].copy()
-    ncorf = ncorf[['Chromosome','Start','End','Strand','tid','start_codon','ORF_start','ORF_end','ORF_length']]
-    orf = pd.concat([orf,ncorf]).drop_duplicates(keep=False)
-    orf['Strand'] = orf.Strand.astype(str)
+    if ncrna==False:
+        ncorf = pr.PyRanges(orf).join(pr.PyRanges(cds_), strandedness=False).df
+        ncorf = ncorf[ncorf.thickStart==ncorf.thickEnd].copy()
+        ncorf = ncorf[['Chromosome','Start','End','Strand','tid','start_codon','ORF_start','ORF_end','ORF_length']]
+        orf = pd.concat([orf,ncorf]).drop_duplicates(keep=False)
+        orf['Strand'] = orf.Strand.astype(str)
     
     cdsorf = pr.PyRanges(cds).join(pr.PyRanges(orf), strandedness='same').df
     cds = cdsorf[(cdsorf.Start==cdsorf.Start_b) & (cdsorf.End==cdsorf.End_b) & (cdsorf.Strand==cdsorf.Strand_b)]
