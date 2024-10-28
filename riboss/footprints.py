@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2024-09-14 10:42:41
-@modify date 2024-10-20 14:14:16
+@modify date 2024-10-28 11:16:38
 @desc        RIBOSS module for analysing aligned ribosome footprints
 """
 
@@ -101,7 +101,7 @@ def bam_sampling(bamfile, fraction=0.1):
 
 
 
-def footprint_summary(offset_method='5p', adj=12, cds_range, sample, quality='best', min_size=25, max_size=35, offset_prefix=None):
+def footprint_summary(cds_range, sample, quality='best', offset_method='5p', adj=12, min_size=25, max_size=35, offset_prefix=None):
     """
     Compare the periodicity of ribosome footprint by sizes using odds ratio and chi-square post-hoc test.
     All vs the most abundant footprint size.
@@ -332,9 +332,9 @@ def analyse_footprints(offset_method, adj, bam, downsampling, cds_range, quality
     sample = bam_sampling(bam, downsampling)
 
     if quality=='best':
-        stats,fp,df = footprint_summary(offset_method, adj, cds_range, sample, 'best', min_size, max_size, fname)
+        stats,fp,df = footprint_summary(cds_range, sample, 'best', offset_method, adj, min_size, max_size, fname)
     else:
-        stats,fp,df = footprint_summary(offset_method, adj, cds_range, sample, 'good', min_size, max_size, fname)
+        stats,fp,df = footprint_summary(cds_range, sample, 'good', offset_method, adj, min_size, max_size, fname)
         
     heatmap_periodicity(fp, fname)
     footprint_periodicity(df, downsampling, fname, ylim=ylim) # metagene plots

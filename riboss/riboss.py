@@ -519,7 +519,7 @@ def predicted_orf_profile(rp, df, utr, title, barplot_prefix):
     plt.figure(figsize=(4,3))
     ax = sns.barplot(data=rp, x='Position from predicted start codon', y='Ribosome profile from start codon', hue='Frames', width=1)
     ax.xaxis.set_major_locator(ticker.MultipleLocator(3))
-    plt.title(title + ' (n=' + str(df.shape[0]) + ', median peptide length=' + str(peptide_len) + ')')
+    plt.title(title + ' (n=' + str(df.shape[0]) + ', median length=' + str(peptide_len) + ' aa)')
     plt.ylabel('Metagene ribosome profile')
     plt.xlim(-12+utr, 30+utr)
     plt.savefig(barplot_prefix + '.' + infix + '.start_codon.pdf', bbox_inches='tight')
@@ -775,7 +775,7 @@ def riboss(superkingdom, df, orf, riboprof_base, tx_assembly, fasta, fai, bed,
             blastp_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
             blastp_rp['Position from predicted start codon'] = blastp_rp.index -utr
             blastp_rp['Position to stop codon'] = blastp_rp.index-blastp_rp.index.stop -utr
-            predicted_orf_profile(blastp_rp, blastp_hits[blastp_hits.ORF_type_x==ot], utr, str(ot) + ' with BLASTP hits', fname)
+            predicted_orf_profile(blastp_rp, blastp_hits[blastp_hits.ORF_type_x==ot], utr, str(ot) + 's with BLASTP hits', fname)
             
             # no BLAST hits
             start_rprofile = np.sum(np.array(no_hits[no_hits.ORF_type_x==ot]['start_rprofile_x'].tolist()), axis=0)
@@ -789,7 +789,7 @@ def riboss(superkingdom, df, orf, riboprof_base, tx_assembly, fasta, fai, bed,
             no_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
             no_rp['Position from predicted start codon'] = no_rp.index -utr
             no_rp['Position to stop codon'] = no_rp.index-no_rp.index.stop -utr
-            predicted_orf_profile(no_rp, no_hits[no_hits.ORF_type_x==ot], utr, str(ot) + ' with no BLASTP hits', fname)
+            predicted_orf_profile(no_rp, no_hits[no_hits.ORF_type_x==ot], utr, str(ot) + 's with no BLASTP hits', fname)
     
         hits.drop(['start', 'end'], axis=1, inplace=True)
         hits.to_csv(fname + '.sig.blastp.csv', index=None)

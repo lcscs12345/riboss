@@ -6,83 +6,58 @@ RIBOSS consists of Python modules for analysis of ribosome profiling data for pr
 
 ![Flow Chart](doc/flow_chart.svg)
 
-### Install dependencies
+### User guide
 
-#### Install Miniforge3
-
-<!-- wget https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh -O ~/Anaconda3.sh
-bash ~/Anaconda3.sh -b -p $HOME/anaconda3
-eval "$(/$HOME/anaconda3/bin/conda shell.bash hook)" -->
+#### Install Miniforge3 and create a conda environment
 
 ```
 wget https://github.com/conda-forge/miniforge/releases/download/24.7.1-2/Miniforge3-24.7.1-2-Linux-x86_64.sh
 bash Miniforge3-24.7.1-2-Linux-x86_64.sh -b -p $HOME/miniforge3
 eval "$(/$HOME/miniforge3/bin/conda shell.bash hook)"
+conda env create -f environment.yml
 ```
 
-#### Create a conda environment and install packages
-
-```
-conda create -n riboss -y
+<!-- conda create -n riboss -y
 conda activate riboss
-conda install \
+conda install -y \
     -c conda-forge -c bioconda \
-    boost-cpp=1.75 seqan-library=1.4.2 \
-    biopython pysam htslib samtools bedtools pyranges minimap2 star tqdm \
-    rseqc fastp # rseqc and fastp are optional
-```
+    boost-cpp seqan-library=1.4.2 \
+    stringtie=2.2.3 salmon=1.10 \
+    seaborn matplotlib \
+    biopython pysam htslib samtools bedtools pyranges minimap2 star tqdm jupyter \
+    ucsc-gtftogenepred ucsc-bedtogenepred ucsc-genepredtobed ucsc-bedsort ucsc-bedtobigbed \
+    pyfaidx rseqc -->
 
-<!--
-#### Install samtools
-
-```
-wget https://github.com/samtools/samtools/releases/download/1.21/samtools-1.21.tar.bz2
-tar jxvf samtools-1.21.tar.bz2
-cd samtools-1.21
-autoheader
-autoconf -Wno-syntax
-make
-pwd | awk '{print "export PATH=\"" $1 ":$PATH\""}' >> ~/.bashrc
-``` -->
-
-#### Download precompiled tools
+#### Install RIBOSS
 
 ```
 git clone https://github.com/lcscs12345/riboss.git
 DIRNAME=`which python | xargs dirname`
 cp riboss/bin/riboprof $DIRNAME
 chmod +x $DIRNAME/riboprof
-
-wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gtfToGenePred
-wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gff3ToGenePred
-wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedToGenePred
-wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/genePredToBed
-wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedSort
-wget https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedToBigBed
-mv gtfToGenePred bedToGenePred genePredToBed bedSort bedToBigBed $DIRNAME
-chmod +x $DIRNAME/gtfToGenePred
-chmod +x $DIRNAME/gff3ToGenePred
-chmod +x $DIRNAME/bedToGenePred
-chmod +x $DIRNAME/genePredToBed
-chmod +x $DIRNAME/bedSort
-chmod +x $DIRNAME/bedToBigBed
-
-wget https://github.com/gpertea/stringtie/releases/download/v2.2.3/stringtie-2.2.3.Linux_x86_64.tar.gz
-tar zxvf stringtie-2.2.3.Linux_x86_64.tar.gz
-mv stringtie-2.2.3.Linux_x86_64/stringtie $DIRNAME
-chmod +x $DIRNAME/stringtie
-
-cd DIRNAME
-wget https://github.com/COMBINE-lab/salmon/releases/download/v1.10.0/salmon-1.10.0_linux_x86_64.tar.gz
-tar zxvf salmon-1.10.0_linux_x86_64.tar.gz
-pwd | awk '{print "export PATH=\"" $1 "/salmon-latest_linux_x86_64/bin:$PATH\""}' >> ~/.bashrc
 ```
 
-#### Finally
+#### Next time, activate the conda environment through
+```
+eval "$(/$HOME/miniforge3/bin/conda shell.bash hook)"
+conda activate riboss
+```
 
-```
-source ~/.bashrc
-```
+#### Test instructions
+
+The alignment files for transcriptome assembly and ribosome profiling are available at [Zenodo](https://doi.org/10.5281/zenodo.13997374).
+Download the RNA-seq alignment files and `mv D23005*.bam doc/styphimurium/rnaseq`.
+
+- D23005.sorted.bam: Illumina short-read alignment file.
+- D23005-sc-1962750.sorted.bam: PacBio long-read alignment file.
+
+Download the Ribosome profiling alignment files and `mkdir doc/styphimurium/riboseq; mv ERR913094*.out.bam doc/styphimurium/riboseq`.
+
+- ERR9130942Aligned.out.bam: RNase I, 1000 U.
+- ERR9130943Aligned.out.bam: RNase I, 500 U.
+- ERR9130946Aligned.out.bam: matched RNA-seq.
+
+Follow the steps in `test.ipynb`.
 
 #### References:
 

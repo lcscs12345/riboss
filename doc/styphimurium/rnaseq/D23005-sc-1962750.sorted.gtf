@@ -1,4 +1,4 @@
-# stringtie -p 4 -m 100 -c 5 -s 5 -f 0.1 -j 1000 -o /home/limch05p/lim_group/riboss/doc/styphimurium/rnaseq/D23005-sc-1962750.sorted.gtf --mix /home/limch05p/lim_group/riboss/doc/styphimurium/rnaseq/D23005.sorted.bam /home/limch05p/lim_group/riboss/doc/styphimurium/rnaseq/D23005-sc-1962750.sorted.bam --rf
+# stringtie -p 4 -m 100 -c 5 -s 5 -f 0.1 -j 1000 -o doc/styphimurium/rnaseq/D23005-sc-1962750.sorted.gtf --mix doc/styphimurium/rnaseq/D23005.sorted.bam doc/styphimurium/rnaseq/D23005-sc-1962750.sorted.bam --rf
 # StringTie version 2.2.3
 gi|16763390|ref|NC_003197.1|	StringTie	transcript	7629	8608	1000	+	.	gene_id "STRG.1"; transcript_id "STRG.1.1"; cov "23328.681641"; FPKM "1572.703491"; TPM "3028.454834";
 gi|16763390|ref|NC_003197.1|	StringTie	exon	7629	8608	1000	+	.	gene_id "STRG.1"; transcript_id "STRG.1.1"; exon_number "1"; cov "23328.681641";
