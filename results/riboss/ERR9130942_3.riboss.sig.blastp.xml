@@ -5,7 +5,7 @@
   <BlastOutput_version>BLASTP 2.16.0+</BlastOutput_version>
   <BlastOutput_reference>Stephen F. Altschul, Thomas L. Madden, Alejandro A. Sch&amp;auml;ffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997), &quot;Gapped BLAST and PSI-BLAST: a new generation of protein database search programs&quot;, Nucleic Acids Res. 25:3389-3402.</BlastOutput_reference>
   <BlastOutput_db>nr</BlastOutput_db>
-  <BlastOutput_query-ID>Query_6653946</BlastOutput_query-ID>
+  <BlastOutput_query-ID>Query_623984</BlastOutput_query-ID>
   <BlastOutput_query-def>STRG.4.1::NC_003197.2:52242-74865(+)__2994-3051</BlastOutput_query-def>
   <BlastOutput_query-len>18</BlastOutput_query-len>
   <BlastOutput_param>
@@ -20,7 +20,7 @@
 <BlastOutput_iterations>
 <Iteration>
   <Iteration_iter-num>1</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653946</Iteration_query-ID>
+  <Iteration_query-ID>Query_623984</Iteration_query-ID>
   <Iteration_query-def>STRG.4.1::NC_003197.2:52242-74865(+)__2994-3051</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -39,7 +39,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>2</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653947</Iteration_query-ID>
+  <Iteration_query-ID>Query_623985</Iteration_query-ID>
   <Iteration_query-def>STRG.4.1::NC_003197.2:52242-74865(+)__18908-18926</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -58,7 +58,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>3</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653948</Iteration_query-ID>
+  <Iteration_query-ID>Query_623986</Iteration_query-ID>
   <Iteration_query-def>STRG.7.1::NC_003197.2:138292-165090(+)__5367-5529</Iteration_query-def>
   <Iteration_query-len>53</Iteration_query-len>
 <Iteration_hits>
@@ -133,7 +133,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>4</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653949</Iteration_query-ID>
+  <Iteration_query-ID>Query_623987</Iteration_query-ID>
   <Iteration_query-def>STRG.7.1::NC_003197.2:138292-165090(+)__7712-7745</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -152,7 +152,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>5</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653950</Iteration_query-ID>
+  <Iteration_query-ID>Query_623988</Iteration_query-ID>
   <Iteration_query-def>STRG.7.1::NC_003197.2:138292-165090(+)__18682-18721</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -171,7 +171,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>6</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653951</Iteration_query-ID>
+  <Iteration_query-ID>Query_623989</Iteration_query-ID>
   <Iteration_query-def>STRG.7.1::NC_003197.2:138292-165090(+)__19000-19012</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -190,7 +190,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>7</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653952</Iteration_query-ID>
+  <Iteration_query-ID>Query_623990</Iteration_query-ID>
   <Iteration_query-def>STRG.7.1::NC_003197.2:138292-165090(+)__19291-19315</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -209,7 +209,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>8</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653953</Iteration_query-ID>
+  <Iteration_query-ID>Query_623991</Iteration_query-ID>
   <Iteration_query-def>STRG.7.1::NC_003197.2:138292-165090(+)__12437-12515</Iteration_query-def>
   <Iteration_query-len>25</Iteration_query-len>
 <Iteration_hits>
@@ -284,7 +284,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>9</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653954</Iteration_query-ID>
+  <Iteration_query-ID>Query_623992</Iteration_query-ID>
   <Iteration_query-def>STRG.7.1::NC_003197.2:138292-165090(+)__3866-3956</Iteration_query-def>
   <Iteration_query-len>29</Iteration_query-len>
 <Iteration_hits>
@@ -303,7 +303,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>10</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653955</Iteration_query-ID>
+  <Iteration_query-ID>Query_623993</Iteration_query-ID>
   <Iteration_query-def>STRG.7.1::NC_003197.2:138292-165090(+)__9847-9913</Iteration_query-def>
   <Iteration_query-len>21</Iteration_query-len>
 <Iteration_hits>
@@ -350,7 +350,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>11</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653956</Iteration_query-ID>
+  <Iteration_query-ID>Query_623994</Iteration_query-ID>
   <Iteration_query-def>STRG.7.1::NC_003197.2:138292-165090(+)__21949-22009</Iteration_query-def>
   <Iteration_query-len>19</Iteration_query-len>
 <Iteration_hits>
@@ -369,7 +369,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>12</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653957</Iteration_query-ID>
+  <Iteration_query-ID>Query_623995</Iteration_query-ID>
   <Iteration_query-def>STRG.7.1::NC_003197.2:138292-165090(+)__9730-9751</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -388,7 +388,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>13</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653958</Iteration_query-ID>
+  <Iteration_query-ID>Query_623996</Iteration_query-ID>
   <Iteration_query-def>STRG.7.1::NC_003197.2:138292-165090(+)__21360-21381</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -407,7 +407,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>14</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653959</Iteration_query-ID>
+  <Iteration_query-ID>Query_623997</Iteration_query-ID>
   <Iteration_query-def>STRG.7.1::NC_003197.2:138292-165090(+)__14853-14895</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -426,7 +426,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>15</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653960</Iteration_query-ID>
+  <Iteration_query-ID>Query_623998</Iteration_query-ID>
   <Iteration_query-def>STRG.7.1::NC_003197.2:138292-165090(+)__16173-16221</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -473,7 +473,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>16</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653961</Iteration_query-ID>
+  <Iteration_query-ID>Query_623999</Iteration_query-ID>
   <Iteration_query-def>STRG.10.1::NC_003197.2:194227-195897(-)__43-85</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -492,7 +492,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>17</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653962</Iteration_query-ID>
+  <Iteration_query-ID>Query_624000</Iteration_query-ID>
   <Iteration_query-def>STRG.14.1::NC_003197.2:254140-274012(+)__2431-2437</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -511,7 +511,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>18</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653963</Iteration_query-ID>
+  <Iteration_query-ID>Query_624001</Iteration_query-ID>
   <Iteration_query-def>STRG.14.1::NC_003197.2:254140-274012(+)__13573-13594</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -530,7 +530,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>19</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653964</Iteration_query-ID>
+  <Iteration_query-ID>Query_624002</Iteration_query-ID>
   <Iteration_query-def>STRG.14.1::NC_003197.2:254140-274012(+)__8453-8504</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -549,7 +549,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>20</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653965</Iteration_query-ID>
+  <Iteration_query-ID>Query_624003</Iteration_query-ID>
   <Iteration_query-def>STRG.14.1::NC_003197.2:254140-274012(+)__9263-9407</Iteration_query-def>
   <Iteration_query-len>47</Iteration_query-len>
 <Iteration_hits>
@@ -596,7 +596,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>21</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653966</Iteration_query-ID>
+  <Iteration_query-ID>Query_624004</Iteration_query-ID>
   <Iteration_query-def>STRG.15.1::NC_003197.2:280036-288098(-)__7977-8037</Iteration_query-def>
   <Iteration_query-len>19</Iteration_query-len>
 <Iteration_hits>
@@ -671,7 +671,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>22</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653967</Iteration_query-ID>
+  <Iteration_query-ID>Query_624005</Iteration_query-ID>
   <Iteration_query-def>STRG.28.1::NC_003197.2:503141-508413(+)__4452-4485</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -690,7 +690,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>23</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653968</Iteration_query-ID>
+  <Iteration_query-ID>Query_624006</Iteration_query-ID>
   <Iteration_query-def>STRG.32.1::NC_003197.2:679344-735938(-)__2251-2299</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -709,7 +709,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>24</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653969</Iteration_query-ID>
+  <Iteration_query-ID>Query_624007</Iteration_query-ID>
   <Iteration_query-def>STRG.32.1::NC_003197.2:679344-735938(-)__5697-5784</Iteration_query-def>
   <Iteration_query-len>28</Iteration_query-len>
 <Iteration_hits>
@@ -840,7 +840,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>25</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653970</Iteration_query-ID>
+  <Iteration_query-ID>Query_624008</Iteration_query-ID>
   <Iteration_query-def>STRG.32.1::NC_003197.2:679344-735938(-)__6083-6104</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -859,7 +859,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>26</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653971</Iteration_query-ID>
+  <Iteration_query-ID>Query_624009</Iteration_query-ID>
   <Iteration_query-def>STRG.32.1::NC_003197.2:679344-735938(-)__24223-24259</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -878,7 +878,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>27</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653972</Iteration_query-ID>
+  <Iteration_query-ID>Query_624010</Iteration_query-ID>
   <Iteration_query-def>STRG.32.1::NC_003197.2:679344-735938(-)__34310-34562</Iteration_query-def>
   <Iteration_query-len>83</Iteration_query-len>
 <Iteration_hits>
@@ -1065,7 +1065,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>28</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653973</Iteration_query-ID>
+  <Iteration_query-ID>Query_624011</Iteration_query-ID>
   <Iteration_query-def>STRG.32.1::NC_003197.2:679344-735938(-)__50536-50581</Iteration_query-def>
   <Iteration_query-len>14</Iteration_query-len>
 <Iteration_hits>
@@ -1084,7 +1084,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>29</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653974</Iteration_query-ID>
+  <Iteration_query-ID>Query_624012</Iteration_query-ID>
   <Iteration_query-def>STRG.32.1::NC_003197.2:679344-735938(-)__25270-25291</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -1103,7 +1103,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>30</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653975</Iteration_query-ID>
+  <Iteration_query-ID>Query_624013</Iteration_query-ID>
   <Iteration_query-def>STRG.32.1::NC_003197.2:679344-735938(-)__31817-31889</Iteration_query-def>
   <Iteration_query-len>23</Iteration_query-len>
 <Iteration_hits>
@@ -1122,7 +1122,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>31</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653976</Iteration_query-ID>
+  <Iteration_query-ID>Query_624014</Iteration_query-ID>
   <Iteration_query-def>STRG.32.1::NC_003197.2:679344-735938(-)__53853-53925</Iteration_query-def>
   <Iteration_query-len>23</Iteration_query-len>
 <Iteration_hits>
@@ -1197,7 +1197,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>32</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653977</Iteration_query-ID>
+  <Iteration_query-ID>Query_624015</Iteration_query-ID>
   <Iteration_query-def>STRG.33.1::NC_003197.2:738013-766077(-)__2199-2214</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -1216,7 +1216,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>33</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653978</Iteration_query-ID>
+  <Iteration_query-ID>Query_624016</Iteration_query-ID>
   <Iteration_query-def>STRG.33.1::NC_003197.2:738013-766077(-)__13-118</Iteration_query-def>
   <Iteration_query-len>34</Iteration_query-len>
 <Iteration_hits>
@@ -2635,7 +2635,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>34</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653979</Iteration_query-ID>
+  <Iteration_query-ID>Query_624017</Iteration_query-ID>
   <Iteration_query-def>STRG.33.1::NC_003197.2:738013-766077(-)__1848-2127</Iteration_query-def>
   <Iteration_query-len>92</Iteration_query-len>
 <Iteration_hits>
@@ -2850,7 +2850,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>35</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653980</Iteration_query-ID>
+  <Iteration_query-ID>Query_624018</Iteration_query-ID>
   <Iteration_query-def>STRG.33.1::NC_003197.2:738013-766077(-)__8772-8799</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -2869,7 +2869,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>36</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653981</Iteration_query-ID>
+  <Iteration_query-ID>Query_624019</Iteration_query-ID>
   <Iteration_query-def>STRG.35.1::NC_003197.2:809256-819468(+)__3027-3087</Iteration_query-def>
   <Iteration_query-len>19</Iteration_query-len>
 <Iteration_hits>
@@ -2888,7 +2888,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>37</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653982</Iteration_query-ID>
+  <Iteration_query-ID>Query_624020</Iteration_query-ID>
   <Iteration_query-def>STRG.35.1::NC_003197.2:809256-819468(+)__537-579</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -2907,7 +2907,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>38</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653983</Iteration_query-ID>
+  <Iteration_query-ID>Query_624021</Iteration_query-ID>
   <Iteration_query-def>STRG.35.1::NC_003197.2:809256-819468(+)__2796-2802</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -2926,7 +2926,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>39</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653984</Iteration_query-ID>
+  <Iteration_query-ID>Query_624022</Iteration_query-ID>
   <Iteration_query-def>STRG.35.1::NC_003197.2:809256-819468(+)__128-230</Iteration_query-def>
   <Iteration_query-len>33</Iteration_query-len>
 <Iteration_hits>
@@ -3001,7 +3001,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>40</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653985</Iteration_query-ID>
+  <Iteration_query-ID>Query_624023</Iteration_query-ID>
   <Iteration_query-def>STRG.35.1::NC_003197.2:809256-819468(+)__3136-3217</Iteration_query-def>
   <Iteration_query-len>26</Iteration_query-len>
 <Iteration_hits>
@@ -3020,7 +3020,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>41</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653986</Iteration_query-ID>
+  <Iteration_query-ID>Query_624024</Iteration_query-ID>
   <Iteration_query-def>STRG.38.1::NC_003197.2:870440-874118(+)__127-235</Iteration_query-def>
   <Iteration_query-len>35</Iteration_query-len>
 <Iteration_hits>
@@ -3039,7 +3039,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>42</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653987</Iteration_query-ID>
+  <Iteration_query-ID>Query_624025</Iteration_query-ID>
   <Iteration_query-def>STRG.43.1::NC_003197.2:958830-962543(-)__56-74</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -3058,7 +3058,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>43</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653988</Iteration_query-ID>
+  <Iteration_query-ID>Query_624026</Iteration_query-ID>
   <Iteration_query-def>STRG.48.1::NC_003197.2:1055056-1060477(-)__354-438</Iteration_query-def>
   <Iteration_query-len>27</Iteration_query-len>
 <Iteration_hits>
@@ -3077,7 +3077,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>44</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653989</Iteration_query-ID>
+  <Iteration_query-ID>Query_624027</Iteration_query-ID>
   <Iteration_query-def>STRG.48.1::NC_003197.2:1055056-1060477(-)__4060-4171</Iteration_query-def>
   <Iteration_query-len>36</Iteration_query-len>
 <Iteration_hits>
@@ -3208,7 +3208,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>45</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653990</Iteration_query-ID>
+  <Iteration_query-ID>Query_624028</Iteration_query-ID>
   <Iteration_query-def>STRG.48.1::NC_003197.2:1055056-1060477(-)__5384-5405</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -3227,7 +3227,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>46</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653991</Iteration_query-ID>
+  <Iteration_query-ID>Query_624029</Iteration_query-ID>
   <Iteration_query-def>STRG.48.1::NC_003197.2:1055056-1060477(-)__5378-5405</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -3246,7 +3246,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>47</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653992</Iteration_query-ID>
+  <Iteration_query-ID>Query_624030</Iteration_query-ID>
   <Iteration_query-def>STRG.49.1::NC_003197.2:1064972-1067938(+)__517-604</Iteration_query-def>
   <Iteration_query-len>28</Iteration_query-len>
 <Iteration_hits>
@@ -3377,7 +3377,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>48</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653993</Iteration_query-ID>
+  <Iteration_query-ID>Query_624031</Iteration_query-ID>
   <Iteration_query-def>STRG.52.1::NC_003197.2:1091462-1092927(-)__52-64</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -3396,7 +3396,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>49</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653994</Iteration_query-ID>
+  <Iteration_query-ID>Query_624032</Iteration_query-ID>
   <Iteration_query-def>STRG.57.1::NC_003197.2:1160944-1162131(-)__1090-1099</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -3415,7 +3415,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>50</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653995</Iteration_query-ID>
+  <Iteration_query-ID>Query_624033</Iteration_query-ID>
   <Iteration_query-def>STRG.61.1::NC_003197.2:1177793-1179947(-)__1413-1425</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -3434,7 +3434,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>51</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653996</Iteration_query-ID>
+  <Iteration_query-ID>Query_624034</Iteration_query-ID>
   <Iteration_query-def>STRG.63.1::NC_003197.2:1247660-1250993(-)__1900-1927</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -3453,7 +3453,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>52</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653997</Iteration_query-ID>
+  <Iteration_query-ID>Query_624035</Iteration_query-ID>
   <Iteration_query-def>STRG.64.1::NC_003197.2:1256629-1258084(-)__1423-1453</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -3472,7 +3472,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>53</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653998</Iteration_query-ID>
+  <Iteration_query-ID>Query_624036</Iteration_query-ID>
   <Iteration_query-def>STRG.64.1::NC_003197.2:1256629-1258084(-)__762-783</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -3491,7 +3491,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>54</Iteration_iter-num>
-  <Iteration_query-ID>Query_6653999</Iteration_query-ID>
+  <Iteration_query-ID>Query_624037</Iteration_query-ID>
   <Iteration_query-def>STRG.64.1::NC_003197.2:1256629-1258084(-)__480-567</Iteration_query-def>
   <Iteration_query-len>28</Iteration_query-len>
 <Iteration_hits>
@@ -3566,7 +3566,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>55</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654000</Iteration_query-ID>
+  <Iteration_query-ID>Query_624038</Iteration_query-ID>
   <Iteration_query-def>STRG.65.1::NC_003197.2:1258228-1287819(+)__3306-3453</Iteration_query-def>
   <Iteration_query-len>48</Iteration_query-len>
 <Iteration_hits>
@@ -3585,7 +3585,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>56</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654001</Iteration_query-ID>
+  <Iteration_query-ID>Query_624039</Iteration_query-ID>
   <Iteration_query-def>STRG.65.1::NC_003197.2:1258228-1287819(+)__8970-9006</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -3604,7 +3604,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>57</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654002</Iteration_query-ID>
+  <Iteration_query-ID>Query_624040</Iteration_query-ID>
   <Iteration_query-def>STRG.65.1::NC_003197.2:1258228-1287819(+)__20746-20752</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -3623,7 +3623,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>58</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654003</Iteration_query-ID>
+  <Iteration_query-ID>Query_624041</Iteration_query-ID>
   <Iteration_query-def>STRG.65.1::NC_003197.2:1258228-1287819(+)__9750-9810</Iteration_query-def>
   <Iteration_query-len>19</Iteration_query-len>
 <Iteration_hits>
@@ -3642,7 +3642,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>59</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654004</Iteration_query-ID>
+  <Iteration_query-ID>Query_624042</Iteration_query-ID>
   <Iteration_query-def>STRG.65.1::NC_003197.2:1258228-1287819(+)__20479-20485</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -3661,7 +3661,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>60</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654005</Iteration_query-ID>
+  <Iteration_query-ID>Query_624043</Iteration_query-ID>
   <Iteration_query-def>STRG.65.1::NC_003197.2:1258228-1287819(+)__22684-22705</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -3680,7 +3680,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>61</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654006</Iteration_query-ID>
+  <Iteration_query-ID>Query_624044</Iteration_query-ID>
   <Iteration_query-def>STRG.65.1::NC_003197.2:1258228-1287819(+)__15305-15326</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -3699,7 +3699,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>62</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654007</Iteration_query-ID>
+  <Iteration_query-ID>Query_624045</Iteration_query-ID>
   <Iteration_query-def>STRG.65.1::NC_003197.2:1258228-1287819(+)__6123-6153</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -3718,7 +3718,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>63</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654008</Iteration_query-ID>
+  <Iteration_query-ID>Query_624046</Iteration_query-ID>
   <Iteration_query-def>STRG.65.1::NC_003197.2:1258228-1287819(+)__6389-6461</Iteration_query-def>
   <Iteration_query-len>23</Iteration_query-len>
 <Iteration_hits>
@@ -3765,7 +3765,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>64</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654009</Iteration_query-ID>
+  <Iteration_query-ID>Query_624047</Iteration_query-ID>
   <Iteration_query-def>STRG.65.1::NC_003197.2:1258228-1287819(+)__6647-6743</Iteration_query-def>
   <Iteration_query-len>31</Iteration_query-len>
 <Iteration_hits>
@@ -3952,7 +3952,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>65</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654010</Iteration_query-ID>
+  <Iteration_query-ID>Query_624048</Iteration_query-ID>
   <Iteration_query-def>STRG.65.1::NC_003197.2:1258228-1287819(+)__7384-7396</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -3971,7 +3971,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>66</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654011</Iteration_query-ID>
+  <Iteration_query-ID>Query_624049</Iteration_query-ID>
   <Iteration_query-def>STRG.65.1::NC_003197.2:1258228-1287819(+)__28768-28948</Iteration_query-def>
   <Iteration_query-len>59</Iteration_query-len>
 <Iteration_hits>
@@ -4326,7 +4326,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>67</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654012</Iteration_query-ID>
+  <Iteration_query-ID>Query_624050</Iteration_query-ID>
   <Iteration_query-def>STRG.65.1::NC_003197.2:1258228-1287819(+)__5154-5193</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -4345,7 +4345,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>68</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654013</Iteration_query-ID>
+  <Iteration_query-ID>Query_624051</Iteration_query-ID>
   <Iteration_query-def>STRG.65.1::NC_003197.2:1258228-1287819(+)__17591-17627</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -4364,7 +4364,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>69</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654014</Iteration_query-ID>
+  <Iteration_query-ID>Query_624052</Iteration_query-ID>
   <Iteration_query-def>STRG.66.1::NC_003197.2:1290342-1294224(+)__1405-1417</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -4383,7 +4383,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>70</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654015</Iteration_query-ID>
+  <Iteration_query-ID>Query_624053</Iteration_query-ID>
   <Iteration_query-def>STRG.72.1::NC_003197.2:1368671-1369847(-)__103-172</Iteration_query-def>
   <Iteration_query-len>22</Iteration_query-len>
 <Iteration_hits>
@@ -4486,7 +4486,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>71</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654016</Iteration_query-ID>
+  <Iteration_query-ID>Query_624054</Iteration_query-ID>
   <Iteration_query-def>STRG.77.1::NC_003197.2:1459345-1459634(-)__122-140</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -4505,7 +4505,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>72</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654017</Iteration_query-ID>
+  <Iteration_query-ID>Query_624055</Iteration_query-ID>
   <Iteration_query-def>STRG.83.1::NC_003197.2:1587567-1589548(-)__233-296</Iteration_query-def>
   <Iteration_query-len>20</Iteration_query-len>
 <Iteration_hits>
@@ -4552,7 +4552,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>73</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654018</Iteration_query-ID>
+  <Iteration_query-ID>Query_624056</Iteration_query-ID>
   <Iteration_query-def>STRG.83.1::NC_003197.2:1587567-1589548(-)__420-480</Iteration_query-def>
   <Iteration_query-len>19</Iteration_query-len>
 <Iteration_hits>
@@ -4599,7 +4599,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>74</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654019</Iteration_query-ID>
+  <Iteration_query-ID>Query_624057</Iteration_query-ID>
   <Iteration_query-def>STRG.88.1::NC_003197.2:1655103-1656272(+)__436-487</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -4618,7 +4618,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>75</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654020</Iteration_query-ID>
+  <Iteration_query-ID>Query_624058</Iteration_query-ID>
   <Iteration_query-def>STRG.99.1::NC_003197.2:1809758-1818281(-)__8036-8078</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -4637,7 +4637,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>76</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654021</Iteration_query-ID>
+  <Iteration_query-ID>Query_624059</Iteration_query-ID>
   <Iteration_query-def>STRG.104.1::NC_003197.2:1862523-1863940(-)__1278-1293</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -4656,7 +4656,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>77</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654022</Iteration_query-ID>
+  <Iteration_query-ID>Query_624060</Iteration_query-ID>
   <Iteration_query-def>STRG.107.1::NC_003197.2:1912045-1913918(+)__474-483</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -4675,7 +4675,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>78</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654023</Iteration_query-ID>
+  <Iteration_query-ID>Query_624061</Iteration_query-ID>
   <Iteration_query-def>STRG.108.1::NC_003197.2:1928429-1935961(+)__2719-3022</Iteration_query-def>
   <Iteration_query-len>100</Iteration_query-len>
 <Iteration_hits>
@@ -4834,7 +4834,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>79</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654024</Iteration_query-ID>
+  <Iteration_query-ID>Query_624062</Iteration_query-ID>
   <Iteration_query-def>STRG.108.1::NC_003197.2:1928429-1935961(+)__113-122</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -4853,7 +4853,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>80</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654025</Iteration_query-ID>
+  <Iteration_query-ID>Query_624063</Iteration_query-ID>
   <Iteration_query-def>STRG.108.1::NC_003197.2:1928429-1935961(+)__1531-1648</Iteration_query-def>
   <Iteration_query-len>38</Iteration_query-len>
 <Iteration_hits>
@@ -4984,7 +4984,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>81</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654026</Iteration_query-ID>
+  <Iteration_query-ID>Query_624064</Iteration_query-ID>
   <Iteration_query-def>STRG.108.1::NC_003197.2:1928429-1935961(+)__4025-4202</Iteration_query-def>
   <Iteration_query-len>58</Iteration_query-len>
 <Iteration_hits>
@@ -5087,7 +5087,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>82</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654027</Iteration_query-ID>
+  <Iteration_query-ID>Query_624065</Iteration_query-ID>
   <Iteration_query-def>STRG.111.1::NC_003197.2:1940039-1956845(-)__12559-12616</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -5106,7 +5106,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>83</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654028</Iteration_query-ID>
+  <Iteration_query-ID>Query_624066</Iteration_query-ID>
   <Iteration_query-def>STRG.111.1::NC_003197.2:1940039-1956845(-)__1541-1586</Iteration_query-def>
   <Iteration_query-len>14</Iteration_query-len>
 <Iteration_hits>
@@ -5125,7 +5125,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>84</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654029</Iteration_query-ID>
+  <Iteration_query-ID>Query_624067</Iteration_query-ID>
   <Iteration_query-def>STRG.111.1::NC_003197.2:1940039-1956845(-)__4220-4349</Iteration_query-def>
   <Iteration_query-len>42</Iteration_query-len>
 <Iteration_hits>
@@ -5228,7 +5228,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>85</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654030</Iteration_query-ID>
+  <Iteration_query-ID>Query_624068</Iteration_query-ID>
   <Iteration_query-def>STRG.111.1::NC_003197.2:1940039-1956845(-)__5231-5252</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -5247,7 +5247,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>86</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654031</Iteration_query-ID>
+  <Iteration_query-ID>Query_624069</Iteration_query-ID>
   <Iteration_query-def>STRG.113.1::NC_003197.2:2047647-2049197(-)__6-42</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -5266,7 +5266,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>87</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654032</Iteration_query-ID>
+  <Iteration_query-ID>Query_624070</Iteration_query-ID>
   <Iteration_query-def>STRG.118.1::NC_003197.2:2135386-2135882(-)__441-453</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -5285,7 +5285,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>88</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654033</Iteration_query-ID>
+  <Iteration_query-ID>Query_624071</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__17907-18063</Iteration_query-def>
   <Iteration_query-len>51</Iteration_query-len>
 <Iteration_hits>
@@ -5472,7 +5472,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>89</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654034</Iteration_query-ID>
+  <Iteration_query-ID>Query_624072</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__5548-5641</Iteration_query-def>
   <Iteration_query-len>30</Iteration_query-len>
 <Iteration_hits>
@@ -5491,7 +5491,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>90</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654035</Iteration_query-ID>
+  <Iteration_query-ID>Query_624073</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__19974-19992</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -5510,7 +5510,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>91</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654036</Iteration_query-ID>
+  <Iteration_query-ID>Query_624074</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__13728-13737</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -5529,7 +5529,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>92</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654037</Iteration_query-ID>
+  <Iteration_query-ID>Query_624075</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__852-894</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -5548,7 +5548,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>93</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654038</Iteration_query-ID>
+  <Iteration_query-ID>Query_624076</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__984-1041</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -5567,7 +5567,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>94</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654039</Iteration_query-ID>
+  <Iteration_query-ID>Query_624077</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__7520-7547</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -5586,7 +5586,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>95</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654040</Iteration_query-ID>
+  <Iteration_query-ID>Query_624078</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__9264-9291</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -5605,7 +5605,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>96</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654041</Iteration_query-ID>
+  <Iteration_query-ID>Query_624079</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__10137-10158</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -5624,7 +5624,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>97</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654042</Iteration_query-ID>
+  <Iteration_query-ID>Query_624080</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__11405-11420</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -5643,7 +5643,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>98</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654043</Iteration_query-ID>
+  <Iteration_query-ID>Query_624081</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__11974-12016</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -5662,7 +5662,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>99</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654044</Iteration_query-ID>
+  <Iteration_query-ID>Query_624082</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__12575-12626</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -7081,7 +7081,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>100</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654045</Iteration_query-ID>
+  <Iteration_query-ID>Query_624083</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__17476-17560</Iteration_query-def>
   <Iteration_query-len>27</Iteration_query-len>
 <Iteration_hits>
@@ -7268,7 +7268,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>101</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654046</Iteration_query-ID>
+  <Iteration_query-ID>Query_624084</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__4041-4086</Iteration_query-def>
   <Iteration_query-len>14</Iteration_query-len>
 <Iteration_hits>
@@ -7287,7 +7287,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>102</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654047</Iteration_query-ID>
+  <Iteration_query-ID>Query_624085</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__7543-7567</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -7306,7 +7306,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>103</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654048</Iteration_query-ID>
+  <Iteration_query-ID>Query_624086</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__1501-1537</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -7325,7 +7325,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>104</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654049</Iteration_query-ID>
+  <Iteration_query-ID>Query_624087</Iteration_query-ID>
   <Iteration_query-def>STRG.120.1::NC_003197.2:2159340-2179918(-)__12884-12935</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -7344,7 +7344,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>105</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654050</Iteration_query-ID>
+  <Iteration_query-ID>Query_624088</Iteration_query-ID>
   <Iteration_query-def>STRG.130.1::NC_003197.2:2402710-2420595(+)__2161-2290</Iteration_query-def>
   <Iteration_query-len>42</Iteration_query-len>
 <Iteration_hits>
@@ -7391,7 +7391,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>106</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654051</Iteration_query-ID>
+  <Iteration_query-ID>Query_624089</Iteration_query-ID>
   <Iteration_query-def>STRG.132.1::NC_003197.2:2431391-2451386(+)__10994-11051</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -7410,7 +7410,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>107</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654052</Iteration_query-ID>
+  <Iteration_query-ID>Query_624090</Iteration_query-ID>
   <Iteration_query-def>STRG.132.1::NC_003197.2:2431391-2451386(+)__18228-18267</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -7429,7 +7429,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>108</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654053</Iteration_query-ID>
+  <Iteration_query-ID>Query_624091</Iteration_query-ID>
   <Iteration_query-def>STRG.132.1::NC_003197.2:2431391-2451386(+)__8533-8581</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -7448,7 +7448,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>109</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654054</Iteration_query-ID>
+  <Iteration_query-ID>Query_624092</Iteration_query-ID>
   <Iteration_query-def>STRG.138.1::NC_003197.2:2519650-2531621(-)__1287-1341</Iteration_query-def>
   <Iteration_query-len>17</Iteration_query-len>
 <Iteration_hits>
@@ -7523,7 +7523,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>110</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654055</Iteration_query-ID>
+  <Iteration_query-ID>Query_624093</Iteration_query-ID>
   <Iteration_query-def>STRG.141.1::NC_003197.2:2579229-2585820(-)__6169-6283</Iteration_query-def>
   <Iteration_query-len>37</Iteration_query-len>
 <Iteration_hits>
@@ -8102,7 +8102,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>111</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654056</Iteration_query-ID>
+  <Iteration_query-ID>Query_624094</Iteration_query-ID>
   <Iteration_query-def>STRG.144.1::NC_003197.2:2605073-2622482(+)__551-587</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -8121,7 +8121,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>112</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654057</Iteration_query-ID>
+  <Iteration_query-ID>Query_624095</Iteration_query-ID>
   <Iteration_query-def>STRG.144.1::NC_003197.2:2605073-2622482(+)__8806-8914</Iteration_query-def>
   <Iteration_query-len>35</Iteration_query-len>
 <Iteration_hits>
@@ -9540,7 +9540,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>113</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654058</Iteration_query-ID>
+  <Iteration_query-ID>Query_624096</Iteration_query-ID>
   <Iteration_query-def>STRG.144.1::NC_003197.2:2605073-2622482(+)__13320-13422</Iteration_query-def>
   <Iteration_query-len>33</Iteration_query-len>
 <Iteration_hits>
@@ -9643,7 +9643,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>114</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654059</Iteration_query-ID>
+  <Iteration_query-ID>Query_624097</Iteration_query-ID>
   <Iteration_query-def>STRG.144.1::NC_003197.2:2605073-2622482(+)__16413-16515</Iteration_query-def>
   <Iteration_query-len>33</Iteration_query-len>
 <Iteration_hits>
@@ -9774,7 +9774,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>115</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654060</Iteration_query-ID>
+  <Iteration_query-ID>Query_624098</Iteration_query-ID>
   <Iteration_query-def>STRG.144.1::NC_003197.2:2605073-2622482(+)__2981-3095</Iteration_query-def>
   <Iteration_query-len>37</Iteration_query-len>
 <Iteration_hits>
@@ -9821,7 +9821,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>116</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654061</Iteration_query-ID>
+  <Iteration_query-ID>Query_624099</Iteration_query-ID>
   <Iteration_query-def>STRG.145.1::NC_003197.2:2622761-2625928(-)__90-114</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -9840,7 +9840,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>117</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654062</Iteration_query-ID>
+  <Iteration_query-ID>Query_624100</Iteration_query-ID>
   <Iteration_query-def>STRG.145.1::NC_003197.2:2622761-2625928(-)__2562-2652</Iteration_query-def>
   <Iteration_query-len>29</Iteration_query-len>
 <Iteration_hits>
@@ -9915,7 +9915,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>118</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654063</Iteration_query-ID>
+  <Iteration_query-ID>Query_624101</Iteration_query-ID>
   <Iteration_query-def>STRG.148.1::NC_003197.2:2708247-2728697(-)__3873-3942</Iteration_query-def>
   <Iteration_query-len>22</Iteration_query-len>
 <Iteration_hits>
@@ -9934,7 +9934,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>119</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654064</Iteration_query-ID>
+  <Iteration_query-ID>Query_624102</Iteration_query-ID>
   <Iteration_query-def>STRG.148.1::NC_003197.2:2708247-2728697(-)__2792-2828</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -9953,7 +9953,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>120</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654065</Iteration_query-ID>
+  <Iteration_query-ID>Query_624103</Iteration_query-ID>
   <Iteration_query-def>STRG.148.1::NC_003197.2:2708247-2728697(-)__1392-1449</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -9972,7 +9972,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>121</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654066</Iteration_query-ID>
+  <Iteration_query-ID>Query_624104</Iteration_query-ID>
   <Iteration_query-def>STRG.155.1::NC_003197.2:2802113-2807447(-)__1030-1078</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -9991,7 +9991,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>122</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654067</Iteration_query-ID>
+  <Iteration_query-ID>Query_624105</Iteration_query-ID>
   <Iteration_query-def>STRG.157.1::NC_003197.2:2814829-2816947(-)__586-628</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -10010,7 +10010,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>123</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654068</Iteration_query-ID>
+  <Iteration_query-ID>Query_624106</Iteration_query-ID>
   <Iteration_query-def>STRG.157.1::NC_003197.2:2814829-2816947(-)__1746-1764</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -10029,7 +10029,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>124</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654069</Iteration_query-ID>
+  <Iteration_query-ID>Query_624107</Iteration_query-ID>
   <Iteration_query-def>STRG.164.1::NC_003197.2:2934525-2947120(-)__4688-4733</Iteration_query-def>
   <Iteration_query-len>14</Iteration_query-len>
 <Iteration_hits>
@@ -10048,7 +10048,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>125</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654070</Iteration_query-ID>
+  <Iteration_query-ID>Query_624108</Iteration_query-ID>
   <Iteration_query-def>STRG.164.1::NC_003197.2:2934525-2947120(-)__11325-11376</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -10067,7 +10067,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>126</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654071</Iteration_query-ID>
+  <Iteration_query-ID>Query_624109</Iteration_query-ID>
   <Iteration_query-def>STRG.167.1::NC_003197.2:2966243-2974177(-)__3131-3140</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -10086,7 +10086,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>127</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654072</Iteration_query-ID>
+  <Iteration_query-ID>Query_624110</Iteration_query-ID>
   <Iteration_query-def>STRG.168.1::NC_003197.2:2974800-2978078(-)__2098-2215</Iteration_query-def>
   <Iteration_query-len>38</Iteration_query-len>
 <Iteration_hits>
@@ -10161,7 +10161,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>128</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654073</Iteration_query-ID>
+  <Iteration_query-ID>Query_624111</Iteration_query-ID>
   <Iteration_query-def>STRG.169.1::NC_003197.2:2978090-3006255(-)__10204-10351</Iteration_query-def>
   <Iteration_query-len>48</Iteration_query-len>
 <Iteration_hits>
@@ -10376,7 +10376,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>129</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654074</Iteration_query-ID>
+  <Iteration_query-ID>Query_624112</Iteration_query-ID>
   <Iteration_query-def>STRG.170.1::NC_003197.2:3006338-3017548(-)__2196-2241</Iteration_query-def>
   <Iteration_query-len>14</Iteration_query-len>
 <Iteration_hits>
@@ -10423,7 +10423,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>130</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654075</Iteration_query-ID>
+  <Iteration_query-ID>Query_624113</Iteration_query-ID>
   <Iteration_query-def>STRG.170.1::NC_003197.2:3006338-3017548(-)__445-451</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -10442,7 +10442,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>131</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654076</Iteration_query-ID>
+  <Iteration_query-ID>Query_624114</Iteration_query-ID>
   <Iteration_query-def>STRG.170.1::NC_003197.2:3006338-3017548(-)__4192-4312</Iteration_query-def>
   <Iteration_query-len>39</Iteration_query-len>
 <Iteration_hits>
@@ -10573,7 +10573,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>132</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654077</Iteration_query-ID>
+  <Iteration_query-ID>Query_624115</Iteration_query-ID>
   <Iteration_query-def>STRG.170.1::NC_003197.2:3006338-3017548(-)__6327-6339</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -10592,7 +10592,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>133</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654078</Iteration_query-ID>
+  <Iteration_query-ID>Query_624116</Iteration_query-ID>
   <Iteration_query-def>STRG.170.1::NC_003197.2:3006338-3017548(-)__1112-1205</Iteration_query-def>
   <Iteration_query-len>30</Iteration_query-len>
 <Iteration_hits>
@@ -10639,7 +10639,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>134</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654079</Iteration_query-ID>
+  <Iteration_query-ID>Query_624117</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__13433-13484</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -10686,7 +10686,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>135</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654080</Iteration_query-ID>
+  <Iteration_query-ID>Query_624118</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__20166-20202</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -10705,7 +10705,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>136</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654081</Iteration_query-ID>
+  <Iteration_query-ID>Query_624119</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__5518-5551</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -10724,7 +10724,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>137</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654082</Iteration_query-ID>
+  <Iteration_query-ID>Query_624120</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__5821-5842</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -10743,7 +10743,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>138</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654083</Iteration_query-ID>
+  <Iteration_query-ID>Query_624121</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__684-702</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -10762,7 +10762,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>139</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654084</Iteration_query-ID>
+  <Iteration_query-ID>Query_624122</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__7901-7940</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -10781,7 +10781,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>140</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654085</Iteration_query-ID>
+  <Iteration_query-ID>Query_624123</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__9265-9319</Iteration_query-def>
   <Iteration_query-len>17</Iteration_query-len>
 <Iteration_hits>
@@ -10800,7 +10800,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>141</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654086</Iteration_query-ID>
+  <Iteration_query-ID>Query_624124</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__12979-13000</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -10819,7 +10819,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>142</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654087</Iteration_query-ID>
+  <Iteration_query-ID>Query_624125</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__20696-20714</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -10838,7 +10838,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>143</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654088</Iteration_query-ID>
+  <Iteration_query-ID>Query_624126</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__2936-3026</Iteration_query-def>
   <Iteration_query-len>29</Iteration_query-len>
 <Iteration_hits>
@@ -10913,7 +10913,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>144</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654089</Iteration_query-ID>
+  <Iteration_query-ID>Query_624127</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__17871-17898</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -10932,7 +10932,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>145</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654090</Iteration_query-ID>
+  <Iteration_query-ID>Query_624128</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__21346-21370</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -10951,7 +10951,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>146</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654091</Iteration_query-ID>
+  <Iteration_query-ID>Query_624129</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__1466-1508</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -10970,7 +10970,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>147</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654092</Iteration_query-ID>
+  <Iteration_query-ID>Query_624130</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__4750-4822</Iteration_query-def>
   <Iteration_query-len>23</Iteration_query-len>
 <Iteration_hits>
@@ -11045,7 +11045,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>148</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654093</Iteration_query-ID>
+  <Iteration_query-ID>Query_624131</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__5263-5353</Iteration_query-def>
   <Iteration_query-len>29</Iteration_query-len>
 <Iteration_hits>
@@ -11092,7 +11092,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>149</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654094</Iteration_query-ID>
+  <Iteration_query-ID>Query_624132</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__5899-5962</Iteration_query-def>
   <Iteration_query-len>20</Iteration_query-len>
 <Iteration_hits>
@@ -11139,7 +11139,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>150</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654095</Iteration_query-ID>
+  <Iteration_query-ID>Query_624133</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__7010-7049</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -11158,7 +11158,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>151</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654096</Iteration_query-ID>
+  <Iteration_query-ID>Query_624134</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__8345-8471</Iteration_query-def>
   <Iteration_query-len>41</Iteration_query-len>
 <Iteration_hits>
@@ -11289,7 +11289,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>152</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654097</Iteration_query-ID>
+  <Iteration_query-ID>Query_624135</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__8780-8816</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -11308,7 +11308,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>153</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654098</Iteration_query-ID>
+  <Iteration_query-ID>Query_624136</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__10590-10626</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -11327,7 +11327,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>154</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654099</Iteration_query-ID>
+  <Iteration_query-ID>Query_624137</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__11122-11179</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -11346,7 +11346,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>155</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654100</Iteration_query-ID>
+  <Iteration_query-ID>Query_624138</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__15419-15449</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -11365,7 +11365,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>156</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654101</Iteration_query-ID>
+  <Iteration_query-ID>Query_624139</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__17503-17521</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -11384,7 +11384,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>157</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654102</Iteration_query-ID>
+  <Iteration_query-ID>Query_624140</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__19585-19600</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -11403,7 +11403,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>158</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654103</Iteration_query-ID>
+  <Iteration_query-ID>Query_624141</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__20902-20968</Iteration_query-def>
   <Iteration_query-len>21</Iteration_query-len>
 <Iteration_hits>
@@ -11422,7 +11422,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>159</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654104</Iteration_query-ID>
+  <Iteration_query-ID>Query_624142</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__9193-9256</Iteration_query-def>
   <Iteration_query-len>20</Iteration_query-len>
 <Iteration_hits>
@@ -11469,7 +11469,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>160</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654105</Iteration_query-ID>
+  <Iteration_query-ID>Query_624143</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__9765-9777</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -11488,7 +11488,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>161</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654106</Iteration_query-ID>
+  <Iteration_query-ID>Query_624144</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__16978-17020</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -11507,7 +11507,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>162</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654107</Iteration_query-ID>
+  <Iteration_query-ID>Query_624145</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__2402-2522</Iteration_query-def>
   <Iteration_query-len>39</Iteration_query-len>
 <Iteration_hits>
@@ -11526,7 +11526,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>163</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654108</Iteration_query-ID>
+  <Iteration_query-ID>Query_624146</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__4531-4618</Iteration_query-def>
   <Iteration_query-len>28</Iteration_query-len>
 <Iteration_hits>
@@ -11573,7 +11573,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>164</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654109</Iteration_query-ID>
+  <Iteration_query-ID>Query_624147</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__13119-13152</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -11592,7 +11592,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>165</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654110</Iteration_query-ID>
+  <Iteration_query-ID>Query_624148</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__14372-14465</Iteration_query-def>
   <Iteration_query-len>30</Iteration_query-len>
 <Iteration_hits>
@@ -11611,7 +11611,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>166</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654111</Iteration_query-ID>
+  <Iteration_query-ID>Query_624149</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__7115-7172</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -11630,7 +11630,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>167</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654112</Iteration_query-ID>
+  <Iteration_query-ID>Query_624150</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__10461-10491</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -11649,7 +11649,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>168</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654113</Iteration_query-ID>
+  <Iteration_query-ID>Query_624151</Iteration_query-ID>
   <Iteration_query-def>STRG.171.1::NC_003197.2:3022085-3044043(-)__21773-21827</Iteration_query-def>
   <Iteration_query-len>17</Iteration_query-len>
 <Iteration_hits>
@@ -11668,7 +11668,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>169</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654114</Iteration_query-ID>
+  <Iteration_query-ID>Query_624152</Iteration_query-ID>
   <Iteration_query-def>STRG.172.1::NC_003197.2:3065481-3071859(-)__1606-1633</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -11687,7 +11687,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>170</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654115</Iteration_query-ID>
+  <Iteration_query-ID>Query_624153</Iteration_query-ID>
   <Iteration_query-def>STRG.174.1::NC_003197.2:3078002-3094871(-)__11203-11257</Iteration_query-def>
   <Iteration_query-len>17</Iteration_query-len>
 <Iteration_hits>
@@ -11734,7 +11734,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>171</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654116</Iteration_query-ID>
+  <Iteration_query-ID>Query_624154</Iteration_query-ID>
   <Iteration_query-def>STRG.174.1::NC_003197.2:3078002-3094871(-)__16775-16868</Iteration_query-def>
   <Iteration_query-len>30</Iteration_query-len>
 <Iteration_hits>
@@ -13153,7 +13153,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>172</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654117</Iteration_query-ID>
+  <Iteration_query-ID>Query_624155</Iteration_query-ID>
   <Iteration_query-def>STRG.177.1::NC_003197.2:3097369-3101425(-)__3315-3348</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -13172,7 +13172,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>173</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654118</Iteration_query-ID>
+  <Iteration_query-ID>Query_624156</Iteration_query-ID>
   <Iteration_query-def>STRG.184.1::NC_003197.2:3199223-3224551(-)__10946-10958</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -13191,7 +13191,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>174</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654119</Iteration_query-ID>
+  <Iteration_query-ID>Query_624157</Iteration_query-ID>
   <Iteration_query-def>STRG.184.1::NC_003197.2:3199223-3224551(-)__18025-18052</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -13210,7 +13210,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>175</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654120</Iteration_query-ID>
+  <Iteration_query-ID>Query_624158</Iteration_query-ID>
   <Iteration_query-def>STRG.184.1::NC_003197.2:3199223-3224551(-)__8278-8296</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -13229,7 +13229,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>176</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654121</Iteration_query-ID>
+  <Iteration_query-ID>Query_624159</Iteration_query-ID>
   <Iteration_query-def>STRG.184.1::NC_003197.2:3199223-3224551(-)__7927-7939</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -13248,7 +13248,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>177</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654122</Iteration_query-ID>
+  <Iteration_query-ID>Query_624160</Iteration_query-ID>
   <Iteration_query-def>STRG.184.1::NC_003197.2:3199223-3224551(-)__11192-11207</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -13267,7 +13267,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>178</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654123</Iteration_query-ID>
+  <Iteration_query-ID>Query_624161</Iteration_query-ID>
   <Iteration_query-def>STRG.184.1::NC_003197.2:3199223-3224551(-)__24153-24189</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -13286,7 +13286,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>179</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654124</Iteration_query-ID>
+  <Iteration_query-ID>Query_624162</Iteration_query-ID>
   <Iteration_query-def>STRG.185.1::NC_003197.2:3229496-3233052(-)__406-538</Iteration_query-def>
   <Iteration_query-len>43</Iteration_query-len>
 <Iteration_hits>
@@ -13305,7 +13305,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>180</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654125</Iteration_query-ID>
+  <Iteration_query-ID>Query_624163</Iteration_query-ID>
   <Iteration_query-def>STRG.185.1::NC_003197.2:3229496-3233052(-)__1087-1117</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -13324,7 +13324,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>181</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654126</Iteration_query-ID>
+  <Iteration_query-ID>Query_624164</Iteration_query-ID>
   <Iteration_query-def>STRG.185.1::NC_003197.2:3229496-3233052(-)__1420-1435</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -13343,7 +13343,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>182</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654127</Iteration_query-ID>
+  <Iteration_query-ID>Query_624165</Iteration_query-ID>
   <Iteration_query-def>STRG.186.1::NC_003197.2:3236385-3238455(-)__165-201</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -13362,7 +13362,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>183</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654128</Iteration_query-ID>
+  <Iteration_query-ID>Query_624166</Iteration_query-ID>
   <Iteration_query-def>STRG.186.1::NC_003197.2:3236385-3238455(-)__1032-1053</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -13381,7 +13381,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>184</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654129</Iteration_query-ID>
+  <Iteration_query-ID>Query_624167</Iteration_query-ID>
   <Iteration_query-def>STRG.188.1::NC_003197.2:3251574-3252910(+)__1259-1274</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -13400,7 +13400,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>185</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654130</Iteration_query-ID>
+  <Iteration_query-ID>Query_624168</Iteration_query-ID>
   <Iteration_query-def>STRG.190.1::NC_003197.2:3265437-3266545(-)__783-798</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -13419,7 +13419,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>186</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654131</Iteration_query-ID>
+  <Iteration_query-ID>Query_624169</Iteration_query-ID>
   <Iteration_query-def>STRG.191.1::NC_003197.2:3266706-3291783(-)__13375-13528</Iteration_query-def>
   <Iteration_query-len>50</Iteration_query-len>
 <Iteration_hits>
@@ -13438,7 +13438,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>187</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654132</Iteration_query-ID>
+  <Iteration_query-ID>Query_624170</Iteration_query-ID>
   <Iteration_query-def>STRG.191.1::NC_003197.2:3266706-3291783(-)__4047-4128</Iteration_query-def>
   <Iteration_query-len>26</Iteration_query-len>
 <Iteration_hits>
@@ -13765,7 +13765,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>188</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654133</Iteration_query-ID>
+  <Iteration_query-ID>Query_624171</Iteration_query-ID>
   <Iteration_query-def>STRG.191.1::NC_003197.2:3266706-3291783(-)__13283-13304</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -13784,7 +13784,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>189</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654134</Iteration_query-ID>
+  <Iteration_query-ID>Query_624172</Iteration_query-ID>
   <Iteration_query-def>STRG.191.1::NC_003197.2:3266706-3291783(-)__15492-15534</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -13803,7 +13803,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>190</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654135</Iteration_query-ID>
+  <Iteration_query-ID>Query_624173</Iteration_query-ID>
   <Iteration_query-def>STRG.191.1::NC_003197.2:3266706-3291783(-)__24134-24170</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -13822,7 +13822,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>191</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654136</Iteration_query-ID>
+  <Iteration_query-ID>Query_624174</Iteration_query-ID>
   <Iteration_query-def>STRG.193.1::NC_003197.2:3296062-3326259(+)__9096-9195</Iteration_query-def>
   <Iteration_query-len>32</Iteration_query-len>
 <Iteration_hits>
@@ -13841,7 +13841,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>192</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654137</Iteration_query-ID>
+  <Iteration_query-ID>Query_624175</Iteration_query-ID>
   <Iteration_query-def>STRG.193.1::NC_003197.2:3296062-3326259(+)__14433-14505</Iteration_query-def>
   <Iteration_query-len>23</Iteration_query-len>
 <Iteration_hits>
@@ -13860,7 +13860,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>193</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654138</Iteration_query-ID>
+  <Iteration_query-ID>Query_624176</Iteration_query-ID>
   <Iteration_query-def>STRG.193.1::NC_003197.2:3296062-3326259(+)__29996-30113</Iteration_query-def>
   <Iteration_query-len>38</Iteration_query-len>
 <Iteration_hits>
@@ -14019,7 +14019,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>194</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654139</Iteration_query-ID>
+  <Iteration_query-ID>Query_624177</Iteration_query-ID>
   <Iteration_query-def>STRG.194.1::NC_003197.2:3335847-3378264(+)__17241-17334</Iteration_query-def>
   <Iteration_query-len>30</Iteration_query-len>
 <Iteration_hits>
@@ -14094,7 +14094,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>195</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654140</Iteration_query-ID>
+  <Iteration_query-ID>Query_624178</Iteration_query-ID>
   <Iteration_query-def>STRG.194.1::NC_003197.2:3335847-3378264(+)__32791-32800</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -14113,7 +14113,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>196</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654141</Iteration_query-ID>
+  <Iteration_query-ID>Query_624179</Iteration_query-ID>
   <Iteration_query-def>STRG.194.1::NC_003197.2:3335847-3378264(+)__989-1187</Iteration_query-def>
   <Iteration_query-len>65</Iteration_query-len>
 <Iteration_hits>
@@ -14412,7 +14412,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>197</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654142</Iteration_query-ID>
+  <Iteration_query-ID>Query_624180</Iteration_query-ID>
   <Iteration_query-def>STRG.194.1::NC_003197.2:3335847-3378264(+)__36115-36136</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -14431,7 +14431,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>198</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654143</Iteration_query-ID>
+  <Iteration_query-ID>Query_624181</Iteration_query-ID>
   <Iteration_query-def>STRG.194.1::NC_003197.2:3335847-3378264(+)__34569-34641</Iteration_query-def>
   <Iteration_query-len>23</Iteration_query-len>
 <Iteration_hits>
@@ -14478,7 +14478,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>199</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654144</Iteration_query-ID>
+  <Iteration_query-ID>Query_624182</Iteration_query-ID>
   <Iteration_query-def>STRG.202.1::NC_003197.2:3547004-3551939(+)__1131-1137</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -14497,7 +14497,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>200</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654145</Iteration_query-ID>
+  <Iteration_query-ID>Query_624183</Iteration_query-ID>
   <Iteration_query-def>STRG.202.1::NC_003197.2:3547004-3551939(+)__1773-1944</Iteration_query-def>
   <Iteration_query-len>56</Iteration_query-len>
 <Iteration_hits>
@@ -14656,7 +14656,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>201</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654146</Iteration_query-ID>
+  <Iteration_query-ID>Query_624184</Iteration_query-ID>
   <Iteration_query-def>STRG.206.1::NC_003197.2:3582861-3596699(-)__1294-1303</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -14675,7 +14675,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>202</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654147</Iteration_query-ID>
+  <Iteration_query-ID>Query_624185</Iteration_query-ID>
   <Iteration_query-def>STRG.206.1::NC_003197.2:3582861-3596699(-)__6250-6256</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -14694,7 +14694,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>203</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654148</Iteration_query-ID>
+  <Iteration_query-ID>Query_624186</Iteration_query-ID>
   <Iteration_query-def>STRG.206.1::NC_003197.2:3582861-3596699(-)__12589-12658</Iteration_query-def>
   <Iteration_query-len>22</Iteration_query-len>
 <Iteration_hits>
@@ -14713,7 +14713,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>204</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654149</Iteration_query-ID>
+  <Iteration_query-ID>Query_624187</Iteration_query-ID>
   <Iteration_query-def>STRG.206.1::NC_003197.2:3582861-3596699(-)__7097-7103</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -14732,7 +14732,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>205</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654150</Iteration_query-ID>
+  <Iteration_query-ID>Query_624188</Iteration_query-ID>
   <Iteration_query-def>STRG.206.1::NC_003197.2:3582861-3596699(-)__12721-12733</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -14751,7 +14751,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>206</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654151</Iteration_query-ID>
+  <Iteration_query-ID>Query_624189</Iteration_query-ID>
   <Iteration_query-def>STRG.206.1::NC_003197.2:3582861-3596699(-)__1376-1436</Iteration_query-def>
   <Iteration_query-len>19</Iteration_query-len>
 <Iteration_hits>
@@ -14966,7 +14966,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>207</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654152</Iteration_query-ID>
+  <Iteration_query-ID>Query_624190</Iteration_query-ID>
   <Iteration_query-def>STRG.206.1::NC_003197.2:3582861-3596699(-)__2628-2664</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -14985,7 +14985,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>208</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654153</Iteration_query-ID>
+  <Iteration_query-ID>Query_624191</Iteration_query-ID>
   <Iteration_query-def>STRG.206.1::NC_003197.2:3582861-3596699(-)__6863-6890</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -15004,7 +15004,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>209</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654154</Iteration_query-ID>
+  <Iteration_query-ID>Query_624192</Iteration_query-ID>
   <Iteration_query-def>STRG.206.1::NC_003197.2:3582861-3596699(-)__11326-11362</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -15023,7 +15023,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>210</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654155</Iteration_query-ID>
+  <Iteration_query-ID>Query_624193</Iteration_query-ID>
   <Iteration_query-def>STRG.207.1::NC_003197.2:3598279-3606932(-)__1152-1197</Iteration_query-def>
   <Iteration_query-len>14</Iteration_query-len>
 <Iteration_hits>
@@ -15042,7 +15042,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>211</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654156</Iteration_query-ID>
+  <Iteration_query-ID>Query_624194</Iteration_query-ID>
   <Iteration_query-def>STRG.210.1::NC_003197.2:3656514-3666774(+)__5031-5118</Iteration_query-def>
   <Iteration_query-len>28</Iteration_query-len>
 <Iteration_hits>
@@ -15145,7 +15145,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>212</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654157</Iteration_query-ID>
+  <Iteration_query-ID>Query_624195</Iteration_query-ID>
   <Iteration_query-def>STRG.213.1::NC_003197.2:3676861-3682840(+)__1394-1580</Iteration_query-def>
   <Iteration_query-len>61</Iteration_query-len>
 <Iteration_hits>
@@ -15276,7 +15276,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>213</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654158</Iteration_query-ID>
+  <Iteration_query-ID>Query_624196</Iteration_query-ID>
   <Iteration_query-def>STRG.213.1::NC_003197.2:3676861-3682840(+)__1082-1241</Iteration_query-def>
   <Iteration_query-len>52</Iteration_query-len>
 <Iteration_hits>
@@ -15603,7 +15603,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>214</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654159</Iteration_query-ID>
+  <Iteration_query-ID>Query_624197</Iteration_query-ID>
   <Iteration_query-def>STRG.215.1::NC_003197.2:3735921-3745349(-)__8471-8546</Iteration_query-def>
   <Iteration_query-len>24</Iteration_query-len>
 <Iteration_hits>
@@ -15678,7 +15678,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>215</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654160</Iteration_query-ID>
+  <Iteration_query-ID>Query_624198</Iteration_query-ID>
   <Iteration_query-def>STRG.215.1::NC_003197.2:3735921-3745349(-)__8552-8651</Iteration_query-def>
   <Iteration_query-len>32</Iteration_query-len>
 <Iteration_hits>
@@ -15725,7 +15725,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>216</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654161</Iteration_query-ID>
+  <Iteration_query-ID>Query_624199</Iteration_query-ID>
   <Iteration_query-def>STRG.215.1::NC_003197.2:3735921-3745349(-)__9178-9232</Iteration_query-def>
   <Iteration_query-len>17</Iteration_query-len>
 <Iteration_hits>
@@ -15744,7 +15744,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>217</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654162</Iteration_query-ID>
+  <Iteration_query-ID>Query_624200</Iteration_query-ID>
   <Iteration_query-def>STRG.215.1::NC_003197.2:3735921-3745349(-)__5885-5912</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -15763,7 +15763,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>218</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654163</Iteration_query-ID>
+  <Iteration_query-ID>Query_624201</Iteration_query-ID>
   <Iteration_query-def>STRG.215.1::NC_003197.2:3735921-3745349(-)__8915-8930</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -15782,7 +15782,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>219</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654164</Iteration_query-ID>
+  <Iteration_query-ID>Query_624202</Iteration_query-ID>
   <Iteration_query-def>STRG.217.1::NC_003197.2:3760713-3761392(+)__271-277</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -15801,7 +15801,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>220</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654165</Iteration_query-ID>
+  <Iteration_query-ID>Query_624203</Iteration_query-ID>
   <Iteration_query-def>STRG.221.1::NC_003197.2:3855506-3870832(-)__2156-2330</Iteration_query-def>
   <Iteration_query-len>57</Iteration_query-len>
 <Iteration_hits>
@@ -15932,7 +15932,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>221</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654166</Iteration_query-ID>
+  <Iteration_query-ID>Query_624204</Iteration_query-ID>
   <Iteration_query-def>STRG.222.1::NC_003197.2:3870850-3880065(-)__8877-9000</Iteration_query-def>
   <Iteration_query-len>40</Iteration_query-len>
 <Iteration_hits>
@@ -15979,7 +15979,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>222</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654167</Iteration_query-ID>
+  <Iteration_query-ID>Query_624205</Iteration_query-ID>
   <Iteration_query-def>STRG.223.1::NC_003197.2:3889599-3897348(-)__1443-1533</Iteration_query-def>
   <Iteration_query-len>29</Iteration_query-len>
 <Iteration_hits>
@@ -15998,7 +15998,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>223</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654168</Iteration_query-ID>
+  <Iteration_query-ID>Query_624206</Iteration_query-ID>
   <Iteration_query-def>STRG.224.1::NC_003197.2:3897568-3905114(+)__5058-5295</Iteration_query-def>
   <Iteration_query-len>78</Iteration_query-len>
 <Iteration_hits>
@@ -17417,7 +17417,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>224</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654169</Iteration_query-ID>
+  <Iteration_query-ID>Query_624207</Iteration_query-ID>
   <Iteration_query-def>STRG.226.1::NC_003197.2:4009376-4010427(-)__524-617</Iteration_query-def>
   <Iteration_query-len>30</Iteration_query-len>
 <Iteration_hits>
@@ -17436,7 +17436,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>225</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654170</Iteration_query-ID>
+  <Iteration_query-ID>Query_624208</Iteration_query-ID>
   <Iteration_query-def>STRG.228.1::NC_003197.2:4038812-4045290(-)__3930-3972</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -17455,7 +17455,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>226</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654171</Iteration_query-ID>
+  <Iteration_query-ID>Query_624209</Iteration_query-ID>
   <Iteration_query-def>STRG.229.1::NC_003197.2:4045484-4111189(-)__30345-30366</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -17474,7 +17474,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>227</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654172</Iteration_query-ID>
+  <Iteration_query-ID>Query_624210</Iteration_query-ID>
   <Iteration_query-def>STRG.229.1::NC_003197.2:4045484-4111189(-)__36587-36596</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -17493,7 +17493,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>228</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654173</Iteration_query-ID>
+  <Iteration_query-ID>Query_624211</Iteration_query-ID>
   <Iteration_query-def>STRG.229.1::NC_003197.2:4045484-4111189(-)__47491-47563</Iteration_query-def>
   <Iteration_query-len>23</Iteration_query-len>
 <Iteration_hits>
@@ -17512,7 +17512,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>229</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654174</Iteration_query-ID>
+  <Iteration_query-ID>Query_624212</Iteration_query-ID>
   <Iteration_query-def>STRG.229.1::NC_003197.2:4045484-4111189(-)__31685-31721</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -17531,7 +17531,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>230</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654175</Iteration_query-ID>
+  <Iteration_query-ID>Query_624213</Iteration_query-ID>
   <Iteration_query-def>STRG.229.1::NC_003197.2:4045484-4111189(-)__32291-32366</Iteration_query-def>
   <Iteration_query-len>24</Iteration_query-len>
 <Iteration_hits>
@@ -17550,7 +17550,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>231</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654176</Iteration_query-ID>
+  <Iteration_query-ID>Query_624214</Iteration_query-ID>
   <Iteration_query-def>STRG.229.1::NC_003197.2:4045484-4111189(-)__39573-39606</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -17569,7 +17569,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>232</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654177</Iteration_query-ID>
+  <Iteration_query-ID>Query_624215</Iteration_query-ID>
   <Iteration_query-def>STRG.229.1::NC_003197.2:4045484-4111189(-)__41033-41150</Iteration_query-def>
   <Iteration_query-len>38</Iteration_query-len>
 <Iteration_hits>
@@ -17644,7 +17644,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>233</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654178</Iteration_query-ID>
+  <Iteration_query-ID>Query_624216</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__1007-1040</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -17663,7 +17663,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>234</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654179</Iteration_query-ID>
+  <Iteration_query-ID>Query_624217</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__7597-7624</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -17682,7 +17682,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>235</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654180</Iteration_query-ID>
+  <Iteration_query-ID>Query_624218</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__9734-9755</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -17701,7 +17701,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>236</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654181</Iteration_query-ID>
+  <Iteration_query-ID>Query_624219</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__10037-10043</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -17720,7 +17720,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>237</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654182</Iteration_query-ID>
+  <Iteration_query-ID>Query_624220</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__14308-14428</Iteration_query-def>
   <Iteration_query-len>39</Iteration_query-len>
 <Iteration_hits>
@@ -17767,7 +17767,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>238</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654183</Iteration_query-ID>
+  <Iteration_query-ID>Query_624221</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__17314-17443</Iteration_query-def>
   <Iteration_query-len>42</Iteration_query-len>
 <Iteration_hits>
@@ -18010,7 +18010,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>239</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654184</Iteration_query-ID>
+  <Iteration_query-ID>Query_624222</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__633-891</Iteration_query-def>
   <Iteration_query-len>85</Iteration_query-len>
 <Iteration_hits>
@@ -18309,7 +18309,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>240</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654185</Iteration_query-ID>
+  <Iteration_query-ID>Query_624223</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__3978-4017</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -18328,7 +18328,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>241</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654186</Iteration_query-ID>
+  <Iteration_query-ID>Query_624224</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__11934-12012</Iteration_query-def>
   <Iteration_query-len>25</Iteration_query-len>
 <Iteration_hits>
@@ -18375,7 +18375,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>242</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654187</Iteration_query-ID>
+  <Iteration_query-ID>Query_624225</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__13114-13213</Iteration_query-def>
   <Iteration_query-len>32</Iteration_query-len>
 <Iteration_hits>
@@ -18394,7 +18394,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>243</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654188</Iteration_query-ID>
+  <Iteration_query-ID>Query_624226</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__16690-16813</Iteration_query-def>
   <Iteration_query-len>40</Iteration_query-len>
 <Iteration_hits>
@@ -18441,7 +18441,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>244</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654189</Iteration_query-ID>
+  <Iteration_query-ID>Query_624227</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__23012-23192</Iteration_query-def>
   <Iteration_query-len>59</Iteration_query-len>
 <Iteration_hits>
@@ -18656,7 +18656,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>245</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654190</Iteration_query-ID>
+  <Iteration_query-ID>Query_624228</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__8707-8734</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -18675,7 +18675,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>246</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654191</Iteration_query-ID>
+  <Iteration_query-ID>Query_624229</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__7396-7525</Iteration_query-def>
   <Iteration_query-len>42</Iteration_query-len>
 <Iteration_hits>
@@ -18694,7 +18694,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>247</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654192</Iteration_query-ID>
+  <Iteration_query-ID>Query_624230</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__11509-11539</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -18713,7 +18713,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>248</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654193</Iteration_query-ID>
+  <Iteration_query-ID>Query_624231</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__12404-12500</Iteration_query-def>
   <Iteration_query-len>31</Iteration_query-len>
 <Iteration_hits>
@@ -18732,7 +18732,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>249</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654194</Iteration_query-ID>
+  <Iteration_query-ID>Query_624232</Iteration_query-ID>
   <Iteration_query-def>STRG.231.1::NC_003197.2:4117334-4141329(+)__22624-22663</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -18751,7 +18751,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>250</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654195</Iteration_query-ID>
+  <Iteration_query-ID>Query_624233</Iteration_query-ID>
   <Iteration_query-def>STRG.238.1::NC_003197.2:4290075-4296794(-)__147-222</Iteration_query-def>
   <Iteration_query-len>24</Iteration_query-len>
 <Iteration_hits>
@@ -18854,7 +18854,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>251</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654196</Iteration_query-ID>
+  <Iteration_query-ID>Query_624234</Iteration_query-ID>
   <Iteration_query-def>STRG.238.1::NC_003197.2:4290075-4296794(-)__187-319</Iteration_query-def>
   <Iteration_query-len>43</Iteration_query-len>
 <Iteration_hits>
@@ -18957,7 +18957,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>252</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654197</Iteration_query-ID>
+  <Iteration_query-ID>Query_624235</Iteration_query-ID>
   <Iteration_query-def>STRG.238.1::NC_003197.2:4290075-4296794(-)__6255-6276</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -18976,7 +18976,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>253</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654198</Iteration_query-ID>
+  <Iteration_query-ID>Query_624236</Iteration_query-ID>
   <Iteration_query-def>STRG.238.1::NC_003197.2:4290075-4296794(-)__4388-4463</Iteration_query-def>
   <Iteration_query-len>24</Iteration_query-len>
 <Iteration_hits>
@@ -18995,7 +18995,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>254</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654199</Iteration_query-ID>
+  <Iteration_query-ID>Query_624237</Iteration_query-ID>
   <Iteration_query-def>STRG.240.1::NC_003197.2:4297084-4297549(+)__260-437</Iteration_query-def>
   <Iteration_query-len>58</Iteration_query-len>
 <Iteration_hits>
@@ -20433,7 +20433,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>255</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654200</Iteration_query-ID>
+  <Iteration_query-ID>Query_624238</Iteration_query-ID>
   <Iteration_query-def>STRG.240.1::NC_003197.2:4297084-4297549(+)__320-437</Iteration_query-def>
   <Iteration_query-len>38</Iteration_query-len>
 <Iteration_hits>
@@ -21852,7 +21852,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>256</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654201</Iteration_query-ID>
+  <Iteration_query-ID>Query_624239</Iteration_query-ID>
   <Iteration_query-def>STRG.241.1::NC_003197.2:4305629-4306010(+)__91-205</Iteration_query-def>
   <Iteration_query-len>37</Iteration_query-len>
 <Iteration_hits>
@@ -22039,7 +22039,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>257</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654202</Iteration_query-ID>
+  <Iteration_query-ID>Query_624240</Iteration_query-ID>
   <Iteration_query-def>STRG.243.1::NC_003197.2:4318500-4321782(+)__1021-1030</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -22058,7 +22058,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>258</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654203</Iteration_query-ID>
+  <Iteration_query-ID>Query_624241</Iteration_query-ID>
   <Iteration_query-def>STRG.243.1::NC_003197.2:4318500-4321782(+)__2507-2543</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -22077,7 +22077,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>259</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654204</Iteration_query-ID>
+  <Iteration_query-ID>Query_624242</Iteration_query-ID>
   <Iteration_query-def>STRG.247.1::NC_003197.2:4386627-4387011(+)__116-122</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -22096,7 +22096,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>260</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654205</Iteration_query-ID>
+  <Iteration_query-ID>Query_624243</Iteration_query-ID>
   <Iteration_query-def>STRG.250.1::NC_003197.2:4413988-4414701(-)__565-598</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -22115,7 +22115,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>261</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654206</Iteration_query-ID>
+  <Iteration_query-ID>Query_624244</Iteration_query-ID>
   <Iteration_query-def>STRG.252.1::NC_003197.2:4446702-4450561(-)__433-451</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -22134,7 +22134,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>262</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654207</Iteration_query-ID>
+  <Iteration_query-ID>Query_624245</Iteration_query-ID>
   <Iteration_query-def>STRG.253.1::NC_003197.2:4450864-4454550(+)__914-956</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -22153,7 +22153,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>263</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654208</Iteration_query-ID>
+  <Iteration_query-ID>Query_624246</Iteration_query-ID>
   <Iteration_query-def>STRG.254.1::NC_003197.2:4459261-4476882(+)__12617-12668</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -22172,7 +22172,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>264</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654209</Iteration_query-ID>
+  <Iteration_query-ID>Query_624247</Iteration_query-ID>
   <Iteration_query-def>STRG.254.1::NC_003197.2:4459261-4476882(+)__16973-17018</Iteration_query-def>
   <Iteration_query-len>14</Iteration_query-len>
 <Iteration_hits>
@@ -22191,7 +22191,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>265</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654210</Iteration_query-ID>
+  <Iteration_query-ID>Query_624248</Iteration_query-ID>
   <Iteration_query-def>STRG.254.1::NC_003197.2:4459261-4476882(+)__12724-12787</Iteration_query-def>
   <Iteration_query-len>20</Iteration_query-len>
 <Iteration_hits>
@@ -22210,7 +22210,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>266</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654211</Iteration_query-ID>
+  <Iteration_query-ID>Query_624249</Iteration_query-ID>
   <Iteration_query-def>STRG.256.1::NC_003197.2:4574725-4580168(+)__1680-1689</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -22229,7 +22229,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>267</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654212</Iteration_query-ID>
+  <Iteration_query-ID>Query_624250</Iteration_query-ID>
   <Iteration_query-def>STRG.258.1::NC_003197.2:4596229-4614342(+)__14655-14661</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -22248,7 +22248,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>268</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654213</Iteration_query-ID>
+  <Iteration_query-ID>Query_624251</Iteration_query-ID>
   <Iteration_query-def>STRG.258.1::NC_003197.2:4596229-4614342(+)__13149-13200</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -22295,7 +22295,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>269</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654214</Iteration_query-ID>
+  <Iteration_query-ID>Query_624252</Iteration_query-ID>
   <Iteration_query-def>STRG.258.1::NC_003197.2:4596229-4614342(+)__7178-7265</Iteration_query-def>
   <Iteration_query-len>28</Iteration_query-len>
 <Iteration_hits>
@@ -22314,7 +22314,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>270</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654215</Iteration_query-ID>
+  <Iteration_query-ID>Query_624253</Iteration_query-ID>
   <Iteration_query-def>STRG.258.1::NC_003197.2:4596229-4614342(+)__13890-13899</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -22333,7 +22333,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>271</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654216</Iteration_query-ID>
+  <Iteration_query-ID>Query_624254</Iteration_query-ID>
   <Iteration_query-def>STRG.258.1::NC_003197.2:4596229-4614342(+)__16305-16479</Iteration_query-def>
   <Iteration_query-len>57</Iteration_query-len>
 <Iteration_hits>
@@ -22492,7 +22492,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>272</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654217</Iteration_query-ID>
+  <Iteration_query-ID>Query_624255</Iteration_query-ID>
   <Iteration_query-def>STRG.258.1::NC_003197.2:4596229-4614342(+)__13857-13872</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -22511,7 +22511,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>273</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654218</Iteration_query-ID>
+  <Iteration_query-ID>Query_624256</Iteration_query-ID>
   <Iteration_query-def>STRG.258.1::NC_003197.2:4596229-4614342(+)__15070-15130</Iteration_query-def>
   <Iteration_query-len>19</Iteration_query-len>
 <Iteration_hits>
@@ -22530,7 +22530,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>274</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654219</Iteration_query-ID>
+  <Iteration_query-ID>Query_624257</Iteration_query-ID>
   <Iteration_query-def>STRG.258.1::NC_003197.2:4596229-4614342(+)__296-353</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -22549,7 +22549,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>275</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654220</Iteration_query-ID>
+  <Iteration_query-ID>Query_624258</Iteration_query-ID>
   <Iteration_query-def>STRG.260.1::NC_003197.2:4643256-4643628(+)__25-88</Iteration_query-def>
   <Iteration_query-len>20</Iteration_query-len>
 <Iteration_hits>
@@ -22596,7 +22596,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>276</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654221</Iteration_query-ID>
+  <Iteration_query-ID>Query_624259</Iteration_query-ID>
   <Iteration_query-def>STRG.262.1::NC_003197.2:4703043-4704922(-)__625-649</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -22615,7 +22615,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>277</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654222</Iteration_query-ID>
+  <Iteration_query-ID>Query_624260</Iteration_query-ID>
   <Iteration_query-def>STRG.263.1::NC_003197.2:4704935-4716928(-)__6594-6723</Iteration_query-def>
   <Iteration_query-len>42</Iteration_query-len>
 <Iteration_hits>
@@ -22634,7 +22634,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>278</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654223</Iteration_query-ID>
+  <Iteration_query-ID>Query_624261</Iteration_query-ID>
   <Iteration_query-def>STRG.264.1::NC_003197.2:4716929-4751890(-)__34307-34358</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -22681,7 +22681,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>279</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654224</Iteration_query-ID>
+  <Iteration_query-ID>Query_624262</Iteration_query-ID>
   <Iteration_query-def>STRG.264.1::NC_003197.2:4716929-4751890(-)__13124-13196</Iteration_query-def>
   <Iteration_query-len>23</Iteration_query-len>
 <Iteration_hits>
@@ -22728,7 +22728,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>280</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654225</Iteration_query-ID>
+  <Iteration_query-ID>Query_624263</Iteration_query-ID>
   <Iteration_query-def>STRG.264.1::NC_003197.2:4716929-4751890(-)__346-358</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -22747,7 +22747,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>281</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654226</Iteration_query-ID>
+  <Iteration_query-ID>Query_624264</Iteration_query-ID>
   <Iteration_query-def>STRG.264.1::NC_003197.2:4716929-4751890(-)__14057-14147</Iteration_query-def>
   <Iteration_query-len>29</Iteration_query-len>
 <Iteration_hits>
@@ -22794,7 +22794,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>282</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654227</Iteration_query-ID>
+  <Iteration_query-ID>Query_624265</Iteration_query-ID>
   <Iteration_query-def>STRG.264.1::NC_003197.2:4716929-4751890(-)__33467-33593</Iteration_query-def>
   <Iteration_query-len>41</Iteration_query-len>
 <Iteration_hits>
@@ -23149,7 +23149,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>283</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654228</Iteration_query-ID>
+  <Iteration_query-ID>Query_624266</Iteration_query-ID>
   <Iteration_query-def>STRG.264.1::NC_003197.2:4716929-4751890(-)__11318-11384</Iteration_query-def>
   <Iteration_query-len>21</Iteration_query-len>
 <Iteration_hits>
@@ -23168,7 +23168,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>284</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654229</Iteration_query-ID>
+  <Iteration_query-ID>Query_624267</Iteration_query-ID>
   <Iteration_query-def>STRG.264.1::NC_003197.2:4716929-4751890(-)__12979-13018</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -23187,7 +23187,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>285</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654230</Iteration_query-ID>
+  <Iteration_query-ID>Query_624268</Iteration_query-ID>
   <Iteration_query-def>STRG.264.1::NC_003197.2:4716929-4751890(-)__30667-30730</Iteration_query-def>
   <Iteration_query-len>20</Iteration_query-len>
 <Iteration_hits>
@@ -23206,7 +23206,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>286</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654231</Iteration_query-ID>
+  <Iteration_query-ID>Query_624269</Iteration_query-ID>
   <Iteration_query-def>STRG.267.1::NC_003197.2:4790085-4804191(+)__7596-7620</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -23225,7 +23225,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>287</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654232</Iteration_query-ID>
+  <Iteration_query-ID>Query_624270</Iteration_query-ID>
   <Iteration_query-def>STRG.267.1::NC_003197.2:4790085-4804191(+)__8740-8827</Iteration_query-def>
   <Iteration_query-len>28</Iteration_query-len>
 <Iteration_hits>
@@ -23244,7 +23244,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>288</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654233</Iteration_query-ID>
+  <Iteration_query-ID>Query_624271</Iteration_query-ID>
   <Iteration_query-def>STRG.267.1::NC_003197.2:4790085-4804191(+)__8303-8330</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -23263,7 +23263,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>289</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654234</Iteration_query-ID>
+  <Iteration_query-ID>Query_624272</Iteration_query-ID>
   <Iteration_query-def>STRG.267.1::NC_003197.2:4790085-4804191(+)__7796-7820</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -23282,7 +23282,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>290</Iteration_iter-num>
-  <Iteration_query-ID>Query_6654235</Iteration_query-ID>
+  <Iteration_query-ID>Query_624273</Iteration_query-ID>
   <Iteration_query-def>STRG.269.1::NC_003197.2:4855356-4856567(-)__179-242</Iteration_query-def>
   <Iteration_query-len>20</Iteration_query-len>
 <Iteration_hits>

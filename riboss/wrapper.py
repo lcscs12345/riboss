@@ -242,7 +242,7 @@ def align_short_reads(
     bam = read1.split(os.extsep)[0] + 'Aligned.out.bam'
     
     if os.path.exists(bam):
-        logging.info('saved alignment to' + bam)
+        logging.info('saved alignment to ' + bam)
     else:
         logging.error('No alignment file generated!')
         

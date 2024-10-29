@@ -1,4 +1,3 @@
-track name="Transcriptome" description="Transcriptome assembly" visibility=2 colorByStrand="255,0,0 0,0,255"
 NC_003197.2	7628	8608	STRG.1.1::gi|16763390|ref|NC_003197.1|:7628-8608(+)	60	+
 NC_003197.2	11494	14752	STRG.2.1::gi|16763390|ref|NC_003197.1|:11494-14752(+)	60	+
 NC_003197.2	14777	52219	STRG.3.1::gi|16763390|ref|NC_003197.1|:14777-52219(-)	60	-
