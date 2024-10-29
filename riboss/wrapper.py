@@ -10,7 +10,7 @@
 
 
 
-import subprocess, os, sys, logging
+import subprocess, os, sys, logging.config
 from io import StringIO
 import pandas as pd
 
@@ -318,26 +318,26 @@ def riboprofiler(
         * sf: quan.sf from Salmon (required)
         * out: prefix for output files (required)
         * tabd_cutoff: cutoff for transcript abundance (default=0)
-        * min_fplen: minimum footprint size for analysis (default=23)
+        * min_fplen: minimum footprint size for analysis (default=25)
         * max_fplen: minimum footprint size for analysis (default=35)
     
     Output:
         * file path for .base. Output include .base., .codon, _abundant.list, and _scarce.list
     """
-        
+
     cmd = [
         'riboprof',
-        '--ribobam', ribobam,
-        '--mrnabam', mrnabam,
-        '--fasta', fasta,
-        '--cds_range', cds_range_file,
-        '--sf', sf,
-        '--tabd_cutoff', str(tabd_cutoff),
-        '--offset', offset,
-        '--out', out,
+        '--ribobam', '"{}"'.format(ribobam),
+        '--mrnabam', '"{}"'.format(mrnabam),
+        '--fasta', '"{}"'.format(fasta),
+        '--cds_range', '"{}"'.format(cds_range_file),
+        '--sf', '"{}"'.format(sf),
+        '--tabd_cutoff', '"{}"'.format(str(tabd_cutoff)),
+        '--offset', '"{}"'.format(offset),
+        '--out', '"{}"'.format(out),
         '--useSecondary',
-        '--min_fplen', str(min_fplen),
-        '--max_fplen', str(min_fplen),
+        '--min_fplen', '"{}"'.format(str(min_fplen)),
+        '--max_fplen', '"{}"'.format(str(max_fplen))
         ]
     
     if os.path.isdir(out)==True:
@@ -345,8 +345,13 @@ def riboprofiler(
     elif (os.path.isdir(out)!=True) & (os.path.isdir(os.path.split(out)[0])!=True):
         os.makedirs(os.path.split(out)[0])
     
-    subprocess.run(cmd, check=True)
-
+    # cmd = ' '.join(cmd) + '\n'
+    # with open('rp.sh','w') as sh:
+    #     sh.write(cmd)
+        
+    # subprocess.run('chmod +x rp.sh', check=True, shell=True)
+    subprocess.run(' '.join(cmd), check=True, shell=True)
+    
     if os.path.exists(out + '.base'):
         logging.info('saved main output as ' + out + '.base')
     else:

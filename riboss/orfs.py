@@ -11,7 +11,7 @@
 
 
 
-import os, re, time, argparse, csv, gzip, logging, subprocess
+import os, re, time, argparse, csv, gzip, logging.config, subprocess
 import pandas as pd 
 import seaborn as sns
 import matplotlib.pyplot as plt

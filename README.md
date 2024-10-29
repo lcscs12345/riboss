@@ -22,22 +22,27 @@ conda activate riboss
 conda install -y \
     -c conda-forge -c bioconda \
     boost-cpp seqan-library=1.4.2 \
-    stringtie=2.2.3 salmon=1.10 \
-    seaborn matplotlib \
-    biopython pysam htslib samtools bedtools pyranges minimap2 star tqdm jupyter \
+    jupyter pandas \
+    pysam seaborn matplotlib \
+    stringtie=2.2.3 salmon \
+    biopython htslib samtools bedtools pyranges minimap2 star tqdm jupyter \
     ucsc-gtftogenepred ucsc-bedtogenepred ucsc-genepredtobed ucsc-bedsort ucsc-bedtobigbed \
-    pyfaidx rseqc -->
+    pyfaidx rseqc
+conda env export > environment.yml -->
 
-#### Install RIBOSS
+#### Install RIBOSS and dependencies
 
 ```
+conda activate riboss
 git clone https://github.com/lcscs12345/riboss.git
+
 DIRNAME=`which python | xargs dirname`
 cp riboss/bin/riboprof $DIRNAME
 chmod +x $DIRNAME/riboprof
 ```
 
-#### Next time, activate the conda environment through
+#### Activate the conda environment for next time
+
 ```
 eval "$(/$HOME/miniforge3/bin/conda shell.bash hook)"
 conda activate riboss
@@ -59,7 +64,7 @@ Download the Ribosome profiling alignment files and `mkdir doc/styphimurium/rib
 
 Follow the steps in `test.ipynb`.
 
-#### References:
+### References:
 
 - Lim, C.S., Wardell, S.J.T., Kleffmann, T. & Brown, C.M. (2018) The exon-intron gene structure upstream of the initiation codon predicts translation efficiency. _Nucleic Acids Res_, 46:4575-4591. DOI: [10.1093/nar/gky282](https://doi.org/10.1093/nar/gky282)
 - Bryant, O.J., Lastovka, F., Powell, J. et al. (2023) The distinct translational landscapes of gram-negative _Salmonella_ and gram-positive _Listeria_. _Nat Commun_, 14:8167. DOI: [10.1038/s41467-023-43759-1](https://doi.org/10.1038/s41467-023-43759-1)

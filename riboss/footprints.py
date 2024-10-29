@@ -11,7 +11,7 @@
 
 
 
-import os, time, argparse, textwrap, csv, random, pysam, sys, logging, re
+import os, time, argparse, textwrap, csv, random, pysam, sys, logging.config, re
 import numpy as np
 import pandas as pd
 import seaborn as sns

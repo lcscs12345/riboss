@@ -11,7 +11,7 @@
 
 
 
-import os, re, sys, time, argparse, textwrap, csv, logging, subprocess
+import os, re, sys, time, argparse, textwrap, csv, logging.config, subprocess
 from urllib.request import HTTPError
 import numpy as np
 import pandas as pd
