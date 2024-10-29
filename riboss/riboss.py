@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2024-10-19 07:03:24
+@modify date 2024-10-30 10:33:05
 @desc        Main RIBOSS module
 """
 
@@ -684,7 +684,7 @@ def profile_anomaly(bedgraph, bb, bed, fasta, scatterplot_prefix=None):
 
 
 
-def riboss(superkingdom, df, orf, riboprof_base, tx_assembly, fasta, fai, bed, 
+def riboss(superkingdom, df, riboprof_base, tx_assembly, fasta, fai, bed, 
            utr=30, tie=False, num_simulations=1000, 
            run_blastp=False, run_efetch=False, 
            tries=5, sleep=1, 
@@ -746,7 +746,7 @@ def riboss(superkingdom, df, orf, riboprof_base, tx_assembly, fasta, fai, bed,
         rhits = chits.dropna()[chits.dropna().title.str.contains(refseq)]
         tophits = pd.concat([rhits, chits.sort_values('bits', ascending=False)]).drop_duplicates('oid')
         tophits.to_pickle(fname + '.tophits.pkl.gz')
-        bb = tophits_to_biggenepred(orf, tophits, bed, fai, fname, delim)
+        bb = tophits_to_biggenepred(df, tophits, bed, fai, fname, delim)
         _ = profile_anomaly(bedgraph, bb, bed, fasta, fname)
         
         # plot top hits

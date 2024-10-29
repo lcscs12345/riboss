@@ -30,12 +30,11 @@ conda install -y \
     pyfaidx rseqc
 conda env export > environment.yml -->
 
-#### Install RIBOSS and dependencies
+#### Install RIBOSS
 
 ```
 conda activate riboss
 git clone https://github.com/lcscs12345/riboss.git
-
 DIRNAME=`which python | xargs dirname`
 cp riboss/bin/riboprof $DIRNAME
 chmod +x $DIRNAME/riboprof
@@ -62,7 +61,7 @@ Download the Ribosome profiling alignment files and `mkdir doc/styphimurium/rib
 - ERR9130943Aligned.out.bam: RNase I, 500 U.
 - ERR9130946Aligned.out.bam: matched RNA-seq.
 
-Follow the steps in `test.ipynb`.
+Follow the steps in [`test.ipynb`](https://github.com/lcscs12345/riboss/blob/master/test.ipynb).
 
 ### References:
 

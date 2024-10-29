@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2024-09-13 15:26:12
-@modify date 2024-10-28 11:16:13
+@modify date 2024-10-30 10:35:59
 @desc        RIBOSS module for finding ORFs
 """
 
@@ -111,6 +111,19 @@ def top_3_frames(seq, start_codon):
 
 
 def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", "CTG", "GTG", "TTG"]):
+    """
+    Input:
+        * annotation: gene annotation file in GTF, GFF3 or BED format 
+        * fasta: genome fasta file (required)
+        * ncrna: remove noncoding RNAs from analysis
+        * outdir: output directory (default: None)
+        * start_codon: any triplets (default: ATG, CTG, GTG and TTG)
+    Output:
+        * cds_range: as input for analyse_footprints
+        * orf: as input for riboss
+        * df: as input for footprint_counts
+    """
+    
     start_time = time.perf_counter()
 
     fname = filename(annotation, None, outdir)
@@ -216,14 +229,16 @@ def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", 
     df = pd.concat([oorf, orf]).drop_duplicates(['Name','start_codon','ORF_start','ORF_end'])
     df = pd.concat([df, inframe]).drop_duplicates(['Name','start_codon','ORF_start','ORF_end'], keep=False)
     df = pd.concat([cds, df]).drop_duplicates(['Name','start_codon','ORF_start','ORF_end'])
-    
+    df = df.drop(['fasta_header','Strand_b','frame_plus','frame_minus','Start_b','End_b'], axis=1).rename(columns={'Name':'tid'})
+    df['ORF_length'] = df.ORF_range.apply(lambda x: x[1]-x[0])
+
     logging.info('found ' + str(df.shape[0]) + ' ORFs in ' + 
           str(round((time.perf_counter()-start_time)/60)) + ' min ' +
           str(round((time.perf_counter()-start_time)%60)) + ' s')
     logging.info('saved sequences as ' + fname + '.transcripts.fa')
     logging.info('saved CDS range as ' + fname + '.cds_range.txt')
-    
-    return cds_range, fname + '.cds_range.txt', df
+
+    return cds_range, df
 
 
 
@@ -253,7 +268,7 @@ def operon_distribution(op, displot_prefix):
     g.set_axis_labels(xlabel='Number of ORFs per mRNA', ylabel='mRNA length')
     plt.savefig(displot_prefix + '.operon_scatter.pdf', bbox_inches='tight')
     
-    logging.info('plotted the distribution of operons as ' + displot_prefix + '.operon_dist.pdf and' + displot_prefix + '.operon_scatter.pdf')
+    logging.info('plotted the distribution of operons as ' + displot_prefix + '.operon_dist.pdf and ' + displot_prefix + '.operon_scatter.pdf')
     
 
 
@@ -268,10 +283,11 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None,
         * bed: converted from gff3, e.g. from NCBI Genome Assembly (required)
         * outdir: output directory (default: None)
         * delim: use :: for tx_assembly extracted using bedtools getfasta -name flag, as this appends name (column #4) to the genomic coordinates (default: None)
-        * start_codon: any triplets (default: ATG, ACG, CTG, GTG and TTG)
+        * start_codon: any triplets (default: ATG, CTG, GTG and TTG)
         * ncrna: remove noncoding RNAs from analysis
     Output:
         * cds_range: as input for analyse_footprints
+        * orf: as input for riboss
         * df: as input for footprint_counts
     """
  
@@ -354,6 +370,7 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None,
     cds = cds[['tid','start_codon','ORF_start','ORF_end','ORF_length','ORF_type']]
     
     df = pd.concat([cds, oorf, oporf, sorf]).drop_duplicates(['tid','start_codon','ORF_start','ORF_end','ORF_length'])
+    df = pd.merge(df.drop(['Chromosome','Start','End','Strand'], axis=1), orf)
 
     # Export CDS_range
     fname = filename(tx_assembly, None, outdir)
@@ -372,10 +389,8 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None,
     operon_distribution(op, fname)
 
     df.to_pickle(fname + '.operon_finder.pkl.gz')
-    orf.to_pickle(fname + '.genomic_range.pkl.gz')
     
     logging.info('saved operons and ORFs as ' + fname + '.operon_finder.pkl.gz')
-    logging.info('saved operons and ORFs as ' + fname + '.genomic_range.pkl.gz')
     logging.info('saved CDS range as ' + fname + '.cds_range.txt')
     
-    return cds_range, orf, df
+    return cds_range, df
