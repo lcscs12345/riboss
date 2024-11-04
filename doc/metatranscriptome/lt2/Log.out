@@ -1,0 +1,1968 @@
+STAR version=2.7.11b
+STAR compilation time,server,dir=2024-07-03T14:39:20+0000 :/opt/conda/conda-bld/star_1720017372352/work/source
+##### Command Line:
+/home/limch05p/miniforge3/envs/riboss/bin/STAR-avx2 --runMode genomeGenerate --runThreadN 4 --genomeDir doc/metatranscriptome/lt2 --genomeFastaFiles doc/metatranscriptome/lt2.fa --genomeSAindexNbases 7 --genomeChrBinNbits 11
+##### Initial USER parameters from Command Line:
+###### All USER parameters from Command Line:
+runMode                       genomeGenerate        ~RE-DEFINED
+runThreadN                    4     ~RE-DEFINED
+genomeDir                     doc/metatranscriptome/lt2     ~RE-DEFINED
+genomeFastaFiles              doc/metatranscriptome/lt2.fa        ~RE-DEFINED
+genomeSAindexNbases           7     ~RE-DEFINED
+genomeChrBinNbits             11     ~RE-DEFINED
+##### Finished reading parameters from all sources
+
+##### Final user re-defined parameters-----------------:
+runMode                           genomeGenerate   
+runThreadN                        4
+genomeDir                         doc/metatranscriptome/lt2
+genomeFastaFiles                  doc/metatranscriptome/lt2.fa   
+genomeSAindexNbases               7
+genomeChrBinNbits                 11
+
+-------------------------------
+##### Final effective command line:
+/home/limch05p/miniforge3/envs/riboss/bin/STAR-avx2   --runMode genomeGenerate      --runThreadN 4   --genomeDir doc/metatranscriptome/lt2   --genomeFastaFiles doc/metatranscriptome/lt2.fa      --genomeSAindexNbases 7   --genomeChrBinNbits 11
+----------------------------------------
+
+Number of fastq files for each mate = 1
+ParametersSolo: --soloCellFilterType CellRanger2.2 filtering parameters:  3000 0.99 10
+Finished loading and checking parameters
+--genomeDir directory exists and will be overwritten: doc/metatranscriptome/lt2/
+Nov 05 08:55:17 ... starting to generate Genome files
+doc/metatranscriptome/lt2.fa : chr # 0  "MSTRG.1.1::NC_003197.2:1091-1315(+)" chrStart: 0
+doc/metatranscriptome/lt2.fa : chr # 1  "MSTRG.2.1::NC_003197.2:2938-4093(+)" chrStart: 2048
+doc/metatranscriptome/lt2.fa : chr # 2  "MSTRG.3.1::NC_003197.2:7000-7467(-)" chrStart: 4096
+doc/metatranscriptome/lt2.fa : chr # 3  "MSTRG.4.1::NC_003197.2:13986-14272(+)" chrStart: 6144
+doc/metatranscriptome/lt2.fa : chr # 4  "MSTRG.5.1::NC_003197.2:47352-47557(+)" chrStart: 8192
+doc/metatranscriptome/lt2.fa : chr # 5  "MSTRG.6.1::NC_003197.2:52228-52661(-)" chrStart: 10240
+doc/metatranscriptome/lt2.fa : chr # 6  "MSTRG.7.1::NC_003197.2:56972-57150(+)" chrStart: 12288
+doc/metatranscriptome/lt2.fa : chr # 7  "MSTRG.8.1::NC_003197.2:73998-74312(+)" chrStart: 14336
+doc/metatranscriptome/lt2.fa : chr # 8  "MSTRG.9.1::NC_003197.2:77037-77197(+)" chrStart: 16384
+doc/metatranscriptome/lt2.fa : chr # 9  "MSTRG.10.1::NC_003197.2:94112-94917(+)" chrStart: 18432
+doc/metatranscriptome/lt2.fa : chr # 10  "MSTRG.11.1::NC_003197.2:99051-99457(+)" chrStart: 20480
+doc/metatranscriptome/lt2.fa : chr # 11  "MSTRG.12.1::NC_003197.2:102389-103630(-)" chrStart: 22528
+doc/metatranscriptome/lt2.fa : chr # 12  "MSTRG.13.1::NC_003197.2:104848-106848(-)" chrStart: 24576
+doc/metatranscriptome/lt2.fa : chr # 13  "MSTRG.14.1::NC_003197.2:107571-108205(-)" chrStart: 26624
+doc/metatranscriptome/lt2.fa : chr # 14  "MSTRG.15.1::NC_003197.2:132038-133842(-)" chrStart: 28672
+doc/metatranscriptome/lt2.fa : chr # 15  "MSTRG.16.1::NC_003197.2:139919-142600(+)" chrStart: 30720
+doc/metatranscriptome/lt2.fa : chr # 16  "MSTRG.17.1::NC_003197.2:142811-142969(+)" chrStart: 34816
+doc/metatranscriptome/lt2.fa : chr # 17  "MSTRG.18.1::NC_003197.2:143812-144168(+)" chrStart: 36864
+doc/metatranscriptome/lt2.fa : chr # 18  "MSTRG.19.1::NC_003197.2:150052-150467(+)" chrStart: 38912
+doc/metatranscriptome/lt2.fa : chr # 19  "MSTRG.20.1::NC_003197.2:151805-153325(+)" chrStart: 40960
+doc/metatranscriptome/lt2.fa : chr # 20  "MSTRG.21.1::NC_003197.2:154698-155351(+)" chrStart: 43008
+doc/metatranscriptome/lt2.fa : chr # 21  "MSTRG.22.1::NC_003197.2:156362-158633(+)" chrStart: 45056
+doc/metatranscriptome/lt2.fa : chr # 22  "MSTRG.23.1::NC_003197.2:164037-164738(+)" chrStart: 49152
+doc/metatranscriptome/lt2.fa : chr # 23  "MSTRG.24.1::NC_003197.2:176202-177148(+)" chrStart: 51200
+doc/metatranscriptome/lt2.fa : chr # 24  "MSTRG.25.1::NC_003197.2:177445-177614(+)" chrStart: 53248
+doc/metatranscriptome/lt2.fa : chr # 25  "MSTRG.26.1::NC_003197.2:178531-179621(+)" chrStart: 55296
+doc/metatranscriptome/lt2.fa : chr # 26  "MSTRG.27.1::NC_003197.2:185763-186254(+)" chrStart: 57344
+doc/metatranscriptome/lt2.fa : chr # 27  "MSTRG.28.1::NC_003197.2:202756-203344(+)" chrStart: 59392
+doc/metatranscriptome/lt2.fa : chr # 28  "MSTRG.29.1::NC_003197.2:210847-211462(-)" chrStart: 61440
+doc/metatranscriptome/lt2.fa : chr # 29  "MSTRG.30.1::NC_003197.2:216345-217315(-)" chrStart: 63488
+doc/metatranscriptome/lt2.fa : chr # 30  "MSTRG.31.1::NC_003197.2:219958-220280(+)" chrStart: 65536
+doc/metatranscriptome/lt2.fa : chr # 31  "MSTRG.32.1::NC_003197.2:223697-223923(+)" chrStart: 67584
+doc/metatranscriptome/lt2.fa : chr # 32  "MSTRG.33.1::NC_003197.2:225840-226628(+)" chrStart: 69632
+doc/metatranscriptome/lt2.fa : chr # 33  "MSTRG.34.1::NC_003197.2:228630-229934(+)" chrStart: 71680
+doc/metatranscriptome/lt2.fa : chr # 34  "MSTRG.35.1::NC_003197.2:240416-240869(+)" chrStart: 73728
+doc/metatranscriptome/lt2.fa : chr # 35  "MSTRG.36.1::NC_003197.2:244532-245963(+)" chrStart: 75776
+doc/metatranscriptome/lt2.fa : chr # 36  "MSTRG.37.1::NC_003197.2:249131-249463(-)" chrStart: 77824
+doc/metatranscriptome/lt2.fa : chr # 37  "MSTRG.38.1::NC_003197.2:252881-253115(-)" chrStart: 79872
+doc/metatranscriptome/lt2.fa : chr # 38  "MSTRG.39.1::NC_003197.2:254122-255186(+)" chrStart: 81920
+doc/metatranscriptome/lt2.fa : chr # 39  "MSTRG.40.1::NC_003197.2:255498-256242(+)" chrStart: 83968
+doc/metatranscriptome/lt2.fa : chr # 40  "MSTRG.41.1::NC_003197.2:257056-258285(+)" chrStart: 86016
+doc/metatranscriptome/lt2.fa : chr # 41  "MSTRG.42.1::NC_003197.2:259103-259955(+)" chrStart: 88064
+doc/metatranscriptome/lt2.fa : chr # 42  "MSTRG.43.1::NC_003197.2:263695-264136(+)" chrStart: 90112
+doc/metatranscriptome/lt2.fa : chr # 43  "MSTRG.44.1::NC_003197.2:264445-266186(+)" chrStart: 92160
+doc/metatranscriptome/lt2.fa : chr # 44  "MSTRG.45.1::NC_003197.2:280001-280497(-)" chrStart: 94208
+doc/metatranscriptome/lt2.fa : chr # 45  "MSTRG.46.1::NC_003197.2:283918-284239(-)" chrStart: 96256
+doc/metatranscriptome/lt2.fa : chr # 46  "MSTRG.47.1::NC_003197.2:286525-286740(+)" chrStart: 98304
+doc/metatranscriptome/lt2.fa : chr # 47  "MSTRG.48.1::NC_003197.2:287607-287755(-)" chrStart: 100352
+doc/metatranscriptome/lt2.fa : chr # 48  "MSTRG.49.1::NC_003197.2:289186-290740(+)" chrStart: 102400
+doc/metatranscriptome/lt2.fa : chr # 49  "MSTRG.50.1::NC_003197.2:291241-294333(+)" chrStart: 104448
+doc/metatranscriptome/lt2.fa : chr # 50  "MSTRG.51.1::NC_003197.2:298180-299060(+)" chrStart: 108544
+doc/metatranscriptome/lt2.fa : chr # 51  "MSTRG.52.1::NC_003197.2:300319-300722(-)" chrStart: 110592
+doc/metatranscriptome/lt2.fa : chr # 52  "MSTRG.53.1::NC_003197.2:345078-345295(+)" chrStart: 112640
+doc/metatranscriptome/lt2.fa : chr # 53  "MSTRG.54.1::NC_003197.2:349806-350333(-)" chrStart: 114688
+doc/metatranscriptome/lt2.fa : chr # 54  "MSTRG.55.1::NC_003197.2:351731-355068(-)" chrStart: 116736
+doc/metatranscriptome/lt2.fa : chr # 55  "MSTRG.56.1::NC_003197.2:355597-356485(+)" chrStart: 120832
+doc/metatranscriptome/lt2.fa : chr # 56  "MSTRG.57.1::NC_003197.2:356853-357152(+)" chrStart: 122880
+doc/metatranscriptome/lt2.fa : chr # 57  "MSTRG.58.1::NC_003197.2:362644-362969(+)" chrStart: 124928
+doc/metatranscriptome/lt2.fa : chr # 58  "MSTRG.59.1::NC_003197.2:365650-366035(-)" chrStart: 126976
+doc/metatranscriptome/lt2.fa : chr # 59  "MSTRG.60.1::NC_003197.2:366658-366982(+)" chrStart: 129024
+doc/metatranscriptome/lt2.fa : chr # 60  "MSTRG.61.1::NC_003197.2:376000-376719(+)" chrStart: 131072
+doc/metatranscriptome/lt2.fa : chr # 61  "MSTRG.62.1::NC_003197.2:386302-386943(+)" chrStart: 133120
+doc/metatranscriptome/lt2.fa : chr # 62  "MSTRG.63.1::NC_003197.2:409708-409933(+)" chrStart: 135168
+doc/metatranscriptome/lt2.fa : chr # 63  "MSTRG.64.1::NC_003197.2:414613-415289(-)" chrStart: 137216
+doc/metatranscriptome/lt2.fa : chr # 64  "MSTRG.65.1::NC_003197.2:415769-415960(+)" chrStart: 139264
+doc/metatranscriptome/lt2.fa : chr # 65  "MSTRG.66.1::NC_003197.2:424024-424327(-)" chrStart: 141312
+doc/metatranscriptome/lt2.fa : chr # 66  "MSTRG.67.1::NC_003197.2:426982-427347(+)" chrStart: 143360
+doc/metatranscriptome/lt2.fa : chr # 67  "MSTRG.68.1::NC_003197.2:429750-430014(-)" chrStart: 145408
+doc/metatranscriptome/lt2.fa : chr # 68  "MSTRG.69.1::NC_003197.2:431170-431498(+)" chrStart: 147456
+doc/metatranscriptome/lt2.fa : chr # 69  "MSTRG.70.1::NC_003197.2:432690-433017(-)" chrStart: 149504
+doc/metatranscriptome/lt2.fa : chr # 70  "MSTRG.71.1::NC_003197.2:433282-433717(+)" chrStart: 151552
+doc/metatranscriptome/lt2.fa : chr # 71  "MSTRG.72.1::NC_003197.2:436944-437428(+)" chrStart: 153600
+doc/metatranscriptome/lt2.fa : chr # 72  "MSTRG.73.1::NC_003197.2:440207-440442(+)" chrStart: 155648
+doc/metatranscriptome/lt2.fa : chr # 73  "MSTRG.74.1::NC_003197.2:451058-452087(+)" chrStart: 157696
+doc/metatranscriptome/lt2.fa : chr # 74  "MSTRG.75.1::NC_003197.2:452582-452792(+)" chrStart: 159744
+doc/metatranscriptome/lt2.fa : chr # 75  "MSTRG.76.1::NC_003197.2:458034-458561(-)" chrStart: 161792
+doc/metatranscriptome/lt2.fa : chr # 76  "MSTRG.77.1::NC_003197.2:461902-462792(+)" chrStart: 163840
+doc/metatranscriptome/lt2.fa : chr # 77  "MSTRG.78.1::NC_003197.2:463977-465211(+)" chrStart: 165888
+doc/metatranscriptome/lt2.fa : chr # 78  "MSTRG.79.1::NC_003197.2:467177-467524(+)" chrStart: 167936
+doc/metatranscriptome/lt2.fa : chr # 79  "MSTRG.80.1::NC_003197.2:468040-468467(-)" chrStart: 169984
+doc/metatranscriptome/lt2.fa : chr # 80  "MSTRG.81.1::NC_003197.2:469574-470549(+)" chrStart: 172032
+doc/metatranscriptome/lt2.fa : chr # 81  "MSTRG.82.1::NC_003197.2:471242-471961(+)" chrStart: 174080
+doc/metatranscriptome/lt2.fa : chr # 82  "MSTRG.83.1::NC_003197.2:478103-478583(+)" chrStart: 176128
+doc/metatranscriptome/lt2.fa : chr # 83  "MSTRG.84.1::NC_003197.2:486138-486777(-)" chrStart: 178176
+doc/metatranscriptome/lt2.fa : chr # 84  "MSTRG.85.1::NC_003197.2:493306-494769(-)" chrStart: 180224
+doc/metatranscriptome/lt2.fa : chr # 85  "MSTRG.86.1::NC_003197.2:495438-496036(-)" chrStart: 182272
+doc/metatranscriptome/lt2.fa : chr # 86  "MSTRG.87.1::NC_003197.2:497656-498034(-)" chrStart: 184320
+doc/metatranscriptome/lt2.fa : chr # 87  "MSTRG.88.1::NC_003197.2:500126-500667(-)" chrStart: 186368
+doc/metatranscriptome/lt2.fa : chr # 88  "MSTRG.89.1::NC_003197.2:500935-501401(+)" chrStart: 188416
+doc/metatranscriptome/lt2.fa : chr # 89  "MSTRG.90.1::NC_003197.2:501805-502705(+)" chrStart: 190464
+doc/metatranscriptome/lt2.fa : chr # 90  "MSTRG.91.1::NC_003197.2:503192-503470(+)" chrStart: 192512
+doc/metatranscriptome/lt2.fa : chr # 91  "MSTRG.92.1::NC_003197.2:504078-504729(+)" chrStart: 194560
+doc/metatranscriptome/lt2.fa : chr # 92  "MSTRG.93.1::NC_003197.2:505479-506281(+)" chrStart: 196608
+doc/metatranscriptome/lt2.fa : chr # 93  "MSTRG.94.1::NC_003197.2:507085-508438(+)" chrStart: 198656
+doc/metatranscriptome/lt2.fa : chr # 94  "MSTRG.95.1::NC_003197.2:510291-510607(+)" chrStart: 200704
+doc/metatranscriptome/lt2.fa : chr # 95  "MSTRG.96.1::NC_003197.2:511113-511606(+)" chrStart: 202752
+doc/metatranscriptome/lt2.fa : chr # 96  "MSTRG.97.1::NC_003197.2:515536-515906(-)" chrStart: 204800
+doc/metatranscriptome/lt2.fa : chr # 97  "MSTRG.98.1::NC_003197.2:516260-516622(+)" chrStart: 206848
+doc/metatranscriptome/lt2.fa : chr # 98  "MSTRG.99.1::NC_003197.2:523317-523965(+)" chrStart: 208896
+doc/metatranscriptome/lt2.fa : chr # 99  "MSTRG.100.1::NC_003197.2:526336-526812(+)" chrStart: 210944
+doc/metatranscriptome/lt2.fa : chr # 100  "MSTRG.101.1::NC_003197.2:528124-528461(-)" chrStart: 212992
+doc/metatranscriptome/lt2.fa : chr # 101  "MSTRG.102.1::NC_003197.2:529648-529909(-)" chrStart: 215040
+doc/metatranscriptome/lt2.fa : chr # 102  "MSTRG.103.1::NC_003197.2:532010-534062(-)" chrStart: 217088
+doc/metatranscriptome/lt2.fa : chr # 103  "MSTRG.104.1::NC_003197.2:539509-539691(-)" chrStart: 221184
+doc/metatranscriptome/lt2.fa : chr # 104  "MSTRG.105.1::NC_003197.2:542669-543082(+)" chrStart: 223232
+doc/metatranscriptome/lt2.fa : chr # 105  "MSTRG.106.1::NC_003197.2:560919-561082(+)" chrStart: 225280
+doc/metatranscriptome/lt2.fa : chr # 106  "MSTRG.107.1::NC_003197.2:561250-561469(-)" chrStart: 227328
+doc/metatranscriptome/lt2.fa : chr # 107  "MSTRG.108.1::NC_003197.2:564334-565141(-)" chrStart: 229376
+doc/metatranscriptome/lt2.fa : chr # 108  "MSTRG.109.1::NC_003197.2:575734-575927(-)" chrStart: 231424
+doc/metatranscriptome/lt2.fa : chr # 109  "MSTRG.110.1::NC_003197.2:598402-599010(-)" chrStart: 233472
+doc/metatranscriptome/lt2.fa : chr # 110  "MSTRG.111.1::NC_003197.2:599988-600366(+)" chrStart: 235520
+doc/metatranscriptome/lt2.fa : chr # 111  "MSTRG.112.1::NC_003197.2:623154-623679(-)" chrStart: 237568
+doc/metatranscriptome/lt2.fa : chr # 112  "MSTRG.113.1::NC_003197.2:627551-629189(+)" chrStart: 239616
+doc/metatranscriptome/lt2.fa : chr # 113  "MSTRG.114.1::NC_003197.2:643021-643695(-)" chrStart: 241664
+doc/metatranscriptome/lt2.fa : chr # 114  "MSTRG.115.1::NC_003197.2:646498-646826(+)" chrStart: 243712
+doc/metatranscriptome/lt2.fa : chr # 115  "MSTRG.116.1::NC_003197.2:647551-648761(+)" chrStart: 245760
+doc/metatranscriptome/lt2.fa : chr # 116  "MSTRG.117.1::NC_003197.2:661267-661914(+)" chrStart: 247808
+doc/metatranscriptome/lt2.fa : chr # 117  "MSTRG.118.1::NC_003197.2:662406-662763(+)" chrStart: 249856
+doc/metatranscriptome/lt2.fa : chr # 118  "MSTRG.119.1::NC_003197.2:663003-663431(+)" chrStart: 251904
+doc/metatranscriptome/lt2.fa : chr # 119  "MSTRG.120.1::NC_003197.2:670439-671172(+)" chrStart: 253952
+doc/metatranscriptome/lt2.fa : chr # 120  "MSTRG.121.1::NC_003197.2:672381-672904(+)" chrStart: 256000
+doc/metatranscriptome/lt2.fa : chr # 121  "MSTRG.122.1::NC_003197.2:677151-677349(+)" chrStart: 258048
+doc/metatranscriptome/lt2.fa : chr # 122  "MSTRG.123.1::NC_003197.2:677420-677820(-)" chrStart: 260096
+doc/metatranscriptome/lt2.fa : chr # 123  "MSTRG.124.1::NC_003197.2:679585-680818(-)" chrStart: 262144
+doc/metatranscriptome/lt2.fa : chr # 124  "MSTRG.125.1::NC_003197.2:688794-689494(+)" chrStart: 264192
+doc/metatranscriptome/lt2.fa : chr # 125  "MSTRG.126.1::NC_003197.2:691139-691403(-)" chrStart: 266240
+doc/metatranscriptome/lt2.fa : chr # 126  "MSTRG.127.1::NC_003197.2:692882-693180(+)" chrStart: 268288
+doc/metatranscriptome/lt2.fa : chr # 127  "MSTRG.128.1::NC_003197.2:694511-695293(+)" chrStart: 270336
+doc/metatranscriptome/lt2.fa : chr # 128  "MSTRG.129.1::NC_003197.2:695317-695509(-)" chrStart: 272384
+doc/metatranscriptome/lt2.fa : chr # 129  "MSTRG.130.1::NC_003197.2:698008-698311(-)" chrStart: 274432
+doc/metatranscriptome/lt2.fa : chr # 130  "MSTRG.131.1::NC_003197.2:709097-711756(-)" chrStart: 276480
+doc/metatranscriptome/lt2.fa : chr # 131  "MSTRG.132.1::NC_003197.2:714721-715023(+)" chrStart: 280576
+doc/metatranscriptome/lt2.fa : chr # 132  "MSTRG.133.1::NC_003197.2:722540-722791(-)" chrStart: 282624
+doc/metatranscriptome/lt2.fa : chr # 133  "MSTRG.134.1::NC_003197.2:728799-729501(-)" chrStart: 284672
+doc/metatranscriptome/lt2.fa : chr # 134  "MSTRG.135.1::NC_003197.2:730855-731089(-)" chrStart: 286720
+doc/metatranscriptome/lt2.fa : chr # 135  "MSTRG.136.1::NC_003197.2:731872-732108(-)" chrStart: 288768
+doc/metatranscriptome/lt2.fa : chr # 136  "MSTRG.137.1::NC_003197.2:733747-734456(-)" chrStart: 290816
+doc/metatranscriptome/lt2.fa : chr # 137  "MSTRG.138.1::NC_003197.2:738928-739384(+)" chrStart: 292864
+doc/metatranscriptome/lt2.fa : chr # 138  "MSTRG.139.1::NC_003197.2:740361-740647(-)" chrStart: 294912
+doc/metatranscriptome/lt2.fa : chr # 139  "MSTRG.140.1::NC_003197.2:743933-744354(-)" chrStart: 296960
+doc/metatranscriptome/lt2.fa : chr # 140  "MSTRG.141.1::NC_003197.2:754243-754363(+)" chrStart: 299008
+doc/metatranscriptome/lt2.fa : chr # 141  "MSTRG.142.1::NC_003197.2:756521-757411(-)" chrStart: 301056
+doc/metatranscriptome/lt2.fa : chr # 142  "MSTRG.143.1::NC_003197.2:759754-760748(+)" chrStart: 303104
+doc/metatranscriptome/lt2.fa : chr # 143  "MSTRG.144.1::NC_003197.2:767144-767352(-)" chrStart: 305152
+doc/metatranscriptome/lt2.fa : chr # 144  "MSTRG.145.1::NC_003197.2:796006-796300(-)" chrStart: 307200
+doc/metatranscriptome/lt2.fa : chr # 145  "MSTRG.146.1::NC_003197.2:797259-797535(-)" chrStart: 309248
+doc/metatranscriptome/lt2.fa : chr # 146  "MSTRG.147.1::NC_003197.2:798858-801315(+)" chrStart: 311296
+doc/metatranscriptome/lt2.fa : chr # 147  "MSTRG.148.1::NC_003197.2:804442-806703(+)" chrStart: 315392
+doc/metatranscriptome/lt2.fa : chr # 148  "MSTRG.149.1::NC_003197.2:807762-808022(+)" chrStart: 319488
+doc/metatranscriptome/lt2.fa : chr # 149  "MSTRG.150.1::NC_003197.2:809538-810108(+)" chrStart: 321536
+doc/metatranscriptome/lt2.fa : chr # 150  "MSTRG.151.1::NC_003197.2:811144-811786(+)" chrStart: 323584
+doc/metatranscriptome/lt2.fa : chr # 151  "MSTRG.152.1::NC_003197.2:813821-814624(+)" chrStart: 325632
+doc/metatranscriptome/lt2.fa : chr # 152  "MSTRG.153.1::NC_003197.2:816158-818951(+)" chrStart: 327680
+doc/metatranscriptome/lt2.fa : chr # 153  "MSTRG.154.1::NC_003197.2:823746-824907(+)" chrStart: 331776
+doc/metatranscriptome/lt2.fa : chr # 154  "MSTRG.155.1::NC_003197.2:835884-836156(+)" chrStart: 333824
+doc/metatranscriptome/lt2.fa : chr # 155  "MSTRG.156.1::NC_003197.2:836297-836941(-)" chrStart: 335872
+doc/metatranscriptome/lt2.fa : chr # 156  "MSTRG.157.1::NC_003197.2:851823-852166(+)" chrStart: 337920
+doc/metatranscriptome/lt2.fa : chr # 157  "MSTRG.158.1::NC_003197.2:852828-853598(+)" chrStart: 339968
+doc/metatranscriptome/lt2.fa : chr # 158  "MSTRG.159.1::NC_003197.2:856470-858347(+)" chrStart: 342016
+doc/metatranscriptome/lt2.fa : chr # 159  "MSTRG.160.1::NC_003197.2:858594-859464(-)" chrStart: 344064
+doc/metatranscriptome/lt2.fa : chr # 160  "MSTRG.161.1::NC_003197.2:860233-860606(+)" chrStart: 346112
+doc/metatranscriptome/lt2.fa : chr # 161  "MSTRG.162.1::NC_003197.2:860929-861266(+)" chrStart: 348160
+doc/metatranscriptome/lt2.fa : chr # 162  "MSTRG.163.1::NC_003197.2:863207-863832(+)" chrStart: 350208
+doc/metatranscriptome/lt2.fa : chr # 163  "MSTRG.164.1::NC_003197.2:864574-864767(+)" chrStart: 352256
+doc/metatranscriptome/lt2.fa : chr # 164  "MSTRG.165.1::NC_003197.2:865426-865898(+)" chrStart: 354304
+doc/metatranscriptome/lt2.fa : chr # 165  "MSTRG.166.1::NC_003197.2:871752-872179(+)" chrStart: 356352
+doc/metatranscriptome/lt2.fa : chr # 166  "MSTRG.167.1::NC_003197.2:873567-874138(+)" chrStart: 358400
+doc/metatranscriptome/lt2.fa : chr # 167  "MSTRG.168.1::NC_003197.2:879235-879668(+)" chrStart: 360448
+doc/metatranscriptome/lt2.fa : chr # 168  "MSTRG.169.1::NC_003197.2:896060-898019(-)" chrStart: 362496
+doc/metatranscriptome/lt2.fa : chr # 169  "MSTRG.170.1::NC_003197.2:899386-900097(+)" chrStart: 364544
+doc/metatranscriptome/lt2.fa : chr # 170  "MSTRG.171.1::NC_003197.2:903893-904237(-)" chrStart: 366592
+doc/metatranscriptome/lt2.fa : chr # 171  "MSTRG.172.1::NC_003197.2:915024-915438(-)" chrStart: 368640
+doc/metatranscriptome/lt2.fa : chr # 172  "MSTRG.173.1::NC_003197.2:918133-918543(+)" chrStart: 370688
+doc/metatranscriptome/lt2.fa : chr # 173  "MSTRG.174.1::NC_003197.2:921411-921648(+)" chrStart: 372736
+doc/metatranscriptome/lt2.fa : chr # 174  "MSTRG.175.1::NC_003197.2:925068-925582(+)" chrStart: 374784
+doc/metatranscriptome/lt2.fa : chr # 175  "MSTRG.176.1::NC_003197.2:933038-933266(-)" chrStart: 376832
+doc/metatranscriptome/lt2.fa : chr # 176  "MSTRG.177.1::NC_003197.2:936001-937327(+)" chrStart: 378880
+doc/metatranscriptome/lt2.fa : chr # 177  "MSTRG.178.1::NC_003197.2:937566-938169(-)" chrStart: 380928
+doc/metatranscriptome/lt2.fa : chr # 178  "MSTRG.179.1::NC_003197.2:945175-945621(-)" chrStart: 382976
+doc/metatranscriptome/lt2.fa : chr # 179  "MSTRG.180.1::NC_003197.2:958261-959832(-)" chrStart: 385024
+doc/metatranscriptome/lt2.fa : chr # 180  "MSTRG.181.1::NC_003197.2:1009356-1009910(-)" chrStart: 387072
+doc/metatranscriptome/lt2.fa : chr # 181  "MSTRG.182.1::NC_003197.2:1017435-1017766(-)" chrStart: 389120
+doc/metatranscriptome/lt2.fa : chr # 182  "MSTRG.183.1::NC_003197.2:1018259-1018475(-)" chrStart: 391168
+doc/metatranscriptome/lt2.fa : chr # 183  "MSTRG.184.1::NC_003197.2:1018717-1018988(+)" chrStart: 393216
+doc/metatranscriptome/lt2.fa : chr # 184  "MSTRG.185.1::NC_003197.2:1020130-1020394(+)" chrStart: 395264
+doc/metatranscriptome/lt2.fa : chr # 185  "MSTRG.186.1::NC_003197.2:1021743-1022104(-)" chrStart: 397312
+doc/metatranscriptome/lt2.fa : chr # 186  "MSTRG.187.1::NC_003197.2:1022694-1022899(+)" chrStart: 399360
+doc/metatranscriptome/lt2.fa : chr # 187  "MSTRG.188.1::NC_003197.2:1024577-1024952(+)" chrStart: 401408
+doc/metatranscriptome/lt2.fa : chr # 188  "MSTRG.189.1::NC_003197.2:1027541-1027874(-)" chrStart: 403456
+doc/metatranscriptome/lt2.fa : chr # 189  "MSTRG.190.1::NC_003197.2:1035380-1036212(-)" chrStart: 405504
+doc/metatranscriptome/lt2.fa : chr # 190  "MSTRG.191.1::NC_003197.2:1037052-1037288(+)" chrStart: 407552
+doc/metatranscriptome/lt2.fa : chr # 191  "MSTRG.192.1::NC_003197.2:1042029-1042436(+)" chrStart: 409600
+doc/metatranscriptome/lt2.fa : chr # 192  "MSTRG.193.1::NC_003197.2:1050214-1050486(+)" chrStart: 411648
+doc/metatranscriptome/lt2.fa : chr # 193  "MSTRG.194.1::NC_003197.2:1054000-1055072(+)" chrStart: 413696
+doc/metatranscriptome/lt2.fa : chr # 194  "MSTRG.195.1::NC_003197.2:1055075-1055903(-)" chrStart: 415744
+doc/metatranscriptome/lt2.fa : chr # 195  "MSTRG.196.1::NC_003197.2:1057191-1057559(-)" chrStart: 417792
+doc/metatranscriptome/lt2.fa : chr # 196  "MSTRG.197.1::NC_003197.2:1064980-1065121(+)" chrStart: 419840
+doc/metatranscriptome/lt2.fa : chr # 197  "MSTRG.198.1::NC_003197.2:1065531-1067958(+)" chrStart: 421888
+doc/metatranscriptome/lt2.fa : chr # 198  "MSTRG.199.1::NC_003197.2:1069714-1070378(+)" chrStart: 425984
+doc/metatranscriptome/lt2.fa : chr # 199  "MSTRG.200.1::NC_003197.2:1075181-1075465(+)" chrStart: 428032
+doc/metatranscriptome/lt2.fa : chr # 200  "MSTRG.201.1::NC_003197.2:1078305-1078763(+)" chrStart: 430080
+doc/metatranscriptome/lt2.fa : chr # 201  "MSTRG.202.1::NC_003197.2:1079910-1080722(+)" chrStart: 432128
+doc/metatranscriptome/lt2.fa : chr # 202  "MSTRG.203.1::NC_003197.2:1081508-1082535(+)" chrStart: 434176
+doc/metatranscriptome/lt2.fa : chr # 203  "MSTRG.204.1::NC_003197.2:1082962-1083684(+)" chrStart: 436224
+doc/metatranscriptome/lt2.fa : chr # 204  "MSTRG.205.1::NC_003197.2:1089727-1090975(-)" chrStart: 438272
+doc/metatranscriptome/lt2.fa : chr # 205  "MSTRG.206.1::NC_003197.2:1096929-1097201(-)" chrStart: 440320
+doc/metatranscriptome/lt2.fa : chr # 206  "MSTRG.207.1::NC_003197.2:1097798-1098070(-)" chrStart: 442368
+doc/metatranscriptome/lt2.fa : chr # 207  "MSTRG.208.1::NC_003197.2:1129976-1130624(-)" chrStart: 444416
+doc/metatranscriptome/lt2.fa : chr # 208  "MSTRG.209.1::NC_003197.2:1139930-1141016(+)" chrStart: 446464
+doc/metatranscriptome/lt2.fa : chr # 209  "MSTRG.210.1::NC_003197.2:1145716-1146623(+)" chrStart: 448512
+doc/metatranscriptome/lt2.fa : chr # 210  "MSTRG.211.1::NC_003197.2:1148076-1148402(+)" chrStart: 450560
+doc/metatranscriptome/lt2.fa : chr # 211  "MSTRG.212.1::NC_003197.2:1152909-1153347(+)" chrStart: 452608
+doc/metatranscriptome/lt2.fa : chr # 212  "MSTRG.213.1::NC_003197.2:1157580-1157792(+)" chrStart: 454656
+doc/metatranscriptome/lt2.fa : chr # 213  "MSTRG.214.1::NC_003197.2:1160910-1162127(-)" chrStart: 456704
+doc/metatranscriptome/lt2.fa : chr # 214  "MSTRG.215.1::NC_003197.2:1173793-1174669(-)" chrStart: 458752
+doc/metatranscriptome/lt2.fa : chr # 215  "MSTRG.216.1::NC_003197.2:1176317-1176480(-)" chrStart: 460800
+doc/metatranscriptome/lt2.fa : chr # 216  "MSTRG.217.1::NC_003197.2:1176743-1177191(-)" chrStart: 462848
+doc/metatranscriptome/lt2.fa : chr # 217  "MSTRG.218.1::NC_003197.2:1180362-1180910(-)" chrStart: 464896
+doc/metatranscriptome/lt2.fa : chr # 218  "MSTRG.219.1::NC_003197.2:1181372-1181923(-)" chrStart: 466944
+doc/metatranscriptome/lt2.fa : chr # 219  "MSTRG.220.1::NC_003197.2:1203115-1204045(+)" chrStart: 468992
+doc/metatranscriptome/lt2.fa : chr # 220  "MSTRG.221.1::NC_003197.2:1204971-1205537(-)" chrStart: 471040
+doc/metatranscriptome/lt2.fa : chr # 221  "MSTRG.222.1::NC_003197.2:1207180-1207598(-)" chrStart: 473088
+doc/metatranscriptome/lt2.fa : chr # 222  "MSTRG.223.1::NC_003197.2:1208555-1209520(-)" chrStart: 475136
+doc/metatranscriptome/lt2.fa : chr # 223  "MSTRG.224.1::NC_003197.2:1215238-1215400(-)" chrStart: 477184
+doc/metatranscriptome/lt2.fa : chr # 224  "MSTRG.225.1::NC_003197.2:1226835-1227410(+)" chrStart: 479232
+doc/metatranscriptome/lt2.fa : chr # 225  "MSTRG.226.1::NC_003197.2:1236433-1236838(+)" chrStart: 481280
+doc/metatranscriptome/lt2.fa : chr # 226  "MSTRG.227.1::NC_003197.2:1240761-1241144(-)" chrStart: 483328
+doc/metatranscriptome/lt2.fa : chr # 227  "MSTRG.228.1::NC_003197.2:1246750-1247068(-)" chrStart: 485376
+doc/metatranscriptome/lt2.fa : chr # 228  "MSTRG.229.1::NC_003197.2:1247660-1247960(-)" chrStart: 487424
+doc/metatranscriptome/lt2.fa : chr # 229  "MSTRG.230.1::NC_003197.2:1252463-1254039(+)" chrStart: 489472
+doc/metatranscriptome/lt2.fa : chr # 230  "MSTRG.231.1::NC_003197.2:1254755-1255108(+)" chrStart: 491520
+doc/metatranscriptome/lt2.fa : chr # 231  "MSTRG.232.1::NC_003197.2:1269310-1270385(-)" chrStart: 493568
+doc/metatranscriptome/lt2.fa : chr # 232  "MSTRG.233.1::NC_003197.2:1271533-1271898(-)" chrStart: 495616
+doc/metatranscriptome/lt2.fa : chr # 233  "MSTRG.234.1::NC_003197.2:1275141-1276223(+)" chrStart: 497664
+doc/metatranscriptome/lt2.fa : chr # 234  "MSTRG.235.1::NC_003197.2:1278829-1279836(+)" chrStart: 499712
+doc/metatranscriptome/lt2.fa : chr # 235  "MSTRG.236.1::NC_003197.2:1281301-1281720(+)" chrStart: 501760
+doc/metatranscriptome/lt2.fa : chr # 236  "MSTRG.237.1::NC_003197.2:1285302-1286386(+)" chrStart: 503808
+doc/metatranscriptome/lt2.fa : chr # 237  "MSTRG.238.1::NC_003197.2:1287925-1288181(-)" chrStart: 505856
+doc/metatranscriptome/lt2.fa : chr # 238  "MSTRG.239.1::NC_003197.2:1289344-1290114(-)" chrStart: 507904
+doc/metatranscriptome/lt2.fa : chr # 239  "MSTRG.240.1::NC_003197.2:1290355-1291222(+)" chrStart: 509952
+doc/metatranscriptome/lt2.fa : chr # 240  "MSTRG.241.1::NC_003197.2:1294432-1294647(+)" chrStart: 512000
+doc/metatranscriptome/lt2.fa : chr # 241  "MSTRG.242.1::NC_003197.2:1296221-1296486(+)" chrStart: 514048
+doc/metatranscriptome/lt2.fa : chr # 242  "MSTRG.243.1::NC_003197.2:1298144-1298473(-)" chrStart: 516096
+doc/metatranscriptome/lt2.fa : chr # 243  "MSTRG.244.1::NC_003197.2:1298844-1299724(-)" chrStart: 518144
+doc/metatranscriptome/lt2.fa : chr # 244  "MSTRG.245.1::NC_003197.2:1304722-1305109(+)" chrStart: 520192
+doc/metatranscriptome/lt2.fa : chr # 245  "MSTRG.246.1::NC_003197.2:1307520-1307883(-)" chrStart: 522240
+doc/metatranscriptome/lt2.fa : chr # 246  "MSTRG.247.1::NC_003197.2:1310208-1310913(-)" chrStart: 524288
+doc/metatranscriptome/lt2.fa : chr # 247  "MSTRG.248.1::NC_003197.2:1316222-1316678(-)" chrStart: 526336
+doc/metatranscriptome/lt2.fa : chr # 248  "MSTRG.249.1::NC_003197.2:1317000-1317148(-)" chrStart: 528384
+doc/metatranscriptome/lt2.fa : chr # 249  "MSTRG.250.1::NC_003197.2:1317612-1318145(-)" chrStart: 530432
+doc/metatranscriptome/lt2.fa : chr # 250  "MSTRG.251.1::NC_003197.2:1318791-1319330(-)" chrStart: 532480
+doc/metatranscriptome/lt2.fa : chr # 251  "MSTRG.252.1::NC_003197.2:1319586-1319779(-)" chrStart: 534528
+doc/metatranscriptome/lt2.fa : chr # 252  "MSTRG.253.1::NC_003197.2:1322489-1322700(-)" chrStart: 536576
+doc/metatranscriptome/lt2.fa : chr # 253  "MSTRG.254.1::NC_003197.2:1323188-1323933(-)" chrStart: 538624
+doc/metatranscriptome/lt2.fa : chr # 254  "MSTRG.255.1::NC_003197.2:1324513-1325676(+)" chrStart: 540672
+doc/metatranscriptome/lt2.fa : chr # 255  "MSTRG.256.1::NC_003197.2:1331673-1332961(+)" chrStart: 542720
+doc/metatranscriptome/lt2.fa : chr # 256  "MSTRG.257.1::NC_003197.2:1333726-1334693(-)" chrStart: 544768
+doc/metatranscriptome/lt2.fa : chr # 257  "MSTRG.258.1::NC_003197.2:1334920-1335258(-)" chrStart: 546816
+doc/metatranscriptome/lt2.fa : chr # 258  "MSTRG.259.1::NC_003197.2:1335587-1335970(+)" chrStart: 548864
+doc/metatranscriptome/lt2.fa : chr # 259  "MSTRG.260.1::NC_003197.2:1337114-1337508(+)" chrStart: 550912
+doc/metatranscriptome/lt2.fa : chr # 260  "MSTRG.261.1::NC_003197.2:1353981-1354576(+)" chrStart: 552960
+doc/metatranscriptome/lt2.fa : chr # 261  "MSTRG.262.1::NC_003197.2:1360417-1361043(-)" chrStart: 555008
+doc/metatranscriptome/lt2.fa : chr # 262  "MSTRG.263.1::NC_003197.2:1361512-1362445(-)" chrStart: 557056
+doc/metatranscriptome/lt2.fa : chr # 263  "MSTRG.264.1::NC_003197.2:1368641-1369696(-)" chrStart: 559104
+doc/metatranscriptome/lt2.fa : chr # 264  "MSTRG.265.1::NC_003197.2:1369996-1370825(+)" chrStart: 561152
+doc/metatranscriptome/lt2.fa : chr # 265  "MSTRG.266.1::NC_003197.2:1388502-1388720(+)" chrStart: 563200
+doc/metatranscriptome/lt2.fa : chr # 266  "MSTRG.267.1::NC_003197.2:1391199-1391493(+)" chrStart: 565248
+doc/metatranscriptome/lt2.fa : chr # 267  "MSTRG.268.1::NC_003197.2:1391868-1392185(+)" chrStart: 567296
+doc/metatranscriptome/lt2.fa : chr # 268  "MSTRG.269.1::NC_003197.2:1393349-1394652(+)" chrStart: 569344
+doc/metatranscriptome/lt2.fa : chr # 269  "MSTRG.270.1::NC_003197.2:1397931-1399390(-)" chrStart: 571392
+doc/metatranscriptome/lt2.fa : chr # 270  "MSTRG.271.1::NC_003197.2:1403632-1404319(+)" chrStart: 573440
+doc/metatranscriptome/lt2.fa : chr # 271  "MSTRG.272.1::NC_003197.2:1407128-1407753(-)" chrStart: 575488
+doc/metatranscriptome/lt2.fa : chr # 272  "MSTRG.273.1::NC_003197.2:1408971-1409442(+)" chrStart: 577536
+doc/metatranscriptome/lt2.fa : chr # 273  "MSTRG.274.1::NC_003197.2:1412048-1413155(+)" chrStart: 579584
+doc/metatranscriptome/lt2.fa : chr # 274  "MSTRG.275.1::NC_003197.2:1413955-1415400(+)" chrStart: 581632
+doc/metatranscriptome/lt2.fa : chr # 275  "MSTRG.276.1::NC_003197.2:1418434-1419470(+)" chrStart: 583680
+doc/metatranscriptome/lt2.fa : chr # 276  "MSTRG.277.1::NC_003197.2:1420606-1420912(+)" chrStart: 585728
+doc/metatranscriptome/lt2.fa : chr # 277  "MSTRG.278.1::NC_003197.2:1424254-1424486(+)" chrStart: 587776
+doc/metatranscriptome/lt2.fa : chr # 278  "MSTRG.279.1::NC_003197.2:1427725-1428708(+)" chrStart: 589824
+doc/metatranscriptome/lt2.fa : chr # 279  "MSTRG.280.1::NC_003197.2:1428981-1429321(+)" chrStart: 591872
+doc/metatranscriptome/lt2.fa : chr # 280  "MSTRG.281.1::NC_003197.2:1429744-1430181(+)" chrStart: 593920
+doc/metatranscriptome/lt2.fa : chr # 281  "MSTRG.282.1::NC_003197.2:1436630-1437090(-)" chrStart: 595968
+doc/metatranscriptome/lt2.fa : chr # 282  "MSTRG.283.1::NC_003197.2:1439776-1440130(-)" chrStart: 598016
+doc/metatranscriptome/lt2.fa : chr # 283  "MSTRG.284.1::NC_003197.2:1449223-1450290(+)" chrStart: 600064
+doc/metatranscriptome/lt2.fa : chr # 284  "MSTRG.285.1::NC_003197.2:1459305-1459634(-)" chrStart: 602112
+doc/metatranscriptome/lt2.fa : chr # 285  "MSTRG.286.1::NC_003197.2:1459905-1460435(-)" chrStart: 604160
+doc/metatranscriptome/lt2.fa : chr # 286  "MSTRG.287.1::NC_003197.2:1461354-1461538(-)" chrStart: 606208
+doc/metatranscriptome/lt2.fa : chr # 287  "MSTRG.288.1::NC_003197.2:1474075-1474880(-)" chrStart: 608256
+doc/metatranscriptome/lt2.fa : chr # 288  "MSTRG.289.1::NC_003197.2:1477421-1478689(-)" chrStart: 610304
+doc/metatranscriptome/lt2.fa : chr # 289  "MSTRG.290.1::NC_003197.2:1479446-1479895(-)" chrStart: 612352
+doc/metatranscriptome/lt2.fa : chr # 290  "MSTRG.291.1::NC_003197.2:1479999-1480158(+)" chrStart: 614400
+doc/metatranscriptome/lt2.fa : chr # 291  "MSTRG.292.1::NC_003197.2:1481234-1481968(+)" chrStart: 616448
+doc/metatranscriptome/lt2.fa : chr # 292  "MSTRG.293.1::NC_003197.2:1482566-1488050(+)" chrStart: 618496
+doc/metatranscriptome/lt2.fa : chr # 293  "MSTRG.294.1::NC_003197.2:1488435-1488917(+)" chrStart: 624640
+doc/metatranscriptome/lt2.fa : chr # 294  "MSTRG.295.1::NC_003197.2:1489504-1493882(+)" chrStart: 626688
+doc/metatranscriptome/lt2.fa : chr # 295  "MSTRG.296.1::NC_003197.2:1495546-1496251(+)" chrStart: 632832
+doc/metatranscriptome/lt2.fa : chr # 296  "MSTRG.297.1::NC_003197.2:1499258-1499594(+)" chrStart: 634880
+doc/metatranscriptome/lt2.fa : chr # 297  "MSTRG.298.1::NC_003197.2:1503518-1504442(+)" chrStart: 636928
+doc/metatranscriptome/lt2.fa : chr # 298  "MSTRG.299.1::NC_003197.2:1508925-1509076(-)" chrStart: 638976
+doc/metatranscriptome/lt2.fa : chr # 299  "MSTRG.300.1::NC_003197.2:1511197-1511525(+)" chrStart: 641024
+doc/metatranscriptome/lt2.fa : chr # 300  "MSTRG.301.1::NC_003197.2:1516037-1516753(+)" chrStart: 643072
+doc/metatranscriptome/lt2.fa : chr # 301  "MSTRG.302.1::NC_003197.2:1519702-1521426(+)" chrStart: 645120
+doc/metatranscriptome/lt2.fa : chr # 302  "MSTRG.303.1::NC_003197.2:1523622-1524026(+)" chrStart: 647168
+doc/metatranscriptome/lt2.fa : chr # 303  "MSTRG.304.1::NC_003197.2:1524939-1527203(+)" chrStart: 649216
+doc/metatranscriptome/lt2.fa : chr # 304  "MSTRG.305.1::NC_003197.2:1534623-1534973(-)" chrStart: 653312
+doc/metatranscriptome/lt2.fa : chr # 305  "MSTRG.306.1::NC_003197.2:1535626-1535781(-)" chrStart: 655360
+doc/metatranscriptome/lt2.fa : chr # 306  "MSTRG.307.1::NC_003197.2:1536584-1536930(+)" chrStart: 657408
+doc/metatranscriptome/lt2.fa : chr # 307  "MSTRG.308.1::NC_003197.2:1539305-1540745(-)" chrStart: 659456
+doc/metatranscriptome/lt2.fa : chr # 308  "MSTRG.309.1::NC_003197.2:1543429-1544575(+)" chrStart: 661504
+doc/metatranscriptome/lt2.fa : chr # 309  "MSTRG.310.1::NC_003197.2:1551524-1552026(-)" chrStart: 663552
+doc/metatranscriptome/lt2.fa : chr # 310  "MSTRG.311.1::NC_003197.2:1557224-1557456(+)" chrStart: 665600
+doc/metatranscriptome/lt2.fa : chr # 311  "MSTRG.312.1::NC_003197.2:1562054-1562335(-)" chrStart: 667648
+doc/metatranscriptome/lt2.fa : chr # 312  "MSTRG.313.1::NC_003197.2:1573282-1573966(-)" chrStart: 669696
+doc/metatranscriptome/lt2.fa : chr # 313  "MSTRG.314.1::NC_003197.2:1579564-1579730(-)" chrStart: 671744
+doc/metatranscriptome/lt2.fa : chr # 314  "MSTRG.315.1::NC_003197.2:1581239-1581667(-)" chrStart: 673792
+doc/metatranscriptome/lt2.fa : chr # 315  "MSTRG.316.1::NC_003197.2:1589248-1589558(-)" chrStart: 675840
+doc/metatranscriptome/lt2.fa : chr # 316  "MSTRG.317.1::NC_003197.2:1589733-1589866(+)" chrStart: 677888
+doc/metatranscriptome/lt2.fa : chr # 317  "MSTRG.318.1::NC_003197.2:1591487-1591768(+)" chrStart: 679936
+doc/metatranscriptome/lt2.fa : chr # 318  "MSTRG.319.1::NC_003197.2:1594001-1594193(-)" chrStart: 681984
+doc/metatranscriptome/lt2.fa : chr # 319  "MSTRG.320.1::NC_003197.2:1598366-1598893(+)" chrStart: 684032
+doc/metatranscriptome/lt2.fa : chr # 320  "MSTRG.321.1::NC_003197.2:1604145-1604282(+)" chrStart: 686080
+doc/metatranscriptome/lt2.fa : chr # 321  "MSTRG.322.1::NC_003197.2:1610864-1612095(-)" chrStart: 688128
+doc/metatranscriptome/lt2.fa : chr # 322  "MSTRG.323.1::NC_003197.2:1624828-1626039(+)" chrStart: 690176
+doc/metatranscriptome/lt2.fa : chr # 323  "MSTRG.324.1::NC_003197.2:1647059-1647581(+)" chrStart: 692224
+doc/metatranscriptome/lt2.fa : chr # 324  "MSTRG.325.1::NC_003197.2:1654306-1654661(+)" chrStart: 694272
+doc/metatranscriptome/lt2.fa : chr # 325  "MSTRG.326.1::NC_003197.2:1655299-1656300(+)" chrStart: 696320
+doc/metatranscriptome/lt2.fa : chr # 326  "MSTRG.327.1::NC_003197.2:1658911-1659158(-)" chrStart: 698368
+doc/metatranscriptome/lt2.fa : chr # 327  "MSTRG.328.1::NC_003197.2:1666697-1667114(+)" chrStart: 700416
+doc/metatranscriptome/lt2.fa : chr # 328  "MSTRG.329.1::NC_003197.2:1667872-1668599(+)" chrStart: 702464
+doc/metatranscriptome/lt2.fa : chr # 329  "MSTRG.330.1::NC_003197.2:1669412-1670163(-)" chrStart: 704512
+doc/metatranscriptome/lt2.fa : chr # 330  "MSTRG.331.1::NC_003197.2:1672144-1673161(-)" chrStart: 706560
+doc/metatranscriptome/lt2.fa : chr # 331  "MSTRG.332.1::NC_003197.2:1675246-1675660(+)" chrStart: 708608
+doc/metatranscriptome/lt2.fa : chr # 332  "MSTRG.333.1::NC_003197.2:1676786-1677005(-)" chrStart: 710656
+doc/metatranscriptome/lt2.fa : chr # 333  "MSTRG.334.1::NC_003197.2:1686751-1688518(-)" chrStart: 712704
+doc/metatranscriptome/lt2.fa : chr # 334  "MSTRG.335.1::NC_003197.2:1691019-1691802(-)" chrStart: 714752
+doc/metatranscriptome/lt2.fa : chr # 335  "MSTRG.336.1::NC_003197.2:1692131-1692447(+)" chrStart: 716800
+doc/metatranscriptome/lt2.fa : chr # 336  "MSTRG.337.1::NC_003197.2:1693654-1695048(-)" chrStart: 718848
+doc/metatranscriptome/lt2.fa : chr # 337  "MSTRG.338.1::NC_003197.2:1697651-1698209(-)" chrStart: 720896
+doc/metatranscriptome/lt2.fa : chr # 338  "MSTRG.339.1::NC_003197.2:1706556-1706900(+)" chrStart: 722944
+doc/metatranscriptome/lt2.fa : chr # 339  "MSTRG.340.1::NC_003197.2:1711064-1711325(-)" chrStart: 724992
+doc/metatranscriptome/lt2.fa : chr # 340  "MSTRG.341.1::NC_003197.2:1714904-1715486(+)" chrStart: 727040
+doc/metatranscriptome/lt2.fa : chr # 341  "MSTRG.342.1::NC_003197.2:1723548-1724787(+)" chrStart: 729088
+doc/metatranscriptome/lt2.fa : chr # 342  "MSTRG.343.1::NC_003197.2:1729040-1729233(+)" chrStart: 731136
+doc/metatranscriptome/lt2.fa : chr # 343  "MSTRG.344.1::NC_003197.2:1737375-1737529(-)" chrStart: 733184
+doc/metatranscriptome/lt2.fa : chr # 344  "MSTRG.345.1::NC_003197.2:1741182-1741685(+)" chrStart: 735232
+doc/metatranscriptome/lt2.fa : chr # 345  "MSTRG.346.1::NC_003197.2:1754381-1754598(+)" chrStart: 737280
+doc/metatranscriptome/lt2.fa : chr # 346  "MSTRG.347.1::NC_003197.2:1755420-1755770(+)" chrStart: 739328
+doc/metatranscriptome/lt2.fa : chr # 347  "MSTRG.348.1::NC_003197.2:1756092-1756537(-)" chrStart: 741376
+doc/metatranscriptome/lt2.fa : chr # 348  "MSTRG.349.1::NC_003197.2:1765684-1766750(+)" chrStart: 743424
+doc/metatranscriptome/lt2.fa : chr # 349  "MSTRG.350.1::NC_003197.2:1771056-1771206(+)" chrStart: 745472
+doc/metatranscriptome/lt2.fa : chr # 350  "MSTRG.351.1::NC_003197.2:1771732-1772478(-)" chrStart: 747520
+doc/metatranscriptome/lt2.fa : chr # 351  "MSTRG.352.1::NC_003197.2:1773885-1774753(-)" chrStart: 749568
+doc/metatranscriptome/lt2.fa : chr # 352  "MSTRG.353.1::NC_003197.2:1775706-1776106(+)" chrStart: 751616
+doc/metatranscriptome/lt2.fa : chr # 353  "MSTRG.354.1::NC_003197.2:1782559-1783059(+)" chrStart: 753664
+doc/metatranscriptome/lt2.fa : chr # 354  "MSTRG.355.1::NC_003197.2:1785475-1786204(+)" chrStart: 755712
+doc/metatranscriptome/lt2.fa : chr # 355  "MSTRG.356.1::NC_003197.2:1788375-1789847(-)" chrStart: 757760
+doc/metatranscriptome/lt2.fa : chr # 356  "MSTRG.357.1::NC_003197.2:1790288-1791535(-)" chrStart: 759808
+doc/metatranscriptome/lt2.fa : chr # 357  "MSTRG.358.1::NC_003197.2:1792507-1792926(+)" chrStart: 761856
+doc/metatranscriptome/lt2.fa : chr # 358  "MSTRG.359.1::NC_003197.2:1795129-1795288(+)" chrStart: 763904
+doc/metatranscriptome/lt2.fa : chr # 359  "MSTRG.360.1::NC_003197.2:1799785-1800254(+)" chrStart: 765952
+doc/metatranscriptome/lt2.fa : chr # 360  "MSTRG.361.1::NC_003197.2:1802055-1802212(-)" chrStart: 768000
+doc/metatranscriptome/lt2.fa : chr # 361  "MSTRG.362.1::NC_003197.2:1807826-1808160(-)" chrStart: 770048
+doc/metatranscriptome/lt2.fa : chr # 362  "MSTRG.363.1::NC_003197.2:1808913-1809364(-)" chrStart: 772096
+doc/metatranscriptome/lt2.fa : chr # 363  "MSTRG.364.1::NC_003197.2:1812783-1813074(+)" chrStart: 774144
+doc/metatranscriptome/lt2.fa : chr # 364  "MSTRG.365.1::NC_003197.2:1813715-1814144(-)" chrStart: 776192
+doc/metatranscriptome/lt2.fa : chr # 365  "MSTRG.366.1::NC_003197.2:1814286-1814447(+)" chrStart: 778240
+doc/metatranscriptome/lt2.fa : chr # 366  "MSTRG.367.1::NC_003197.2:1816049-1816456(-)" chrStart: 780288
+doc/metatranscriptome/lt2.fa : chr # 367  "MSTRG.368.1::NC_003197.2:1824488-1824762(+)" chrStart: 782336
+doc/metatranscriptome/lt2.fa : chr # 368  "MSTRG.369.1::NC_003197.2:1828776-1829030(+)" chrStart: 784384
+doc/metatranscriptome/lt2.fa : chr # 369  "MSTRG.370.1::NC_003197.2:1832217-1832536(+)" chrStart: 786432
+doc/metatranscriptome/lt2.fa : chr # 370  "MSTRG.371.1::NC_003197.2:1835587-1836363(-)" chrStart: 788480
+doc/metatranscriptome/lt2.fa : chr # 371  "MSTRG.372.1::NC_003197.2:1837080-1837711(-)" chrStart: 790528
+doc/metatranscriptome/lt2.fa : chr # 372  "MSTRG.373.1::NC_003197.2:1839065-1841381(-)" chrStart: 792576
+doc/metatranscriptome/lt2.fa : chr # 373  "MSTRG.374.1::NC_003197.2:1842992-1843212(+)" chrStart: 796672
+doc/metatranscriptome/lt2.fa : chr # 374  "MSTRG.375.1::NC_003197.2:1843425-1845853(+)" chrStart: 798720
+doc/metatranscriptome/lt2.fa : chr # 375  "MSTRG.376.1::NC_003197.2:1845930-1846635(-)" chrStart: 802816
+doc/metatranscriptome/lt2.fa : chr # 376  "MSTRG.377.1::NC_003197.2:1847253-1847733(+)" chrStart: 804864
+doc/metatranscriptome/lt2.fa : chr # 377  "MSTRG.378.1::NC_003197.2:1850370-1850533(-)" chrStart: 806912
+doc/metatranscriptome/lt2.fa : chr # 378  "MSTRG.379.1::NC_003197.2:1851020-1851346(+)" chrStart: 808960
+doc/metatranscriptome/lt2.fa : chr # 379  "MSTRG.380.1::NC_003197.2:1851680-1852543(+)" chrStart: 811008
+doc/metatranscriptome/lt2.fa : chr # 380  "MSTRG.381.1::NC_003197.2:1864789-1865132(+)" chrStart: 813056
+doc/metatranscriptome/lt2.fa : chr # 381  "MSTRG.382.1::NC_003197.2:1866187-1866815(+)" chrStart: 815104
+doc/metatranscriptome/lt2.fa : chr # 382  "MSTRG.383.1::NC_003197.2:1869618-1869774(+)" chrStart: 817152
+doc/metatranscriptome/lt2.fa : chr # 383  "MSTRG.384.1::NC_003197.2:1869907-1870074(-)" chrStart: 819200
+doc/metatranscriptome/lt2.fa : chr # 384  "MSTRG.385.1::NC_003197.2:1870999-1871185(-)" chrStart: 821248
+doc/metatranscriptome/lt2.fa : chr # 385  "MSTRG.386.1::NC_003197.2:1874743-1874912(-)" chrStart: 823296
+doc/metatranscriptome/lt2.fa : chr # 386  "MSTRG.387.1::NC_003197.2:1877761-1877923(+)" chrStart: 825344
+doc/metatranscriptome/lt2.fa : chr # 387  "MSTRG.388.1::NC_003197.2:1880523-1880871(-)" chrStart: 827392
+doc/metatranscriptome/lt2.fa : chr # 388  "MSTRG.389.1::NC_003197.2:1893523-1895267(+)" chrStart: 829440
+doc/metatranscriptome/lt2.fa : chr # 389  "MSTRG.390.1::NC_003197.2:1896431-1897104(+)" chrStart: 831488
+doc/metatranscriptome/lt2.fa : chr # 390  "MSTRG.391.1::NC_003197.2:1899776-1899973(+)" chrStart: 833536
+doc/metatranscriptome/lt2.fa : chr # 391  "MSTRG.392.1::NC_003197.2:1901554-1901993(-)" chrStart: 835584
+doc/metatranscriptome/lt2.fa : chr # 392  "MSTRG.393.1::NC_003197.2:1907260-1908104(+)" chrStart: 837632
+doc/metatranscriptome/lt2.fa : chr # 393  "MSTRG.394.1::NC_003197.2:1909360-1909636(-)" chrStart: 839680
+doc/metatranscriptome/lt2.fa : chr # 394  "MSTRG.395.1::NC_003197.2:1911197-1911517(-)" chrStart: 841728
+doc/metatranscriptome/lt2.fa : chr # 395  "MSTRG.396.1::NC_003197.2:1912167-1913942(+)" chrStart: 843776
+doc/metatranscriptome/lt2.fa : chr # 396  "MSTRG.397.1::NC_003197.2:1915194-1915994(-)" chrStart: 845824
+doc/metatranscriptome/lt2.fa : chr # 397  "MSTRG.398.1::NC_003197.2:1920871-1921092(-)" chrStart: 847872
+doc/metatranscriptome/lt2.fa : chr # 398  "MSTRG.399.1::NC_003197.2:1924157-1924313(+)" chrStart: 849920
+doc/metatranscriptome/lt2.fa : chr # 399  "MSTRG.400.1::NC_003197.2:1929707-1930115(+)" chrStart: 851968
+doc/metatranscriptome/lt2.fa : chr # 400  "MSTRG.401.1::NC_003197.2:1935466-1936217(-)" chrStart: 854016
+doc/metatranscriptome/lt2.fa : chr # 401  "MSTRG.402.1::NC_003197.2:1936601-1937072(-)" chrStart: 856064
+doc/metatranscriptome/lt2.fa : chr # 402  "MSTRG.403.1::NC_003197.2:1940007-1940647(-)" chrStart: 858112
+doc/metatranscriptome/lt2.fa : chr # 403  "MSTRG.404.1::NC_003197.2:1941097-1941426(-)" chrStart: 860160
+doc/metatranscriptome/lt2.fa : chr # 404  "MSTRG.405.1::NC_003197.2:1942931-1943400(-)" chrStart: 862208
+doc/metatranscriptome/lt2.fa : chr # 405  "MSTRG.406.1::NC_003197.2:1945355-1945600(-)" chrStart: 864256
+doc/metatranscriptome/lt2.fa : chr # 406  "MSTRG.407.1::NC_003197.2:1950088-1950362(+)" chrStart: 866304
+doc/metatranscriptome/lt2.fa : chr # 407  "MSTRG.408.1::NC_003197.2:1951479-1951764(-)" chrStart: 868352
+doc/metatranscriptome/lt2.fa : chr # 408  "MSTRG.409.1::NC_003197.2:1961272-1961765(+)" chrStart: 870400
+doc/metatranscriptome/lt2.fa : chr # 409  "MSTRG.410.1::NC_003197.2:1961963-1962324(-)" chrStart: 872448
+doc/metatranscriptome/lt2.fa : chr # 410  "MSTRG.411.1::NC_003197.2:1963129-1963765(+)" chrStart: 874496
+doc/metatranscriptome/lt2.fa : chr # 411  "MSTRG.412.1::NC_003197.2:1965076-1965524(+)" chrStart: 876544
+doc/metatranscriptome/lt2.fa : chr # 412  "MSTRG.413.1::NC_003197.2:1968035-1968290(+)" chrStart: 878592
+doc/metatranscriptome/lt2.fa : chr # 413  "MSTRG.414.1::NC_003197.2:1972273-1972688(-)" chrStart: 880640
+doc/metatranscriptome/lt2.fa : chr # 414  "MSTRG.415.1::NC_003197.2:1974955-1975358(-)" chrStart: 882688
+doc/metatranscriptome/lt2.fa : chr # 415  "MSTRG.416.1::NC_003197.2:1977070-1977757(-)" chrStart: 884736
+doc/metatranscriptome/lt2.fa : chr # 416  "MSTRG.417.1::NC_003197.2:1983514-1983947(+)" chrStart: 886784
+doc/metatranscriptome/lt2.fa : chr # 417  "MSTRG.418.1::NC_003197.2:1985033-1985485(-)" chrStart: 888832
+doc/metatranscriptome/lt2.fa : chr # 418  "MSTRG.419.1::NC_003197.2:1986027-1987379(-)" chrStart: 890880
+doc/metatranscriptome/lt2.fa : chr # 419  "MSTRG.420.1::NC_003197.2:1987381-1988818(+)" chrStart: 892928
+doc/metatranscriptome/lt2.fa : chr # 420  "MSTRG.421.1::NC_003197.2:1995412-1996393(-)" chrStart: 894976
+doc/metatranscriptome/lt2.fa : chr # 421  "MSTRG.422.1::NC_003197.2:2015008-2015162(-)" chrStart: 897024
+doc/metatranscriptome/lt2.fa : chr # 422  "MSTRG.423.1::NC_003197.2:2018486-2018746(-)" chrStart: 899072
+doc/metatranscriptome/lt2.fa : chr # 423  "MSTRG.424.1::NC_003197.2:2021110-2021557(-)" chrStart: 901120
+doc/metatranscriptome/lt2.fa : chr # 424  "MSTRG.425.1::NC_003197.2:2023521-2024110(-)" chrStart: 903168
+doc/metatranscriptome/lt2.fa : chr # 425  "MSTRG.426.1::NC_003197.2:2029412-2029685(+)" chrStart: 905216
+doc/metatranscriptome/lt2.fa : chr # 426  "MSTRG.427.1::NC_003197.2:2031620-2032791(-)" chrStart: 907264
+doc/metatranscriptome/lt2.fa : chr # 427  "MSTRG.428.1::NC_003197.2:2035296-2035991(-)" chrStart: 909312
+doc/metatranscriptome/lt2.fa : chr # 428  "MSTRG.429.1::NC_003197.2:2038280-2038736(-)" chrStart: 911360
+doc/metatranscriptome/lt2.fa : chr # 429  "MSTRG.430.1::NC_003197.2:2043094-2044097(-)" chrStart: 913408
+doc/metatranscriptome/lt2.fa : chr # 430  "MSTRG.431.1::NC_003197.2:2050519-2050846(+)" chrStart: 915456
+doc/metatranscriptome/lt2.fa : chr # 431  "MSTRG.432.1::NC_003197.2:2071584-2071811(-)" chrStart: 917504
+doc/metatranscriptome/lt2.fa : chr # 432  "MSTRG.433.1::NC_003197.2:2072213-2072754(-)" chrStart: 919552
+doc/metatranscriptome/lt2.fa : chr # 433  "MSTRG.434.1::NC_003197.2:2082667-2083289(+)" chrStart: 921600
+doc/metatranscriptome/lt2.fa : chr # 434  "MSTRG.435.1::NC_003197.2:2097371-2097843(-)" chrStart: 923648
+doc/metatranscriptome/lt2.fa : chr # 435  "MSTRG.436.1::NC_003197.2:2101135-2101543(-)" chrStart: 925696
+doc/metatranscriptome/lt2.fa : chr # 436  "MSTRG.437.1::NC_003197.2:2104278-2104974(-)" chrStart: 927744
+doc/metatranscriptome/lt2.fa : chr # 437  "MSTRG.438.1::NC_003197.2:2112786-2113074(-)" chrStart: 929792
+doc/metatranscriptome/lt2.fa : chr # 438  "MSTRG.439.1::NC_003197.2:2133773-2134368(-)" chrStart: 931840
+doc/metatranscriptome/lt2.fa : chr # 439  "MSTRG.440.1::NC_003197.2:2136619-2137265(+)" chrStart: 933888
+doc/metatranscriptome/lt2.fa : chr # 440  "MSTRG.441.1::NC_003197.2:2138895-2139307(-)" chrStart: 935936
+doc/metatranscriptome/lt2.fa : chr # 441  "MSTRG.442.1::NC_003197.2:2143869-2144140(-)" chrStart: 937984
+doc/metatranscriptome/lt2.fa : chr # 442  "MSTRG.443.1::NC_003197.2:2145534-2145731(+)" chrStart: 940032
+doc/metatranscriptome/lt2.fa : chr # 443  "MSTRG.444.1::NC_003197.2:2145813-2146168(-)" chrStart: 942080
+doc/metatranscriptome/lt2.fa : chr # 444  "MSTRG.445.1::NC_003197.2:2147152-2147307(-)" chrStart: 944128
+doc/metatranscriptome/lt2.fa : chr # 445  "MSTRG.446.1::NC_003197.2:2147717-2148471(-)" chrStart: 946176
+doc/metatranscriptome/lt2.fa : chr # 446  "MSTRG.447.1::NC_003197.2:2150524-2151549(+)" chrStart: 948224
+doc/metatranscriptome/lt2.fa : chr # 447  "MSTRG.448.1::NC_003197.2:2155015-2156388(+)" chrStart: 950272
+doc/metatranscriptome/lt2.fa : chr # 448  "MSTRG.449.1::NC_003197.2:2160364-2160530(-)" chrStart: 952320
+doc/metatranscriptome/lt2.fa : chr # 449  "MSTRG.450.1::NC_003197.2:2165647-2167348(-)" chrStart: 954368
+doc/metatranscriptome/lt2.fa : chr # 450  "MSTRG.451.1::NC_003197.2:2170928-2172085(-)" chrStart: 956416
+doc/metatranscriptome/lt2.fa : chr # 451  "MSTRG.452.1::NC_003197.2:2172603-2172754(-)" chrStart: 958464
+doc/metatranscriptome/lt2.fa : chr # 452  "MSTRG.453.1::NC_003197.2:2175720-2176213(-)" chrStart: 960512
+doc/metatranscriptome/lt2.fa : chr # 453  "MSTRG.454.1::NC_003197.2:2177817-2179961(-)" chrStart: 962560
+doc/metatranscriptome/lt2.fa : chr # 454  "MSTRG.455.1::NC_003197.2:2206513-2207623(-)" chrStart: 966656
+doc/metatranscriptome/lt2.fa : chr # 455  "MSTRG.456.1::NC_003197.2:2208482-2208722(+)" chrStart: 968704
+doc/metatranscriptome/lt2.fa : chr # 456  "MSTRG.457.1::NC_003197.2:2232563-2233582(-)" chrStart: 970752
+doc/metatranscriptome/lt2.fa : chr # 457  "MSTRG.458.1::NC_003197.2:2233980-2234172(+)" chrStart: 972800
+doc/metatranscriptome/lt2.fa : chr # 458  "MSTRG.459.1::NC_003197.2:2242251-2242547(+)" chrStart: 974848
+doc/metatranscriptome/lt2.fa : chr # 459  "MSTRG.460.1::NC_003197.2:2266646-2266853(+)" chrStart: 976896
+doc/metatranscriptome/lt2.fa : chr # 460  "MSTRG.461.1::NC_003197.2:2274692-2274902(-)" chrStart: 978944
+doc/metatranscriptome/lt2.fa : chr # 461  "MSTRG.462.1::NC_003197.2:2280215-2280692(+)" chrStart: 980992
+doc/metatranscriptome/lt2.fa : chr # 462  "MSTRG.463.1::NC_003197.2:2290406-2290627(-)" chrStart: 983040
+doc/metatranscriptome/lt2.fa : chr # 463  "MSTRG.464.1::NC_003197.2:2290915-2291167(-)" chrStart: 985088
+doc/metatranscriptome/lt2.fa : chr # 464  "MSTRG.465.1::NC_003197.2:2291794-2292358(+)" chrStart: 987136
+doc/metatranscriptome/lt2.fa : chr # 465  "MSTRG.466.1::NC_003197.2:2296102-2296592(-)" chrStart: 989184
+doc/metatranscriptome/lt2.fa : chr # 466  "MSTRG.467.1::NC_003197.2:2298048-2298389(-)" chrStart: 991232
+doc/metatranscriptome/lt2.fa : chr # 467  "MSTRG.468.1::NC_003197.2:2303539-2304599(-)" chrStart: 993280
+doc/metatranscriptome/lt2.fa : chr # 468  "MSTRG.469.1::NC_003197.2:2310778-2311162(+)" chrStart: 995328
+doc/metatranscriptome/lt2.fa : chr # 469  "MSTRG.470.1::NC_003197.2:2314065-2314254(+)" chrStart: 997376
+doc/metatranscriptome/lt2.fa : chr # 470  "MSTRG.471.1::NC_003197.2:2315869-2316063(+)" chrStart: 999424
+doc/metatranscriptome/lt2.fa : chr # 471  "MSTRG.472.1::NC_003197.2:2321837-2322309(-)" chrStart: 1001472
+doc/metatranscriptome/lt2.fa : chr # 472  "MSTRG.473.1::NC_003197.2:2326381-2326727(+)" chrStart: 1003520
+doc/metatranscriptome/lt2.fa : chr # 473  "MSTRG.474.1::NC_003197.2:2328510-2328844(+)" chrStart: 1005568
+doc/metatranscriptome/lt2.fa : chr # 474  "MSTRG.475.1::NC_003197.2:2340904-2341059(-)" chrStart: 1007616
+doc/metatranscriptome/lt2.fa : chr # 475  "MSTRG.476.1::NC_003197.2:2342268-2343272(-)" chrStart: 1009664
+doc/metatranscriptome/lt2.fa : chr # 476  "MSTRG.477.1::NC_003197.2:2345016-2345547(-)" chrStart: 1011712
+doc/metatranscriptome/lt2.fa : chr # 477  "MSTRG.478.1::NC_003197.2:2365432-2366635(-)" chrStart: 1013760
+doc/metatranscriptome/lt2.fa : chr # 478  "MSTRG.479.1::NC_003197.2:2370757-2371102(-)" chrStart: 1015808
+doc/metatranscriptome/lt2.fa : chr # 479  "MSTRG.480.1::NC_003197.2:2376115-2376274(-)" chrStart: 1017856
+doc/metatranscriptome/lt2.fa : chr # 480  "MSTRG.481.1::NC_003197.2:2380338-2381035(+)" chrStart: 1019904
+doc/metatranscriptome/lt2.fa : chr # 481  "MSTRG.482.1::NC_003197.2:2381939-2383664(+)" chrStart: 1021952
+doc/metatranscriptome/lt2.fa : chr # 482  "MSTRG.483.1::NC_003197.2:2385187-2385405(-)" chrStart: 1024000
+doc/metatranscriptome/lt2.fa : chr # 483  "MSTRG.484.1::NC_003197.2:2390584-2390774(+)" chrStart: 1026048
+doc/metatranscriptome/lt2.fa : chr # 484  "MSTRG.485.1::NC_003197.2:2391886-2392093(+)" chrStart: 1028096
+doc/metatranscriptome/lt2.fa : chr # 485  "MSTRG.486.1::NC_003197.2:2394685-2395929(+)" chrStart: 1030144
+doc/metatranscriptome/lt2.fa : chr # 486  "MSTRG.487.1::NC_003197.2:2398179-2398709(+)" chrStart: 1032192
+doc/metatranscriptome/lt2.fa : chr # 487  "MSTRG.488.1::NC_003197.2:2401784-2401942(-)" chrStart: 1034240
+doc/metatranscriptome/lt2.fa : chr # 488  "MSTRG.489.1::NC_003197.2:2409182-2409380(+)" chrStart: 1036288
+doc/metatranscriptome/lt2.fa : chr # 489  "MSTRG.490.1::NC_003197.2:2411032-2411589(-)" chrStart: 1038336
+doc/metatranscriptome/lt2.fa : chr # 490  "MSTRG.491.1::NC_003197.2:2411889-2412241(-)" chrStart: 1040384
+doc/metatranscriptome/lt2.fa : chr # 491  "MSTRG.492.1::NC_003197.2:2418695-2419099(-)" chrStart: 1042432
+doc/metatranscriptome/lt2.fa : chr # 492  "MSTRG.493.1::NC_003197.2:2428390-2428710(-)" chrStart: 1044480
+doc/metatranscriptome/lt2.fa : chr # 493  "MSTRG.494.1::NC_003197.2:2431529-2431727(-)" chrStart: 1046528
+doc/metatranscriptome/lt2.fa : chr # 494  "MSTRG.495.1::NC_003197.2:2435127-2436197(-)" chrStart: 1048576
+doc/metatranscriptome/lt2.fa : chr # 495  "MSTRG.496.1::NC_003197.2:2437367-2438167(-)" chrStart: 1050624
+doc/metatranscriptome/lt2.fa : chr # 496  "MSTRG.497.1::NC_003197.2:2438534-2439165(-)" chrStart: 1052672
+doc/metatranscriptome/lt2.fa : chr # 497  "MSTRG.498.1::NC_003197.2:2447891-2448127(-)" chrStart: 1054720
+doc/metatranscriptome/lt2.fa : chr # 498  "MSTRG.499.1::NC_003197.2:2455392-2455915(-)" chrStart: 1056768
+doc/metatranscriptome/lt2.fa : chr # 499  "MSTRG.500.1::NC_003197.2:2460208-2460641(-)" chrStart: 1058816
+doc/metatranscriptome/lt2.fa : chr # 500  "MSTRG.501.1::NC_003197.2:2461659-2462126(+)" chrStart: 1060864
+doc/metatranscriptome/lt2.fa : chr # 501  "MSTRG.502.1::NC_003197.2:2463669-2464626(-)" chrStart: 1062912
+doc/metatranscriptome/lt2.fa : chr # 502  "MSTRG.503.1::NC_003197.2:2469097-2469662(-)" chrStart: 1064960
+doc/metatranscriptome/lt2.fa : chr # 503  "MSTRG.504.1::NC_003197.2:2472666-2473368(+)" chrStart: 1067008
+doc/metatranscriptome/lt2.fa : chr # 504  "MSTRG.505.1::NC_003197.2:2476438-2477351(-)" chrStart: 1069056
+doc/metatranscriptome/lt2.fa : chr # 505  "MSTRG.506.1::NC_003197.2:2477731-2478523(-)" chrStart: 1071104
+doc/metatranscriptome/lt2.fa : chr # 506  "MSTRG.507.1::NC_003197.2:2479434-2479584(-)" chrStart: 1073152
+doc/metatranscriptome/lt2.fa : chr # 507  "MSTRG.508.1::NC_003197.2:2480401-2480653(-)" chrStart: 1075200
+doc/metatranscriptome/lt2.fa : chr # 508  "MSTRG.509.1::NC_003197.2:2484179-2484852(+)" chrStart: 1077248
+doc/metatranscriptome/lt2.fa : chr # 509  "MSTRG.510.1::NC_003197.2:2493657-2494157(-)" chrStart: 1079296
+doc/metatranscriptome/lt2.fa : chr # 510  "MSTRG.511.1::NC_003197.2:2495121-2495845(-)" chrStart: 1081344
+doc/metatranscriptome/lt2.fa : chr # 511  "MSTRG.512.1::NC_003197.2:2497927-2499058(-)" chrStart: 1083392
+doc/metatranscriptome/lt2.fa : chr # 512  "MSTRG.513.1::NC_003197.2:2499277-2500057(-)" chrStart: 1085440
+doc/metatranscriptome/lt2.fa : chr # 513  "MSTRG.514.1::NC_003197.2:2501096-2501577(-)" chrStart: 1087488
+doc/metatranscriptome/lt2.fa : chr # 514  "MSTRG.515.1::NC_003197.2:2502345-2503740(+)" chrStart: 1089536
+doc/metatranscriptome/lt2.fa : chr # 515  "MSTRG.516.1::NC_003197.2:2504272-2504429(-)" chrStart: 1091584
+doc/metatranscriptome/lt2.fa : chr # 516  "MSTRG.517.1::NC_003197.2:2506070-2506799(-)" chrStart: 1093632
+doc/metatranscriptome/lt2.fa : chr # 517  "MSTRG.518.1::NC_003197.2:2516325-2517291(-)" chrStart: 1095680
+doc/metatranscriptome/lt2.fa : chr # 518  "MSTRG.519.1::NC_003197.2:2520894-2521292(-)" chrStart: 1097728
+doc/metatranscriptome/lt2.fa : chr # 519  "MSTRG.520.1::NC_003197.2:2523848-2524256(+)" chrStart: 1099776
+doc/metatranscriptome/lt2.fa : chr # 520  "MSTRG.521.1::NC_003197.2:2526274-2526548(+)" chrStart: 1101824
+doc/metatranscriptome/lt2.fa : chr # 521  "MSTRG.522.1::NC_003197.2:2530117-2530634(-)" chrStart: 1103872
+doc/metatranscriptome/lt2.fa : chr # 522  "MSTRG.523.1::NC_003197.2:2531070-2531740(-)" chrStart: 1105920
+doc/metatranscriptome/lt2.fa : chr # 523  "MSTRG.524.1::NC_003197.2:2539545-2539837(-)" chrStart: 1107968
+doc/metatranscriptome/lt2.fa : chr # 524  "MSTRG.525.1::NC_003197.2:2543211-2544249(+)" chrStart: 1110016
+doc/metatranscriptome/lt2.fa : chr # 525  "MSTRG.526.1::NC_003197.2:2544599-2544822(+)" chrStart: 1112064
+doc/metatranscriptome/lt2.fa : chr # 526  "MSTRG.527.1::NC_003197.2:2545204-2547209(+)" chrStart: 1114112
+doc/metatranscriptome/lt2.fa : chr # 527  "MSTRG.528.1::NC_003197.2:2557199-2557418(-)" chrStart: 1116160
+doc/metatranscriptome/lt2.fa : chr # 528  "MSTRG.529.1::NC_003197.2:2580423-2580626(-)" chrStart: 1118208
+doc/metatranscriptome/lt2.fa : chr # 529  "MSTRG.530.1::NC_003197.2:2582844-2583838(+)" chrStart: 1120256
+doc/metatranscriptome/lt2.fa : chr # 530  "MSTRG.531.1::NC_003197.2:2585405-2585774(-)" chrStart: 1122304
+doc/metatranscriptome/lt2.fa : chr # 531  "MSTRG.532.1::NC_003197.2:2597659-2597893(+)" chrStart: 1124352
+doc/metatranscriptome/lt2.fa : chr # 532  "MSTRG.533.1::NC_003197.2:2600249-2601804(-)" chrStart: 1126400
+doc/metatranscriptome/lt2.fa : chr # 533  "MSTRG.534.1::NC_003197.2:2602993-2603230(-)" chrStart: 1128448
+doc/metatranscriptome/lt2.fa : chr # 534  "MSTRG.535.1::NC_003197.2:2613051-2613374(+)" chrStart: 1130496
+doc/metatranscriptome/lt2.fa : chr # 535  "MSTRG.536.1::NC_003197.2:2621771-2622191(+)" chrStart: 1132544
+doc/metatranscriptome/lt2.fa : chr # 536  "MSTRG.537.1::NC_003197.2:2641612-2642150(-)" chrStart: 1134592
+doc/metatranscriptome/lt2.fa : chr # 537  "MSTRG.538.1::NC_003197.2:2643861-2644198(-)" chrStart: 1136640
+doc/metatranscriptome/lt2.fa : chr # 538  "MSTRG.539.1::NC_003197.2:2652549-2652944(-)" chrStart: 1138688
+doc/metatranscriptome/lt2.fa : chr # 539  "MSTRG.540.1::NC_003197.2:2653457-2654630(-)" chrStart: 1140736
+doc/metatranscriptome/lt2.fa : chr # 540  "MSTRG.541.1::NC_003197.2:2656365-2657924(-)" chrStart: 1142784
+doc/metatranscriptome/lt2.fa : chr # 541  "MSTRG.542.1::NC_003197.2:2658127-2658361(-)" chrStart: 1144832
+doc/metatranscriptome/lt2.fa : chr # 542  "MSTRG.543.1::NC_003197.2:2673185-2673674(+)" chrStart: 1146880
+doc/metatranscriptome/lt2.fa : chr # 543  "MSTRG.544.1::NC_003197.2:2674954-2675224(+)" chrStart: 1148928
+doc/metatranscriptome/lt2.fa : chr # 544  "MSTRG.545.1::NC_003197.2:2680218-2680555(-)" chrStart: 1150976
+doc/metatranscriptome/lt2.fa : chr # 545  "MSTRG.546.1::NC_003197.2:2682385-2683473(-)" chrStart: 1153024
+doc/metatranscriptome/lt2.fa : chr # 546  "MSTRG.547.1::NC_003197.2:2683591-2683848(+)" chrStart: 1155072
+doc/metatranscriptome/lt2.fa : chr # 547  "MSTRG.548.1::NC_003197.2:2701131-2701699(+)" chrStart: 1157120
+doc/metatranscriptome/lt2.fa : chr # 548  "MSTRG.549.1::NC_003197.2:2703488-2704516(-)" chrStart: 1159168
+doc/metatranscriptome/lt2.fa : chr # 549  "MSTRG.550.1::NC_003197.2:2708575-2708728(-)" chrStart: 1161216
+doc/metatranscriptome/lt2.fa : chr # 550  "MSTRG.551.1::NC_003197.2:2708980-2709928(-)" chrStart: 1163264
+doc/metatranscriptome/lt2.fa : chr # 551  "MSTRG.552.1::NC_003197.2:2711501-2712067(-)" chrStart: 1165312
+doc/metatranscriptome/lt2.fa : chr # 552  "MSTRG.553.1::NC_003197.2:2714453-2715812(-)" chrStart: 1167360
+doc/metatranscriptome/lt2.fa : chr # 553  "MSTRG.554.1::NC_003197.2:2726243-2727326(-)" chrStart: 1169408
+doc/metatranscriptome/lt2.fa : chr # 554  "MSTRG.555.1::NC_003197.2:2778542-2779298(-)" chrStart: 1171456
+doc/metatranscriptome/lt2.fa : chr # 555  "MSTRG.556.1::NC_003197.2:2779652-2780147(-)" chrStart: 1173504
+doc/metatranscriptome/lt2.fa : chr # 556  "MSTRG.557.1::NC_003197.2:2783628-2783835(+)" chrStart: 1175552
+doc/metatranscriptome/lt2.fa : chr # 557  "MSTRG.558.1::NC_003197.2:2796439-2796550(-)" chrStart: 1177600
+doc/metatranscriptome/lt2.fa : chr # 558  "MSTRG.559.1::NC_003197.2:2796751-2799774(-)" chrStart: 1179648
+doc/metatranscriptome/lt2.fa : chr # 559  "MSTRG.560.1::NC_003197.2:2800121-2801731(-)" chrStart: 1183744
+doc/metatranscriptome/lt2.fa : chr # 560  "MSTRG.561.1::NC_003197.2:2802077-2802361(-)" chrStart: 1185792
+doc/metatranscriptome/lt2.fa : chr # 561  "MSTRG.562.1::NC_003197.2:2804744-2806219(-)" chrStart: 1187840
+doc/metatranscriptome/lt2.fa : chr # 562  "MSTRG.563.1::NC_003197.2:2806609-2806863(+)" chrStart: 1189888
+doc/metatranscriptome/lt2.fa : chr # 563  "MSTRG.564.1::NC_003197.2:2807240-2807391(+)" chrStart: 1191936
+doc/metatranscriptome/lt2.fa : chr # 564  "MSTRG.565.1::NC_003197.2:2807647-2808056(+)" chrStart: 1193984
+doc/metatranscriptome/lt2.fa : chr # 565  "MSTRG.566.1::NC_003197.2:2814860-2815933(-)" chrStart: 1196032
+doc/metatranscriptome/lt2.fa : chr # 566  "MSTRG.567.1::NC_003197.2:2816454-2816712(-)" chrStart: 1198080
+doc/metatranscriptome/lt2.fa : chr # 567  "MSTRG.568.1::NC_003197.2:2818212-2818603(-)" chrStart: 1200128
+doc/metatranscriptome/lt2.fa : chr # 568  "MSTRG.569.1::NC_003197.2:2825055-2825283(+)" chrStart: 1202176
+doc/metatranscriptome/lt2.fa : chr # 569  "MSTRG.570.1::NC_003197.2:2826475-2826659(+)" chrStart: 1204224
+doc/metatranscriptome/lt2.fa : chr # 570  "MSTRG.571.1::NC_003197.2:2841705-2841948(+)" chrStart: 1206272
+doc/metatranscriptome/lt2.fa : chr # 571  "MSTRG.572.1::NC_003197.2:2843943-2844319(+)" chrStart: 1208320
+doc/metatranscriptome/lt2.fa : chr # 572  "MSTRG.573.1::NC_003197.2:2847465-2847749(-)" chrStart: 1210368
+doc/metatranscriptome/lt2.fa : chr # 573  "MSTRG.574.1::NC_003197.2:2854812-2855131(-)" chrStart: 1212416
+doc/metatranscriptome/lt2.fa : chr # 574  "MSTRG.575.1::NC_003197.2:2869380-2869619(-)" chrStart: 1214464
+doc/metatranscriptome/lt2.fa : chr # 575  "MSTRG.576.1::NC_003197.2:2918835-2919361(+)" chrStart: 1216512
+doc/metatranscriptome/lt2.fa : chr # 576  "MSTRG.577.1::NC_003197.2:2926248-2927879(-)" chrStart: 1218560
+doc/metatranscriptome/lt2.fa : chr # 577  "MSTRG.578.1::NC_003197.2:2928358-2929890(+)" chrStart: 1220608
+doc/metatranscriptome/lt2.fa : chr # 578  "MSTRG.579.1::NC_003197.2:2932434-2932700(-)" chrStart: 1222656
+doc/metatranscriptome/lt2.fa : chr # 579  "MSTRG.580.1::NC_003197.2:2937939-2939380(+)" chrStart: 1224704
+doc/metatranscriptome/lt2.fa : chr # 580  "MSTRG.581.1::NC_003197.2:2939760-2941242(+)" chrStart: 1226752
+doc/metatranscriptome/lt2.fa : chr # 581  "MSTRG.582.1::NC_003197.2:2941576-2942447(+)" chrStart: 1228800
+doc/metatranscriptome/lt2.fa : chr # 582  "MSTRG.583.1::NC_003197.2:2943376-2943558(+)" chrStart: 1230848
+doc/metatranscriptome/lt2.fa : chr # 583  "MSTRG.584.1::NC_003197.2:2945734-2945886(-)" chrStart: 1232896
+doc/metatranscriptome/lt2.fa : chr # 584  "MSTRG.585.1::NC_003197.2:2946940-2947210(+)" chrStart: 1234944
+doc/metatranscriptome/lt2.fa : chr # 585  "MSTRG.586.1::NC_003197.2:2949310-2949748(+)" chrStart: 1236992
+doc/metatranscriptome/lt2.fa : chr # 586  "MSTRG.587.1::NC_003197.2:2951805-2952173(+)" chrStart: 1239040
+doc/metatranscriptome/lt2.fa : chr # 587  "MSTRG.588.1::NC_003197.2:2966214-2966832(-)" chrStart: 1241088
+doc/metatranscriptome/lt2.fa : chr # 588  "MSTRG.589.1::NC_003197.2:2967785-2967951(+)" chrStart: 1243136
+doc/metatranscriptome/lt2.fa : chr # 589  "MSTRG.590.1::NC_003197.2:2970338-2970692(-)" chrStart: 1245184
+doc/metatranscriptome/lt2.fa : chr # 590  "MSTRG.591.1::NC_003197.2:2970943-2971259(-)" chrStart: 1247232
+doc/metatranscriptome/lt2.fa : chr # 591  "MSTRG.592.1::NC_003197.2:2975802-2975963(-)" chrStart: 1249280
+doc/metatranscriptome/lt2.fa : chr # 592  "MSTRG.593.1::NC_003197.2:3006336-3007634(+)" chrStart: 1251328
+doc/metatranscriptome/lt2.fa : chr # 593  "MSTRG.594.1::NC_003197.2:3008839-3009899(+)" chrStart: 1253376
+doc/metatranscriptome/lt2.fa : chr # 594  "MSTRG.595.1::NC_003197.2:3055982-3056348(-)" chrStart: 1255424
+doc/metatranscriptome/lt2.fa : chr # 595  "MSTRG.596.1::NC_003197.2:3065454-3067049(-)" chrStart: 1257472
+doc/metatranscriptome/lt2.fa : chr # 596  "MSTRG.597.1::NC_003197.2:3067290-3067653(-)" chrStart: 1259520
+doc/metatranscriptome/lt2.fa : chr # 597  "MSTRG.598.1::NC_003197.2:3072211-3072478(-)" chrStart: 1261568
+doc/metatranscriptome/lt2.fa : chr # 598  "MSTRG.599.1::NC_003197.2:3072683-3073893(-)" chrStart: 1263616
+doc/metatranscriptome/lt2.fa : chr # 599  "MSTRG.600.1::NC_003197.2:3089585-3090028(-)" chrStart: 1265664
+doc/metatranscriptome/lt2.fa : chr # 600  "MSTRG.601.1::NC_003197.2:3097325-3097693(-)" chrStart: 1267712
+doc/metatranscriptome/lt2.fa : chr # 601  "MSTRG.602.1::NC_003197.2:3098095-3098420(-)" chrStart: 1269760
+doc/metatranscriptome/lt2.fa : chr # 602  "MSTRG.603.1::NC_003197.2:3102975-3103762(-)" chrStart: 1271808
+doc/metatranscriptome/lt2.fa : chr # 603  "MSTRG.604.1::NC_003197.2:3104161-3106288(-)" chrStart: 1273856
+doc/metatranscriptome/lt2.fa : chr # 604  "MSTRG.605.1::NC_003197.2:3115527-3115734(-)" chrStart: 1277952
+doc/metatranscriptome/lt2.fa : chr # 605  "MSTRG.606.1::NC_003197.2:3116712-3117052(-)" chrStart: 1280000
+doc/metatranscriptome/lt2.fa : chr # 606  "MSTRG.607.1::NC_003197.2:3121196-3122079(-)" chrStart: 1282048
+doc/metatranscriptome/lt2.fa : chr # 607  "MSTRG.608.1::NC_003197.2:3122522-3122952(+)" chrStart: 1284096
+doc/metatranscriptome/lt2.fa : chr # 608  "MSTRG.609.1::NC_003197.2:3128294-3129429(+)" chrStart: 1286144
+doc/metatranscriptome/lt2.fa : chr # 609  "MSTRG.610.1::NC_003197.2:3142841-3143340(+)" chrStart: 1288192
+doc/metatranscriptome/lt2.fa : chr # 610  "MSTRG.611.1::NC_003197.2:3150036-3150296(-)" chrStart: 1290240
+doc/metatranscriptome/lt2.fa : chr # 611  "MSTRG.612.1::NC_003197.2:3153388-3155934(-)" chrStart: 1292288
+doc/metatranscriptome/lt2.fa : chr # 612  "MSTRG.613.1::NC_003197.2:3159180-3160888(-)" chrStart: 1296384
+doc/metatranscriptome/lt2.fa : chr # 613  "MSTRG.614.1::NC_003197.2:3162328-3162716(-)" chrStart: 1298432
+doc/metatranscriptome/lt2.fa : chr # 614  "MSTRG.615.1::NC_003197.2:3170980-3171391(+)" chrStart: 1300480
+doc/metatranscriptome/lt2.fa : chr # 615  "MSTRG.616.1::NC_003197.2:3171796-3172295(+)" chrStart: 1302528
+doc/metatranscriptome/lt2.fa : chr # 616  "MSTRG.617.1::NC_003197.2:3179670-3179916(-)" chrStart: 1304576
+doc/metatranscriptome/lt2.fa : chr # 617  "MSTRG.618.1::NC_003197.2:3180380-3180851(-)" chrStart: 1306624
+doc/metatranscriptome/lt2.fa : chr # 618  "MSTRG.619.1::NC_003197.2:3181943-3182095(+)" chrStart: 1308672
+doc/metatranscriptome/lt2.fa : chr # 619  "MSTRG.620.1::NC_003197.2:3195422-3195804(-)" chrStart: 1310720
+doc/metatranscriptome/lt2.fa : chr # 620  "MSTRG.621.1::NC_003197.2:3197482-3197733(-)" chrStart: 1312768
+doc/metatranscriptome/lt2.fa : chr # 621  "MSTRG.622.1::NC_003197.2:3197958-3198345(-)" chrStart: 1314816
+doc/metatranscriptome/lt2.fa : chr # 622  "MSTRG.623.1::NC_003197.2:3201162-3201418(-)" chrStart: 1316864
+doc/metatranscriptome/lt2.fa : chr # 623  "MSTRG.624.1::NC_003197.2:3203048-3203202(-)" chrStart: 1318912
+doc/metatranscriptome/lt2.fa : chr # 624  "MSTRG.625.1::NC_003197.2:3205468-3205965(+)" chrStart: 1320960
+doc/metatranscriptome/lt2.fa : chr # 625  "MSTRG.626.1::NC_003197.2:3208584-3208704(-)" chrStart: 1323008
+doc/metatranscriptome/lt2.fa : chr # 626  "MSTRG.627.1::NC_003197.2:3208967-3209198(-)" chrStart: 1325056
+doc/metatranscriptome/lt2.fa : chr # 627  "MSTRG.628.1::NC_003197.2:3209654-3209926(+)" chrStart: 1327104
+doc/metatranscriptome/lt2.fa : chr # 628  "MSTRG.629.1::NC_003197.2:3213806-3214290(-)" chrStart: 1329152
+doc/metatranscriptome/lt2.fa : chr # 629  "MSTRG.630.1::NC_003197.2:3215076-3215613(-)" chrStart: 1331200
+doc/metatranscriptome/lt2.fa : chr # 630  "MSTRG.631.1::NC_003197.2:3220761-3220924(-)" chrStart: 1333248
+doc/metatranscriptome/lt2.fa : chr # 631  "MSTRG.632.1::NC_003197.2:3221888-3222288(+)" chrStart: 1335296
+doc/metatranscriptome/lt2.fa : chr # 632  "MSTRG.633.1::NC_003197.2:3224691-3225235(-)" chrStart: 1337344
+doc/metatranscriptome/lt2.fa : chr # 633  "MSTRG.634.1::NC_003197.2:3225575-3225851(+)" chrStart: 1339392
+doc/metatranscriptome/lt2.fa : chr # 634  "MSTRG.635.1::NC_003197.2:3229473-3229908(-)" chrStart: 1341440
+doc/metatranscriptome/lt2.fa : chr # 635  "MSTRG.636.1::NC_003197.2:3231439-3231696(-)" chrStart: 1343488
+doc/metatranscriptome/lt2.fa : chr # 636  "MSTRG.637.1::NC_003197.2:3236055-3236301(+)" chrStart: 1345536
+doc/metatranscriptome/lt2.fa : chr # 637  "MSTRG.638.1::NC_003197.2:3236390-3236691(-)" chrStart: 1347584
+doc/metatranscriptome/lt2.fa : chr # 638  "MSTRG.639.1::NC_003197.2:3238755-3239015(+)" chrStart: 1349632
+doc/metatranscriptome/lt2.fa : chr # 639  "MSTRG.640.1::NC_003197.2:3243354-3243543(+)" chrStart: 1351680
+doc/metatranscriptome/lt2.fa : chr # 640  "MSTRG.641.1::NC_003197.2:3248878-3249230(-)" chrStart: 1353728
+doc/metatranscriptome/lt2.fa : chr # 641  "MSTRG.642.1::NC_003197.2:3257269-3257981(+)" chrStart: 1355776
+doc/metatranscriptome/lt2.fa : chr # 642  "MSTRG.643.1::NC_003197.2:3265958-3266544(-)" chrStart: 1357824
+doc/metatranscriptome/lt2.fa : chr # 643  "MSTRG.644.1::NC_003197.2:3267459-3268061(-)" chrStart: 1359872
+doc/metatranscriptome/lt2.fa : chr # 644  "MSTRG.645.1::NC_003197.2:3269812-3269971(+)" chrStart: 1361920
+doc/metatranscriptome/lt2.fa : chr # 645  "MSTRG.646.1::NC_003197.2:3270405-3270560(+)" chrStart: 1363968
+doc/metatranscriptome/lt2.fa : chr # 646  "MSTRG.647.1::NC_003197.2:3272357-3272508(+)" chrStart: 1366016
+doc/metatranscriptome/lt2.fa : chr # 647  "MSTRG.648.1::NC_003197.2:3291730-3293723(-)" chrStart: 1368064
+doc/metatranscriptome/lt2.fa : chr # 648  "MSTRG.649.1::NC_003197.2:3300107-3300504(+)" chrStart: 1370112
+doc/metatranscriptome/lt2.fa : chr # 649  "MSTRG.650.1::NC_003197.2:3309934-3310488(-)" chrStart: 1372160
+doc/metatranscriptome/lt2.fa : chr # 650  "MSTRG.651.1::NC_003197.2:3317860-3318262(+)" chrStart: 1374208
+doc/metatranscriptome/lt2.fa : chr # 651  "MSTRG.652.1::NC_003197.2:3319176-3320823(-)" chrStart: 1376256
+doc/metatranscriptome/lt2.fa : chr # 652  "MSTRG.653.1::NC_003197.2:3321654-3323051(+)" chrStart: 1378304
+doc/metatranscriptome/lt2.fa : chr # 653  "MSTRG.654.1::NC_003197.2:3343572-3343789(+)" chrStart: 1380352
+doc/metatranscriptome/lt2.fa : chr # 654  "MSTRG.655.1::NC_003197.2:3345003-3345359(-)" chrStart: 1382400
+doc/metatranscriptome/lt2.fa : chr # 655  "MSTRG.656.1::NC_003197.2:3346649-3347419(-)" chrStart: 1384448
+doc/metatranscriptome/lt2.fa : chr # 656  "MSTRG.657.1::NC_003197.2:3348476-3349304(+)" chrStart: 1386496
+doc/metatranscriptome/lt2.fa : chr # 657  "MSTRG.658.1::NC_003197.2:3350244-3351087(+)" chrStart: 1388544
+doc/metatranscriptome/lt2.fa : chr # 658  "MSTRG.659.1::NC_003197.2:3352110-3352320(+)" chrStart: 1390592
+doc/metatranscriptome/lt2.fa : chr # 659  "MSTRG.660.1::NC_003197.2:3357626-3357791(+)" chrStart: 1392640
+doc/metatranscriptome/lt2.fa : chr # 660  "MSTRG.661.1::NC_003197.2:3358077-3358299(-)" chrStart: 1394688
+doc/metatranscriptome/lt2.fa : chr # 661  "MSTRG.662.1::NC_003197.2:3358932-3359235(+)" chrStart: 1396736
+doc/metatranscriptome/lt2.fa : chr # 662  "MSTRG.663.1::NC_003197.2:3359258-3359562(-)" chrStart: 1398784
+doc/metatranscriptome/lt2.fa : chr # 663  "MSTRG.664.1::NC_003197.2:3363805-3363973(-)" chrStart: 1400832
+doc/metatranscriptome/lt2.fa : chr # 664  "MSTRG.665.1::NC_003197.2:3366549-3367014(-)" chrStart: 1402880
+doc/metatranscriptome/lt2.fa : chr # 665  "MSTRG.666.1::NC_003197.2:3374010-3374359(+)" chrStart: 1404928
+doc/metatranscriptome/lt2.fa : chr # 666  "MSTRG.667.1::NC_003197.2:3374773-3375291(+)" chrStart: 1406976
+doc/metatranscriptome/lt2.fa : chr # 667  "MSTRG.668.1::NC_003197.2:3375541-3377497(+)" chrStart: 1409024
+doc/metatranscriptome/lt2.fa : chr # 668  "MSTRG.669.1::NC_003197.2:3383130-3383486(-)" chrStart: 1411072
+doc/metatranscriptome/lt2.fa : chr # 669  "MSTRG.670.1::NC_003197.2:3384689-3386129(+)" chrStart: 1413120
+doc/metatranscriptome/lt2.fa : chr # 670  "MSTRG.671.1::NC_003197.2:3386525-3386933(+)" chrStart: 1415168
+doc/metatranscriptome/lt2.fa : chr # 671  "MSTRG.672.1::NC_003197.2:3393438-3394788(+)" chrStart: 1417216
+doc/metatranscriptome/lt2.fa : chr # 672  "MSTRG.673.1::NC_003197.2:3395016-3395268(+)" chrStart: 1419264
+doc/metatranscriptome/lt2.fa : chr # 673  "MSTRG.674.1::NC_003197.2:3395564-3395846(+)" chrStart: 1421312
+doc/metatranscriptome/lt2.fa : chr # 674  "MSTRG.675.1::NC_003197.2:3396335-3397421(+)" chrStart: 1423360
+doc/metatranscriptome/lt2.fa : chr # 675  "MSTRG.676.1::NC_003197.2:3397459-3397782(-)" chrStart: 1425408
+doc/metatranscriptome/lt2.fa : chr # 676  "MSTRG.677.1::NC_003197.2:3401019-3401669(+)" chrStart: 1427456
+doc/metatranscriptome/lt2.fa : chr # 677  "MSTRG.678.1::NC_003197.2:3401990-3403071(-)" chrStart: 1429504
+doc/metatranscriptome/lt2.fa : chr # 678  "MSTRG.679.1::NC_003197.2:3414812-3416063(-)" chrStart: 1431552
+doc/metatranscriptome/lt2.fa : chr # 679  "MSTRG.680.1::NC_003197.2:3438891-3439596(-)" chrStart: 1433600
+doc/metatranscriptome/lt2.fa : chr # 680  "MSTRG.681.1::NC_003197.2:3446726-3446971(-)" chrStart: 1435648
+doc/metatranscriptome/lt2.fa : chr # 681  "MSTRG.682.1::NC_003197.2:3448059-3448910(-)" chrStart: 1437696
+doc/metatranscriptome/lt2.fa : chr # 682  "MSTRG.683.1::NC_003197.2:3451261-3451454(-)" chrStart: 1439744
+doc/metatranscriptome/lt2.fa : chr # 683  "MSTRG.684.1::NC_003197.2:3454741-3455573(-)" chrStart: 1441792
+doc/metatranscriptome/lt2.fa : chr # 684  "MSTRG.685.1::NC_003197.2:3459702-3459935(+)" chrStart: 1443840
+doc/metatranscriptome/lt2.fa : chr # 685  "MSTRG.686.1::NC_003197.2:3461734-3462909(-)" chrStart: 1445888
+doc/metatranscriptome/lt2.fa : chr # 686  "MSTRG.687.1::NC_003197.2:3464666-3465431(-)" chrStart: 1447936
+doc/metatranscriptome/lt2.fa : chr # 687  "MSTRG.688.1::NC_003197.2:3466032-3466147(-)" chrStart: 1449984
+doc/metatranscriptome/lt2.fa : chr # 688  "MSTRG.689.1::NC_003197.2:3472453-3473133(-)" chrStart: 1452032
+doc/metatranscriptome/lt2.fa : chr # 689  "MSTRG.690.1::NC_003197.2:3476781-3476996(-)" chrStart: 1454080
+doc/metatranscriptome/lt2.fa : chr # 690  "MSTRG.691.1::NC_003197.2:3478196-3479711(-)" chrStart: 1456128
+doc/metatranscriptome/lt2.fa : chr # 691  "MSTRG.692.1::NC_003197.2:3482572-3483697(+)" chrStart: 1458176
+doc/metatranscriptome/lt2.fa : chr # 692  "MSTRG.693.1::NC_003197.2:3485823-3486182(+)" chrStart: 1460224
+doc/metatranscriptome/lt2.fa : chr # 693  "MSTRG.694.1::NC_003197.2:3486468-3486766(+)" chrStart: 1462272
+doc/metatranscriptome/lt2.fa : chr # 694  "MSTRG.695.1::NC_003197.2:3490428-3490901(-)" chrStart: 1464320
+doc/metatranscriptome/lt2.fa : chr # 695  "MSTRG.696.1::NC_003197.2:3494551-3494756(+)" chrStart: 1466368
+doc/metatranscriptome/lt2.fa : chr # 696  "MSTRG.697.1::NC_003197.2:3498773-3498927(+)" chrStart: 1468416
+doc/metatranscriptome/lt2.fa : chr # 697  "MSTRG.698.1::NC_003197.2:3508198-3508871(-)" chrStart: 1470464
+doc/metatranscriptome/lt2.fa : chr # 698  "MSTRG.699.1::NC_003197.2:3510578-3511195(-)" chrStart: 1472512
+doc/metatranscriptome/lt2.fa : chr # 699  "MSTRG.700.1::NC_003197.2:3512658-3513396(-)" chrStart: 1474560
+doc/metatranscriptome/lt2.fa : chr # 700  "MSTRG.701.1::NC_003197.2:3515734-3516883(+)" chrStart: 1476608
+doc/metatranscriptome/lt2.fa : chr # 701  "MSTRG.702.1::NC_003197.2:3529703-3529944(-)" chrStart: 1478656
+doc/metatranscriptome/lt2.fa : chr # 702  "MSTRG.703.1::NC_003197.2:3533712-3534207(+)" chrStart: 1480704
+doc/metatranscriptome/lt2.fa : chr # 703  "MSTRG.704.1::NC_003197.2:3535026-3535899(-)" chrStart: 1482752
+doc/metatranscriptome/lt2.fa : chr # 704  "MSTRG.705.1::NC_003197.2:3536399-3536572(-)" chrStart: 1484800
+doc/metatranscriptome/lt2.fa : chr # 705  "MSTRG.706.1::NC_003197.2:3540378-3541043(-)" chrStart: 1486848
+doc/metatranscriptome/lt2.fa : chr # 706  "MSTRG.707.1::NC_003197.2:3541650-3541939(-)" chrStart: 1488896
+doc/metatranscriptome/lt2.fa : chr # 707  "MSTRG.708.1::NC_003197.2:3544108-3544696(-)" chrStart: 1490944
+doc/metatranscriptome/lt2.fa : chr # 708  "MSTRG.709.1::NC_003197.2:3546428-3546943(-)" chrStart: 1492992
+doc/metatranscriptome/lt2.fa : chr # 709  "MSTRG.710.1::NC_003197.2:3550000-3550472(+)" chrStart: 1495040
+doc/metatranscriptome/lt2.fa : chr # 710  "MSTRG.711.1::NC_003197.2:3566878-3570070(-)" chrStart: 1497088
+doc/metatranscriptome/lt2.fa : chr # 711  "MSTRG.712.1::NC_003197.2:3570453-3572022(-)" chrStart: 1501184
+doc/metatranscriptome/lt2.fa : chr # 712  "MSTRG.713.1::NC_003197.2:3575057-3575787(-)" chrStart: 1503232
+doc/metatranscriptome/lt2.fa : chr # 713  "MSTRG.714.1::NC_003197.2:3582283-3588141(-)" chrStart: 1505280
+doc/metatranscriptome/lt2.fa : chr # 714  "MSTRG.715.1::NC_003197.2:3588726-3590331(-)" chrStart: 1511424
+doc/metatranscriptome/lt2.fa : chr # 715  "MSTRG.716.1::NC_003197.2:3590674-3594671(-)" chrStart: 1513472
+doc/metatranscriptome/lt2.fa : chr # 716  "MSTRG.717.1::NC_003197.2:3596056-3596697(-)" chrStart: 1517568
+doc/metatranscriptome/lt2.fa : chr # 717  "MSTRG.718.1::NC_003197.2:3597700-3600250(-)" chrStart: 1519616
+doc/metatranscriptome/lt2.fa : chr # 718  "MSTRG.719.1::NC_003197.2:3600882-3602767(-)" chrStart: 1523712
+doc/metatranscriptome/lt2.fa : chr # 719  "MSTRG.720.1::NC_003197.2:3606142-3606495(-)" chrStart: 1525760
+doc/metatranscriptome/lt2.fa : chr # 720  "MSTRG.721.1::NC_003197.2:3609084-3609770(-)" chrStart: 1527808
+doc/metatranscriptome/lt2.fa : chr # 721  "MSTRG.722.1::NC_003197.2:3609829-3610716(+)" chrStart: 1529856
+doc/metatranscriptome/lt2.fa : chr # 722  "MSTRG.723.1::NC_003197.2:3611422-3611863(+)" chrStart: 1531904
+doc/metatranscriptome/lt2.fa : chr # 723  "MSTRG.724.1::NC_003197.2:3613479-3614015(+)" chrStart: 1533952
+doc/metatranscriptome/lt2.fa : chr # 724  "MSTRG.725.1::NC_003197.2:3615596-3616242(+)" chrStart: 1536000
+doc/metatranscriptome/lt2.fa : chr # 725  "MSTRG.726.1::NC_003197.2:3617059-3617845(+)" chrStart: 1538048
+doc/metatranscriptome/lt2.fa : chr # 726  "MSTRG.727.1::NC_003197.2:3617853-3618813(-)" chrStart: 1540096
+doc/metatranscriptome/lt2.fa : chr # 727  "MSTRG.728.1::NC_003197.2:3621607-3621846(-)" chrStart: 1542144
+doc/metatranscriptome/lt2.fa : chr # 728  "MSTRG.729.1::NC_003197.2:3639726-3640571(-)" chrStart: 1544192
+doc/metatranscriptome/lt2.fa : chr # 729  "MSTRG.730.1::NC_003197.2:3642338-3643118(-)" chrStart: 1546240
+doc/metatranscriptome/lt2.fa : chr # 730  "MSTRG.731.1::NC_003197.2:3649995-3650283(+)" chrStart: 1548288
+doc/metatranscriptome/lt2.fa : chr # 731  "MSTRG.732.1::NC_003197.2:3650862-3651167(+)" chrStart: 1550336
+doc/metatranscriptome/lt2.fa : chr # 732  "MSTRG.733.1::NC_003197.2:3652855-3653210(+)" chrStart: 1552384
+doc/metatranscriptome/lt2.fa : chr # 733  "MSTRG.734.1::NC_003197.2:3653551-3654481(+)" chrStart: 1554432
+doc/metatranscriptome/lt2.fa : chr # 734  "MSTRG.735.1::NC_003197.2:3654766-3655046(-)" chrStart: 1556480
+doc/metatranscriptome/lt2.fa : chr # 735  "MSTRG.736.1::NC_003197.2:3663808-3664474(+)" chrStart: 1558528
+doc/metatranscriptome/lt2.fa : chr # 736  "MSTRG.737.1::NC_003197.2:3665876-3666504(+)" chrStart: 1560576
+doc/metatranscriptome/lt2.fa : chr # 737  "MSTRG.738.1::NC_003197.2:3667965-3668622(-)" chrStart: 1562624
+doc/metatranscriptome/lt2.fa : chr # 738  "MSTRG.739.1::NC_003197.2:3673803-3674080(-)" chrStart: 1564672
+doc/metatranscriptome/lt2.fa : chr # 739  "MSTRG.740.1::NC_003197.2:3678515-3679251(+)" chrStart: 1566720
+doc/metatranscriptome/lt2.fa : chr # 740  "MSTRG.741.1::NC_003197.2:3679868-3680036(-)" chrStart: 1568768
+doc/metatranscriptome/lt2.fa : chr # 741  "MSTRG.742.1::NC_003197.2:3680957-3681290(-)" chrStart: 1570816
+doc/metatranscriptome/lt2.fa : chr # 742  "MSTRG.743.1::NC_003197.2:3686316-3686639(-)" chrStart: 1572864
+doc/metatranscriptome/lt2.fa : chr # 743  "MSTRG.744.1::NC_003197.2:3688710-3690824(+)" chrStart: 1574912
+doc/metatranscriptome/lt2.fa : chr # 744  "MSTRG.745.1::NC_003197.2:3699456-3699913(-)" chrStart: 1579008
+doc/metatranscriptome/lt2.fa : chr # 745  "MSTRG.746.1::NC_003197.2:3705541-3707662(-)" chrStart: 1581056
+doc/metatranscriptome/lt2.fa : chr # 746  "MSTRG.747.1::NC_003197.2:3732945-3733110(-)" chrStart: 1585152
+doc/metatranscriptome/lt2.fa : chr # 747  "MSTRG.748.1::NC_003197.2:3736117-3736322(-)" chrStart: 1587200
+doc/metatranscriptome/lt2.fa : chr # 748  "MSTRG.749.1::NC_003197.2:3741716-3742453(+)" chrStart: 1589248
+doc/metatranscriptome/lt2.fa : chr # 749  "MSTRG.750.1::NC_003197.2:3759722-3760139(+)" chrStart: 1591296
+doc/metatranscriptome/lt2.fa : chr # 750  "MSTRG.751.1::NC_003197.2:3760855-3761380(+)" chrStart: 1593344
+doc/metatranscriptome/lt2.fa : chr # 751  "MSTRG.752.1::NC_003197.2:3766131-3766743(-)" chrStart: 1595392
+doc/metatranscriptome/lt2.fa : chr # 752  "MSTRG.753.1::NC_003197.2:3767387-3767513(-)" chrStart: 1597440
+doc/metatranscriptome/lt2.fa : chr # 753  "MSTRG.754.1::NC_003197.2:3768692-3769975(+)" chrStart: 1599488
+doc/metatranscriptome/lt2.fa : chr # 754  "MSTRG.755.1::NC_003197.2:3776269-3776452(+)" chrStart: 1601536
+doc/metatranscriptome/lt2.fa : chr # 755  "MSTRG.756.1::NC_003197.2:3785636-3786051(-)" chrStart: 1603584
+doc/metatranscriptome/lt2.fa : chr # 756  "MSTRG.757.1::NC_003197.2:3794050-3794359(-)" chrStart: 1605632
+doc/metatranscriptome/lt2.fa : chr # 757  "MSTRG.758.1::NC_003197.2:3800362-3800772(-)" chrStart: 1607680
+doc/metatranscriptome/lt2.fa : chr # 758  "MSTRG.759.1::NC_003197.2:3803353-3803788(-)" chrStart: 1609728
+doc/metatranscriptome/lt2.fa : chr # 759  "MSTRG.760.1::NC_003197.2:3804704-3805531(+)" chrStart: 1611776
+doc/metatranscriptome/lt2.fa : chr # 760  "MSTRG.761.1::NC_003197.2:3808117-3808470(-)" chrStart: 1613824
+doc/metatranscriptome/lt2.fa : chr # 761  "MSTRG.762.1::NC_003197.2:3810093-3810351(-)" chrStart: 1615872
+doc/metatranscriptome/lt2.fa : chr # 762  "MSTRG.763.1::NC_003197.2:3810754-3811078(-)" chrStart: 1617920
+doc/metatranscriptome/lt2.fa : chr # 763  "MSTRG.764.1::NC_003197.2:3814378-3816194(-)" chrStart: 1619968
+doc/metatranscriptome/lt2.fa : chr # 764  "MSTRG.765.1::NC_003197.2:3823533-3823793(+)" chrStart: 1622016
+doc/metatranscriptome/lt2.fa : chr # 765  "MSTRG.766.1::NC_003197.2:3829134-3829596(+)" chrStart: 1624064
+doc/metatranscriptome/lt2.fa : chr # 766  "MSTRG.767.1::NC_003197.2:3834130-3834525(+)" chrStart: 1626112
+doc/metatranscriptome/lt2.fa : chr # 767  "MSTRG.768.1::NC_003197.2:3834677-3835500(-)" chrStart: 1628160
+doc/metatranscriptome/lt2.fa : chr # 768  "MSTRG.769.1::NC_003197.2:3836297-3836711(+)" chrStart: 1630208
+doc/metatranscriptome/lt2.fa : chr # 769  "MSTRG.770.1::NC_003197.2:3840098-3840268(-)" chrStart: 1632256
+doc/metatranscriptome/lt2.fa : chr # 770  "MSTRG.771.1::NC_003197.2:3840562-3842358(-)" chrStart: 1634304
+doc/metatranscriptome/lt2.fa : chr # 771  "MSTRG.772.1::NC_003197.2:3867666-3868059(+)" chrStart: 1636352
+doc/metatranscriptome/lt2.fa : chr # 772  "MSTRG.773.1::NC_003197.2:3868343-3869532(-)" chrStart: 1638400
+doc/metatranscriptome/lt2.fa : chr # 773  "MSTRG.774.1::NC_003197.2:3872421-3873337(-)" chrStart: 1640448
+doc/metatranscriptome/lt2.fa : chr # 774  "MSTRG.775.1::NC_003197.2:3874136-3874816(-)" chrStart: 1642496
+doc/metatranscriptome/lt2.fa : chr # 775  "MSTRG.776.1::NC_003197.2:3875239-3875594(+)" chrStart: 1644544
+doc/metatranscriptome/lt2.fa : chr # 776  "MSTRG.777.1::NC_003197.2:3878182-3878654(+)" chrStart: 1646592
+doc/metatranscriptome/lt2.fa : chr # 777  "MSTRG.778.1::NC_003197.2:3887727-3888123(+)" chrStart: 1648640
+doc/metatranscriptome/lt2.fa : chr # 778  "MSTRG.779.1::NC_003197.2:3893816-3894008(-)" chrStart: 1650688
+doc/metatranscriptome/lt2.fa : chr # 779  "MSTRG.780.1::NC_003197.2:3895986-3896560(-)" chrStart: 1652736
+doc/metatranscriptome/lt2.fa : chr # 780  "MSTRG.781.1::NC_003197.2:3899291-3899714(+)" chrStart: 1654784
+doc/metatranscriptome/lt2.fa : chr # 781  "MSTRG.782.1::NC_003197.2:3902330-3902490(-)" chrStart: 1656832
+doc/metatranscriptome/lt2.fa : chr # 782  "MSTRG.783.1::NC_003197.2:3902696-3902897(-)" chrStart: 1658880
+doc/metatranscriptome/lt2.fa : chr # 783  "MSTRG.784.1::NC_003197.2:3905341-3906662(+)" chrStart: 1660928
+doc/metatranscriptome/lt2.fa : chr # 784  "MSTRG.785.1::NC_003197.2:3911011-3911667(-)" chrStart: 1662976
+doc/metatranscriptome/lt2.fa : chr # 785  "MSTRG.786.1::NC_003197.2:3913704-3914089(-)" chrStart: 1665024
+doc/metatranscriptome/lt2.fa : chr # 786  "MSTRG.787.1::NC_003197.2:3915464-3915886(-)" chrStart: 1667072
+doc/metatranscriptome/lt2.fa : chr # 787  "MSTRG.788.1::NC_003197.2:3916158-3916593(-)" chrStart: 1669120
+doc/metatranscriptome/lt2.fa : chr # 788  "MSTRG.789.1::NC_003197.2:3925477-3925839(+)" chrStart: 1671168
+doc/metatranscriptome/lt2.fa : chr # 789  "MSTRG.790.1::NC_003197.2:3933728-3934001(+)" chrStart: 1673216
+doc/metatranscriptome/lt2.fa : chr # 790  "MSTRG.791.1::NC_003197.2:3951582-3951806(+)" chrStart: 1675264
+doc/metatranscriptome/lt2.fa : chr # 791  "MSTRG.792.1::NC_003197.2:3960889-3962535(-)" chrStart: 1677312
+doc/metatranscriptome/lt2.fa : chr # 792  "MSTRG.793.1::NC_003197.2:3963416-3965466(-)" chrStart: 1679360
+doc/metatranscriptome/lt2.fa : chr # 793  "MSTRG.794.1::NC_003197.2:3978892-3979099(+)" chrStart: 1683456
+doc/metatranscriptome/lt2.fa : chr # 794  "MSTRG.795.1::NC_003197.2:3997664-3997840(-)" chrStart: 1685504
+doc/metatranscriptome/lt2.fa : chr # 795  "MSTRG.796.1::NC_003197.2:4006218-4006420(-)" chrStart: 1687552
+doc/metatranscriptome/lt2.fa : chr # 796  "MSTRG.797.1::NC_003197.2:4024508-4024878(+)" chrStart: 1689600
+doc/metatranscriptome/lt2.fa : chr # 797  "MSTRG.798.1::NC_003197.2:4040593-4040838(-)" chrStart: 1691648
+doc/metatranscriptome/lt2.fa : chr # 798  "MSTRG.799.1::NC_003197.2:4041809-4042355(-)" chrStart: 1693696
+doc/metatranscriptome/lt2.fa : chr # 799  "MSTRG.800.1::NC_003197.2:4043574-4044314(-)" chrStart: 1695744
+doc/metatranscriptome/lt2.fa : chr # 800  "MSTRG.801.1::NC_003197.2:4045614-4045904(+)" chrStart: 1697792
+doc/metatranscriptome/lt2.fa : chr # 801  "MSTRG.802.1::NC_003197.2:4071211-4071578(-)" chrStart: 1699840
+doc/metatranscriptome/lt2.fa : chr # 802  "MSTRG.803.1::NC_003197.2:4073640-4074655(-)" chrStart: 1701888
+doc/metatranscriptome/lt2.fa : chr # 803  "MSTRG.804.1::NC_003197.2:4075855-4076767(-)" chrStart: 1703936
+doc/metatranscriptome/lt2.fa : chr # 804  "MSTRG.805.1::NC_003197.2:4077385-4080170(-)" chrStart: 1705984
+doc/metatranscriptome/lt2.fa : chr # 805  "MSTRG.806.1::NC_003197.2:4085317-4086407(+)" chrStart: 1710080
+doc/metatranscriptome/lt2.fa : chr # 806  "MSTRG.807.1::NC_003197.2:4087676-4088252(-)" chrStart: 1712128
+doc/metatranscriptome/lt2.fa : chr # 807  "MSTRG.808.1::NC_003197.2:4089279-4089578(+)" chrStart: 1714176
+doc/metatranscriptome/lt2.fa : chr # 808  "MSTRG.809.1::NC_003197.2:4095381-4095604(+)" chrStart: 1716224
+doc/metatranscriptome/lt2.fa : chr # 809  "MSTRG.810.1::NC_003197.2:4100144-4101719(+)" chrStart: 1718272
+doc/metatranscriptome/lt2.fa : chr # 810  "MSTRG.811.1::NC_003197.2:4102049-4105033(+)" chrStart: 1720320
+doc/metatranscriptome/lt2.fa : chr # 811  "MSTRG.812.1::NC_003197.2:4106492-4106710(+)" chrStart: 1724416
+doc/metatranscriptome/lt2.fa : chr # 812  "MSTRG.813.1::NC_003197.2:4108724-4108859(+)" chrStart: 1726464
+doc/metatranscriptome/lt2.fa : chr # 813  "MSTRG.814.1::NC_003197.2:4117418-4119221(+)" chrStart: 1728512
+doc/metatranscriptome/lt2.fa : chr # 814  "MSTRG.815.1::NC_003197.2:4123367-4123642(-)" chrStart: 1730560
+doc/metatranscriptome/lt2.fa : chr # 815  "MSTRG.816.1::NC_003197.2:4125379-4126832(+)" chrStart: 1732608
+doc/metatranscriptome/lt2.fa : chr # 816  "MSTRG.817.1::NC_003197.2:4128919-4129493(+)" chrStart: 1734656
+doc/metatranscriptome/lt2.fa : chr # 817  "MSTRG.818.1::NC_003197.2:4134372-4134614(+)" chrStart: 1736704
+doc/metatranscriptome/lt2.fa : chr # 818  "MSTRG.819.1::NC_003197.2:4139974-4140202(+)" chrStart: 1738752
+doc/metatranscriptome/lt2.fa : chr # 819  "MSTRG.820.1::NC_003197.2:4140918-4141356(+)" chrStart: 1740800
+doc/metatranscriptome/lt2.fa : chr # 820  "MSTRG.821.1::NC_003197.2:4141659-4141817(+)" chrStart: 1742848
+doc/metatranscriptome/lt2.fa : chr # 821  "MSTRG.822.1::NC_003197.2:4145230-4145903(-)" chrStart: 1744896
+doc/metatranscriptome/lt2.fa : chr # 822  "MSTRG.823.1::NC_003197.2:4147779-4148126(-)" chrStart: 1746944
+doc/metatranscriptome/lt2.fa : chr # 823  "MSTRG.824.1::NC_003197.2:4153567-4154098(+)" chrStart: 1748992
+doc/metatranscriptome/lt2.fa : chr # 824  "MSTRG.825.1::NC_003197.2:4157194-4157634(+)" chrStart: 1751040
+doc/metatranscriptome/lt2.fa : chr # 825  "MSTRG.826.1::NC_003197.2:4162472-4162861(+)" chrStart: 1753088
+doc/metatranscriptome/lt2.fa : chr # 826  "MSTRG.827.1::NC_003197.2:4173704-4174636(-)" chrStart: 1755136
+doc/metatranscriptome/lt2.fa : chr # 827  "MSTRG.828.1::NC_003197.2:4179276-4179420(+)" chrStart: 1757184
+doc/metatranscriptome/lt2.fa : chr # 828  "MSTRG.829.1::NC_003197.2:4179925-4181217(+)" chrStart: 1759232
+doc/metatranscriptome/lt2.fa : chr # 829  "MSTRG.830.1::NC_003197.2:4185293-4185640(+)" chrStart: 1761280
+doc/metatranscriptome/lt2.fa : chr # 830  "MSTRG.831.1::NC_003197.2:4188051-4190369(-)" chrStart: 1763328
+doc/metatranscriptome/lt2.fa : chr # 831  "MSTRG.832.1::NC_003197.2:4190821-4191395(-)" chrStart: 1767424
+doc/metatranscriptome/lt2.fa : chr # 832  "MSTRG.833.1::NC_003197.2:4196051-4197623(+)" chrStart: 1769472
+doc/metatranscriptome/lt2.fa : chr # 833  "MSTRG.834.1::NC_003197.2:4198139-4201128(+)" chrStart: 1771520
+doc/metatranscriptome/lt2.fa : chr # 834  "MSTRG.835.1::NC_003197.2:4201328-4201443(+)" chrStart: 1775616
+doc/metatranscriptome/lt2.fa : chr # 835  "MSTRG.836.1::NC_003197.2:4204874-4205045(-)" chrStart: 1777664
+doc/metatranscriptome/lt2.fa : chr # 836  "MSTRG.837.1::NC_003197.2:4210182-4210408(+)" chrStart: 1779712
+doc/metatranscriptome/lt2.fa : chr # 837  "MSTRG.838.1::NC_003197.2:4211520-4212250(+)" chrStart: 1781760
+doc/metatranscriptome/lt2.fa : chr # 838  "MSTRG.839.1::NC_003197.2:4212503-4212761(-)" chrStart: 1783808
+doc/metatranscriptome/lt2.fa : chr # 839  "MSTRG.840.1::NC_003197.2:4215427-4215625(-)" chrStart: 1785856
+doc/metatranscriptome/lt2.fa : chr # 840  "MSTRG.841.1::NC_003197.2:4216826-4217080(-)" chrStart: 1787904
+doc/metatranscriptome/lt2.fa : chr # 841  "MSTRG.842.1::NC_003197.2:4235784-4236100(+)" chrStart: 1789952
+doc/metatranscriptome/lt2.fa : chr # 842  "MSTRG.843.1::NC_003197.2:4236698-4237467(+)" chrStart: 1792000
+doc/metatranscriptome/lt2.fa : chr # 843  "MSTRG.844.1::NC_003197.2:4237953-4238381(+)" chrStart: 1794048
+doc/metatranscriptome/lt2.fa : chr # 844  "MSTRG.845.1::NC_003197.2:4238776-4239348(+)" chrStart: 1796096
+doc/metatranscriptome/lt2.fa : chr # 845  "MSTRG.846.1::NC_003197.2:4241061-4241790(+)" chrStart: 1798144
+doc/metatranscriptome/lt2.fa : chr # 846  "MSTRG.847.1::NC_003197.2:4242271-4243211(-)" chrStart: 1800192
+doc/metatranscriptome/lt2.fa : chr # 847  "MSTRG.848.1::NC_003197.2:4248538-4248852(+)" chrStart: 1802240
+doc/metatranscriptome/lt2.fa : chr # 848  "MSTRG.849.1::NC_003197.2:4260268-4260522(+)" chrStart: 1804288
+doc/metatranscriptome/lt2.fa : chr # 849  "MSTRG.850.1::NC_003197.2:4266492-4267186(+)" chrStart: 1806336
+doc/metatranscriptome/lt2.fa : chr # 850  "MSTRG.851.1::NC_003197.2:4269062-4269279(-)" chrStart: 1808384
+doc/metatranscriptome/lt2.fa : chr # 851  "MSTRG.852.1::NC_003197.2:4269639-4269976(-)" chrStart: 1810432
+doc/metatranscriptome/lt2.fa : chr # 852  "MSTRG.853.1::NC_003197.2:4270583-4271116(+)" chrStart: 1812480
+doc/metatranscriptome/lt2.fa : chr # 853  "MSTRG.854.1::NC_003197.2:4278695-4278974(+)" chrStart: 1814528
+doc/metatranscriptome/lt2.fa : chr # 854  "MSTRG.855.1::NC_003197.2:4281215-4282115(-)" chrStart: 1816576
+doc/metatranscriptome/lt2.fa : chr # 855  "MSTRG.856.1::NC_003197.2:4283462-4283723(+)" chrStart: 1818624
+doc/metatranscriptome/lt2.fa : chr # 856  "MSTRG.857.1::NC_003197.2:4290228-4291096(-)" chrStart: 1820672
+doc/metatranscriptome/lt2.fa : chr # 857  "MSTRG.858.1::NC_003197.2:4293438-4293908(-)" chrStart: 1822720
+doc/metatranscriptome/lt2.fa : chr # 858  "MSTRG.859.1::NC_003197.2:4294310-4296788(-)" chrStart: 1824768
+doc/metatranscriptome/lt2.fa : chr # 859  "MSTRG.860.1::NC_003197.2:4297038-4297549(+)" chrStart: 1828864
+doc/metatranscriptome/lt2.fa : chr # 860  "MSTRG.861.1::NC_003197.2:4297759-4298457(-)" chrStart: 1830912
+doc/metatranscriptome/lt2.fa : chr # 861  "MSTRG.862.1::NC_003197.2:4299112-4299779(-)" chrStart: 1832960
+doc/metatranscriptome/lt2.fa : chr # 862  "MSTRG.863.1::NC_003197.2:4302398-4302896(-)" chrStart: 1835008
+doc/metatranscriptome/lt2.fa : chr # 863  "MSTRG.864.1::NC_003197.2:4305787-4306019(+)" chrStart: 1837056
+doc/metatranscriptome/lt2.fa : chr # 864  "MSTRG.865.1::NC_003197.2:4310324-4310488(+)" chrStart: 1839104
+doc/metatranscriptome/lt2.fa : chr # 865  "MSTRG.866.1::NC_003197.2:4312421-4313540(+)" chrStart: 1841152
+doc/metatranscriptome/lt2.fa : chr # 866  "MSTRG.867.1::NC_003197.2:4318400-4319282(+)" chrStart: 1843200
+doc/metatranscriptome/lt2.fa : chr # 867  "MSTRG.868.1::NC_003197.2:4324160-4324368(-)" chrStart: 1845248
+doc/metatranscriptome/lt2.fa : chr # 868  "MSTRG.869.1::NC_003197.2:4339486-4340121(+)" chrStart: 1847296
+doc/metatranscriptome/lt2.fa : chr # 869  "MSTRG.870.1::NC_003197.2:4343095-4343330(+)" chrStart: 1849344
+doc/metatranscriptome/lt2.fa : chr # 870  "MSTRG.871.1::NC_003197.2:4343572-4344091(+)" chrStart: 1851392
+doc/metatranscriptome/lt2.fa : chr # 871  "MSTRG.872.1::NC_003197.2:4349903-4350051(+)" chrStart: 1853440
+doc/metatranscriptome/lt2.fa : chr # 872  "MSTRG.873.1::NC_003197.2:4351134-4352709(+)" chrStart: 1855488
+doc/metatranscriptome/lt2.fa : chr # 873  "MSTRG.874.1::NC_003197.2:4353212-4356544(+)" chrStart: 1857536
+doc/metatranscriptome/lt2.fa : chr # 874  "MSTRG.875.1::NC_003197.2:4357906-4358057(+)" chrStart: 1861632
+doc/metatranscriptome/lt2.fa : chr # 875  "MSTRG.876.1::NC_003197.2:4359923-4362187(+)" chrStart: 1863680
+doc/metatranscriptome/lt2.fa : chr # 876  "MSTRG.877.1::NC_003197.2:4363863-4365672(+)" chrStart: 1867776
+doc/metatranscriptome/lt2.fa : chr # 877  "MSTRG.878.1::NC_003197.2:4367342-4367815(+)" chrStart: 1869824
+doc/metatranscriptome/lt2.fa : chr # 878  "MSTRG.879.1::NC_003197.2:4368666-4368817(+)" chrStart: 1871872
+doc/metatranscriptome/lt2.fa : chr # 879  "MSTRG.880.1::NC_003197.2:4369888-4370564(+)" chrStart: 1873920
+doc/metatranscriptome/lt2.fa : chr # 880  "MSTRG.881.1::NC_003197.2:4370817-4374278(+)" chrStart: 1875968
+doc/metatranscriptome/lt2.fa : chr # 881  "MSTRG.882.1::NC_003197.2:4382894-4383250(-)" chrStart: 1880064
+doc/metatranscriptome/lt2.fa : chr # 882  "MSTRG.883.1::NC_003197.2:4384490-4384944(+)" chrStart: 1882112
+doc/metatranscriptome/lt2.fa : chr # 883  "MSTRG.884.1::NC_003197.2:4386640-4386998(+)" chrStart: 1884160
+doc/metatranscriptome/lt2.fa : chr # 884  "MSTRG.885.1::NC_003197.2:4389057-4389282(+)" chrStart: 1886208
+doc/metatranscriptome/lt2.fa : chr # 885  "MSTRG.886.1::NC_003197.2:4390188-4391135(+)" chrStart: 1888256
+doc/metatranscriptome/lt2.fa : chr # 886  "MSTRG.887.1::NC_003197.2:4394585-4396230(+)" chrStart: 1890304
+doc/metatranscriptome/lt2.fa : chr # 887  "MSTRG.888.1::NC_003197.2:4396644-4399623(+)" chrStart: 1892352
+doc/metatranscriptome/lt2.fa : chr # 888  "MSTRG.889.1::NC_003197.2:4400177-4400422(-)" chrStart: 1896448
+doc/metatranscriptome/lt2.fa : chr # 889  "MSTRG.890.1::NC_003197.2:4403063-4403618(+)" chrStart: 1898496
+doc/metatranscriptome/lt2.fa : chr # 890  "MSTRG.891.1::NC_003197.2:4439637-4439823(-)" chrStart: 1900544
+doc/metatranscriptome/lt2.fa : chr # 891  "MSTRG.892.1::NC_003197.2:4440389-4440554(+)" chrStart: 1902592
+doc/metatranscriptome/lt2.fa : chr # 892  "MSTRG.893.1::NC_003197.2:4442254-4442515(+)" chrStart: 1904640
+doc/metatranscriptome/lt2.fa : chr # 893  "MSTRG.894.1::NC_003197.2:4444600-4444809(-)" chrStart: 1906688
+doc/metatranscriptome/lt2.fa : chr # 894  "MSTRG.895.1::NC_003197.2:4447023-4447701(-)" chrStart: 1908736
+doc/metatranscriptome/lt2.fa : chr # 895  "MSTRG.896.1::NC_003197.2:4451861-4453624(+)" chrStart: 1910784
+doc/metatranscriptome/lt2.fa : chr # 896  "MSTRG.897.1::NC_003197.2:4455724-4456001(+)" chrStart: 1912832
+doc/metatranscriptome/lt2.fa : chr # 897  "MSTRG.898.1::NC_003197.2:4461535-4462268(-)" chrStart: 1914880
+doc/metatranscriptome/lt2.fa : chr # 898  "MSTRG.899.1::NC_003197.2:4468727-4469051(+)" chrStart: 1916928
+doc/metatranscriptome/lt2.fa : chr # 899  "MSTRG.900.1::NC_003197.2:4472064-4472415(+)" chrStart: 1918976
+doc/metatranscriptome/lt2.fa : chr # 900  "MSTRG.901.1::NC_003197.2:4476302-4476915(+)" chrStart: 1921024
+doc/metatranscriptome/lt2.fa : chr # 901  "MSTRG.902.1::NC_003197.2:4482038-4482195(+)" chrStart: 1923072
+doc/metatranscriptome/lt2.fa : chr # 902  "MSTRG.903.1::NC_003197.2:4504384-4504841(+)" chrStart: 1925120
+doc/metatranscriptome/lt2.fa : chr # 903  "MSTRG.904.1::NC_003197.2:4512859-4513204(-)" chrStart: 1927168
+doc/metatranscriptome/lt2.fa : chr # 904  "MSTRG.905.1::NC_003197.2:4541305-4541905(+)" chrStart: 1929216
+doc/metatranscriptome/lt2.fa : chr # 905  "MSTRG.906.1::NC_003197.2:4567125-4567615(-)" chrStart: 1931264
+doc/metatranscriptome/lt2.fa : chr # 906  "MSTRG.907.1::NC_003197.2:4570911-4572057(-)" chrStart: 1933312
+doc/metatranscriptome/lt2.fa : chr # 907  "MSTRG.908.1::NC_003197.2:4572696-4572956(+)" chrStart: 1935360
+doc/metatranscriptome/lt2.fa : chr # 908  "MSTRG.909.1::NC_003197.2:4576297-4577464(+)" chrStart: 1937408
+doc/metatranscriptome/lt2.fa : chr # 909  "MSTRG.910.1::NC_003197.2:4581697-4581987(-)" chrStart: 1939456
+doc/metatranscriptome/lt2.fa : chr # 910  "MSTRG.911.1::NC_003197.2:4582269-4582540(+)" chrStart: 1941504
+doc/metatranscriptome/lt2.fa : chr # 911  "MSTRG.912.1::NC_003197.2:4582757-4583171(-)" chrStart: 1943552
+doc/metatranscriptome/lt2.fa : chr # 912  "MSTRG.913.1::NC_003197.2:4596407-4596922(+)" chrStart: 1945600
+doc/metatranscriptome/lt2.fa : chr # 913  "MSTRG.914.1::NC_003197.2:4601113-4601628(+)" chrStart: 1947648
+doc/metatranscriptome/lt2.fa : chr # 914  "MSTRG.915.1::NC_003197.2:4604117-4604585(+)" chrStart: 1949696
+doc/metatranscriptome/lt2.fa : chr # 915  "MSTRG.916.1::NC_003197.2:4605524-4606697(+)" chrStart: 1951744
+doc/metatranscriptome/lt2.fa : chr # 916  "MSTRG.917.1::NC_003197.2:4611254-4611687(+)" chrStart: 1953792
+doc/metatranscriptome/lt2.fa : chr # 917  "MSTRG.918.1::NC_003197.2:4612932-4613235(+)" chrStart: 1955840
+doc/metatranscriptome/lt2.fa : chr # 918  "MSTRG.919.1::NC_003197.2:4622275-4622546(+)" chrStart: 1957888
+doc/metatranscriptome/lt2.fa : chr # 919  "MSTRG.920.1::NC_003197.2:4631195-4632023(+)" chrStart: 1959936
+doc/metatranscriptome/lt2.fa : chr # 920  "MSTRG.921.1::NC_003197.2:4633887-4634615(+)" chrStart: 1961984
+doc/metatranscriptome/lt2.fa : chr # 921  "MSTRG.922.1::NC_003197.2:4634824-4635865(+)" chrStart: 1964032
+doc/metatranscriptome/lt2.fa : chr # 922  "MSTRG.923.1::NC_003197.2:4639435-4639971(-)" chrStart: 1966080
+doc/metatranscriptome/lt2.fa : chr # 923  "MSTRG.924.1::NC_003197.2:4641533-4642402(+)" chrStart: 1968128
+doc/metatranscriptome/lt2.fa : chr # 924  "MSTRG.925.1::NC_003197.2:4643258-4643674(+)" chrStart: 1970176
+doc/metatranscriptome/lt2.fa : chr # 925  "MSTRG.926.1::NC_003197.2:4651525-4651808(+)" chrStart: 1972224
+doc/metatranscriptome/lt2.fa : chr # 926  "MSTRG.927.1::NC_003197.2:4654980-4655307(-)" chrStart: 1974272
+doc/metatranscriptome/lt2.fa : chr # 927  "MSTRG.928.1::NC_003197.2:4656820-4657478(+)" chrStart: 1976320
+doc/metatranscriptome/lt2.fa : chr # 928  "MSTRG.929.1::NC_003197.2:4681194-4681757(-)" chrStart: 1978368
+doc/metatranscriptome/lt2.fa : chr # 929  "MSTRG.930.1::NC_003197.2:4681844-4683005(+)" chrStart: 1980416
+doc/metatranscriptome/lt2.fa : chr # 930  "MSTRG.931.1::NC_003197.2:4689528-4689716(-)" chrStart: 1982464
+doc/metatranscriptome/lt2.fa : chr # 931  "MSTRG.932.1::NC_003197.2:4692401-4692655(-)" chrStart: 1984512
+doc/metatranscriptome/lt2.fa : chr # 932  "MSTRG.933.1::NC_003197.2:4699460-4699655(+)" chrStart: 1986560
+doc/metatranscriptome/lt2.fa : chr # 933  "MSTRG.934.1::NC_003197.2:4711593-4712567(-)" chrStart: 1988608
+doc/metatranscriptome/lt2.fa : chr # 934  "MSTRG.935.1::NC_003197.2:4718896-4719782(-)" chrStart: 1990656
+doc/metatranscriptome/lt2.fa : chr # 935  "MSTRG.936.1::NC_003197.2:4720393-4721020(-)" chrStart: 1992704
+doc/metatranscriptome/lt2.fa : chr # 936  "MSTRG.937.1::NC_003197.2:4758449-4758815(+)" chrStart: 1994752
+doc/metatranscriptome/lt2.fa : chr # 937  "MSTRG.938.1::NC_003197.2:4759984-4760521(-)" chrStart: 1996800
+doc/metatranscriptome/lt2.fa : chr # 938  "MSTRG.939.1::NC_003197.2:4761047-4761299(+)" chrStart: 1998848
+doc/metatranscriptome/lt2.fa : chr # 939  "MSTRG.940.1::NC_003197.2:4776020-4776214(+)" chrStart: 2000896
+doc/metatranscriptome/lt2.fa : chr # 940  "MSTRG.941.1::NC_003197.2:4797236-4797835(+)" chrStart: 2002944
+doc/metatranscriptome/lt2.fa : chr # 941  "MSTRG.942.1::NC_003197.2:4799993-4800601(-)" chrStart: 2004992
+doc/metatranscriptome/lt2.fa : chr # 942  "MSTRG.943.1::NC_003197.2:4801485-4802046(-)" chrStart: 2007040
+doc/metatranscriptome/lt2.fa : chr # 943  "MSTRG.944.1::NC_003197.2:4803925-4804068(-)" chrStart: 2009088
+doc/metatranscriptome/lt2.fa : chr # 944  "MSTRG.945.1::NC_003197.2:4804996-4805366(-)" chrStart: 2011136
+doc/metatranscriptome/lt2.fa : chr # 945  "MSTRG.946.1::NC_003197.2:4815924-4816267(+)" chrStart: 2013184
+doc/metatranscriptome/lt2.fa : chr # 946  "MSTRG.947.1::NC_003197.2:4816534-4816855(+)" chrStart: 2015232
+doc/metatranscriptome/lt2.fa : chr # 947  "MSTRG.948.1::NC_003197.2:4817584-4818063(+)" chrStart: 2017280
+doc/metatranscriptome/lt2.fa : chr # 948  "MSTRG.949.1::NC_003197.2:4823709-4824794(+)" chrStart: 2019328
+doc/metatranscriptome/lt2.fa : chr # 949  "MSTRG.950.1::NC_003197.2:4825001-4825156(+)" chrStart: 2021376
+doc/metatranscriptome/lt2.fa : chr # 950  "MSTRG.951.1::NC_003197.2:4835701-4836175(+)" chrStart: 2023424
+doc/metatranscriptome/lt2.fa : chr # 951  "MSTRG.952.1::NC_003197.2:4837136-4837630(-)" chrStart: 2025472
+doc/metatranscriptome/lt2.fa : chr # 952  "MSTRG.953.1::NC_003197.2:4843796-4844043(+)" chrStart: 2027520
+doc/metatranscriptome/lt2.fa : chr # 953  "MSTRG.954.1::NC_003197.2:4855372-4856501(-)" chrStart: 2029568
+Chromosome sequence lengths: 
+MSTRG.1.1::NC_003197.2:1091-1315(+)	224
+MSTRG.2.1::NC_003197.2:2938-4093(+)	1155
+MSTRG.3.1::NC_003197.2:7000-7467(-)	467
+MSTRG.4.1::NC_003197.2:13986-14272(+)	286
+MSTRG.5.1::NC_003197.2:47352-47557(+)	205
+MSTRG.6.1::NC_003197.2:52228-52661(-)	433
+MSTRG.7.1::NC_003197.2:56972-57150(+)	178
+MSTRG.8.1::NC_003197.2:73998-74312(+)	314
+MSTRG.9.1::NC_003197.2:77037-77197(+)	160
+MSTRG.10.1::NC_003197.2:94112-94917(+)	805
+MSTRG.11.1::NC_003197.2:99051-99457(+)	406
+MSTRG.12.1::NC_003197.2:102389-103630(-)	1241
+MSTRG.13.1::NC_003197.2:104848-106848(-)	2000
+MSTRG.14.1::NC_003197.2:107571-108205(-)	634
+MSTRG.15.1::NC_003197.2:132038-133842(-)	1804
+MSTRG.16.1::NC_003197.2:139919-142600(+)	2681
+MSTRG.17.1::NC_003197.2:142811-142969(+)	158
+MSTRG.18.1::NC_003197.2:143812-144168(+)	356
+MSTRG.19.1::NC_003197.2:150052-150467(+)	415
+MSTRG.20.1::NC_003197.2:151805-153325(+)	1520
+MSTRG.21.1::NC_003197.2:154698-155351(+)	653
+MSTRG.22.1::NC_003197.2:156362-158633(+)	2271
+MSTRG.23.1::NC_003197.2:164037-164738(+)	701
+MSTRG.24.1::NC_003197.2:176202-177148(+)	946
+MSTRG.25.1::NC_003197.2:177445-177614(+)	169
+MSTRG.26.1::NC_003197.2:178531-179621(+)	1090
+MSTRG.27.1::NC_003197.2:185763-186254(+)	491
+MSTRG.28.1::NC_003197.2:202756-203344(+)	588
+MSTRG.29.1::NC_003197.2:210847-211462(-)	615
+MSTRG.30.1::NC_003197.2:216345-217315(-)	970
+MSTRG.31.1::NC_003197.2:219958-220280(+)	322
+MSTRG.32.1::NC_003197.2:223697-223923(+)	226
+MSTRG.33.1::NC_003197.2:225840-226628(+)	788
+MSTRG.34.1::NC_003197.2:228630-229934(+)	1304
+MSTRG.35.1::NC_003197.2:240416-240869(+)	453
+MSTRG.36.1::NC_003197.2:244532-245963(+)	1431
+MSTRG.37.1::NC_003197.2:249131-249463(-)	332
+MSTRG.38.1::NC_003197.2:252881-253115(-)	234
+MSTRG.39.1::NC_003197.2:254122-255186(+)	1064
+MSTRG.40.1::NC_003197.2:255498-256242(+)	744
+MSTRG.41.1::NC_003197.2:257056-258285(+)	1229
+MSTRG.42.1::NC_003197.2:259103-259955(+)	852
+MSTRG.43.1::NC_003197.2:263695-264136(+)	441
+MSTRG.44.1::NC_003197.2:264445-266186(+)	1741
+MSTRG.45.1::NC_003197.2:280001-280497(-)	496
+MSTRG.46.1::NC_003197.2:283918-284239(-)	321
+MSTRG.47.1::NC_003197.2:286525-286740(+)	215
+MSTRG.48.1::NC_003197.2:287607-287755(-)	148
+MSTRG.49.1::NC_003197.2:289186-290740(+)	1554
+MSTRG.50.1::NC_003197.2:291241-294333(+)	3092
+MSTRG.51.1::NC_003197.2:298180-299060(+)	880
+MSTRG.52.1::NC_003197.2:300319-300722(-)	403
+MSTRG.53.1::NC_003197.2:345078-345295(+)	217
+MSTRG.54.1::NC_003197.2:349806-350333(-)	527
+MSTRG.55.1::NC_003197.2:351731-355068(-)	3337
+MSTRG.56.1::NC_003197.2:355597-356485(+)	888
+MSTRG.57.1::NC_003197.2:356853-357152(+)	299
+MSTRG.58.1::NC_003197.2:362644-362969(+)	325
+MSTRG.59.1::NC_003197.2:365650-366035(-)	385
+MSTRG.60.1::NC_003197.2:366658-366982(+)	324
+MSTRG.61.1::NC_003197.2:376000-376719(+)	719
+MSTRG.62.1::NC_003197.2:386302-386943(+)	641
+MSTRG.63.1::NC_003197.2:409708-409933(+)	225
+MSTRG.64.1::NC_003197.2:414613-415289(-)	676
+MSTRG.65.1::NC_003197.2:415769-415960(+)	191
+MSTRG.66.1::NC_003197.2:424024-424327(-)	303
+MSTRG.67.1::NC_003197.2:426982-427347(+)	365
+MSTRG.68.1::NC_003197.2:429750-430014(-)	264
+MSTRG.69.1::NC_003197.2:431170-431498(+)	328
+MSTRG.70.1::NC_003197.2:432690-433017(-)	327
+MSTRG.71.1::NC_003197.2:433282-433717(+)	435
+MSTRG.72.1::NC_003197.2:436944-437428(+)	484
+MSTRG.73.1::NC_003197.2:440207-440442(+)	235
+MSTRG.74.1::NC_003197.2:451058-452087(+)	1029
+MSTRG.75.1::NC_003197.2:452582-452792(+)	210
+MSTRG.76.1::NC_003197.2:458034-458561(-)	527
+MSTRG.77.1::NC_003197.2:461902-462792(+)	890
+MSTRG.78.1::NC_003197.2:463977-465211(+)	1234
+MSTRG.79.1::NC_003197.2:467177-467524(+)	347
+MSTRG.80.1::NC_003197.2:468040-468467(-)	427
+MSTRG.81.1::NC_003197.2:469574-470549(+)	975
+MSTRG.82.1::NC_003197.2:471242-471961(+)	719
+MSTRG.83.1::NC_003197.2:478103-478583(+)	480
+MSTRG.84.1::NC_003197.2:486138-486777(-)	639
+MSTRG.85.1::NC_003197.2:493306-494769(-)	1463
+MSTRG.86.1::NC_003197.2:495438-496036(-)	598
+MSTRG.87.1::NC_003197.2:497656-498034(-)	378
+MSTRG.88.1::NC_003197.2:500126-500667(-)	541
+MSTRG.89.1::NC_003197.2:500935-501401(+)	466
+MSTRG.90.1::NC_003197.2:501805-502705(+)	900
+MSTRG.91.1::NC_003197.2:503192-503470(+)	278
+MSTRG.92.1::NC_003197.2:504078-504729(+)	651
+MSTRG.93.1::NC_003197.2:505479-506281(+)	802
+MSTRG.94.1::NC_003197.2:507085-508438(+)	1353
+MSTRG.95.1::NC_003197.2:510291-510607(+)	316
+MSTRG.96.1::NC_003197.2:511113-511606(+)	493
+MSTRG.97.1::NC_003197.2:515536-515906(-)	370
+MSTRG.98.1::NC_003197.2:516260-516622(+)	362
+MSTRG.99.1::NC_003197.2:523317-523965(+)	648
+MSTRG.100.1::NC_003197.2:526336-526812(+)	476
+MSTRG.101.1::NC_003197.2:528124-528461(-)	337
+MSTRG.102.1::NC_003197.2:529648-529909(-)	261
+MSTRG.103.1::NC_003197.2:532010-534062(-)	2052
+MSTRG.104.1::NC_003197.2:539509-539691(-)	182
+MSTRG.105.1::NC_003197.2:542669-543082(+)	413
+MSTRG.106.1::NC_003197.2:560919-561082(+)	163
+MSTRG.107.1::NC_003197.2:561250-561469(-)	219
+MSTRG.108.1::NC_003197.2:564334-565141(-)	807
+MSTRG.109.1::NC_003197.2:575734-575927(-)	193
+MSTRG.110.1::NC_003197.2:598402-599010(-)	608
+MSTRG.111.1::NC_003197.2:599988-600366(+)	378
+MSTRG.112.1::NC_003197.2:623154-623679(-)	525
+MSTRG.113.1::NC_003197.2:627551-629189(+)	1638
+MSTRG.114.1::NC_003197.2:643021-643695(-)	674
+MSTRG.115.1::NC_003197.2:646498-646826(+)	328
+MSTRG.116.1::NC_003197.2:647551-648761(+)	1210
+MSTRG.117.1::NC_003197.2:661267-661914(+)	647
+MSTRG.118.1::NC_003197.2:662406-662763(+)	357
+MSTRG.119.1::NC_003197.2:663003-663431(+)	428
+MSTRG.120.1::NC_003197.2:670439-671172(+)	733
+MSTRG.121.1::NC_003197.2:672381-672904(+)	523
+MSTRG.122.1::NC_003197.2:677151-677349(+)	198
+MSTRG.123.1::NC_003197.2:677420-677820(-)	400
+MSTRG.124.1::NC_003197.2:679585-680818(-)	1233
+MSTRG.125.1::NC_003197.2:688794-689494(+)	700
+MSTRG.126.1::NC_003197.2:691139-691403(-)	264
+MSTRG.127.1::NC_003197.2:692882-693180(+)	298
+MSTRG.128.1::NC_003197.2:694511-695293(+)	782
+MSTRG.129.1::NC_003197.2:695317-695509(-)	192
+MSTRG.130.1::NC_003197.2:698008-698311(-)	303
+MSTRG.131.1::NC_003197.2:709097-711756(-)	2659
+MSTRG.132.1::NC_003197.2:714721-715023(+)	302
+MSTRG.133.1::NC_003197.2:722540-722791(-)	251
+MSTRG.134.1::NC_003197.2:728799-729501(-)	702
+MSTRG.135.1::NC_003197.2:730855-731089(-)	234
+MSTRG.136.1::NC_003197.2:731872-732108(-)	236
+MSTRG.137.1::NC_003197.2:733747-734456(-)	709
+MSTRG.138.1::NC_003197.2:738928-739384(+)	456
+MSTRG.139.1::NC_003197.2:740361-740647(-)	286
+MSTRG.140.1::NC_003197.2:743933-744354(-)	421
+MSTRG.141.1::NC_003197.2:754243-754363(+)	120
+MSTRG.142.1::NC_003197.2:756521-757411(-)	890
+MSTRG.143.1::NC_003197.2:759754-760748(+)	994
+MSTRG.144.1::NC_003197.2:767144-767352(-)	208
+MSTRG.145.1::NC_003197.2:796006-796300(-)	294
+MSTRG.146.1::NC_003197.2:797259-797535(-)	276
+MSTRG.147.1::NC_003197.2:798858-801315(+)	2457
+MSTRG.148.1::NC_003197.2:804442-806703(+)	2261
+MSTRG.149.1::NC_003197.2:807762-808022(+)	260
+MSTRG.150.1::NC_003197.2:809538-810108(+)	570
+MSTRG.151.1::NC_003197.2:811144-811786(+)	642
+MSTRG.152.1::NC_003197.2:813821-814624(+)	803
+MSTRG.153.1::NC_003197.2:816158-818951(+)	2793
+MSTRG.154.1::NC_003197.2:823746-824907(+)	1161
+MSTRG.155.1::NC_003197.2:835884-836156(+)	272
+MSTRG.156.1::NC_003197.2:836297-836941(-)	644
+MSTRG.157.1::NC_003197.2:851823-852166(+)	343
+MSTRG.158.1::NC_003197.2:852828-853598(+)	770
+MSTRG.159.1::NC_003197.2:856470-858347(+)	1877
+MSTRG.160.1::NC_003197.2:858594-859464(-)	870
+MSTRG.161.1::NC_003197.2:860233-860606(+)	373
+MSTRG.162.1::NC_003197.2:860929-861266(+)	337
+MSTRG.163.1::NC_003197.2:863207-863832(+)	625
+MSTRG.164.1::NC_003197.2:864574-864767(+)	193
+MSTRG.165.1::NC_003197.2:865426-865898(+)	472
+MSTRG.166.1::NC_003197.2:871752-872179(+)	427
+MSTRG.167.1::NC_003197.2:873567-874138(+)	571
+MSTRG.168.1::NC_003197.2:879235-879668(+)	433
+MSTRG.169.1::NC_003197.2:896060-898019(-)	1959
+MSTRG.170.1::NC_003197.2:899386-900097(+)	711
+MSTRG.171.1::NC_003197.2:903893-904237(-)	344
+MSTRG.172.1::NC_003197.2:915024-915438(-)	414
+MSTRG.173.1::NC_003197.2:918133-918543(+)	410
+MSTRG.174.1::NC_003197.2:921411-921648(+)	237
+MSTRG.175.1::NC_003197.2:925068-925582(+)	514
+MSTRG.176.1::NC_003197.2:933038-933266(-)	228
+MSTRG.177.1::NC_003197.2:936001-937327(+)	1326
+MSTRG.178.1::NC_003197.2:937566-938169(-)	603
+MSTRG.179.1::NC_003197.2:945175-945621(-)	446
+MSTRG.180.1::NC_003197.2:958261-959832(-)	1571
+MSTRG.181.1::NC_003197.2:1009356-1009910(-)	554
+MSTRG.182.1::NC_003197.2:1017435-1017766(-)	331
+MSTRG.183.1::NC_003197.2:1018259-1018475(-)	216
+MSTRG.184.1::NC_003197.2:1018717-1018988(+)	271
+MSTRG.185.1::NC_003197.2:1020130-1020394(+)	264
+MSTRG.186.1::NC_003197.2:1021743-1022104(-)	361
+MSTRG.187.1::NC_003197.2:1022694-1022899(+)	205
+MSTRG.188.1::NC_003197.2:1024577-1024952(+)	375
+MSTRG.189.1::NC_003197.2:1027541-1027874(-)	333
+MSTRG.190.1::NC_003197.2:1035380-1036212(-)	832
+MSTRG.191.1::NC_003197.2:1037052-1037288(+)	236
+MSTRG.192.1::NC_003197.2:1042029-1042436(+)	407
+MSTRG.193.1::NC_003197.2:1050214-1050486(+)	272
+MSTRG.194.1::NC_003197.2:1054000-1055072(+)	1072
+MSTRG.195.1::NC_003197.2:1055075-1055903(-)	828
+MSTRG.196.1::NC_003197.2:1057191-1057559(-)	368
+MSTRG.197.1::NC_003197.2:1064980-1065121(+)	141
+MSTRG.198.1::NC_003197.2:1065531-1067958(+)	2427
+MSTRG.199.1::NC_003197.2:1069714-1070378(+)	664
+MSTRG.200.1::NC_003197.2:1075181-1075465(+)	284
+MSTRG.201.1::NC_003197.2:1078305-1078763(+)	458
+MSTRG.202.1::NC_003197.2:1079910-1080722(+)	812
+MSTRG.203.1::NC_003197.2:1081508-1082535(+)	1027
+MSTRG.204.1::NC_003197.2:1082962-1083684(+)	722
+MSTRG.205.1::NC_003197.2:1089727-1090975(-)	1248
+MSTRG.206.1::NC_003197.2:1096929-1097201(-)	272
+MSTRG.207.1::NC_003197.2:1097798-1098070(-)	272
+MSTRG.208.1::NC_003197.2:1129976-1130624(-)	648
+MSTRG.209.1::NC_003197.2:1139930-1141016(+)	1086
+MSTRG.210.1::NC_003197.2:1145716-1146623(+)	907
+MSTRG.211.1::NC_003197.2:1148076-1148402(+)	326
+MSTRG.212.1::NC_003197.2:1152909-1153347(+)	438
+MSTRG.213.1::NC_003197.2:1157580-1157792(+)	212
+MSTRG.214.1::NC_003197.2:1160910-1162127(-)	1217
+MSTRG.215.1::NC_003197.2:1173793-1174669(-)	876
+MSTRG.216.1::NC_003197.2:1176317-1176480(-)	163
+MSTRG.217.1::NC_003197.2:1176743-1177191(-)	448
+MSTRG.218.1::NC_003197.2:1180362-1180910(-)	548
+MSTRG.219.1::NC_003197.2:1181372-1181923(-)	551
+MSTRG.220.1::NC_003197.2:1203115-1204045(+)	930
+MSTRG.221.1::NC_003197.2:1204971-1205537(-)	566
+MSTRG.222.1::NC_003197.2:1207180-1207598(-)	418
+MSTRG.223.1::NC_003197.2:1208555-1209520(-)	965
+MSTRG.224.1::NC_003197.2:1215238-1215400(-)	162
+MSTRG.225.1::NC_003197.2:1226835-1227410(+)	575
+MSTRG.226.1::NC_003197.2:1236433-1236838(+)	405
+MSTRG.227.1::NC_003197.2:1240761-1241144(-)	383
+MSTRG.228.1::NC_003197.2:1246750-1247068(-)	318
+MSTRG.229.1::NC_003197.2:1247660-1247960(-)	300
+MSTRG.230.1::NC_003197.2:1252463-1254039(+)	1576
+MSTRG.231.1::NC_003197.2:1254755-1255108(+)	353
+MSTRG.232.1::NC_003197.2:1269310-1270385(-)	1075
+MSTRG.233.1::NC_003197.2:1271533-1271898(-)	365
+MSTRG.234.1::NC_003197.2:1275141-1276223(+)	1082
+MSTRG.235.1::NC_003197.2:1278829-1279836(+)	1007
+MSTRG.236.1::NC_003197.2:1281301-1281720(+)	419
+MSTRG.237.1::NC_003197.2:1285302-1286386(+)	1084
+MSTRG.238.1::NC_003197.2:1287925-1288181(-)	256
+MSTRG.239.1::NC_003197.2:1289344-1290114(-)	770
+MSTRG.240.1::NC_003197.2:1290355-1291222(+)	867
+MSTRG.241.1::NC_003197.2:1294432-1294647(+)	215
+MSTRG.242.1::NC_003197.2:1296221-1296486(+)	265
+MSTRG.243.1::NC_003197.2:1298144-1298473(-)	329
+MSTRG.244.1::NC_003197.2:1298844-1299724(-)	880
+MSTRG.245.1::NC_003197.2:1304722-1305109(+)	387
+MSTRG.246.1::NC_003197.2:1307520-1307883(-)	363
+MSTRG.247.1::NC_003197.2:1310208-1310913(-)	705
+MSTRG.248.1::NC_003197.2:1316222-1316678(-)	456
+MSTRG.249.1::NC_003197.2:1317000-1317148(-)	148
+MSTRG.250.1::NC_003197.2:1317612-1318145(-)	533
+MSTRG.251.1::NC_003197.2:1318791-1319330(-)	539
+MSTRG.252.1::NC_003197.2:1319586-1319779(-)	193
+MSTRG.253.1::NC_003197.2:1322489-1322700(-)	211
+MSTRG.254.1::NC_003197.2:1323188-1323933(-)	745
+MSTRG.255.1::NC_003197.2:1324513-1325676(+)	1163
+MSTRG.256.1::NC_003197.2:1331673-1332961(+)	1288
+MSTRG.257.1::NC_003197.2:1333726-1334693(-)	967
+MSTRG.258.1::NC_003197.2:1334920-1335258(-)	338
+MSTRG.259.1::NC_003197.2:1335587-1335970(+)	383
+MSTRG.260.1::NC_003197.2:1337114-1337508(+)	394
+MSTRG.261.1::NC_003197.2:1353981-1354576(+)	595
+MSTRG.262.1::NC_003197.2:1360417-1361043(-)	626
+MSTRG.263.1::NC_003197.2:1361512-1362445(-)	933
+MSTRG.264.1::NC_003197.2:1368641-1369696(-)	1055
+MSTRG.265.1::NC_003197.2:1369996-1370825(+)	829
+MSTRG.266.1::NC_003197.2:1388502-1388720(+)	218
+MSTRG.267.1::NC_003197.2:1391199-1391493(+)	294
+MSTRG.268.1::NC_003197.2:1391868-1392185(+)	317
+MSTRG.269.1::NC_003197.2:1393349-1394652(+)	1303
+MSTRG.270.1::NC_003197.2:1397931-1399390(-)	1459
+MSTRG.271.1::NC_003197.2:1403632-1404319(+)	687
+MSTRG.272.1::NC_003197.2:1407128-1407753(-)	625
+MSTRG.273.1::NC_003197.2:1408971-1409442(+)	471
+MSTRG.274.1::NC_003197.2:1412048-1413155(+)	1107
+MSTRG.275.1::NC_003197.2:1413955-1415400(+)	1445
+MSTRG.276.1::NC_003197.2:1418434-1419470(+)	1036
+MSTRG.277.1::NC_003197.2:1420606-1420912(+)	306
+MSTRG.278.1::NC_003197.2:1424254-1424486(+)	232
+MSTRG.279.1::NC_003197.2:1427725-1428708(+)	983
+MSTRG.280.1::NC_003197.2:1428981-1429321(+)	340
+MSTRG.281.1::NC_003197.2:1429744-1430181(+)	437
+MSTRG.282.1::NC_003197.2:1436630-1437090(-)	460
+MSTRG.283.1::NC_003197.2:1439776-1440130(-)	354
+MSTRG.284.1::NC_003197.2:1449223-1450290(+)	1067
+MSTRG.285.1::NC_003197.2:1459305-1459634(-)	329
+MSTRG.286.1::NC_003197.2:1459905-1460435(-)	530
+MSTRG.287.1::NC_003197.2:1461354-1461538(-)	184
+MSTRG.288.1::NC_003197.2:1474075-1474880(-)	805
+MSTRG.289.1::NC_003197.2:1477421-1478689(-)	1268
+MSTRG.290.1::NC_003197.2:1479446-1479895(-)	449
+MSTRG.291.1::NC_003197.2:1479999-1480158(+)	159
+MSTRG.292.1::NC_003197.2:1481234-1481968(+)	734
+MSTRG.293.1::NC_003197.2:1482566-1488050(+)	5484
+MSTRG.294.1::NC_003197.2:1488435-1488917(+)	482
+MSTRG.295.1::NC_003197.2:1489504-1493882(+)	4378
+MSTRG.296.1::NC_003197.2:1495546-1496251(+)	705
+MSTRG.297.1::NC_003197.2:1499258-1499594(+)	336
+MSTRG.298.1::NC_003197.2:1503518-1504442(+)	924
+MSTRG.299.1::NC_003197.2:1508925-1509076(-)	151
+MSTRG.300.1::NC_003197.2:1511197-1511525(+)	328
+MSTRG.301.1::NC_003197.2:1516037-1516753(+)	716
+MSTRG.302.1::NC_003197.2:1519702-1521426(+)	1724
+MSTRG.303.1::NC_003197.2:1523622-1524026(+)	404
+MSTRG.304.1::NC_003197.2:1524939-1527203(+)	2264
+MSTRG.305.1::NC_003197.2:1534623-1534973(-)	350
+MSTRG.306.1::NC_003197.2:1535626-1535781(-)	155
+MSTRG.307.1::NC_003197.2:1536584-1536930(+)	346
+MSTRG.308.1::NC_003197.2:1539305-1540745(-)	1440
+MSTRG.309.1::NC_003197.2:1543429-1544575(+)	1146
+MSTRG.310.1::NC_003197.2:1551524-1552026(-)	502
+MSTRG.311.1::NC_003197.2:1557224-1557456(+)	232
+MSTRG.312.1::NC_003197.2:1562054-1562335(-)	281
+MSTRG.313.1::NC_003197.2:1573282-1573966(-)	684
+MSTRG.314.1::NC_003197.2:1579564-1579730(-)	166
+MSTRG.315.1::NC_003197.2:1581239-1581667(-)	428
+MSTRG.316.1::NC_003197.2:1589248-1589558(-)	310
+MSTRG.317.1::NC_003197.2:1589733-1589866(+)	133
+MSTRG.318.1::NC_003197.2:1591487-1591768(+)	281
+MSTRG.319.1::NC_003197.2:1594001-1594193(-)	192
+MSTRG.320.1::NC_003197.2:1598366-1598893(+)	527
+MSTRG.321.1::NC_003197.2:1604145-1604282(+)	137
+MSTRG.322.1::NC_003197.2:1610864-1612095(-)	1231
+MSTRG.323.1::NC_003197.2:1624828-1626039(+)	1211
+MSTRG.324.1::NC_003197.2:1647059-1647581(+)	522
+MSTRG.325.1::NC_003197.2:1654306-1654661(+)	355
+MSTRG.326.1::NC_003197.2:1655299-1656300(+)	1001
+MSTRG.327.1::NC_003197.2:1658911-1659158(-)	247
+MSTRG.328.1::NC_003197.2:1666697-1667114(+)	417
+MSTRG.329.1::NC_003197.2:1667872-1668599(+)	727
+MSTRG.330.1::NC_003197.2:1669412-1670163(-)	751
+MSTRG.331.1::NC_003197.2:1672144-1673161(-)	1017
+MSTRG.332.1::NC_003197.2:1675246-1675660(+)	414
+MSTRG.333.1::NC_003197.2:1676786-1677005(-)	219
+MSTRG.334.1::NC_003197.2:1686751-1688518(-)	1767
+MSTRG.335.1::NC_003197.2:1691019-1691802(-)	783
+MSTRG.336.1::NC_003197.2:1692131-1692447(+)	316
+MSTRG.337.1::NC_003197.2:1693654-1695048(-)	1394
+MSTRG.338.1::NC_003197.2:1697651-1698209(-)	558
+MSTRG.339.1::NC_003197.2:1706556-1706900(+)	344
+MSTRG.340.1::NC_003197.2:1711064-1711325(-)	261
+MSTRG.341.1::NC_003197.2:1714904-1715486(+)	582
+MSTRG.342.1::NC_003197.2:1723548-1724787(+)	1239
+MSTRG.343.1::NC_003197.2:1729040-1729233(+)	193
+MSTRG.344.1::NC_003197.2:1737375-1737529(-)	154
+MSTRG.345.1::NC_003197.2:1741182-1741685(+)	503
+MSTRG.346.1::NC_003197.2:1754381-1754598(+)	217
+MSTRG.347.1::NC_003197.2:1755420-1755770(+)	350
+MSTRG.348.1::NC_003197.2:1756092-1756537(-)	445
+MSTRG.349.1::NC_003197.2:1765684-1766750(+)	1066
+MSTRG.350.1::NC_003197.2:1771056-1771206(+)	150
+MSTRG.351.1::NC_003197.2:1771732-1772478(-)	746
+MSTRG.352.1::NC_003197.2:1773885-1774753(-)	868
+MSTRG.353.1::NC_003197.2:1775706-1776106(+)	400
+MSTRG.354.1::NC_003197.2:1782559-1783059(+)	500
+MSTRG.355.1::NC_003197.2:1785475-1786204(+)	729
+MSTRG.356.1::NC_003197.2:1788375-1789847(-)	1472
+MSTRG.357.1::NC_003197.2:1790288-1791535(-)	1247
+MSTRG.358.1::NC_003197.2:1792507-1792926(+)	419
+MSTRG.359.1::NC_003197.2:1795129-1795288(+)	159
+MSTRG.360.1::NC_003197.2:1799785-1800254(+)	469
+MSTRG.361.1::NC_003197.2:1802055-1802212(-)	157
+MSTRG.362.1::NC_003197.2:1807826-1808160(-)	334
+MSTRG.363.1::NC_003197.2:1808913-1809364(-)	451
+MSTRG.364.1::NC_003197.2:1812783-1813074(+)	291
+MSTRG.365.1::NC_003197.2:1813715-1814144(-)	429
+MSTRG.366.1::NC_003197.2:1814286-1814447(+)	161
+MSTRG.367.1::NC_003197.2:1816049-1816456(-)	407
+MSTRG.368.1::NC_003197.2:1824488-1824762(+)	274
+MSTRG.369.1::NC_003197.2:1828776-1829030(+)	254
+MSTRG.370.1::NC_003197.2:1832217-1832536(+)	319
+MSTRG.371.1::NC_003197.2:1835587-1836363(-)	776
+MSTRG.372.1::NC_003197.2:1837080-1837711(-)	631
+MSTRG.373.1::NC_003197.2:1839065-1841381(-)	2316
+MSTRG.374.1::NC_003197.2:1842992-1843212(+)	220
+MSTRG.375.1::NC_003197.2:1843425-1845853(+)	2428
+MSTRG.376.1::NC_003197.2:1845930-1846635(-)	705
+MSTRG.377.1::NC_003197.2:1847253-1847733(+)	480
+MSTRG.378.1::NC_003197.2:1850370-1850533(-)	163
+MSTRG.379.1::NC_003197.2:1851020-1851346(+)	326
+MSTRG.380.1::NC_003197.2:1851680-1852543(+)	863
+MSTRG.381.1::NC_003197.2:1864789-1865132(+)	343
+MSTRG.382.1::NC_003197.2:1866187-1866815(+)	628
+MSTRG.383.1::NC_003197.2:1869618-1869774(+)	156
+MSTRG.384.1::NC_003197.2:1869907-1870074(-)	167
+MSTRG.385.1::NC_003197.2:1870999-1871185(-)	186
+MSTRG.386.1::NC_003197.2:1874743-1874912(-)	169
+MSTRG.387.1::NC_003197.2:1877761-1877923(+)	162
+MSTRG.388.1::NC_003197.2:1880523-1880871(-)	348
+MSTRG.389.1::NC_003197.2:1893523-1895267(+)	1744
+MSTRG.390.1::NC_003197.2:1896431-1897104(+)	673
+MSTRG.391.1::NC_003197.2:1899776-1899973(+)	197
+MSTRG.392.1::NC_003197.2:1901554-1901993(-)	439
+MSTRG.393.1::NC_003197.2:1907260-1908104(+)	844
+MSTRG.394.1::NC_003197.2:1909360-1909636(-)	276
+MSTRG.395.1::NC_003197.2:1911197-1911517(-)	320
+MSTRG.396.1::NC_003197.2:1912167-1913942(+)	1775
+MSTRG.397.1::NC_003197.2:1915194-1915994(-)	800
+MSTRG.398.1::NC_003197.2:1920871-1921092(-)	221
+MSTRG.399.1::NC_003197.2:1924157-1924313(+)	156
+MSTRG.400.1::NC_003197.2:1929707-1930115(+)	408
+MSTRG.401.1::NC_003197.2:1935466-1936217(-)	751
+MSTRG.402.1::NC_003197.2:1936601-1937072(-)	471
+MSTRG.403.1::NC_003197.2:1940007-1940647(-)	640
+MSTRG.404.1::NC_003197.2:1941097-1941426(-)	329
+MSTRG.405.1::NC_003197.2:1942931-1943400(-)	469
+MSTRG.406.1::NC_003197.2:1945355-1945600(-)	245
+MSTRG.407.1::NC_003197.2:1950088-1950362(+)	274
+MSTRG.408.1::NC_003197.2:1951479-1951764(-)	285
+MSTRG.409.1::NC_003197.2:1961272-1961765(+)	493
+MSTRG.410.1::NC_003197.2:1961963-1962324(-)	361
+MSTRG.411.1::NC_003197.2:1963129-1963765(+)	636
+MSTRG.412.1::NC_003197.2:1965076-1965524(+)	448
+MSTRG.413.1::NC_003197.2:1968035-1968290(+)	255
+MSTRG.414.1::NC_003197.2:1972273-1972688(-)	415
+MSTRG.415.1::NC_003197.2:1974955-1975358(-)	403
+MSTRG.416.1::NC_003197.2:1977070-1977757(-)	687
+MSTRG.417.1::NC_003197.2:1983514-1983947(+)	433
+MSTRG.418.1::NC_003197.2:1985033-1985485(-)	452
+MSTRG.419.1::NC_003197.2:1986027-1987379(-)	1352
+MSTRG.420.1::NC_003197.2:1987381-1988818(+)	1437
+MSTRG.421.1::NC_003197.2:1995412-1996393(-)	981
+MSTRG.422.1::NC_003197.2:2015008-2015162(-)	154
+MSTRG.423.1::NC_003197.2:2018486-2018746(-)	260
+MSTRG.424.1::NC_003197.2:2021110-2021557(-)	447
+MSTRG.425.1::NC_003197.2:2023521-2024110(-)	589
+MSTRG.426.1::NC_003197.2:2029412-2029685(+)	273
+MSTRG.427.1::NC_003197.2:2031620-2032791(-)	1171
+MSTRG.428.1::NC_003197.2:2035296-2035991(-)	695
+MSTRG.429.1::NC_003197.2:2038280-2038736(-)	456
+MSTRG.430.1::NC_003197.2:2043094-2044097(-)	1003
+MSTRG.431.1::NC_003197.2:2050519-2050846(+)	327
+MSTRG.432.1::NC_003197.2:2071584-2071811(-)	227
+MSTRG.433.1::NC_003197.2:2072213-2072754(-)	541
+MSTRG.434.1::NC_003197.2:2082667-2083289(+)	622
+MSTRG.435.1::NC_003197.2:2097371-2097843(-)	472
+MSTRG.436.1::NC_003197.2:2101135-2101543(-)	408
+MSTRG.437.1::NC_003197.2:2104278-2104974(-)	696
+MSTRG.438.1::NC_003197.2:2112786-2113074(-)	288
+MSTRG.439.1::NC_003197.2:2133773-2134368(-)	595
+MSTRG.440.1::NC_003197.2:2136619-2137265(+)	646
+MSTRG.441.1::NC_003197.2:2138895-2139307(-)	412
+MSTRG.442.1::NC_003197.2:2143869-2144140(-)	271
+MSTRG.443.1::NC_003197.2:2145534-2145731(+)	197
+MSTRG.444.1::NC_003197.2:2145813-2146168(-)	355
+MSTRG.445.1::NC_003197.2:2147152-2147307(-)	155
+MSTRG.446.1::NC_003197.2:2147717-2148471(-)	754
+MSTRG.447.1::NC_003197.2:2150524-2151549(+)	1025
+MSTRG.448.1::NC_003197.2:2155015-2156388(+)	1373
+MSTRG.449.1::NC_003197.2:2160364-2160530(-)	166
+MSTRG.450.1::NC_003197.2:2165647-2167348(-)	1701
+MSTRG.451.1::NC_003197.2:2170928-2172085(-)	1157
+MSTRG.452.1::NC_003197.2:2172603-2172754(-)	151
+MSTRG.453.1::NC_003197.2:2175720-2176213(-)	493
+MSTRG.454.1::NC_003197.2:2177817-2179961(-)	2144
+MSTRG.455.1::NC_003197.2:2206513-2207623(-)	1110
+MSTRG.456.1::NC_003197.2:2208482-2208722(+)	240
+MSTRG.457.1::NC_003197.2:2232563-2233582(-)	1019
+MSTRG.458.1::NC_003197.2:2233980-2234172(+)	192
+MSTRG.459.1::NC_003197.2:2242251-2242547(+)	296
+MSTRG.460.1::NC_003197.2:2266646-2266853(+)	207
+MSTRG.461.1::NC_003197.2:2274692-2274902(-)	210
+MSTRG.462.1::NC_003197.2:2280215-2280692(+)	477
+MSTRG.463.1::NC_003197.2:2290406-2290627(-)	221
+MSTRG.464.1::NC_003197.2:2290915-2291167(-)	252
+MSTRG.465.1::NC_003197.2:2291794-2292358(+)	564
+MSTRG.466.1::NC_003197.2:2296102-2296592(-)	490
+MSTRG.467.1::NC_003197.2:2298048-2298389(-)	341
+MSTRG.468.1::NC_003197.2:2303539-2304599(-)	1060
+MSTRG.469.1::NC_003197.2:2310778-2311162(+)	384
+MSTRG.470.1::NC_003197.2:2314065-2314254(+)	189
+MSTRG.471.1::NC_003197.2:2315869-2316063(+)	194
+MSTRG.472.1::NC_003197.2:2321837-2322309(-)	472
+MSTRG.473.1::NC_003197.2:2326381-2326727(+)	346
+MSTRG.474.1::NC_003197.2:2328510-2328844(+)	334
+MSTRG.475.1::NC_003197.2:2340904-2341059(-)	155
+MSTRG.476.1::NC_003197.2:2342268-2343272(-)	1004
+MSTRG.477.1::NC_003197.2:2345016-2345547(-)	531
+MSTRG.478.1::NC_003197.2:2365432-2366635(-)	1203
+MSTRG.479.1::NC_003197.2:2370757-2371102(-)	345
+MSTRG.480.1::NC_003197.2:2376115-2376274(-)	159
+MSTRG.481.1::NC_003197.2:2380338-2381035(+)	697
+MSTRG.482.1::NC_003197.2:2381939-2383664(+)	1725
+MSTRG.483.1::NC_003197.2:2385187-2385405(-)	218
+MSTRG.484.1::NC_003197.2:2390584-2390774(+)	190
+MSTRG.485.1::NC_003197.2:2391886-2392093(+)	207
+MSTRG.486.1::NC_003197.2:2394685-2395929(+)	1244
+MSTRG.487.1::NC_003197.2:2398179-2398709(+)	530
+MSTRG.488.1::NC_003197.2:2401784-2401942(-)	158
+MSTRG.489.1::NC_003197.2:2409182-2409380(+)	198
+MSTRG.490.1::NC_003197.2:2411032-2411589(-)	557
+MSTRG.491.1::NC_003197.2:2411889-2412241(-)	352
+MSTRG.492.1::NC_003197.2:2418695-2419099(-)	404
+MSTRG.493.1::NC_003197.2:2428390-2428710(-)	320
+MSTRG.494.1::NC_003197.2:2431529-2431727(-)	198
+MSTRG.495.1::NC_003197.2:2435127-2436197(-)	1070
+MSTRG.496.1::NC_003197.2:2437367-2438167(-)	800
+MSTRG.497.1::NC_003197.2:2438534-2439165(-)	631
+MSTRG.498.1::NC_003197.2:2447891-2448127(-)	236
+MSTRG.499.1::NC_003197.2:2455392-2455915(-)	523
+MSTRG.500.1::NC_003197.2:2460208-2460641(-)	433
+MSTRG.501.1::NC_003197.2:2461659-2462126(+)	467
+MSTRG.502.1::NC_003197.2:2463669-2464626(-)	957
+MSTRG.503.1::NC_003197.2:2469097-2469662(-)	565
+MSTRG.504.1::NC_003197.2:2472666-2473368(+)	702
+MSTRG.505.1::NC_003197.2:2476438-2477351(-)	913
+MSTRG.506.1::NC_003197.2:2477731-2478523(-)	792
+MSTRG.507.1::NC_003197.2:2479434-2479584(-)	150
+MSTRG.508.1::NC_003197.2:2480401-2480653(-)	252
+MSTRG.509.1::NC_003197.2:2484179-2484852(+)	673
+MSTRG.510.1::NC_003197.2:2493657-2494157(-)	500
+MSTRG.511.1::NC_003197.2:2495121-2495845(-)	724
+MSTRG.512.1::NC_003197.2:2497927-2499058(-)	1131
+MSTRG.513.1::NC_003197.2:2499277-2500057(-)	780
+MSTRG.514.1::NC_003197.2:2501096-2501577(-)	481
+MSTRG.515.1::NC_003197.2:2502345-2503740(+)	1395
+MSTRG.516.1::NC_003197.2:2504272-2504429(-)	157
+MSTRG.517.1::NC_003197.2:2506070-2506799(-)	729
+MSTRG.518.1::NC_003197.2:2516325-2517291(-)	966
+MSTRG.519.1::NC_003197.2:2520894-2521292(-)	398
+MSTRG.520.1::NC_003197.2:2523848-2524256(+)	408
+MSTRG.521.1::NC_003197.2:2526274-2526548(+)	274
+MSTRG.522.1::NC_003197.2:2530117-2530634(-)	517
+MSTRG.523.1::NC_003197.2:2531070-2531740(-)	670
+MSTRG.524.1::NC_003197.2:2539545-2539837(-)	292
+MSTRG.525.1::NC_003197.2:2543211-2544249(+)	1038
+MSTRG.526.1::NC_003197.2:2544599-2544822(+)	223
+MSTRG.527.1::NC_003197.2:2545204-2547209(+)	2005
+MSTRG.528.1::NC_003197.2:2557199-2557418(-)	219
+MSTRG.529.1::NC_003197.2:2580423-2580626(-)	203
+MSTRG.530.1::NC_003197.2:2582844-2583838(+)	994
+MSTRG.531.1::NC_003197.2:2585405-2585774(-)	369
+MSTRG.532.1::NC_003197.2:2597659-2597893(+)	234
+MSTRG.533.1::NC_003197.2:2600249-2601804(-)	1555
+MSTRG.534.1::NC_003197.2:2602993-2603230(-)	237
+MSTRG.535.1::NC_003197.2:2613051-2613374(+)	323
+MSTRG.536.1::NC_003197.2:2621771-2622191(+)	420
+MSTRG.537.1::NC_003197.2:2641612-2642150(-)	538
+MSTRG.538.1::NC_003197.2:2643861-2644198(-)	337
+MSTRG.539.1::NC_003197.2:2652549-2652944(-)	395
+MSTRG.540.1::NC_003197.2:2653457-2654630(-)	1173
+MSTRG.541.1::NC_003197.2:2656365-2657924(-)	1559
+MSTRG.542.1::NC_003197.2:2658127-2658361(-)	234
+MSTRG.543.1::NC_003197.2:2673185-2673674(+)	489
+MSTRG.544.1::NC_003197.2:2674954-2675224(+)	270
+MSTRG.545.1::NC_003197.2:2680218-2680555(-)	337
+MSTRG.546.1::NC_003197.2:2682385-2683473(-)	1088
+MSTRG.547.1::NC_003197.2:2683591-2683848(+)	257
+MSTRG.548.1::NC_003197.2:2701131-2701699(+)	568
+MSTRG.549.1::NC_003197.2:2703488-2704516(-)	1028
+MSTRG.550.1::NC_003197.2:2708575-2708728(-)	153
+MSTRG.551.1::NC_003197.2:2708980-2709928(-)	948
+MSTRG.552.1::NC_003197.2:2711501-2712067(-)	566
+MSTRG.553.1::NC_003197.2:2714453-2715812(-)	1359
+MSTRG.554.1::NC_003197.2:2726243-2727326(-)	1083
+MSTRG.555.1::NC_003197.2:2778542-2779298(-)	756
+MSTRG.556.1::NC_003197.2:2779652-2780147(-)	495
+MSTRG.557.1::NC_003197.2:2783628-2783835(+)	207
+MSTRG.558.1::NC_003197.2:2796439-2796550(-)	111
+MSTRG.559.1::NC_003197.2:2796751-2799774(-)	3023
+MSTRG.560.1::NC_003197.2:2800121-2801731(-)	1610
+MSTRG.561.1::NC_003197.2:2802077-2802361(-)	284
+MSTRG.562.1::NC_003197.2:2804744-2806219(-)	1475
+MSTRG.563.1::NC_003197.2:2806609-2806863(+)	254
+MSTRG.564.1::NC_003197.2:2807240-2807391(+)	151
+MSTRG.565.1::NC_003197.2:2807647-2808056(+)	409
+MSTRG.566.1::NC_003197.2:2814860-2815933(-)	1073
+MSTRG.567.1::NC_003197.2:2816454-2816712(-)	258
+MSTRG.568.1::NC_003197.2:2818212-2818603(-)	391
+MSTRG.569.1::NC_003197.2:2825055-2825283(+)	228
+MSTRG.570.1::NC_003197.2:2826475-2826659(+)	184
+MSTRG.571.1::NC_003197.2:2841705-2841948(+)	243
+MSTRG.572.1::NC_003197.2:2843943-2844319(+)	376
+MSTRG.573.1::NC_003197.2:2847465-2847749(-)	284
+MSTRG.574.1::NC_003197.2:2854812-2855131(-)	319
+MSTRG.575.1::NC_003197.2:2869380-2869619(-)	239
+MSTRG.576.1::NC_003197.2:2918835-2919361(+)	526
+MSTRG.577.1::NC_003197.2:2926248-2927879(-)	1631
+MSTRG.578.1::NC_003197.2:2928358-2929890(+)	1532
+MSTRG.579.1::NC_003197.2:2932434-2932700(-)	266
+MSTRG.580.1::NC_003197.2:2937939-2939380(+)	1441
+MSTRG.581.1::NC_003197.2:2939760-2941242(+)	1482
+MSTRG.582.1::NC_003197.2:2941576-2942447(+)	871
+MSTRG.583.1::NC_003197.2:2943376-2943558(+)	182
+MSTRG.584.1::NC_003197.2:2945734-2945886(-)	152
+MSTRG.585.1::NC_003197.2:2946940-2947210(+)	270
+MSTRG.586.1::NC_003197.2:2949310-2949748(+)	438
+MSTRG.587.1::NC_003197.2:2951805-2952173(+)	368
+MSTRG.588.1::NC_003197.2:2966214-2966832(-)	618
+MSTRG.589.1::NC_003197.2:2967785-2967951(+)	166
+MSTRG.590.1::NC_003197.2:2970338-2970692(-)	354
+MSTRG.591.1::NC_003197.2:2970943-2971259(-)	316
+MSTRG.592.1::NC_003197.2:2975802-2975963(-)	161
+MSTRG.593.1::NC_003197.2:3006336-3007634(+)	1298
+MSTRG.594.1::NC_003197.2:3008839-3009899(+)	1060
+MSTRG.595.1::NC_003197.2:3055982-3056348(-)	366
+MSTRG.596.1::NC_003197.2:3065454-3067049(-)	1595
+MSTRG.597.1::NC_003197.2:3067290-3067653(-)	363
+MSTRG.598.1::NC_003197.2:3072211-3072478(-)	267
+MSTRG.599.1::NC_003197.2:3072683-3073893(-)	1210
+MSTRG.600.1::NC_003197.2:3089585-3090028(-)	443
+MSTRG.601.1::NC_003197.2:3097325-3097693(-)	368
+MSTRG.602.1::NC_003197.2:3098095-3098420(-)	325
+MSTRG.603.1::NC_003197.2:3102975-3103762(-)	787
+MSTRG.604.1::NC_003197.2:3104161-3106288(-)	2127
+MSTRG.605.1::NC_003197.2:3115527-3115734(-)	207
+MSTRG.606.1::NC_003197.2:3116712-3117052(-)	340
+MSTRG.607.1::NC_003197.2:3121196-3122079(-)	883
+MSTRG.608.1::NC_003197.2:3122522-3122952(+)	430
+MSTRG.609.1::NC_003197.2:3128294-3129429(+)	1135
+MSTRG.610.1::NC_003197.2:3142841-3143340(+)	499
+MSTRG.611.1::NC_003197.2:3150036-3150296(-)	260
+MSTRG.612.1::NC_003197.2:3153388-3155934(-)	2546
+MSTRG.613.1::NC_003197.2:3159180-3160888(-)	1708
+MSTRG.614.1::NC_003197.2:3162328-3162716(-)	388
+MSTRG.615.1::NC_003197.2:3170980-3171391(+)	411
+MSTRG.616.1::NC_003197.2:3171796-3172295(+)	499
+MSTRG.617.1::NC_003197.2:3179670-3179916(-)	246
+MSTRG.618.1::NC_003197.2:3180380-3180851(-)	471
+MSTRG.619.1::NC_003197.2:3181943-3182095(+)	152
+MSTRG.620.1::NC_003197.2:3195422-3195804(-)	382
+MSTRG.621.1::NC_003197.2:3197482-3197733(-)	251
+MSTRG.622.1::NC_003197.2:3197958-3198345(-)	387
+MSTRG.623.1::NC_003197.2:3201162-3201418(-)	256
+MSTRG.624.1::NC_003197.2:3203048-3203202(-)	154
+MSTRG.625.1::NC_003197.2:3205468-3205965(+)	497
+MSTRG.626.1::NC_003197.2:3208584-3208704(-)	120
+MSTRG.627.1::NC_003197.2:3208967-3209198(-)	231
+MSTRG.628.1::NC_003197.2:3209654-3209926(+)	272
+MSTRG.629.1::NC_003197.2:3213806-3214290(-)	484
+MSTRG.630.1::NC_003197.2:3215076-3215613(-)	537
+MSTRG.631.1::NC_003197.2:3220761-3220924(-)	163
+MSTRG.632.1::NC_003197.2:3221888-3222288(+)	400
+MSTRG.633.1::NC_003197.2:3224691-3225235(-)	544
+MSTRG.634.1::NC_003197.2:3225575-3225851(+)	276
+MSTRG.635.1::NC_003197.2:3229473-3229908(-)	435
+MSTRG.636.1::NC_003197.2:3231439-3231696(-)	257
+MSTRG.637.1::NC_003197.2:3236055-3236301(+)	246
+MSTRG.638.1::NC_003197.2:3236390-3236691(-)	301
+MSTRG.639.1::NC_003197.2:3238755-3239015(+)	260
+MSTRG.640.1::NC_003197.2:3243354-3243543(+)	189
+MSTRG.641.1::NC_003197.2:3248878-3249230(-)	352
+MSTRG.642.1::NC_003197.2:3257269-3257981(+)	712
+MSTRG.643.1::NC_003197.2:3265958-3266544(-)	586
+MSTRG.644.1::NC_003197.2:3267459-3268061(-)	602
+MSTRG.645.1::NC_003197.2:3269812-3269971(+)	159
+MSTRG.646.1::NC_003197.2:3270405-3270560(+)	155
+MSTRG.647.1::NC_003197.2:3272357-3272508(+)	151
+MSTRG.648.1::NC_003197.2:3291730-3293723(-)	1993
+MSTRG.649.1::NC_003197.2:3300107-3300504(+)	397
+MSTRG.650.1::NC_003197.2:3309934-3310488(-)	554
+MSTRG.651.1::NC_003197.2:3317860-3318262(+)	402
+MSTRG.652.1::NC_003197.2:3319176-3320823(-)	1647
+MSTRG.653.1::NC_003197.2:3321654-3323051(+)	1397
+MSTRG.654.1::NC_003197.2:3343572-3343789(+)	217
+MSTRG.655.1::NC_003197.2:3345003-3345359(-)	356
+MSTRG.656.1::NC_003197.2:3346649-3347419(-)	770
+MSTRG.657.1::NC_003197.2:3348476-3349304(+)	828
+MSTRG.658.1::NC_003197.2:3350244-3351087(+)	843
+MSTRG.659.1::NC_003197.2:3352110-3352320(+)	210
+MSTRG.660.1::NC_003197.2:3357626-3357791(+)	165
+MSTRG.661.1::NC_003197.2:3358077-3358299(-)	222
+MSTRG.662.1::NC_003197.2:3358932-3359235(+)	303
+MSTRG.663.1::NC_003197.2:3359258-3359562(-)	304
+MSTRG.664.1::NC_003197.2:3363805-3363973(-)	168
+MSTRG.665.1::NC_003197.2:3366549-3367014(-)	465
+MSTRG.666.1::NC_003197.2:3374010-3374359(+)	349
+MSTRG.667.1::NC_003197.2:3374773-3375291(+)	518
+MSTRG.668.1::NC_003197.2:3375541-3377497(+)	1956
+MSTRG.669.1::NC_003197.2:3383130-3383486(-)	356
+MSTRG.670.1::NC_003197.2:3384689-3386129(+)	1440
+MSTRG.671.1::NC_003197.2:3386525-3386933(+)	408
+MSTRG.672.1::NC_003197.2:3393438-3394788(+)	1350
+MSTRG.673.1::NC_003197.2:3395016-3395268(+)	252
+MSTRG.674.1::NC_003197.2:3395564-3395846(+)	282
+MSTRG.675.1::NC_003197.2:3396335-3397421(+)	1086
+MSTRG.676.1::NC_003197.2:3397459-3397782(-)	323
+MSTRG.677.1::NC_003197.2:3401019-3401669(+)	650
+MSTRG.678.1::NC_003197.2:3401990-3403071(-)	1081
+MSTRG.679.1::NC_003197.2:3414812-3416063(-)	1251
+MSTRG.680.1::NC_003197.2:3438891-3439596(-)	705
+MSTRG.681.1::NC_003197.2:3446726-3446971(-)	245
+MSTRG.682.1::NC_003197.2:3448059-3448910(-)	851
+MSTRG.683.1::NC_003197.2:3451261-3451454(-)	193
+MSTRG.684.1::NC_003197.2:3454741-3455573(-)	832
+MSTRG.685.1::NC_003197.2:3459702-3459935(+)	233
+MSTRG.686.1::NC_003197.2:3461734-3462909(-)	1175
+MSTRG.687.1::NC_003197.2:3464666-3465431(-)	765
+MSTRG.688.1::NC_003197.2:3466032-3466147(-)	115
+MSTRG.689.1::NC_003197.2:3472453-3473133(-)	680
+MSTRG.690.1::NC_003197.2:3476781-3476996(-)	215
+MSTRG.691.1::NC_003197.2:3478196-3479711(-)	1515
+MSTRG.692.1::NC_003197.2:3482572-3483697(+)	1125
+MSTRG.693.1::NC_003197.2:3485823-3486182(+)	359
+MSTRG.694.1::NC_003197.2:3486468-3486766(+)	298
+MSTRG.695.1::NC_003197.2:3490428-3490901(-)	473
+MSTRG.696.1::NC_003197.2:3494551-3494756(+)	205
+MSTRG.697.1::NC_003197.2:3498773-3498927(+)	154
+MSTRG.698.1::NC_003197.2:3508198-3508871(-)	673
+MSTRG.699.1::NC_003197.2:3510578-3511195(-)	617
+MSTRG.700.1::NC_003197.2:3512658-3513396(-)	738
+MSTRG.701.1::NC_003197.2:3515734-3516883(+)	1149
+MSTRG.702.1::NC_003197.2:3529703-3529944(-)	241
+MSTRG.703.1::NC_003197.2:3533712-3534207(+)	495
+MSTRG.704.1::NC_003197.2:3535026-3535899(-)	873
+MSTRG.705.1::NC_003197.2:3536399-3536572(-)	173
+MSTRG.706.1::NC_003197.2:3540378-3541043(-)	665
+MSTRG.707.1::NC_003197.2:3541650-3541939(-)	289
+MSTRG.708.1::NC_003197.2:3544108-3544696(-)	588
+MSTRG.709.1::NC_003197.2:3546428-3546943(-)	515
+MSTRG.710.1::NC_003197.2:3550000-3550472(+)	472
+MSTRG.711.1::NC_003197.2:3566878-3570070(-)	3192
+MSTRG.712.1::NC_003197.2:3570453-3572022(-)	1569
+MSTRG.713.1::NC_003197.2:3575057-3575787(-)	730
+MSTRG.714.1::NC_003197.2:3582283-3588141(-)	5858
+MSTRG.715.1::NC_003197.2:3588726-3590331(-)	1605
+MSTRG.716.1::NC_003197.2:3590674-3594671(-)	3997
+MSTRG.717.1::NC_003197.2:3596056-3596697(-)	641
+MSTRG.718.1::NC_003197.2:3597700-3600250(-)	2550
+MSTRG.719.1::NC_003197.2:3600882-3602767(-)	1885
+MSTRG.720.1::NC_003197.2:3606142-3606495(-)	353
+MSTRG.721.1::NC_003197.2:3609084-3609770(-)	686
+MSTRG.722.1::NC_003197.2:3609829-3610716(+)	887
+MSTRG.723.1::NC_003197.2:3611422-3611863(+)	441
+MSTRG.724.1::NC_003197.2:3613479-3614015(+)	536
+MSTRG.725.1::NC_003197.2:3615596-3616242(+)	646
+MSTRG.726.1::NC_003197.2:3617059-3617845(+)	786
+MSTRG.727.1::NC_003197.2:3617853-3618813(-)	960
+MSTRG.728.1::NC_003197.2:3621607-3621846(-)	239
+MSTRG.729.1::NC_003197.2:3639726-3640571(-)	845
+MSTRG.730.1::NC_003197.2:3642338-3643118(-)	780
+MSTRG.731.1::NC_003197.2:3649995-3650283(+)	288
+MSTRG.732.1::NC_003197.2:3650862-3651167(+)	305
+MSTRG.733.1::NC_003197.2:3652855-3653210(+)	355
+MSTRG.734.1::NC_003197.2:3653551-3654481(+)	930
+MSTRG.735.1::NC_003197.2:3654766-3655046(-)	280
+MSTRG.736.1::NC_003197.2:3663808-3664474(+)	666
+MSTRG.737.1::NC_003197.2:3665876-3666504(+)	628
+MSTRG.738.1::NC_003197.2:3667965-3668622(-)	657
+MSTRG.739.1::NC_003197.2:3673803-3674080(-)	277
+MSTRG.740.1::NC_003197.2:3678515-3679251(+)	736
+MSTRG.741.1::NC_003197.2:3679868-3680036(-)	168
+MSTRG.742.1::NC_003197.2:3680957-3681290(-)	333
+MSTRG.743.1::NC_003197.2:3686316-3686639(-)	323
+MSTRG.744.1::NC_003197.2:3688710-3690824(+)	2114
+MSTRG.745.1::NC_003197.2:3699456-3699913(-)	457
+MSTRG.746.1::NC_003197.2:3705541-3707662(-)	2121
+MSTRG.747.1::NC_003197.2:3732945-3733110(-)	165
+MSTRG.748.1::NC_003197.2:3736117-3736322(-)	205
+MSTRG.749.1::NC_003197.2:3741716-3742453(+)	737
+MSTRG.750.1::NC_003197.2:3759722-3760139(+)	417
+MSTRG.751.1::NC_003197.2:3760855-3761380(+)	525
+MSTRG.752.1::NC_003197.2:3766131-3766743(-)	612
+MSTRG.753.1::NC_003197.2:3767387-3767513(-)	126
+MSTRG.754.1::NC_003197.2:3768692-3769975(+)	1283
+MSTRG.755.1::NC_003197.2:3776269-3776452(+)	183
+MSTRG.756.1::NC_003197.2:3785636-3786051(-)	415
+MSTRG.757.1::NC_003197.2:3794050-3794359(-)	309
+MSTRG.758.1::NC_003197.2:3800362-3800772(-)	410
+MSTRG.759.1::NC_003197.2:3803353-3803788(-)	435
+MSTRG.760.1::NC_003197.2:3804704-3805531(+)	827
+MSTRG.761.1::NC_003197.2:3808117-3808470(-)	353
+MSTRG.762.1::NC_003197.2:3810093-3810351(-)	258
+MSTRG.763.1::NC_003197.2:3810754-3811078(-)	324
+MSTRG.764.1::NC_003197.2:3814378-3816194(-)	1816
+MSTRG.765.1::NC_003197.2:3823533-3823793(+)	260
+MSTRG.766.1::NC_003197.2:3829134-3829596(+)	462
+MSTRG.767.1::NC_003197.2:3834130-3834525(+)	395
+MSTRG.768.1::NC_003197.2:3834677-3835500(-)	823
+MSTRG.769.1::NC_003197.2:3836297-3836711(+)	414
+MSTRG.770.1::NC_003197.2:3840098-3840268(-)	170
+MSTRG.771.1::NC_003197.2:3840562-3842358(-)	1796
+MSTRG.772.1::NC_003197.2:3867666-3868059(+)	393
+MSTRG.773.1::NC_003197.2:3868343-3869532(-)	1189
+MSTRG.774.1::NC_003197.2:3872421-3873337(-)	916
+MSTRG.775.1::NC_003197.2:3874136-3874816(-)	680
+MSTRG.776.1::NC_003197.2:3875239-3875594(+)	355
+MSTRG.777.1::NC_003197.2:3878182-3878654(+)	472
+MSTRG.778.1::NC_003197.2:3887727-3888123(+)	396
+MSTRG.779.1::NC_003197.2:3893816-3894008(-)	192
+MSTRG.780.1::NC_003197.2:3895986-3896560(-)	574
+MSTRG.781.1::NC_003197.2:3899291-3899714(+)	423
+MSTRG.782.1::NC_003197.2:3902330-3902490(-)	160
+MSTRG.783.1::NC_003197.2:3902696-3902897(-)	201
+MSTRG.784.1::NC_003197.2:3905341-3906662(+)	1321
+MSTRG.785.1::NC_003197.2:3911011-3911667(-)	656
+MSTRG.786.1::NC_003197.2:3913704-3914089(-)	385
+MSTRG.787.1::NC_003197.2:3915464-3915886(-)	422
+MSTRG.788.1::NC_003197.2:3916158-3916593(-)	435
+MSTRG.789.1::NC_003197.2:3925477-3925839(+)	362
+MSTRG.790.1::NC_003197.2:3933728-3934001(+)	273
+MSTRG.791.1::NC_003197.2:3951582-3951806(+)	224
+MSTRG.792.1::NC_003197.2:3960889-3962535(-)	1646
+MSTRG.793.1::NC_003197.2:3963416-3965466(-)	2050
+MSTRG.794.1::NC_003197.2:3978892-3979099(+)	207
+MSTRG.795.1::NC_003197.2:3997664-3997840(-)	176
+MSTRG.796.1::NC_003197.2:4006218-4006420(-)	202
+MSTRG.797.1::NC_003197.2:4024508-4024878(+)	370
+MSTRG.798.1::NC_003197.2:4040593-4040838(-)	245
+MSTRG.799.1::NC_003197.2:4041809-4042355(-)	546
+MSTRG.800.1::NC_003197.2:4043574-4044314(-)	740
+MSTRG.801.1::NC_003197.2:4045614-4045904(+)	290
+MSTRG.802.1::NC_003197.2:4071211-4071578(-)	367
+MSTRG.803.1::NC_003197.2:4073640-4074655(-)	1015
+MSTRG.804.1::NC_003197.2:4075855-4076767(-)	912
+MSTRG.805.1::NC_003197.2:4077385-4080170(-)	2785
+MSTRG.806.1::NC_003197.2:4085317-4086407(+)	1090
+MSTRG.807.1::NC_003197.2:4087676-4088252(-)	576
+MSTRG.808.1::NC_003197.2:4089279-4089578(+)	299
+MSTRG.809.1::NC_003197.2:4095381-4095604(+)	223
+MSTRG.810.1::NC_003197.2:4100144-4101719(+)	1575
+MSTRG.811.1::NC_003197.2:4102049-4105033(+)	2984
+MSTRG.812.1::NC_003197.2:4106492-4106710(+)	218
+MSTRG.813.1::NC_003197.2:4108724-4108859(+)	135
+MSTRG.814.1::NC_003197.2:4117418-4119221(+)	1803
+MSTRG.815.1::NC_003197.2:4123367-4123642(-)	275
+MSTRG.816.1::NC_003197.2:4125379-4126832(+)	1453
+MSTRG.817.1::NC_003197.2:4128919-4129493(+)	574
+MSTRG.818.1::NC_003197.2:4134372-4134614(+)	242
+MSTRG.819.1::NC_003197.2:4139974-4140202(+)	228
+MSTRG.820.1::NC_003197.2:4140918-4141356(+)	438
+MSTRG.821.1::NC_003197.2:4141659-4141817(+)	158
+MSTRG.822.1::NC_003197.2:4145230-4145903(-)	673
+MSTRG.823.1::NC_003197.2:4147779-4148126(-)	347
+MSTRG.824.1::NC_003197.2:4153567-4154098(+)	531
+MSTRG.825.1::NC_003197.2:4157194-4157634(+)	440
+MSTRG.826.1::NC_003197.2:4162472-4162861(+)	389
+MSTRG.827.1::NC_003197.2:4173704-4174636(-)	932
+MSTRG.828.1::NC_003197.2:4179276-4179420(+)	144
+MSTRG.829.1::NC_003197.2:4179925-4181217(+)	1292
+MSTRG.830.1::NC_003197.2:4185293-4185640(+)	347
+MSTRG.831.1::NC_003197.2:4188051-4190369(-)	2318
+MSTRG.832.1::NC_003197.2:4190821-4191395(-)	574
+MSTRG.833.1::NC_003197.2:4196051-4197623(+)	1572
+MSTRG.834.1::NC_003197.2:4198139-4201128(+)	2989
+MSTRG.835.1::NC_003197.2:4201328-4201443(+)	115
+MSTRG.836.1::NC_003197.2:4204874-4205045(-)	171
+MSTRG.837.1::NC_003197.2:4210182-4210408(+)	226
+MSTRG.838.1::NC_003197.2:4211520-4212250(+)	730
+MSTRG.839.1::NC_003197.2:4212503-4212761(-)	258
+MSTRG.840.1::NC_003197.2:4215427-4215625(-)	198
+MSTRG.841.1::NC_003197.2:4216826-4217080(-)	254
+MSTRG.842.1::NC_003197.2:4235784-4236100(+)	316
+MSTRG.843.1::NC_003197.2:4236698-4237467(+)	769
+MSTRG.844.1::NC_003197.2:4237953-4238381(+)	428
+MSTRG.845.1::NC_003197.2:4238776-4239348(+)	572
+MSTRG.846.1::NC_003197.2:4241061-4241790(+)	729
+MSTRG.847.1::NC_003197.2:4242271-4243211(-)	940
+MSTRG.848.1::NC_003197.2:4248538-4248852(+)	314
+MSTRG.849.1::NC_003197.2:4260268-4260522(+)	254
+MSTRG.850.1::NC_003197.2:4266492-4267186(+)	694
+MSTRG.851.1::NC_003197.2:4269062-4269279(-)	217
+MSTRG.852.1::NC_003197.2:4269639-4269976(-)	337
+MSTRG.853.1::NC_003197.2:4270583-4271116(+)	533
+MSTRG.854.1::NC_003197.2:4278695-4278974(+)	279
+MSTRG.855.1::NC_003197.2:4281215-4282115(-)	900
+MSTRG.856.1::NC_003197.2:4283462-4283723(+)	261
+MSTRG.857.1::NC_003197.2:4290228-4291096(-)	868
+MSTRG.858.1::NC_003197.2:4293438-4293908(-)	470
+MSTRG.859.1::NC_003197.2:4294310-4296788(-)	2478
+MSTRG.860.1::NC_003197.2:4297038-4297549(+)	511
+MSTRG.861.1::NC_003197.2:4297759-4298457(-)	698
+MSTRG.862.1::NC_003197.2:4299112-4299779(-)	667
+MSTRG.863.1::NC_003197.2:4302398-4302896(-)	498
+MSTRG.864.1::NC_003197.2:4305787-4306019(+)	232
+MSTRG.865.1::NC_003197.2:4310324-4310488(+)	164
+MSTRG.866.1::NC_003197.2:4312421-4313540(+)	1119
+MSTRG.867.1::NC_003197.2:4318400-4319282(+)	882
+MSTRG.868.1::NC_003197.2:4324160-4324368(-)	208
+MSTRG.869.1::NC_003197.2:4339486-4340121(+)	635
+MSTRG.870.1::NC_003197.2:4343095-4343330(+)	235
+MSTRG.871.1::NC_003197.2:4343572-4344091(+)	519
+MSTRG.872.1::NC_003197.2:4349903-4350051(+)	148
+MSTRG.873.1::NC_003197.2:4351134-4352709(+)	1575
+MSTRG.874.1::NC_003197.2:4353212-4356544(+)	3332
+MSTRG.875.1::NC_003197.2:4357906-4358057(+)	151
+MSTRG.876.1::NC_003197.2:4359923-4362187(+)	2264
+MSTRG.877.1::NC_003197.2:4363863-4365672(+)	1809
+MSTRG.878.1::NC_003197.2:4367342-4367815(+)	473
+MSTRG.879.1::NC_003197.2:4368666-4368817(+)	151
+MSTRG.880.1::NC_003197.2:4369888-4370564(+)	676
+MSTRG.881.1::NC_003197.2:4370817-4374278(+)	3461
+MSTRG.882.1::NC_003197.2:4382894-4383250(-)	356
+MSTRG.883.1::NC_003197.2:4384490-4384944(+)	454
+MSTRG.884.1::NC_003197.2:4386640-4386998(+)	358
+MSTRG.885.1::NC_003197.2:4389057-4389282(+)	225
+MSTRG.886.1::NC_003197.2:4390188-4391135(+)	947
+MSTRG.887.1::NC_003197.2:4394585-4396230(+)	1645
+MSTRG.888.1::NC_003197.2:4396644-4399623(+)	2979
+MSTRG.889.1::NC_003197.2:4400177-4400422(-)	245
+MSTRG.890.1::NC_003197.2:4403063-4403618(+)	555
+MSTRG.891.1::NC_003197.2:4439637-4439823(-)	186
+MSTRG.892.1::NC_003197.2:4440389-4440554(+)	165
+MSTRG.893.1::NC_003197.2:4442254-4442515(+)	261
+MSTRG.894.1::NC_003197.2:4444600-4444809(-)	209
+MSTRG.895.1::NC_003197.2:4447023-4447701(-)	678
+MSTRG.896.1::NC_003197.2:4451861-4453624(+)	1763
+MSTRG.897.1::NC_003197.2:4455724-4456001(+)	277
+MSTRG.898.1::NC_003197.2:4461535-4462268(-)	733
+MSTRG.899.1::NC_003197.2:4468727-4469051(+)	324
+MSTRG.900.1::NC_003197.2:4472064-4472415(+)	351
+MSTRG.901.1::NC_003197.2:4476302-4476915(+)	613
+MSTRG.902.1::NC_003197.2:4482038-4482195(+)	157
+MSTRG.903.1::NC_003197.2:4504384-4504841(+)	457
+MSTRG.904.1::NC_003197.2:4512859-4513204(-)	345
+MSTRG.905.1::NC_003197.2:4541305-4541905(+)	600
+MSTRG.906.1::NC_003197.2:4567125-4567615(-)	490
+MSTRG.907.1::NC_003197.2:4570911-4572057(-)	1146
+MSTRG.908.1::NC_003197.2:4572696-4572956(+)	260
+MSTRG.909.1::NC_003197.2:4576297-4577464(+)	1167
+MSTRG.910.1::NC_003197.2:4581697-4581987(-)	290
+MSTRG.911.1::NC_003197.2:4582269-4582540(+)	271
+MSTRG.912.1::NC_003197.2:4582757-4583171(-)	414
+MSTRG.913.1::NC_003197.2:4596407-4596922(+)	515
+MSTRG.914.1::NC_003197.2:4601113-4601628(+)	515
+MSTRG.915.1::NC_003197.2:4604117-4604585(+)	468
+MSTRG.916.1::NC_003197.2:4605524-4606697(+)	1173
+MSTRG.917.1::NC_003197.2:4611254-4611687(+)	433
+MSTRG.918.1::NC_003197.2:4612932-4613235(+)	303
+MSTRG.919.1::NC_003197.2:4622275-4622546(+)	271
+MSTRG.920.1::NC_003197.2:4631195-4632023(+)	828
+MSTRG.921.1::NC_003197.2:4633887-4634615(+)	728
+MSTRG.922.1::NC_003197.2:4634824-4635865(+)	1041
+MSTRG.923.1::NC_003197.2:4639435-4639971(-)	536
+MSTRG.924.1::NC_003197.2:4641533-4642402(+)	869
+MSTRG.925.1::NC_003197.2:4643258-4643674(+)	416
+MSTRG.926.1::NC_003197.2:4651525-4651808(+)	283
+MSTRG.927.1::NC_003197.2:4654980-4655307(-)	327
+MSTRG.928.1::NC_003197.2:4656820-4657478(+)	658
+MSTRG.929.1::NC_003197.2:4681194-4681757(-)	563
+MSTRG.930.1::NC_003197.2:4681844-4683005(+)	1161
+MSTRG.931.1::NC_003197.2:4689528-4689716(-)	188
+MSTRG.932.1::NC_003197.2:4692401-4692655(-)	254
+MSTRG.933.1::NC_003197.2:4699460-4699655(+)	195
+MSTRG.934.1::NC_003197.2:4711593-4712567(-)	974
+MSTRG.935.1::NC_003197.2:4718896-4719782(-)	886
+MSTRG.936.1::NC_003197.2:4720393-4721020(-)	627
+MSTRG.937.1::NC_003197.2:4758449-4758815(+)	366
+MSTRG.938.1::NC_003197.2:4759984-4760521(-)	537
+MSTRG.939.1::NC_003197.2:4761047-4761299(+)	252
+MSTRG.940.1::NC_003197.2:4776020-4776214(+)	194
+MSTRG.941.1::NC_003197.2:4797236-4797835(+)	599
+MSTRG.942.1::NC_003197.2:4799993-4800601(-)	608
+MSTRG.943.1::NC_003197.2:4801485-4802046(-)	561
+MSTRG.944.1::NC_003197.2:4803925-4804068(-)	143
+MSTRG.945.1::NC_003197.2:4804996-4805366(-)	370
+MSTRG.946.1::NC_003197.2:4815924-4816267(+)	343
+MSTRG.947.1::NC_003197.2:4816534-4816855(+)	321
+MSTRG.948.1::NC_003197.2:4817584-4818063(+)	479
+MSTRG.949.1::NC_003197.2:4823709-4824794(+)	1085
+MSTRG.950.1::NC_003197.2:4825001-4825156(+)	155
+MSTRG.951.1::NC_003197.2:4835701-4836175(+)	474
+MSTRG.952.1::NC_003197.2:4837136-4837630(-)	494
+MSTRG.953.1::NC_003197.2:4843796-4844043(+)	247
+MSTRG.954.1::NC_003197.2:4855372-4856501(-)	1129
+Genome sequence total length = 624637
+Genome size with padding = 2031616
+Estimated genome size with padding and SJs: total=genome+SJ=203031616 = 2031616 + 201000000
+GstrandBit=32
+Number of SA indices: 1249274
+Nov 05 08:55:17 ... starting to sort Suffix Array. This may take a long time...
+Number of chunks: 4;   chunks size limit: 3331392 bytes
+Nov 05 08:55:17 ... sorting Suffix Array chunks and saving them to disk...
+Writing 75608 bytes into doc/metatranscriptome/lt2//SA_3 ; empty space on disk = 1830342361088 bytes ... done
+Writing 3297856 bytes into doc/metatranscriptome/lt2//SA_0 ; empty space on disk = 1830341836800 bytes ... done
+Writing 3289472 bytes into doc/metatranscriptome/lt2//SA_1 ; empty space on disk = 1830341836800 bytes ...Writing 3331256 bytes into doc/metatranscriptome/lt2//SA_2 ; empty space on disk = 1830341836800 bytes ... done
+ done
+Nov 05 08:55:17 ... loading chunks from disk, packing SA...
+Nov 05 08:55:17 ... finished generating suffix array
+Nov 05 08:55:17 ... generating Suffix Array index
+Nov 05 08:55:17 ... completed Suffix Array index
+Nov 05 08:55:17 ... writing Genome to disk ...
+Writing 2031616 bytes into doc/metatranscriptome/lt2//Genome ; empty space on disk = 1830342361088 bytes ... done
+SA size in bytes: 5153259
+Nov 05 08:55:17 ... writing Suffix Array to disk ...
+Writing 5153259 bytes into doc/metatranscriptome/lt2//SA ; empty space on disk = 1830349176832 bytes ... done
+Nov 05 08:55:17 ... writing SAindex to disk
+Writing 8 bytes into doc/metatranscriptome/lt2//SAindex ; empty space on disk = 1830342361088 bytes ... done
+Writing 64 bytes into doc/metatranscriptome/lt2//SAindex ; empty space on disk = 1830342361088 bytes ... done
+Writing 95571 bytes into doc/metatranscriptome/lt2//SAindex ; empty space on disk = 1830342361088 bytes ... done
+Nov 05 08:55:17 ..... finished successfully
+DONE: Genome generation, EXITING

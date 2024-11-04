@@ -52,8 +52,8 @@ conda activate riboss
 The alignment files for transcriptome assembly and ribosome profiling are available at [Zenodo](https://doi.org/10.5281/zenodo.13997374).
 Download the RNA-seq alignment files and `mv D23005*.bam doc/styphimurium/rnaseq`.
 
-- D23005.sorted.bam: Illumina short-read alignment file.
-- D23005-sc-1962750.sorted.bam: PacBio long-read alignment file.
+- SRR11215003.bam and SRR11215004.bam: Nanopore direct RNA long-read alignment files.
+- SRR11215663.bam and SRR11215664.bam: Illumina short-read alignment file.
 
 Download the Ribosome profiling alignment files and `mkdir doc/styphimurium/riboseq; mv ERR913094*.out.bam doc/styphimurium/riboseq`.
 
@@ -67,4 +67,4 @@ Follow the steps in [`test.ipynb`](https://github.com/lcscs12345/riboss/blob/mas
 
 - Lim, C.S., Wardell, S.J.T., Kleffmann, T. & Brown, C.M. (2018) The exon-intron gene structure upstream of the initiation codon predicts translation efficiency. _Nucleic Acids Res_, 46:4575-4591. DOI: [10.1093/nar/gky282](https://doi.org/10.1093/nar/gky282)
 - Bryant, O.J., Lastovka, F., Powell, J. et al. (2023) The distinct translational landscapes of gram-negative _Salmonella_ and gram-positive _Listeria_. _Nat Commun_, 14:8167. DOI: [10.1038/s41467-023-43759-1](https://doi.org/10.1038/s41467-023-43759-1)
-- Ondari, E.M., Klemm, E.J., Msefula, C.L. et al. (2019) Rapid transcriptional responses to serum exposure are associated with sensitivity and resistance to antibody-mediated complement killing in invasive _Salmonella_ Typhimurium ST313 [version 1; peer review: 2 approved]. _Wellcome Open Res_, 4:74. DOI: [10.12688/wellcomeopenres.15059.1](https://doi.org/10.12688/wellcomeopenres.15059.1)
+- Yang, M., Cousineau, A., Liu, X., Luo, Y., Sun, D., Li, S., Gu, T., Sun, L., Dillow, H., Lepine, J., Xu, M., Zhang, B. (2020) Direct Metatranscriptome RNA-seq and Multiplex RT-PCR Amplicon Sequencing on Nanopore MinION - Promising Strategies for Multiplex Identification of Viable Pathogens in Food. _Front Microbiol_, 11:514. DOI: [10.3389/fmicb.2020.00514](https://doi.org/10.3389/fmicb.2020.00514)

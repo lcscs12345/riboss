@@ -1,0 +1,22 @@
+{
+    "index_version": 4,
+    "reference_gfa": [
+        "doc/metatranscriptome/lt2_puff_puff"
+    ],
+    "sampling_type": "dense",
+    "k": 31,
+    "num_kmers": 568302,
+    "num_contigs": 1083,
+    "seq_length": 600792,
+    "have_ref_seq": true,
+    "have_edge_vec": false,
+    "SeqHash": "d45a14b0fc1e7aed180276366c933ad13973413ee27466b0f1b237b12e891fe5",
+    "NameHash": "c487e36e99ea86388251e6854f8d4af2a040a525a451f123735ad875a609a1dc",
+    "SeqHash512": "11b447cc219a09fffb110512d980e0cf729e121ad7328f2017f7d14f639893cab8f1d89ae0d951acd221bd57ec168d625da8fb152402062bca590cbc2d2d2389",
+    "NameHash512": "5a1fcbd652c1d7df035281536423c7886d05391f8c0b555e88fc5fab3a8d137926c54a47562aaf2de807393c679ac46eccdca84d0a517de7fa22e18e136eed95",
+    "DecoySeqHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "DecoyNameHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "num_decoys": 0,
+    "first_decoy_index": 18446744073709551615,
+    "keep_duplicates": false
+}

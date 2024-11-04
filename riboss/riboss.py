@@ -25,12 +25,12 @@ from types import SimpleNamespace
 from collections import namedtuple
 from tqdm import tqdm
 import pyranges as pr
-from riboss.orfs import translate
 from Bio.Blast import NCBIWWW
 from Bio import Entrez as ez
+from pyfaidx import Faidx
 from io import StringIO
 from .chisquare import chi_square_posthoc
-from .orfs import orf_finder, CODON_TO_AA
+from .orfs import orf_finder, translate, CODON_TO_AA
 from .wrapper import filename, merge_scores
 from .read import read_blast_xml
  
@@ -684,7 +684,7 @@ def profile_anomaly(bedgraph, bb, bed, fasta, scatterplot_prefix=None):
 
 
 
-def riboss(superkingdom, df, riboprof_base, tx_assembly, fasta, fai, bed, 
+def riboss(superkingdom, df, riboprof_base, tx_assembly, fasta, bed, 
            utr=30, tie=False, num_simulations=1000, 
            run_blastp=False, run_efetch=False, 
            tries=5, sleep=1, 
@@ -705,7 +705,6 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, fasta, fai, bed,
         * tx_assembly: transcript fasta file extracted using bedtools getfasta. Headers with genomic coordinates (required)
         * fasta: genome fasta file (required)
         * bed: genome BED file (required)
-        * fai: genome fasta index (required)
         * utr: padding for metagene plot (default=30)
         * tie: if adjusted p-values between ORFs is not significant (default=False)
         * num_simulations: number of simulations (default=1000)
@@ -722,9 +721,17 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, fasta, fai, bed,
         * hits: dataframes for significant RIBOSS results with BLASTP hits
         * BLASTP hits as CSV, JSON and the top hits as pickle, and metagene plots for unannotated ORFs with BLAST hits and no hits as PDFs.
     """
-        
-    fname = filename(riboprof_base, 'riboss', outdir)
     
+    fname = filename(riboprof_base, 'riboss', outdir)
+
+    basename, ext = os.path.splitext(fasta)
+    if ext=='.gz':
+        subprocess.run(['gunzip', fasta], check=True)
+        fasta = basename
+
+    fai = fasta + '.fai'
+    fa = Faidx(fasta)
+        
     bedgraph, base = parse_ribomap(superkingdom, riboprof_base, delim=delim, outdir=outdir)
 
     dt = footprint_counts(superkingdom, df, base)

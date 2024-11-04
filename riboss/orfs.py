@@ -242,7 +242,7 @@ def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", 
 
 
 
-def operon_distribution(op, displot_prefix):
+def operon_distribution(op, displot_prefix, log=False):
     """
     Plot the distribution of operons.
 
@@ -263,9 +263,12 @@ def operon_distribution(op, displot_prefix):
     g = sns.JointGrid(data=op, x='count', y='length', height=3)
     g.plot_joint(sns.scatterplot)
     g.plot_marginals(sns.boxplot, fliersize=2)
-    g.ax_joint.set_xscale('log')
-    g.ax_joint.set_yscale('log')
     g.set_axis_labels(xlabel='Number of ORFs per mRNA', ylabel='mRNA length')
+    
+    if log==True:
+        g.ax_joint.set_xscale('log')
+        g.ax_joint.set_yscale('log')
+        
     plt.savefig(displot_prefix + '.operon_scatter.pdf', bbox_inches='tight')
     
     logging.info('plotted the distribution of operons as ' + displot_prefix + '.operon_dist.pdf and ' + displot_prefix + '.operon_scatter.pdf')
