@@ -254,7 +254,7 @@ def operon_distribution(op, displot_prefix, log=False):
         * displot and jointgrid as PDFs
     """
     
-    sns.displot(op['count'], height=3)
+    sns.displot(op['count'], height=3, log_scale=log)
     plt.title('Operons predicted from transcriptome assembly')
     plt.xlabel('Number of ORFs per mRNA')
     plt.savefig(displot_prefix + '.operon_dist.pdf', bbox_inches='tight')
@@ -277,7 +277,7 @@ def operon_distribution(op, displot_prefix, log=False):
 
 def operon_finder(tx_assembly, bed, outdir=None, delim=None, 
                   start_codon=["ATG", "CTG", "GTG", "TTG"], 
-                  ncrna=False):
+                  ncrna=False,log=False):
     """
     Predict operons from transcriptome.
     
@@ -389,7 +389,7 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None,
     cdstx_.length = cdstx_.df['seq'].apply(len)
     op = cdstx_.df.value_counts(['tid','length']).reset_index()
     
-    operon_distribution(op, fname)
+    operon_distribution(op, fname, log)
 
     df.to_pickle(fname + '.operon_finder.pkl.gz')
     

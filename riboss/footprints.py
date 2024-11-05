@@ -171,7 +171,7 @@ def footprint_summary(cds_range, sample, quality='best', offset_method='5p', adj
         best = pd.DataFrame({'footprint_len':[best]})
         fplen = pd.merge(best, fplen)
     elif quality=='good':
-        good = stats[(stats.odds_ratio.apply(lambda x: x.statistic)<2) | (stats.adj_posthoc_pval.apply(lambda x: x[0]<0.05))][['footprint_len']]
+        good = stats[(stats.adj_posthoc_pval.apply(lambda x: x[0]>0.01)) | (footprint_stats.odds_ratio.apply(lambda x: x.statistic)<2)][['footprint_len']]
         fplen = pd.merge(good, fplen)
     else:
         sys.exit('Please provide footprint quality!')
@@ -333,7 +333,7 @@ def analyse_footprints(offset_method, adj, bam, downsampling, cds_range, quality
 
     if quality=='best':
         stats,fp,df = footprint_summary(cds_range, sample, 'best', offset_method, adj, min_size, max_size, fname)
-    else:
+    elif quality=='good':
         stats,fp,df = footprint_summary(cds_range, sample, 'good', offset_method, adj, min_size, max_size, fname)
         
     heatmap_periodicity(fp, fname)
