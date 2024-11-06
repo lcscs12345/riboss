@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="174mm"
+   width="178.108mm"
    height="151.582mm"
-   viewBox="0 0 174 151.582"
+   viewBox="0 0 178.108 151.582"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
@@ -16,13 +16,6 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <style
-     id="style2">
-    g { fill: black; }
-    @media (prefers-color-scheme: dark) {
-      g { fill: white; }
-    }
-  </style>
   <sodipodi:namedview
      id="namedview7"
      pagecolor="#ffffff"
@@ -34,15 +27,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.840966"
-     inkscape:cx="318.681"
-     inkscape:cy="406.081"
-     inkscape:window-width="1870"
-     inkscape:window-height="1003"
-     inkscape:window-x="50"
-     inkscape:window-y="40"
+     inkscape:zoom="1.1893"
+     inkscape:cx="360.716"
+     inkscape:cy="255.192"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="g3583" />
   <defs
      id="defs2">
     <inkscape:path-effect
@@ -63,56 +56,6 @@
     <inkscape:path-effect
        effect="spiro"
        id="path-effect1931"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect1997-6"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect1997-2"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect1997-4"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect1997-6-7"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect1997-2-6"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect1997-2-6-6"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect1997-4-0"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect1997-4-3"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect1997-6-7-6"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect1997-2-6-6-7"
        is_visible="true"
        lpeversion="1" />
     <marker
@@ -152,38 +95,6 @@
        orient="auto"
        refY="0"
        refX="0"
-       id="EmptyTriangleOutL-0-6-7-9-1"
-       style="overflow:visible"
-       inkscape:isstock="true"
-       inkscape:collect="always">
-      <path
-         id="path4861-4-29-53-4-5"
-         d="M 5.77,0 -2.88,5 V -5 Z"
-         style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
-         transform="matrix(0.8,0,0,0.8,-4.8,0)"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
-       inkscape:stockid="EmptyTriangleOutL"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="EmptyTriangleOutL-0-6-7-9-1-7"
-       style="overflow:visible"
-       inkscape:isstock="true"
-       inkscape:collect="always">
-      <path
-         id="path4861-4-29-53-4-5-7"
-         d="M 5.77,0 -2.88,5 V -5 Z"
-         style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
-         transform="matrix(0.8,0,0,0.8,-4.8,0)"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
-       inkscape:stockid="EmptyTriangleOutL"
-       orient="auto"
-       refY="0"
-       refX="0"
        id="EmptyTriangleOutL-0-6-7-8"
        style="overflow:visible"
        inkscape:isstock="true"
@@ -195,6 +106,16 @@
          transform="matrix(0.8,0,0,0.8,-4.8,0)"
          inkscape:connector-curvature="0" />
     </marker>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect1997-6"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect1997-2"
+       is_visible="true"
+       lpeversion="1" />
     <marker
        inkscape:stockid="EmptyTriangleOutL"
        orient="auto"
@@ -211,17 +132,42 @@
          transform="matrix(0.8,0,0,0.8,-4.8,0)"
          inkscape:connector-curvature="0" />
     </marker>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect1997-4"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect1997-6-7"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect1997-2-6"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect1997-2-6-6"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect1997-4-0"
+       is_visible="true"
+       lpeversion="1" />
     <marker
        inkscape:stockid="EmptyTriangleOutL"
        orient="auto"
        refY="0"
        refX="0"
-       id="EmptyTriangleOutL-0-6-7-5-44"
+       id="EmptyTriangleOutL-0-6-7-9-1"
        style="overflow:visible"
        inkscape:isstock="true"
        inkscape:collect="always">
       <path
-         id="path4861-4-29-53-5-4"
+         id="path4861-4-29-53-4-5"
          d="M 5.77,0 -2.88,5 V -5 Z"
          style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
          transform="matrix(0.8,0,0,0.8,-4.8,0)"
@@ -243,21 +189,22 @@
          transform="matrix(0.8,0,0,0.8,-4.8,0)"
          inkscape:connector-curvature="0" />
     </marker>
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect1997-4-35"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect1997-6-7-62"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect1997-2-6-6-9"
-       is_visible="true"
-       lpeversion="1" />
+    <marker
+       inkscape:stockid="EmptyTriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="EmptyTriangleOutL-0-6-7-9-1-7"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path4861-4-29-53-4-5-7"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(0.8,0,0,0.8,-4.8,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
     <marker
        inkscape:stockid="EmptyTriangleOutL"
        orient="auto"
@@ -290,19 +237,34 @@
          transform="matrix(0.8,0,0,0.8,-4.8,0)"
          inkscape:connector-curvature="0" />
     </marker>
+    <marker
+       inkscape:stockid="EmptyTriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="EmptyTriangleOutL-0-6-7-5-44"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path4861-4-29-53-5-4"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(0.8,0,0,0.8,-4.8,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
   </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-1.95196,-6.79778)">
+     transform="translate(-1.78459,-8.49318)">
     <path
-       d="M 8.62004,158.11 H 169.285 C 173.546,158.11 175.682,156.481 175.682,153.209 V 11.9681 C 175.682,8.69746 173.546,7.06758 169.285,7.06758 H 8.62004 C 4.35089,7.06758 2.22188,8.69746 2.22188,11.9681 V 153.209 C 2.22188,156.481 4.35089,158.11 8.62004,158.11 Z"
-       style="fill:#ffffff;fill-opacity:0.3;fill-rule:nonzero;stroke:#cccccc;stroke-width:0.53984;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.8"
+       d="M 8.60404,159.805 H 173.074 C 177.436,159.805 179.623,158.176 179.623,154.904 V 13.6637 C 179.623,10.393 177.436,8.7631 173.074,8.7631 H 8.60404 C 4.23393,8.7631 2.05451,10.393 2.05451,13.6637 V 154.904 C 2.05451,158.176 4.23393,159.805 8.60404,159.805 Z"
+       style="fill:#ffffff;fill-opacity:0.3;fill-rule:nonzero;stroke:#cccccc;stroke-width:0.539838;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.8"
        id="path11249-9-6-36" />
     <g
-       id="g3583"
-       transform="translate(0.462682,-1.69573)">
+       id="g3583">
       <g
          id="g90037-3"
          transform="translate(96.212,-29.4281)">
@@ -324,7 +286,7 @@
          style="fill:#ffffff;fill-opacity:0.8;fill-rule:nonzero;stroke:#cccccc;stroke-width:0.539841;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.8"
          id="path11249-9-6-7" />
       <path
-         d="M 63.7933,25.7762 H 96.8317 C 97.7084,25.7762 98.1474,25.6252 98.1474,25.3222 V 12.2372 C 98.1474,11.9342 97.7084,11.7832 96.8317,11.7832 H 63.7933 C 62.9154,11.7832 62.4776,11.9342 62.4776,12.2372 V 25.3222 C 62.4776,25.6252 62.9154,25.7762 63.7933,25.7762 Z"
+         d="M 60.4551,25.7762 H 100.186 C 101.241,25.7762 101.769,25.6252 101.769,25.3222 V 12.2372 C 101.769,11.9342 101.241,11.7832 100.186,11.7832 H 60.4551 C 59.3993,11.7832 58.8729,11.9342 58.8729,12.2372 V 25.3222 C 58.8729,25.6252 59.3993,25.7762 60.4551,25.7762 Z"
          style="fill:#ffffff;fill-opacity:0.8;fill-rule:nonzero;stroke:#cccccc;stroke-width:0.53984;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.8"
          id="path11249-9-6" />
       <g
@@ -431,23 +393,7 @@
            style="stroke-width:0.264583"
            x="84.5654"
            y="34.3274"
-           id="tspan429-9">Long-read RNA-seq</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-         x="48.7967"
-         y="39.1739"
-         id="text236-1-3"><tspan
-           sodipodi:role="line"
-           style="text-align:end;text-anchor:end;stroke-width:0.264583"
-           x="48.7967"
-           y="39.1739"
-           id="tspan429-9-1">+ Short-read RNA-seq </tspan><tspan
-           sodipodi:role="line"
-           style="text-align:end;text-anchor:end;stroke-width:0.264583"
-           x="48.7967"
-           y="44.4656"
-           id="tspan3462">(optional)</tspan></text>
+           id="tspan429-9">Long- and short-read RNA-seq</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
@@ -540,40 +486,40 @@
          style="fill:none;stroke:#000000;stroke-width:0.363;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
          d="M 80.3207,56.2207 V 66.9261"
          id="path1995-5"
-         inkscape:path-effect="#path-effect1997-4-35"
+         inkscape:path-effect="#path-effect1997-4"
          inkscape:original-d="M 80.3207,56.2207 C 80.3207,59.8113 80.3207,63.3577 80.3207,66.9261" />
       <path
          style="fill:none;stroke:#000000;stroke-width:0.363;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
          d="M 25.2871,110.507 V 119.507"
          id="path1995-3-4"
-         inkscape:path-effect="#path-effect1997-6-7-62"
+         inkscape:path-effect="#path-effect1997-6-7"
          inkscape:original-d="M 25.2871,110.507 C 25.2871,113.526 25.2871,116.507 25.2871,119.507" />
       <path
          style="fill:none;stroke:#000000;stroke-width:0.363002;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
          d="M 25.1144,66.8999 H 135.715"
          id="path1995-0-7-1"
-         inkscape:path-effect="#path-effect1997-2-6-6-9"
+         inkscape:path-effect="#path-effect1997-2-6-6"
          inkscape:original-d="M 25.1144,66.8999 C 62.2105,66.8987 98.8492,66.8987 135.715,66.8999" />
       <text
          xml:space="preserve"
          style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-         x="70.1843"
+         x="61.1566"
          y="17.4569"
          id="text236-3-1"><tspan
            sodipodi:role="line"
            id="tspan234-6-0"
            style="fill:#00b0eb;fill-opacity:1;stroke-width:0.264583"
-           x="70.1843"
-           y="17.4569">minimap2</tspan></text>
+           x="61.1566"
+           y="17.4569">minimap2, bowtie2</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
-         x="65.5107"
+         x="65.5191"
          y="22.2063"
          id="text236-1-30"><tspan
            sodipodi:role="line"
            style="stroke-width:0.264583"
-           x="65.5107"
+           x="65.5191"
            y="22.2063"
            id="tspan429-9-7">genome as ref.</tspan></text>
       <g
@@ -652,7 +598,7 @@
              style="stroke-width:0.264583"
              x="139.821"
              y="75.8517"
-             id="tspan429-9-1-1">+ Paired RNA-seq</tspan></text>
+             id="tspan429-9-1-1">+ Matched RNA-seq</tspan></text>
         <text
            xml:space="preserve"
            style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"

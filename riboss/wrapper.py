@@ -54,7 +54,7 @@ def filename(infname, outfname=None, outdir=None):
 
     
 def transcriptome_assembly(superkingdom, genome, long_reads, short_reads=None, strandness=None, num_threads=4, trim=True,
-                           min_length=100, coverage=1, single_exon_coverage=None, fraction=0.1, outdir=None):
+                           min_length=100, coverage=1, single_exon_coverage=1.5, fraction=0.1, outdir=None):
     """
     Assembly transcriptome using long reads or a mix of short and long reads.
     
@@ -73,11 +73,9 @@ def transcriptome_assembly(superkingdom, genome, long_reads, short_reads=None, s
     """
     
     if superkingdom in ['Archaea','Bacteria']:
-        single_exon_coverage=1
         junction_coverage=1000
         
     elif superkingdom=='Eukaryota':
-        single_exon_coverage=4.75
         junction_coverage=1
         
     else:

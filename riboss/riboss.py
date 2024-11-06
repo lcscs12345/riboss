@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2024-10-30 10:33:05
+@modify date 2024-11-06 20:46:32
 @desc        Main RIBOSS module
 """
 
@@ -725,10 +725,14 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, fasta, bed,
     fname = filename(riboprof_base, 'riboss', outdir)
 
     basename, ext = os.path.splitext(fasta)
-    if ext=='.gz':
+    if (ext=='.gz') & (os.path.isfile(fasta)):
         subprocess.run(['gunzip', fasta], check=True)
         fasta = basename
-
+    elif os.path.isfile(basename):
+        fasta = basename
+    else:
+        pass
+        
     fai = fasta + '.fai'
     fa = Faidx(fasta)
         

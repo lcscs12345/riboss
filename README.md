@@ -49,19 +49,19 @@ conda activate riboss
 
 #### Test instructions
 
+Create new directories `mkdir -p doc/ doc/metatranscriptome doc/styphimurium/ doc/styphimurium/rnaseq doc/styphimurium/riboseq`.
+
 The alignment files for transcriptome assembly and ribosome profiling are available at [Zenodo](https://doi.org/10.5281/zenodo.13997374).
-Download the RNA-seq alignment files and `mv D23005*.bam doc/styphimurium/rnaseq`.
 
-- SRR11215003.bam and SRR11215004.bam: Nanopore direct RNA long-read alignment files.
-- SRR11215663.bam and SRR11215664.bam: Illumina short-read alignment file.
+- SRR11215003.bam and SRR11215004.bam: Nanopore long-read direct RNA-seq. Download and `mv SRR24781620.bam doc/metatranscriptome`.
+- SRR11215663.bam and SRR11215664.bam: Illumina short-read RNA-seq. Download and `mv SRR24781620.bam doc/metatranscriptome`.
+- SRR24781620.bam: Nanopore long-read cDNA sequencing. Download and `mv SRR24781620.bam doc/styphimurium/rnaseq`.
 
-Download the Ribosome profiling alignment files and `mkdir doc/styphimurium/riboseq; mv ERR913094*.out.bam doc/styphimurium/riboseq`.
+Download the Ribosome profiling alignment files and `mv ERR913094*.out.bam doc/styphimurium/riboseq`.
 
 - ERR9130942Aligned.out.bam: RNase I, 1000 U.
 - ERR9130943Aligned.out.bam: RNase I, 500 U.
 - ERR9130946Aligned.out.bam: matched RNA-seq.
-
-Follow the steps in [`test.ipynb`](https://github.com/lcscs12345/riboss/blob/master/test.ipynb).
 
 ### References:
 

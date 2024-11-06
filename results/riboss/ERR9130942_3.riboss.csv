@@ -6218,9 +6218,9 @@ gene-STM3977::NC_003197.2:4182936-4188149(-),tie,ATG,ATG,"[2742, 2874]",sORF,"[4
 gene-STM1581::NC_003197.2:1667439-1670642(+),tie,ATG,ATG,"[2755, 2968]",sORF,"[0, 894]",mORF,"[array([[42,  1,  1],
        [81,  4, 11]]), array([[42,  2],
        [81, 15]])]",3.8594921254776753,ChiSquare,"ChiSquareResult(statistic=3.694606122197586, adjusted_pvalue=1.0, adjusted_bootstrap_pvalue=1.0, posthoc_statistic=array([3.47169688, 0.31425365, 3.24845131]), adjusted_posthoc_pvalue=array([1, 1, 1]))"
-gene-STM1008::NC_003197.2:1100138-1103310(-),tie,ATG,ATG,"[2831, 2957]",oORF,"[2014, 3172]",mORF,"[array([[15,  0,  0],
-       [68, 18, 13]]), array([[15,  1],
-       [68, 31]])]",6.761908946546561,ChiSquare,"ChiSquareResult(statistic=6.451259583789705, adjusted_pvalue=1.0, adjusted_bootstrap_pvalue=1.0, posthoc_statistic=array([6.45125958, 3.23863636, 2.22322232]), adjusted_posthoc_pvalue=array([1, 1, 1]))"
+gene-STM1008::NC_003197.2:1100138-1103310(-),tie,ATG,ATG,"[2831, 2957]",oORF,"[2014, 3172]",mORF,"[array([[16,  0,  0],
+       [69, 18, 13]]), array([[16,  1],
+       [69, 31]])]",7.108360214664626,ChiSquare,"ChiSquareResult(statistic=6.76894117647059, adjusted_pvalue=1.0, adjusted_bootstrap_pvalue=1.0, posthoc_statistic=array([6.76894118, 3.40897959, 2.34252427]), adjusted_posthoc_pvalue=array([1, 1, 1]))"
 gene-STM2898::NC_003197.2:3041603-3044491(-),tie,ATG,ATG,"[2842, 2866]",oORF,"[1199, 2888]",mORF,"[array([[  67,    4,   46],
        [5099,  460, 1488]]), array([[  67,   50],
        [5099, 1948]])]",0.5119815544716392,ChiSquare,"ChiSquareResult(statistic=23.15787934036548, adjusted_pvalue=0.024704142578568063, adjusted_bootstrap_pvalue=1.0, posthoc_statistic=array([13.03447916,  1.8362747 , 22.65668166]), adjusted_posthoc_pvalue=array([3.05808260e-04, 1.00000000e+00, 5.12685541e-03]))"

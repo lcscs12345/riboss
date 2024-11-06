@@ -5,7 +5,7 @@
   <BlastOutput_version>BLASTP 2.16.0+</BlastOutput_version>
   <BlastOutput_reference>Stephen F. Altschul, Thomas L. Madden, Alejandro A. Sch&amp;auml;ffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997), &quot;Gapped BLAST and PSI-BLAST: a new generation of protein database search programs&quot;, Nucleic Acids Res. 25:3389-3402.</BlastOutput_reference>
   <BlastOutput_db>nr</BlastOutput_db>
-  <BlastOutput_query-ID>Query_2650356</BlastOutput_query-ID>
+  <BlastOutput_query-ID>Query_512334</BlastOutput_query-ID>
   <BlastOutput_query-def>gene-PSLT005::NC_003277.2:1849-3386(+)__52-58</BlastOutput_query-def>
   <BlastOutput_query-len>1</BlastOutput_query-len>
   <BlastOutput_param>
@@ -20,7 +20,7 @@
 <BlastOutput_iterations>
 <Iteration>
   <Iteration_iter-num>1</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650356</Iteration_query-ID>
+  <Iteration_query-ID>Query_512334</Iteration_query-ID>
   <Iteration_query-def>gene-PSLT005::NC_003277.2:1849-3386(+)__52-58</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -39,7 +39,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>2</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650357</Iteration_query-ID>
+  <Iteration_query-ID>Query_512335</Iteration_query-ID>
   <Iteration_query-def>gene-PSLT046::NC_003277.2:37521-38283(-)__610-640</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -58,7 +58,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>3</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650358</Iteration_query-ID>
+  <Iteration_query-ID>Query_512336</Iteration_query-ID>
   <Iteration_query-def>gene-PSLT102::NC_003277.2:82678-83208(+)__337-520</Iteration_query-def>
   <Iteration_query-len>60</Iteration_query-len>
 <Iteration_hits>
@@ -1309,7 +1309,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>4</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650359</Iteration_query-ID>
+  <Iteration_query-ID>Query_512337</Iteration_query-ID>
   <Iteration_query-def>gene-PSLT106::NC_003277.2:86568-87197(-)__285-315</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -1328,7 +1328,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>5</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650360</Iteration_query-ID>
+  <Iteration_query-ID>Query_512338</Iteration_query-ID>
   <Iteration_query-def>gene-STM0039::NC_003197.2:46189-47417(+)__115-202</Iteration_query-def>
   <Iteration_query-len>28</Iteration_query-len>
 <Iteration_hits>
@@ -1375,7 +1375,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>6</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650361</Iteration_query-ID>
+  <Iteration_query-ID>Query_512339</Iteration_query-ID>
   <Iteration_query-def>gene-STM0040::NC_003197.2:47417-52648(+)__2992-3205</Iteration_query-def>
   <Iteration_query-len>70</Iteration_query-len>
 <Iteration_hits>
@@ -1450,7 +1450,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>7</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650362</Iteration_query-ID>
+  <Iteration_query-ID>Query_512340</Iteration_query-ID>
   <Iteration_query-def>gene-STM0123::NC_003197.2:143478-145273(+)__181-343</Iteration_query-def>
   <Iteration_query-len>53</Iteration_query-len>
 <Iteration_hits>
@@ -1525,7 +1525,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>8</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650363</Iteration_query-ID>
+  <Iteration_query-ID>Query_512341</Iteration_query-ID>
   <Iteration_query-def>gene-STM0124::NC_003197.2:144962-146471(+)__1042-1075</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -1544,7 +1544,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>9</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650364</Iteration_query-ID>
+  <Iteration_query-ID>Query_512342</Iteration_query-ID>
   <Iteration_query-def>gene-STM0126::NC_003197.2:147399-149293(+)__623-644</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -1563,7 +1563,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>10</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650365</Iteration_query-ID>
+  <Iteration_query-ID>Query_512343</Iteration_query-ID>
   <Iteration_query-def>gene-STM0134::NC_003197.2:156934-157928(+)__358-370</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -1582,7 +1582,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>11</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650366</Iteration_query-ID>
+  <Iteration_query-ID>Query_512344</Iteration_query-ID>
   <Iteration_query-def>gene-STM0134::NC_003197.2:156934-157928(+)__649-673</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -1601,7 +1601,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>12</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650367</Iteration_query-ID>
+  <Iteration_query-ID>Query_512345</Iteration_query-ID>
   <Iteration_query-def>gene-STM0138::NC_003197.2:162262-162454(-)__160-190</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -1620,7 +1620,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>13</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650368</Iteration_query-ID>
+  <Iteration_query-ID>Query_512346</Iteration_query-ID>
   <Iteration_query-def>gene-STM0166::NC_003197.2:195015-195876(-)__22-64</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -1639,7 +1639,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>14</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650369</Iteration_query-ID>
+  <Iteration_query-ID>Query_512347</Iteration_query-ID>
   <Iteration_query-def>gene-STM0209::NC_003197.2:244492-246072(+)__235-355</Iteration_query-def>
   <Iteration_query-len>39</Iteration_query-len>
 <Iteration_hits>
@@ -1658,7 +1658,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>15</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650370</Iteration_query-ID>
+  <Iteration_query-ID>Query_512348</Iteration_query-ID>
   <Iteration_query-def>gene-STM0214::NC_003197.2:250143-252848(-)__543-627</Iteration_query-def>
   <Iteration_query-len>27</Iteration_query-len>
 <Iteration_hits>
@@ -1733,7 +1733,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>16</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650371</Iteration_query-ID>
+  <Iteration_query-ID>Query_512349</Iteration_query-ID>
   <Iteration_query-def>gene-STM0218::NC_003197.2:256276-257148(+)__295-301</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -1752,7 +1752,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>17</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650372</Iteration_query-ID>
+  <Iteration_query-ID>Query_512350</Iteration_query-ID>
   <Iteration_query-def>gene-STM0224::NC_003197.2:262379-264916(+)__1024-1168</Iteration_query-def>
   <Iteration_query-len>47</Iteration_query-len>
 <Iteration_hits>
@@ -1799,7 +1799,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>18</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650373</Iteration_query-ID>
+  <Iteration_query-ID>Query_512351</Iteration_query-ID>
   <Iteration_query-def>gene-STM0228::NC_003197.2:266995-268895(+)__718-739</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -1818,7 +1818,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>19</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650374</Iteration_query-ID>
+  <Iteration_query-ID>Query_512352</Iteration_query-ID>
   <Iteration_query-def>gene-STM0260::NC_003197.2:299923-301291(-)__814-865</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -1837,7 +1837,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>20</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650375</Iteration_query-ID>
+  <Iteration_query-ID>Query_512353</Iteration_query-ID>
   <Iteration_query-def>gene-STM0308::NC_003197.2:351721-352597(-)__589-595</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -1856,7 +1856,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>21</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650376</Iteration_query-ID>
+  <Iteration_query-ID>Query_512354</Iteration_query-ID>
   <Iteration_query-def>gene-STM0309::NC_003197.2:352597-356810(-)__3293-3365</Iteration_query-def>
   <Iteration_query-len>23</Iteration_query-len>
 <Iteration_hits>
@@ -1875,7 +1875,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>22</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650377</Iteration_query-ID>
+  <Iteration_query-ID>Query_512355</Iteration_query-ID>
   <Iteration_query-def>gene-STM0386::NC_003197.2:439256-440066(-)__686-713</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -1894,7 +1894,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>23</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650378</Iteration_query-ID>
+  <Iteration_query-ID>Query_512356</Iteration_query-ID>
   <Iteration_query-def>gene-STM0400::NC_003197.2:454652-456023(+)__992-1190</Iteration_query-def>
   <Iteration_query-len>65</Iteration_query-len>
 <Iteration_hits>
@@ -2333,7 +2333,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>24</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650379</Iteration_query-ID>
+  <Iteration_query-ID>Query_512357</Iteration_query-ID>
   <Iteration_query-def>gene-STM0433::NC_003197.2:486227-487692(-)__10-34</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -2352,7 +2352,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>25</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650380</Iteration_query-ID>
+  <Iteration_query-ID>Query_512358</Iteration_query-ID>
   <Iteration_query-def>gene-STM0435::NC_003197.2:487799-490256(+)__1151-1730</Iteration_query-def>
   <Iteration_query-len>192</Iteration_query-len>
 <Iteration_hits>
@@ -2651,7 +2651,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>26</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650381</Iteration_query-ID>
+  <Iteration_query-ID>Query_512359</Iteration_query-ID>
   <Iteration_query-def>gene-STM0436::NC_003197.2:488355-489705(-)__904-940</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -2670,7 +2670,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>27</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650382</Iteration_query-ID>
+  <Iteration_query-ID>Query_512360</Iteration_query-ID>
   <Iteration_query-def>gene-STM0463::NC_003197.2:520896-523357(+)__239-296</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -2689,7 +2689,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>28</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650383</Iteration_query-ID>
+  <Iteration_query-ID>Query_512361</Iteration_query-ID>
   <Iteration_query-def>gene-STM0476::NC_003197.2:532421-533615(-)__661-679</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -2708,7 +2708,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>29</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650384</Iteration_query-ID>
+  <Iteration_query-ID>Query_512362</Iteration_query-ID>
   <Iteration_query-def>gene-STM0478::NC_003197.2:534528-537891(+)__2426-2462</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -2727,7 +2727,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>30</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650385</Iteration_query-ID>
+  <Iteration_query-ID>Query_512363</Iteration_query-ID>
   <Iteration_query-def>gene-STM0478::NC_003197.2:534528-537891(+)__295-328</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -2746,7 +2746,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>31</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650386</Iteration_query-ID>
+  <Iteration_query-ID>Query_512364</Iteration_query-ID>
   <Iteration_query-def>gene-STM0484::NC_003197.2:540909-542883(+)__757-907</Iteration_query-def>
   <Iteration_query-len>49</Iteration_query-len>
 <Iteration_hits>
@@ -2821,7 +2821,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>32</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650387</Iteration_query-ID>
+  <Iteration_query-ID>Query_512365</Iteration_query-ID>
   <Iteration_query-def>gene-STM0527::NC_003197.2:588725-589982(-)__121-247</Iteration_query-def>
   <Iteration_query-len>41</Iteration_query-len>
 <Iteration_hits>
@@ -2896,7 +2896,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>33</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650388</Iteration_query-ID>
+  <Iteration_query-ID>Query_512366</Iteration_query-ID>
   <Iteration_query-def>gene-STM0567::NC_003197.2:622700-623876(-)__449-758</Iteration_query-def>
   <Iteration_query-len>102</Iteration_query-len>
 <Iteration_hits>
@@ -3055,7 +3055,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>34</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650389</Iteration_query-ID>
+  <Iteration_query-ID>Query_512367</Iteration_query-ID>
   <Iteration_query-def>gene-STM0600::NC_003197.2:661276-663445(+)__871-898</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -3074,7 +3074,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>35</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650390</Iteration_query-ID>
+  <Iteration_query-ID>Query_512368</Iteration_query-ID>
   <Iteration_query-def>gene-STM0607::NC_003197.2:669264-670156(-)__558-612</Iteration_query-def>
   <Iteration_query-len>17</Iteration_query-len>
 <Iteration_hits>
@@ -3093,7 +3093,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>36</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650391</Iteration_query-ID>
+  <Iteration_query-ID>Query_512369</Iteration_query-ID>
   <Iteration_query-def>gene-STM0622::NC_003197.2:685370-686568(-)__1166-1196</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -3112,7 +3112,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>37</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650392</Iteration_query-ID>
+  <Iteration_query-ID>Query_512370</Iteration_query-ID>
   <Iteration_query-def>gene-STM0652::NC_003197.2:714547-716476(+)__1390-1405</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -3131,7 +3131,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>38</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650393</Iteration_query-ID>
+  <Iteration_query-ID>Query_512371</Iteration_query-ID>
   <Iteration_query-def>gene-STM0665::NC_003197.2:728911-730174(-)__319-340</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -3150,7 +3150,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>39</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650394</Iteration_query-ID>
+  <Iteration_query-ID>Query_512372</Iteration_query-ID>
   <Iteration_query-def>gene-STM0694::NC_003197.2:757130-757811(-)__506-533</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -3169,7 +3169,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>40</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650395</Iteration_query-ID>
+  <Iteration_query-ID>Query_512373</Iteration_query-ID>
   <Iteration_query-def>gene-STM0700::NC_003197.2:762065-766341(-)__2463-2478</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -3188,7 +3188,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>41</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650396</Iteration_query-ID>
+  <Iteration_query-ID>Query_512374</Iteration_query-ID>
   <Iteration_query-def>gene-STM0700::NC_003197.2:762065-766341(-)__2919-2943</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -3207,7 +3207,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>42</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650397</Iteration_query-ID>
+  <Iteration_query-ID>Query_512375</Iteration_query-ID>
   <Iteration_query-def>gene-STM0700::NC_003197.2:762065-766341(-)__277-382</Iteration_query-def>
   <Iteration_query-len>34</Iteration_query-len>
 <Iteration_hits>
@@ -4626,7 +4626,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>43</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650398</Iteration_query-ID>
+  <Iteration_query-ID>Query_512376</Iteration_query-ID>
   <Iteration_query-def>gene-STM0700::NC_003197.2:762065-766341(-)__2112-2391</Iteration_query-def>
   <Iteration_query-len>92</Iteration_query-len>
 <Iteration_hits>
@@ -4841,7 +4841,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>44</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650399</Iteration_query-ID>
+  <Iteration_query-ID>Query_512377</Iteration_query-ID>
   <Iteration_query-def>gene-STM0740::NC_003197.2:809531-811115(+)__262-304</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -4860,7 +4860,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>45</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650400</Iteration_query-ID>
+  <Iteration_query-ID>Query_512378</Iteration_query-ID>
   <Iteration_query-def>gene-STM0760::NC_003197.2:823774-826494(+)__179-194</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -4879,7 +4879,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>46</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650401</Iteration_query-ID>
+  <Iteration_query-ID>Query_512379</Iteration_query-ID>
   <Iteration_query-def>gene-STM0760::NC_003197.2:823774-826494(+)__539-557</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -4898,7 +4898,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>47</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650402</Iteration_query-ID>
+  <Iteration_query-ID>Query_512380</Iteration_query-ID>
   <Iteration_query-def>gene-STM0760::NC_003197.2:823774-826494(+)__373-442</Iteration_query-def>
   <Iteration_query-len>22</Iteration_query-len>
 <Iteration_hits>
@@ -4945,7 +4945,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>48</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650403</Iteration_query-ID>
+  <Iteration_query-ID>Query_512381</Iteration_query-ID>
   <Iteration_query-def>gene-STM0783::NC_003197.2:847142-849183(+)__206-329</Iteration_query-def>
   <Iteration_query-len>40</Iteration_query-len>
 <Iteration_hits>
@@ -5104,7 +5104,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>49</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650404</Iteration_query-ID>
+  <Iteration_query-ID>Query_512382</Iteration_query-ID>
   <Iteration_query-def>gene-STM0798::NC_003197.2:864435-866738(+)__2026-2122</Iteration_query-def>
   <Iteration_query-len>31</Iteration_query-len>
 <Iteration_hits>
@@ -5123,7 +5123,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>50</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650405</Iteration_query-ID>
+  <Iteration_query-ID>Query_512383</Iteration_query-ID>
   <Iteration_query-def>gene-STM0800::NC_003197.2:866946-869244(+)__706-745</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -5142,7 +5142,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>51</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650406</Iteration_query-ID>
+  <Iteration_query-ID>Query_512384</Iteration_query-ID>
   <Iteration_query-def>gene-STM0800::NC_003197.2:866946-869244(+)__1813-1873</Iteration_query-def>
   <Iteration_query-len>19</Iteration_query-len>
 <Iteration_hits>
@@ -5273,7 +5273,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>52</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650407</Iteration_query-ID>
+  <Iteration_query-ID>Query_512385</Iteration_query-ID>
   <Iteration_query-def>gene-STM0833::NC_003197.2:899536-900052(+)__485-515</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -5292,7 +5292,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>53</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650408</Iteration_query-ID>
+  <Iteration_query-ID>Query_512386</Iteration_query-ID>
   <Iteration_query-def>gene-STM0863::NC_003197.2:935499-936702(+)__403-463</Iteration_query-def>
   <Iteration_query-len>19</Iteration_query-len>
 <Iteration_hits>
@@ -5339,7 +5339,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>54</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650409</Iteration_query-ID>
+  <Iteration_query-ID>Query_512387</Iteration_query-ID>
   <Iteration_query-def>gene-STM0876::NC_003197.2:947562-948039(+)__277-391</Iteration_query-def>
   <Iteration_query-len>37</Iteration_query-len>
 <Iteration_hits>
@@ -5386,7 +5386,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>55</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650410</Iteration_query-ID>
+  <Iteration_query-ID>Query_512388</Iteration_query-ID>
   <Iteration_query-def>gene-STM0887::NC_003197.2:957937-958905(-)__775-877</Iteration_query-def>
   <Iteration_query-len>33</Iteration_query-len>
 <Iteration_hits>
@@ -5461,7 +5461,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>56</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650411</Iteration_query-ID>
+  <Iteration_query-ID>Query_512389</Iteration_query-ID>
   <Iteration_query-def>gene-STM0893::NC_003197.2:962614-963940(-)__1058-1232</Iteration_query-def>
   <Iteration_query-len>57</Iteration_query-len>
 <Iteration_hits>
@@ -5564,7 +5564,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>57</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650412</Iteration_query-ID>
+  <Iteration_query-ID>Query_512390</Iteration_query-ID>
   <Iteration_query-def>gene-STM0893::NC_003197.2:962614-963940(-)__982-1051</Iteration_query-def>
   <Iteration_query-len>22</Iteration_query-len>
 <Iteration_hits>
@@ -5583,7 +5583,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>58</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650413</Iteration_query-ID>
+  <Iteration_query-ID>Query_512391</Iteration_query-ID>
   <Iteration_query-def>gene-STM0905::NC_003197.2:975826-976225(+)__205-226</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -5602,7 +5602,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>59</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650414</Iteration_query-ID>
+  <Iteration_query-ID>Query_512392</Iteration_query-ID>
   <Iteration_query-def>gene-STM0905::NC_003197.2:975826-976225(+)__16-22</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -5621,7 +5621,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>60</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650415</Iteration_query-ID>
+  <Iteration_query-ID>Query_512393</Iteration_query-ID>
   <Iteration_query-def>gene-STM0928::NC_003197.2:1002090-1003329(-)__875-884</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -5640,7 +5640,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>61</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650416</Iteration_query-ID>
+  <Iteration_query-ID>Query_512394</Iteration_query-ID>
   <Iteration_query-def>gene-STM0937::NC_003197.2:1012965-1014761(-)__1090-1123</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -5659,7 +5659,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>62</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650417</Iteration_query-ID>
+  <Iteration_query-ID>Query_512395</Iteration_query-ID>
   <Iteration_query-def>gene-STM0941::NC_003197.2:1018613-1021675(+)__1731-1836</Iteration_query-def>
   <Iteration_query-len>34</Iteration_query-len>
 <Iteration_hits>
@@ -5678,7 +5678,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>63</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650418</Iteration_query-ID>
+  <Iteration_query-ID>Query_512396</Iteration_query-ID>
   <Iteration_query-def>gene-STM0952::NC_003197.2:1029347-1030395(+)__202-271</Iteration_query-def>
   <Iteration_query-len>22</Iteration_query-len>
 <Iteration_hits>
@@ -5697,7 +5697,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>64</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650419</Iteration_query-ID>
+  <Iteration_query-ID>Query_512397</Iteration_query-ID>
   <Iteration_query-def>gene-STM0960::NC_003197.2:1037373-1041568(+)__310-367</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -5744,7 +5744,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>65</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650420</Iteration_query-ID>
+  <Iteration_query-ID>Query_512398</Iteration_query-ID>
   <Iteration_query-def>gene-STM0960::NC_003197.2:1037373-1041568(+)__2704-2713</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -5763,7 +5763,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>66</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650421</Iteration_query-ID>
+  <Iteration_query-ID>Query_512399</Iteration_query-ID>
   <Iteration_query-def>gene-STM0960::NC_003197.2:1037373-1041568(+)__1283-1346</Iteration_query-def>
   <Iteration_query-len>20</Iteration_query-len>
 <Iteration_hits>
@@ -5810,7 +5810,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>67</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650422</Iteration_query-ID>
+  <Iteration_query-ID>Query_512400</Iteration_query-ID>
   <Iteration_query-def>gene-STM0960::NC_003197.2:1037373-1041568(+)__937-1015</Iteration_query-def>
   <Iteration_query-len>25</Iteration_query-len>
 <Iteration_hits>
@@ -5829,7 +5829,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>68</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650423</Iteration_query-ID>
+  <Iteration_query-ID>Query_512401</Iteration_query-ID>
   <Iteration_query-def>gene-STM0960::NC_003197.2:1037373-1041568(+)__1342-1525</Iteration_query-def>
   <Iteration_query-len>60</Iteration_query-len>
 <Iteration_hits>
@@ -5960,7 +5960,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>69</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650424</Iteration_query-ID>
+  <Iteration_query-ID>Query_512402</Iteration_query-ID>
   <Iteration_query-def>gene-STM0964::NC_003197.2:1045323-1047778(+)__499-529</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -5979,7 +5979,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>70</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650425</Iteration_query-ID>
+  <Iteration_query-ID>Query_512403</Iteration_query-ID>
   <Iteration_query-def>gene-STM0964::NC_003197.2:1045323-1047778(+)__2128-2140</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -5998,7 +5998,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>71</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650426</Iteration_query-ID>
+  <Iteration_query-ID>Query_512404</Iteration_query-ID>
   <Iteration_query-def>gene-STM0964::NC_003197.2:1045323-1047778(+)__1154-1178</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -6017,7 +6017,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>72</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650427</Iteration_query-ID>
+  <Iteration_query-ID>Query_512405</Iteration_query-ID>
   <Iteration_query-def>gene-STM0964::NC_003197.2:1045323-1047778(+)__851-950</Iteration_query-def>
   <Iteration_query-len>32</Iteration_query-len>
 <Iteration_hits>
@@ -6036,7 +6036,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>73</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650428</Iteration_query-ID>
+  <Iteration_query-ID>Query_512406</Iteration_query-ID>
   <Iteration_query-def>gene-STM0964::NC_003197.2:1045323-1047778(+)__2431-2452</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -6055,7 +6055,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>74</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650429</Iteration_query-ID>
+  <Iteration_query-ID>Query_512407</Iteration_query-ID>
   <Iteration_query-def>gene-STM0965::NC_003197.2:1047778-1048397(+)__137-152</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -6074,7 +6074,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>75</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650430</Iteration_query-ID>
+  <Iteration_query-ID>Query_512408</Iteration_query-ID>
   <Iteration_query-def>gene-STM0965::NC_003197.2:1047778-1048397(+)__293-392</Iteration_query-def>
   <Iteration_query-len>32</Iteration_query-len>
 <Iteration_hits>
@@ -6429,7 +6429,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>76</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650431</Iteration_query-ID>
+  <Iteration_query-ID>Query_512409</Iteration_query-ID>
   <Iteration_query-def>gene-STM0973::NC_003197.2:1055098-1057440(-)__1023-1134</Iteration_query-def>
   <Iteration_query-len>36</Iteration_query-len>
 <Iteration_hits>
@@ -6560,7 +6560,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>77</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650432</Iteration_query-ID>
+  <Iteration_query-ID>Query_512410</Iteration_query-ID>
   <Iteration_query-def>gene-STM0974::NC_003197.2:1057440-1058702(-)__835-847</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -6579,7 +6579,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>78</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650433</Iteration_query-ID>
+  <Iteration_query-ID>Query_512411</Iteration_query-ID>
   <Iteration_query-def>gene-STM0974::NC_003197.2:1057440-1058702(-)__1225-1249</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -6598,7 +6598,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>79</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650434</Iteration_query-ID>
+  <Iteration_query-ID>Query_512412</Iteration_query-ID>
   <Iteration_query-def>gene-STM0977::NC_003197.2:1061477-1062566(+)__1030-1042</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -6617,7 +6617,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>80</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650435</Iteration_query-ID>
+  <Iteration_query-ID>Query_512413</Iteration_query-ID>
   <Iteration_query-def>gene-STM1000::NC_003197.2:1091481-1093082(-)__207-219</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -6636,7 +6636,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>81</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650436</Iteration_query-ID>
+  <Iteration_query-ID>Query_512414</Iteration_query-ID>
   <Iteration_query-def>gene-STM1009::NC_003197.2:1101258-1104144(-)__1081-1135</Iteration_query-def>
   <Iteration_query-len>17</Iteration_query-len>
 <Iteration_hits>
@@ -6655,7 +6655,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>82</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650437</Iteration_query-ID>
+  <Iteration_query-ID>Query_512415</Iteration_query-ID>
   <Iteration_query-def>gene-STM1061::NC_003197.2:1149871-1151980(+)__613-718</Iteration_query-def>
   <Iteration_query-len>34</Iteration_query-len>
 <Iteration_hits>
@@ -6758,7 +6758,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>83</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650438</Iteration_query-ID>
+  <Iteration_query-ID>Query_512416</Iteration_query-ID>
   <Iteration_query-def>gene-STM1064::NC_003197.2:1155172-1157373(+)__514-550</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -6777,7 +6777,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>84</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650439</Iteration_query-ID>
+  <Iteration_query-ID>Query_512417</Iteration_query-ID>
   <Iteration_query-def>gene-STM1070::NC_003197.2:1160952-1162361(-)__1320-1329</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -6796,7 +6796,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>85</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650440</Iteration_query-ID>
+  <Iteration_query-ID>Query_512418</Iteration_query-ID>
   <Iteration_query-def>gene-STM1091::NC_003197.2:1178218-1179904(-)__1370-1382</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -6815,7 +6815,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>86</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650441</Iteration_query-ID>
+  <Iteration_query-ID>Query_512419</Iteration_query-ID>
   <Iteration_query-def>gene-STM1102::NC_003197.2:1189494-1190962(+)__229-301</Iteration_query-def>
   <Iteration_query-len>23</Iteration_query-len>
 <Iteration_hits>
@@ -6918,7 +6918,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>87</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650442</Iteration_query-ID>
+  <Iteration_query-ID>Query_512420</Iteration_query-ID>
   <Iteration_query-def>gene-STM1125::NC_003197.2:1211968-1213477(+)__1262-1283</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -6937,7 +6937,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>88</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650443</Iteration_query-ID>
+  <Iteration_query-ID>Query_512421</Iteration_query-ID>
   <Iteration_query-def>gene-STM1128::NC_003197.2:1216429-1218262(-)__872-881</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -6956,7 +6956,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>89</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650444</Iteration_query-ID>
+  <Iteration_query-ID>Query_512422</Iteration_query-ID>
   <Iteration_query-def>gene-STM1131::NC_003197.2:1220654-1221347(+)__472-490</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -6975,7 +6975,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>90</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650445</Iteration_query-ID>
+  <Iteration_query-ID>Query_512423</Iteration_query-ID>
   <Iteration_query-def>gene-STM1160::NC_003197.2:1246409-1247640(-)__785-884</Iteration_query-def>
   <Iteration_query-len>32</Iteration_query-len>
 <Iteration_hits>
@@ -7162,7 +7162,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>91</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650446</Iteration_query-ID>
+  <Iteration_query-ID>Query_512424</Iteration_query-ID>
   <Iteration_query-def>gene-STM1163::NC_003197.2:1248503-1249654(-)__561-588</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -7181,7 +7181,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>92</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650447</Iteration_query-ID>
+  <Iteration_query-ID>Query_512425</Iteration_query-ID>
   <Iteration_query-def>gene-STM1168::NC_003197.2:1253115-1253764(+)__268-280</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -7200,7 +7200,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>93</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650448</Iteration_query-ID>
+  <Iteration_query-ID>Query_512426</Iteration_query-ID>
   <Iteration_query-def>gene-STM1173::NC_003197.2:1257420-1258080(-)__476-563</Iteration_query-def>
   <Iteration_query-len>28</Iteration_query-len>
 <Iteration_hits>
@@ -7275,7 +7275,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>94</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650449</Iteration_query-ID>
+  <Iteration_query-ID>Query_512427</Iteration_query-ID>
   <Iteration_query-def>gene-STM1178::NC_003197.2:1261029-1261785(+)__505-652</Iteration_query-def>
   <Iteration_query-len>48</Iteration_query-len>
 <Iteration_hits>
@@ -7294,7 +7294,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>95</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650450</Iteration_query-ID>
+  <Iteration_query-ID>Query_512428</Iteration_query-ID>
   <Iteration_query-def>gene-STM1181::NC_003197.2:1263345-1265393(+)__1272-1344</Iteration_query-def>
   <Iteration_query-len>23</Iteration_query-len>
 <Iteration_hits>
@@ -7341,7 +7341,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>96</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650451</Iteration_query-ID>
+  <Iteration_query-ID>Query_512429</Iteration_query-ID>
   <Iteration_query-def>gene-STM1181::NC_003197.2:1263345-1265393(+)__1530-1626</Iteration_query-def>
   <Iteration_query-len>31</Iteration_query-len>
 <Iteration_hits>
@@ -7528,7 +7528,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>97</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650452</Iteration_query-ID>
+  <Iteration_query-ID>Query_512430</Iteration_query-ID>
   <Iteration_query-def>gene-STM1181::NC_003197.2:1263345-1265393(+)__37-76</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -7547,7 +7547,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>98</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650453</Iteration_query-ID>
+  <Iteration_query-ID>Query_512431</Iteration_query-ID>
   <Iteration_query-def>gene-STM1183::NC_003197.2:1265457-1267119(+)__155-167</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -7566,7 +7566,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>99</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650454</Iteration_query-ID>
+  <Iteration_query-ID>Query_512432</Iteration_query-ID>
   <Iteration_query-def>gene-STM1184::NC_003197.2:1267133-1268087(+)__65-101</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -7585,7 +7585,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>100</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650455</Iteration_query-ID>
+  <Iteration_query-ID>Query_512433</Iteration_query-ID>
   <Iteration_query-def>gene-STM1194::NC_003197.2:1278270-1279200(+)__704-710</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -7604,7 +7604,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>101</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650456</Iteration_query-ID>
+  <Iteration_query-ID>Query_512434</Iteration_query-ID>
   <Iteration_query-def>gene-STM1203::NC_003197.2:1286358-1287792(+)__638-818</Iteration_query-def>
   <Iteration_query-len>59</Iteration_query-len>
 <Iteration_hits>
@@ -7959,7 +7959,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>102</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650457</Iteration_query-ID>
+  <Iteration_query-ID>Query_512435</Iteration_query-ID>
   <Iteration_query-def>gene-STM1207::NC_003197.2:1291142-1292586(+)__605-617</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -7978,7 +7978,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>103</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650458</Iteration_query-ID>
+  <Iteration_query-ID>Query_512436</Iteration_query-ID>
   <Iteration_query-def>gene-STM1210::NC_003197.2:1293646-1294189(+)__191-266</Iteration_query-def>
   <Iteration_query-len>24</Iteration_query-len>
 <Iteration_hits>
@@ -7997,7 +7997,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>104</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650459</Iteration_query-ID>
+  <Iteration_query-ID>Query_512437</Iteration_query-ID>
   <Iteration_query-def>gene-STM1216::NC_003197.2:1298884-1307667(-)__8283-8295</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -8016,7 +8016,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>105</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650460</Iteration_query-ID>
+  <Iteration_query-ID>Query_512438</Iteration_query-ID>
   <Iteration_query-def>gene-STM1249::NC_003197.2:1334034-1337437(-)__3344-3395</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -8091,7 +8091,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>106</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650461</Iteration_query-ID>
+  <Iteration_query-ID>Query_512439</Iteration_query-ID>
   <Iteration_query-def>gene-STM1249::NC_003197.2:1334034-1337437(-)__2883-2937</Iteration_query-def>
   <Iteration_query-len>17</Iteration_query-len>
 <Iteration_hits>
@@ -8110,7 +8110,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>107</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650462</Iteration_query-ID>
+  <Iteration_query-ID>Query_512440</Iteration_query-ID>
   <Iteration_query-def>gene-STM1254::NC_003197.2:1338116-1343979(-)__5280-5457</Iteration_query-def>
   <Iteration_query-len>58</Iteration_query-len>
 <Iteration_hits>
@@ -9529,7 +9529,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>108</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650463</Iteration_query-ID>
+  <Iteration_query-ID>Query_512441</Iteration_query-ID>
   <Iteration_query-def>gene-STM1286::NC_003197.2:1364179-1364926(+)__704-740</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -9548,7 +9548,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>109</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650464</Iteration_query-ID>
+  <Iteration_query-ID>Query_512442</Iteration_query-ID>
   <Iteration_query-def>gene-STM1299::NC_003197.2:1378626-1380443(-)__484-562</Iteration_query-def>
   <Iteration_query-len>25</Iteration_query-len>
 <Iteration_hits>
@@ -9595,7 +9595,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>110</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650465</Iteration_query-ID>
+  <Iteration_query-ID>Query_512443</Iteration_query-ID>
   <Iteration_query-def>gene-STM1332::NC_003197.2:1410077-1412023(-)__610-679</Iteration_query-def>
   <Iteration_query-len>22</Iteration_query-len>
 <Iteration_hits>
@@ -9614,7 +9614,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>111</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650466</Iteration_query-ID>
+  <Iteration_query-ID>Query_512444</Iteration_query-ID>
   <Iteration_query-def>gene-STM1341::NC_003197.2:1420633-1421934(+)__127-298</Iteration_query-def>
   <Iteration_query-len>56</Iteration_query-len>
 <Iteration_hits>
@@ -9745,7 +9745,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>112</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650467</Iteration_query-ID>
+  <Iteration_query-ID>Query_512445</Iteration_query-ID>
   <Iteration_query-def>gene-STM1349::NC_003197.2:1427760-1430395(+)__55-64</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -9764,7 +9764,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>113</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650468</Iteration_query-ID>
+  <Iteration_query-ID>Query_512446</Iteration_query-ID>
   <Iteration_query-def>gene-STM1365::NC_003197.2:1446494-1450017(+)__1015-1045</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -9783,7 +9783,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>114</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650469</Iteration_query-ID>
+  <Iteration_query-ID>Query_512447</Iteration_query-ID>
   <Iteration_query-def>gene-STM1365::NC_003197.2:1446494-1450017(+)__2701-2725</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -9802,7 +9802,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>115</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650470</Iteration_query-ID>
+  <Iteration_query-ID>Query_512448</Iteration_query-ID>
   <Iteration_query-def>gene-STM1375::NC_003197.2:1457979-1466354(+)__5093-5231</Iteration_query-def>
   <Iteration_query-len>45</Iteration_query-len>
 <Iteration_hits>
@@ -9821,7 +9821,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>116</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650471</Iteration_query-ID>
+  <Iteration_query-ID>Query_512449</Iteration_query-ID>
   <Iteration_query-def>gene-STM1377::NC_003197.2:1459369-1459606(-)__94-112</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -9840,7 +9840,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>117</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650472</Iteration_query-ID>
+  <Iteration_query-ID>Query_512450</Iteration_query-ID>
   <Iteration_query-def>gene-STM1381::NC_003197.2:1464047-1464785(-)__436-448</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -9859,7 +9859,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>118</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650473</Iteration_query-ID>
+  <Iteration_query-ID>Query_512451</Iteration_query-ID>
   <Iteration_query-def>gene-STM1389::NC_003197.2:1474118-1475250(-)__434-458</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -9878,7 +9878,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>119</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650474</Iteration_query-ID>
+  <Iteration_query-ID>Query_512452</Iteration_query-ID>
   <Iteration_query-def>gene-STM1413::NC_003197.2:1493293-1495681(+)__1056-1122</Iteration_query-def>
   <Iteration_query-len>21</Iteration_query-len>
 <Iteration_hits>
@@ -9897,7 +9897,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>120</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650475</Iteration_query-ID>
+  <Iteration_query-ID>Query_512453</Iteration_query-ID>
   <Iteration_query-def>gene-STM1427::NC_003197.2:1504225-1505663(-)__300-330</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -9916,7 +9916,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>121</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650476</Iteration_query-ID>
+  <Iteration_query-ID>Query_512454</Iteration_query-ID>
   <Iteration_query-def>gene-STM1431::NC_003197.2:1509403-1510111(-)__674-707</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -9935,7 +9935,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>122</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650477</Iteration_query-ID>
+  <Iteration_query-ID>Query_512455</Iteration_query-ID>
   <Iteration_query-def>gene-STM1436::NC_003197.2:1512916-1514072(-)__152-182</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -9954,7 +9954,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>123</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650478</Iteration_query-ID>
+  <Iteration_query-ID>Query_512456</Iteration_query-ID>
   <Iteration_query-def>gene-STM1440::NC_003197.2:1516040-1517266(+)__358-400</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -9973,7 +9973,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>124</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650479</Iteration_query-ID>
+  <Iteration_query-ID>Query_512457</Iteration_query-ID>
   <Iteration_query-def>gene-STM1444::NC_003197.2:1519870-1520916(+)__25-64</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -9992,7 +9992,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>125</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650480</Iteration_query-ID>
+  <Iteration_query-ID>Query_512458</Iteration_query-ID>
   <Iteration_query-def>gene-STM1452::NC_003197.2:1526440-1527946(-)__317-332</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -10011,7 +10011,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>126</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650481</Iteration_query-ID>
+  <Iteration_query-ID>Query_512459</Iteration_query-ID>
   <Iteration_query-def>gene-STM1462::NC_003197.2:1536296-1537478(+)__814-820</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -10030,7 +10030,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>127</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650482</Iteration_query-ID>
+  <Iteration_query-ID>Query_512460</Iteration_query-ID>
   <Iteration_query-def>gene-STM1467::NC_003197.2:1540802-1541978(-)__454-541</Iteration_query-def>
   <Iteration_query-len>28</Iteration_query-len>
 <Iteration_hits>
@@ -10049,7 +10049,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>128</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650483</Iteration_query-ID>
+  <Iteration_query-ID>Query_512461</Iteration_query-ID>
   <Iteration_query-def>gene-STM1469::NC_003197.2:1543991-1547698(+)__391-502</Iteration_query-def>
   <Iteration_query-len>36</Iteration_query-len>
 <Iteration_hits>
@@ -10068,7 +10068,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>129</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650484</Iteration_query-ID>
+  <Iteration_query-ID>Query_512462</Iteration_query-ID>
   <Iteration_query-def>gene-STM1469::NC_003197.2:1543991-1547698(+)__1157-1211</Iteration_query-def>
   <Iteration_query-len>17</Iteration_query-len>
 <Iteration_hits>
@@ -10087,7 +10087,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>130</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650485</Iteration_query-ID>
+  <Iteration_query-ID>Query_512463</Iteration_query-ID>
   <Iteration_query-def>gene-STM1479::NC_003197.2:1555687-1557217(+)__1424-1472</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -10218,7 +10218,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>131</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650486</Iteration_query-ID>
+  <Iteration_query-ID>Query_512464</Iteration_query-ID>
   <Iteration_query-def>gene-STM1486::NC_003197.2:1562693-1567090(-)__933-1095</Iteration_query-def>
   <Iteration_query-len>53</Iteration_query-len>
 <Iteration_hits>
@@ -10237,7 +10237,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>132</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650487</Iteration_query-ID>
+  <Iteration_query-ID>Query_512465</Iteration_query-ID>
   <Iteration_query-def>gene-STM1500::NC_003197.2:1579539-1580702(-)__870-879</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -10256,7 +10256,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>133</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650488</Iteration_query-ID>
+  <Iteration_query-ID>Query_512466</Iteration_query-ID>
   <Iteration_query-def>gene-STM1500::NC_003197.2:1579539-1580702(-)__815-842</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -10275,7 +10275,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>134</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650489</Iteration_query-ID>
+  <Iteration_query-ID>Query_512467</Iteration_query-ID>
   <Iteration_query-def>gene-STM1506::NC_003197.2:1583465-1584538(+)__943-1039</Iteration_query-def>
   <Iteration_query-len>31</Iteration_query-len>
 <Iteration_hits>
@@ -10322,7 +10322,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>135</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650490</Iteration_query-ID>
+  <Iteration_query-ID>Query_512468</Iteration_query-ID>
   <Iteration_query-def>gene-STM1511::NC_003197.2:1588794-1590203(-)__888-951</Iteration_query-def>
   <Iteration_query-len>20</Iteration_query-len>
 <Iteration_hits>
@@ -10369,7 +10369,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>136</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650491</Iteration_query-ID>
+  <Iteration_query-ID>Query_512469</Iteration_query-ID>
   <Iteration_query-def>gene-STM1511::NC_003197.2:1588794-1590203(-)__1075-1135</Iteration_query-def>
   <Iteration_query-len>19</Iteration_query-len>
 <Iteration_hits>
@@ -10416,7 +10416,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>137</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650492</Iteration_query-ID>
+  <Iteration_query-ID>Query_512470</Iteration_query-ID>
   <Iteration_query-def>gene-STM1542::NC_003197.2:1617312-1619775(-)__424-508</Iteration_query-def>
   <Iteration_query-len>27</Iteration_query-len>
 <Iteration_hits>
@@ -10491,7 +10491,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>138</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650493</Iteration_query-ID>
+  <Iteration_query-ID>Query_512471</Iteration_query-ID>
   <Iteration_query-def>gene-STM1542::NC_003197.2:1617312-1619775(-)__1618-1627</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -10510,7 +10510,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>139</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650494</Iteration_query-ID>
+  <Iteration_query-ID>Query_512472</Iteration_query-ID>
   <Iteration_query-def>gene-STM1554::NC_003197.2:1630397-1635877(-)__4933-4969</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -10529,7 +10529,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>140</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650495</Iteration_query-ID>
+  <Iteration_query-ID>Query_512473</Iteration_query-ID>
   <Iteration_query-def>gene-STM1554::NC_003197.2:1630397-1635877(-)__4524-4581</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -10548,7 +10548,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>141</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650496</Iteration_query-ID>
+  <Iteration_query-ID>Query_512474</Iteration_query-ID>
   <Iteration_query-def>gene-STM1554::NC_003197.2:1630397-1635877(-)__4092-4110</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -10567,7 +10567,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>142</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650497</Iteration_query-ID>
+  <Iteration_query-ID>Query_512475</Iteration_query-ID>
   <Iteration_query-def>gene-STM1554::NC_003197.2:1630397-1635877(-)__4419-4488</Iteration_query-def>
   <Iteration_query-len>22</Iteration_query-len>
 <Iteration_hits>
@@ -10586,7 +10586,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>143</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650498</Iteration_query-ID>
+  <Iteration_query-ID>Query_512476</Iteration_query-ID>
   <Iteration_query-def>gene-STM1566::NC_003197.2:1645803-1647786(+)__1642-1744</Iteration_query-def>
   <Iteration_query-len>33</Iteration_query-len>
 <Iteration_hits>
@@ -10661,7 +10661,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>144</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650499</Iteration_query-ID>
+  <Iteration_query-ID>Query_512477</Iteration_query-ID>
   <Iteration_query-def>gene-STM1572::NC_003197.2:1655165-1656397(+)__374-425</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -10680,7 +10680,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>145</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650500</Iteration_query-ID>
+  <Iteration_query-ID>Query_512478</Iteration_query-ID>
   <Iteration_query-def>gene-STM1597::NC_003197.2:1686827-1688273(-)__368-521</Iteration_query-def>
   <Iteration_query-len>50</Iteration_query-len>
 <Iteration_hits>
@@ -10839,7 +10839,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>146</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650501</Iteration_query-ID>
+  <Iteration_query-ID>Query_512479</Iteration_query-ID>
   <Iteration_query-def>gene-STM1626::NC_003197.2:1715872-1717498(-)__547-616</Iteration_query-def>
   <Iteration_query-len>22</Iteration_query-len>
 <Iteration_hits>
@@ -10858,7 +10858,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>147</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650502</Iteration_query-ID>
+  <Iteration_query-ID>Query_512480</Iteration_query-ID>
   <Iteration_query-def>gene-STM1629::NC_003197.2:1719614-1720016(+)__22-133</Iteration_query-def>
   <Iteration_query-len>36</Iteration_query-len>
 <Iteration_hits>
@@ -10933,7 +10933,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>148</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650503</Iteration_query-ID>
+  <Iteration_query-ID>Query_512481</Iteration_query-ID>
   <Iteration_query-def>gene-STM1641::NC_003197.2:1731327-1736032(-)__167-407</Iteration_query-def>
   <Iteration_query-len>79</Iteration_query-len>
 <Iteration_hits>
@@ -11204,7 +11204,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>149</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650504</Iteration_query-ID>
+  <Iteration_query-ID>Query_512482</Iteration_query-ID>
   <Iteration_query-def>gene-STM1643::NC_003197.2:1736032-1736624(-)__104-146</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -11223,7 +11223,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>150</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650505</Iteration_query-ID>
+  <Iteration_query-ID>Query_512483</Iteration_query-ID>
   <Iteration_query-def>gene-STM1702::NC_003197.2:1794339-1796274(+)__790-859</Iteration_query-def>
   <Iteration_query-len>22</Iteration_query-len>
 <Iteration_hits>
@@ -11326,7 +11326,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>151</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650506</Iteration_query-ID>
+  <Iteration_query-ID>Query_512484</Iteration_query-ID>
   <Iteration_query-def>gene-STM1702::NC_003197.2:1794339-1796274(+)__457-535</Iteration_query-def>
   <Iteration_query-len>25</Iteration_query-len>
 <Iteration_hits>
@@ -11345,7 +11345,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>152</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650507</Iteration_query-ID>
+  <Iteration_query-ID>Query_512485</Iteration_query-ID>
   <Iteration_query-def>gene-STM1711::NC_003197.2:1804102-1804693(+)__535-583</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -11392,7 +11392,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>153</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650508</Iteration_query-ID>
+  <Iteration_query-ID>Query_512486</Iteration_query-ID>
   <Iteration_query-def>gene-STM1714::NC_003197.2:1809785-1812739(-)__2494-2536</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -11411,7 +11411,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>154</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650509</Iteration_query-ID>
+  <Iteration_query-ID>Query_512487</Iteration_query-ID>
   <Iteration_query-def>gene-STM1734::NC_003197.2:1829292-1830092(+)__649-655</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -11430,7 +11430,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>155</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650510</Iteration_query-ID>
+  <Iteration_query-ID>Query_512488</Iteration_query-ID>
   <Iteration_query-def>gene-STM1746::NC_003197.2:1839601-1841381(-)__1010-1025</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -11449,7 +11449,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>156</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650511</Iteration_query-ID>
+  <Iteration_query-ID>Query_512489</Iteration_query-ID>
   <Iteration_query-def>gene-STM1765::NC_003197.2:1862537-1866715(-)__4053-4068</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -11468,7 +11468,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>157</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650512</Iteration_query-ID>
+  <Iteration_query-ID>Query_512490</Iteration_query-ID>
   <Iteration_query-def>gene-STM1773::NC_003197.2:1871292-1872105(-)__685-709</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -11487,7 +11487,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>158</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650513</Iteration_query-ID>
+  <Iteration_query-ID>Query_512491</Iteration_query-ID>
   <Iteration_query-def>gene-STM1782::NC_003197.2:1880556-1883061(-)__2377-2416</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -11506,7 +11506,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>159</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650514</Iteration_query-ID>
+  <Iteration_query-ID>Query_512492</Iteration_query-ID>
   <Iteration_query-def>gene-STM1784::NC_003197.2:1881811-1882903(+)__707-728</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -11525,7 +11525,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>160</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650515</Iteration_query-ID>
+  <Iteration_query-ID>Query_512493</Iteration_query-ID>
   <Iteration_query-def>gene-STM1795::NC_003197.2:1893524-1894899(+)__829-838</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -11544,7 +11544,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>161</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650516</Iteration_query-ID>
+  <Iteration_query-ID>Query_512494</Iteration_query-ID>
   <Iteration_query-def>gene-STM1796::NC_003197.2:1895063-1897104(+)__740-758</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -11563,7 +11563,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>162</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650517</Iteration_query-ID>
+  <Iteration_query-ID>Query_512495</Iteration_query-ID>
   <Iteration_query-def>gene-STM1800::NC_003197.2:1898791-1899802(+)__601-667</Iteration_query-def>
   <Iteration_query-len>21</Iteration_query-len>
 <Iteration_hits>
@@ -11610,7 +11610,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>163</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650518</Iteration_query-ID>
+  <Iteration_query-ID>Query_512496</Iteration_query-ID>
   <Iteration_query-def>gene-STM1800::NC_003197.2:1898791-1899802(+)__961-1009</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -11629,7 +11629,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>164</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650519</Iteration_query-ID>
+  <Iteration_query-ID>Query_512497</Iteration_query-ID>
   <Iteration_query-def>gene-STM1801::NC_003197.2:1899802-1904303(+)__824-1076</Iteration_query-def>
   <Iteration_query-len>83</Iteration_query-len>
 <Iteration_hits>
@@ -11956,7 +11956,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>165</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650520</Iteration_query-ID>
+  <Iteration_query-ID>Query_512498</Iteration_query-ID>
   <Iteration_query-def>gene-STM1801::NC_003197.2:1899802-1904303(+)__1408-1474</Iteration_query-def>
   <Iteration_query-len>21</Iteration_query-len>
 <Iteration_hits>
@@ -11975,7 +11975,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>166</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650521</Iteration_query-ID>
+  <Iteration_query-ID>Query_512499</Iteration_query-ID>
   <Iteration_query-def>gene-STM1802::NC_003197.2:1901598-1902669(-)__250-289</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -11994,7 +11994,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>167</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650522</Iteration_query-ID>
+  <Iteration_query-ID>Query_512500</Iteration_query-ID>
   <Iteration_query-def>gene-STM1805::NC_003197.2:1905882-1906602(-)__79-121</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -12013,7 +12013,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>168</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650523</Iteration_query-ID>
+  <Iteration_query-ID>Query_512501</Iteration_query-ID>
   <Iteration_query-def>gene-STM1806::NC_003197.2:1906821-1908507(+)__920-1019</Iteration_query-def>
   <Iteration_query-len>32</Iteration_query-len>
 <Iteration_hits>
@@ -12060,7 +12060,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>169</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650524</Iteration_query-ID>
+  <Iteration_query-ID>Query_512502</Iteration_query-ID>
   <Iteration_query-def>gene-STM1806::NC_003197.2:1906821-1908507(+)__433-463</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -12079,7 +12079,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>170</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650525</Iteration_query-ID>
+  <Iteration_query-ID>Query_512503</Iteration_query-ID>
   <Iteration_query-def>gene-STM1814::NC_003197.2:1912080-1912811(+)__439-448</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -12098,7 +12098,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>171</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650526</Iteration_query-ID>
+  <Iteration_query-ID>Query_512504</Iteration_query-ID>
   <Iteration_query-def>gene-STM1831::NC_003197.2:1929550-1930354(+)__410-527</Iteration_query-def>
   <Iteration_query-len>38</Iteration_query-len>
 <Iteration_hits>
@@ -12229,7 +12229,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>172</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650527</Iteration_query-ID>
+  <Iteration_query-ID>Query_512505</Iteration_query-ID>
   <Iteration_query-def>gene-STM1847::NC_003197.2:1943982-1944567(-)__281-338</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -12248,7 +12248,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>173</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650528</Iteration_query-ID>
+  <Iteration_query-ID>Query_512506</Iteration_query-ID>
   <Iteration_query-def>gene-STM1848::NC_003197.2:1944608-1948571(+)__794-872</Iteration_query-def>
   <Iteration_query-len>25</Iteration_query-len>
 <Iteration_hits>
@@ -12295,7 +12295,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>174</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650529</Iteration_query-ID>
+  <Iteration_query-ID>Query_512507</Iteration_query-ID>
   <Iteration_query-def>gene-STM1855::NC_003197.2:1952008-1952731(-)__106-235</Iteration_query-def>
   <Iteration_query-len>42</Iteration_query-len>
 <Iteration_hits>
@@ -12398,7 +12398,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>175</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650530</Iteration_query-ID>
+  <Iteration_query-ID>Query_512508</Iteration_query-ID>
   <Iteration_query-def>gene-STM1857::NC_003197.2:1955003-1955423(-)__119-164</Iteration_query-def>
   <Iteration_query-len>14</Iteration_query-len>
 <Iteration_hits>
@@ -12417,7 +12417,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>176</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650531</Iteration_query-ID>
+  <Iteration_query-ID>Query_512509</Iteration_query-ID>
   <Iteration_query-def>gene-STM1883::NC_003197.2:1975660-1979029(+)__757-775</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -12436,7 +12436,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>177</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650532</Iteration_query-ID>
+  <Iteration_query-ID>Query_512510</Iteration_query-ID>
   <Iteration_query-def>gene-STM1884::NC_003197.2:1976938-1977580(-)__355-364</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -12455,7 +12455,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>178</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650533</Iteration_query-ID>
+  <Iteration_query-ID>Query_512511</Iteration_query-ID>
   <Iteration_query-def>gene-STM1894::NC_003197.2:1989050-1990061(-)__880-916</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -12474,7 +12474,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>179</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650534</Iteration_query-ID>
+  <Iteration_query-ID>Query_512512</Iteration_query-ID>
   <Iteration_query-def>gene-STM1917::NC_003197.2:2012686-2014661(-)__1814-1898</Iteration_query-def>
   <Iteration_query-len>27</Iteration_query-len>
 <Iteration_hits>
@@ -12633,7 +12633,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>180</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650535</Iteration_query-ID>
+  <Iteration_query-ID>Query_512513</Iteration_query-ID>
   <Iteration_query-def>gene-STM1917::NC_003197.2:2012686-2014661(-)__32-53</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -12652,7 +12652,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>181</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650536</Iteration_query-ID>
+  <Iteration_query-ID>Query_512514</Iteration_query-ID>
   <Iteration_query-def>gene-STM1921::NC_003197.2:2017174-2019194(-)__1520-1577</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -12727,7 +12727,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>182</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650537</Iteration_query-ID>
+  <Iteration_query-ID>Query_512515</Iteration_query-ID>
   <Iteration_query-def>gene-STM1924::NC_003197.2:2021132-2023296(-)__876-1020</Iteration_query-def>
   <Iteration_query-len>47</Iteration_query-len>
 <Iteration_hits>
@@ -14146,7 +14146,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>183</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650538</Iteration_query-ID>
+  <Iteration_query-ID>Query_512516</Iteration_query-ID>
   <Iteration_query-def>gene-STM1934::NC_003197.2:2028812-2029240(+)__257-350</Iteration_query-def>
   <Iteration_query-len>30</Iteration_query-len>
 <Iteration_hits>
@@ -14193,7 +14193,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>184</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650539</Iteration_query-ID>
+  <Iteration_query-ID>Query_512517</Iteration_query-ID>
   <Iteration_query-def>gene-STM1939::NC_003197.2:2032585-2033124(-)__28-76</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -14212,7 +14212,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>185</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650540</Iteration_query-ID>
+  <Iteration_query-ID>Query_512518</Iteration_query-ID>
   <Iteration_query-def>gene-STM1940::NC_003197.2:2033124-2034776(-)__28-55</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -14231,7 +14231,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>186</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650541</Iteration_query-ID>
+  <Iteration_query-ID>Query_512519</Iteration_query-ID>
   <Iteration_query-def>gene-STM1946::NC_003197.2:2036414-2039654(-)__2377-2506</Iteration_query-def>
   <Iteration_query-len>42</Iteration_query-len>
 <Iteration_hits>
@@ -14390,7 +14390,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>187</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650542</Iteration_query-ID>
+  <Iteration_query-ID>Query_512520</Iteration_query-ID>
   <Iteration_query-def>gene-STM1950::NC_003197.2:2039654-2040608(-)__218-245</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -14409,7 +14409,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>188</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650543</Iteration_query-ID>
+  <Iteration_query-ID>Query_512521</Iteration_query-ID>
   <Iteration_query-def>gene-STM1950::NC_003197.2:2039654-2040608(-)__548-644</Iteration_query-def>
   <Iteration_query-len>31</Iteration_query-len>
 <Iteration_hits>
@@ -14456,7 +14456,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>189</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650544</Iteration_query-ID>
+  <Iteration_query-ID>Query_512522</Iteration_query-ID>
   <Iteration_query-def>gene-STM1958::NC_003197.2:2046370-2047576(-)__250-286</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -14475,7 +14475,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>190</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650545</Iteration_query-ID>
+  <Iteration_query-ID>Query_512523</Iteration_query-ID>
   <Iteration_query-def>gene-STM1958::NC_003197.2:2046370-2047576(-)__308-344</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -14494,7 +14494,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>191</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650546</Iteration_query-ID>
+  <Iteration_query-ID>Query_512524</Iteration_query-ID>
   <Iteration_query-def>gene-STM1958::NC_003197.2:2046370-2047576(-)__797-854</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -14541,7 +14541,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>192</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650547</Iteration_query-ID>
+  <Iteration_query-ID>Query_512525</Iteration_query-ID>
   <Iteration_query-def>gene-STM1971::NC_003197.2:2059198-2061276(+)__124-163</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -14560,7 +14560,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>193</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650548</Iteration_query-ID>
+  <Iteration_query-ID>Query_512526</Iteration_query-ID>
   <Iteration_query-def>gene-STM1976::NC_003197.2:2063531-2064945(+)__1005-1014</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -14579,7 +14579,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>194</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650549</Iteration_query-ID>
+  <Iteration_query-ID>Query_512527</Iteration_query-ID>
   <Iteration_query-def>gene-STM2023::NC_003197.2:2102966-2104410(-)__953-986</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -14598,7 +14598,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>195</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650550</Iteration_query-ID>
+  <Iteration_query-ID>Query_512528</Iteration_query-ID>
   <Iteration_query-def>gene-STM2034::NC_003197.2:2111462-2113798(-)__718-754</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -14617,7 +14617,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>196</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650551</Iteration_query-ID>
+  <Iteration_query-ID>Query_512529</Iteration_query-ID>
   <Iteration_query-def>gene-STM2034::NC_003197.2:2111462-2113798(-)__2163-2211</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -14636,7 +14636,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>197</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650552</Iteration_query-ID>
+  <Iteration_query-ID>Query_512530</Iteration_query-ID>
   <Iteration_query-def>gene-STM2061::NC_003197.2:2135401-2135869(-)__428-440</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -14655,7 +14655,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>198</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650553</Iteration_query-ID>
+  <Iteration_query-ID>Query_512531</Iteration_query-ID>
   <Iteration_query-def>gene-STM2066::NC_003197.2:2141566-2143915(+)__277-322</Iteration_query-def>
   <Iteration_query-len>14</Iteration_query-len>
 <Iteration_hits>
@@ -14674,7 +14674,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>199</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650554</Iteration_query-ID>
+  <Iteration_query-ID>Query_512532</Iteration_query-ID>
   <Iteration_query-def>gene-STM2086::NC_003197.2:2166234-2167348(-)__5-56</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -16093,7 +16093,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>200</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650555</Iteration_query-ID>
+  <Iteration_query-ID>Query_512533</Iteration_query-ID>
   <Iteration_query-def>gene-STM2088::NC_003197.2:2168621-2169985(-)__204-225</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -16112,7 +16112,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>201</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650556</Iteration_query-ID>
+  <Iteration_query-ID>Query_512534</Iteration_query-ID>
   <Iteration_query-def>gene-STM2093::NC_003197.2:2174116-2175114(-)__744-837</Iteration_query-def>
   <Iteration_query-len>30</Iteration_query-len>
 <Iteration_hits>
@@ -16131,7 +16131,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>202</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650557</Iteration_query-ID>
+  <Iteration_query-ID>Query_512535</Iteration_query-ID>
   <Iteration_query-def>gene-STM2097::NC_003197.2:2177491-2178953(-)__19-76</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -16150,7 +16150,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>203</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650558</Iteration_query-ID>
+  <Iteration_query-ID>Query_512536</Iteration_query-ID>
   <Iteration_query-def>gene-STM2098::NC_003197.2:2178953-2179961(-)__895-937</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -16169,7 +16169,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>204</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650559</Iteration_query-ID>
+  <Iteration_query-ID>Query_512537</Iteration_query-ID>
   <Iteration_query-def>gene-STM2166::NC_003197.2:2261170-2265522(-)__2196-2223</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -16188,7 +16188,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>205</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650560</Iteration_query-ID>
+  <Iteration_query-ID>Query_512538</Iteration_query-ID>
   <Iteration_query-def>gene-STM2168::NC_003197.2:2265522-2266635(-)__124-172</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -16207,7 +16207,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>206</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650561</Iteration_query-ID>
+  <Iteration_query-ID>Query_512539</Iteration_query-ID>
   <Iteration_query-def>gene-STM2194::NC_003197.2:2291439-2292358(+)__140-167</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -16226,7 +16226,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>207</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650562</Iteration_query-ID>
+  <Iteration_query-ID>Query_512540</Iteration_query-ID>
   <Iteration_query-def>gene-STM2194::NC_003197.2:2291439-2292358(+)__599-770</Iteration_query-def>
   <Iteration_query-len>56</Iteration_query-len>
 <Iteration_hits>
@@ -16441,7 +16441,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>208</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650563</Iteration_query-ID>
+  <Iteration_query-ID>Query_512541</Iteration_query-ID>
   <Iteration_query-def>gene-STM2220::NC_003197.2:2321746-2322481(-)__412-532</Iteration_query-def>
   <Iteration_query-len>39</Iteration_query-len>
 <Iteration_hits>
@@ -16516,7 +16516,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>209</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650564</Iteration_query-ID>
+  <Iteration_query-ID>Query_512542</Iteration_query-ID>
   <Iteration_query-def>gene-STM2226::NC_003197.2:2327472-2330959(-)__1670-1838</Iteration_query-def>
   <Iteration_query-len>55</Iteration_query-len>
 <Iteration_hits>
@@ -16563,7 +16563,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>210</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650565</Iteration_query-ID>
+  <Iteration_query-ID>Query_512543</Iteration_query-ID>
   <Iteration_query-def>gene-STM2262::NC_003197.2:2360057-2360552(+)__286-319</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -16582,7 +16582,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>211</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650566</Iteration_query-ID>
+  <Iteration_query-ID>Query_512544</Iteration_query-ID>
   <Iteration_query-def>gene-STM2262::NC_003197.2:2360057-2360552(+)__362-374</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -16601,7 +16601,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>212</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650567</Iteration_query-ID>
+  <Iteration_query-ID>Query_512545</Iteration_query-ID>
   <Iteration_query-def>gene-STM2272::NC_003197.2:2373709-2376755(-)__2480-2615</Iteration_query-def>
   <Iteration_query-len>44</Iteration_query-len>
 <Iteration_hits>
@@ -16648,7 +16648,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>213</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650568</Iteration_query-ID>
+  <Iteration_query-ID>Query_512546</Iteration_query-ID>
   <Iteration_query-def>gene-STM2273::NC_003197.2:2376755-2377972(-)__900-1014</Iteration_query-def>
   <Iteration_query-len>37</Iteration_query-len>
 <Iteration_hits>
@@ -16667,7 +16667,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>214</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650569</Iteration_query-ID>
+  <Iteration_query-ID>Query_512547</Iteration_query-ID>
   <Iteration_query-def>gene-STM2293::NC_003197.2:2400463-2401774(-)__985-1219</Iteration_query-def>
   <Iteration_query-len>77</Iteration_query-len>
 <Iteration_hits>
@@ -16826,7 +16826,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>215</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650570</Iteration_query-ID>
+  <Iteration_query-ID>Query_512548</Iteration_query-ID>
   <Iteration_query-def>gene-STM2316::NC_003197.2:2424352-2425630(-)__214-223</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -16845,7 +16845,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>216</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650571</Iteration_query-ID>
+  <Iteration_query-ID>Query_512549</Iteration_query-ID>
   <Iteration_query-def>gene-STM2316::NC_003197.2:2424352-2425630(-)__917-1247</Iteration_query-def>
   <Iteration_query-len>109</Iteration_query-len>
 <Iteration_hits>
@@ -17228,7 +17228,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>217</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650572</Iteration_query-ID>
+  <Iteration_query-ID>Query_512550</Iteration_query-ID>
   <Iteration_query-def>gene-STM2318::NC_003197.2:2427659-2429629(-)__615-633</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -17247,7 +17247,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>218</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650573</Iteration_query-ID>
+  <Iteration_query-ID>Query_512551</Iteration_query-ID>
   <Iteration_query-def>gene-STM2318::NC_003197.2:2427659-2429629(-)__1074-1134</Iteration_query-def>
   <Iteration_query-len>19</Iteration_query-len>
 <Iteration_hits>
@@ -17266,7 +17266,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>219</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650574</Iteration_query-ID>
+  <Iteration_query-ID>Query_512552</Iteration_query-ID>
   <Iteration_query-def>gene-STM2322::NC_003197.2:2430918-2434649(-)__844-850</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -17285,7 +17285,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>220</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650575</Iteration_query-ID>
+  <Iteration_query-ID>Query_512553</Iteration_query-ID>
   <Iteration_query-def>gene-STM2322::NC_003197.2:2430918-2434649(-)__2778-2793</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -17304,7 +17304,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>221</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650576</Iteration_query-ID>
+  <Iteration_query-ID>Query_512554</Iteration_query-ID>
   <Iteration_query-def>gene-STM2324::NC_003197.2:2434649-2436486(-)__762-768</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -17323,7 +17323,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>222</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650577</Iteration_query-ID>
+  <Iteration_query-ID>Query_512555</Iteration_query-ID>
   <Iteration_query-def>gene-STM2324::NC_003197.2:2434649-2436486(-)__734-746</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -17342,7 +17342,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>223</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650578</Iteration_query-ID>
+  <Iteration_query-ID>Query_512556</Iteration_query-ID>
   <Iteration_query-def>gene-STM2324::NC_003197.2:2434649-2436486(-)__1200-1416</Iteration_query-def>
   <Iteration_query-len>71</Iteration_query-len>
 <Iteration_hits>
@@ -17501,7 +17501,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>224</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650579</Iteration_query-ID>
+  <Iteration_query-ID>Query_512557</Iteration_query-ID>
   <Iteration_query-def>gene-STM2333::NC_003197.2:2443992-2445895(-)__1073-1082</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -17520,7 +17520,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>225</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650580</Iteration_query-ID>
+  <Iteration_query-ID>Query_512558</Iteration_query-ID>
   <Iteration_query-def>gene-STM2339::NC_003197.2:2451578-2453099(+)__620-827</Iteration_query-def>
   <Iteration_query-len>68</Iteration_query-len>
 <Iteration_hits>
@@ -17595,7 +17595,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>226</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650581</Iteration_query-ID>
+  <Iteration_query-ID>Query_512559</Iteration_query-ID>
   <Iteration_query-def>gene-STM2339::NC_003197.2:2451578-2453099(+)__259-277</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -17614,7 +17614,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>227</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650582</Iteration_query-ID>
+  <Iteration_query-ID>Query_512560</Iteration_query-ID>
   <Iteration_query-def>gene-STM2343::NC_003197.2:2456332-2456685(-)__97-118</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -17633,7 +17633,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>228</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650583</Iteration_query-ID>
+  <Iteration_query-ID>Query_512561</Iteration_query-ID>
   <Iteration_query-def>gene-STM2366::NC_003197.2:2478688-2479752(-)__717-744</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -17652,7 +17652,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>229</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650584</Iteration_query-ID>
+  <Iteration_query-ID>Query_512562</Iteration_query-ID>
   <Iteration_query-def>gene-STM2372::NC_003197.2:2484591-2485949(-)__448-622</Iteration_query-def>
   <Iteration_query-len>57</Iteration_query-len>
 <Iteration_hits>
@@ -17755,7 +17755,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>230</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650585</Iteration_query-ID>
+  <Iteration_query-ID>Query_512563</Iteration_query-ID>
   <Iteration_query-def>gene-STM2403::NC_003197.2:2517962-2520386(-)__2359-2380</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -17774,7 +17774,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>231</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650586</Iteration_query-ID>
+  <Iteration_query-ID>Query_512564</Iteration_query-ID>
   <Iteration_query-def>gene-STM2415::NC_003197.2:2530161-2532023(-)__1689-1743</Iteration_query-def>
   <Iteration_query-len>17</Iteration_query-len>
 <Iteration_hits>
@@ -17849,7 +17849,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>232</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650587</Iteration_query-ID>
+  <Iteration_query-ID>Query_512565</Iteration_query-ID>
   <Iteration_query-def>gene-STM2479::NC_003197.2:2589613-2599074(-)__9262-9295</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -17868,7 +17868,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>233</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650588</Iteration_query-ID>
+  <Iteration_query-ID>Query_512566</Iteration_query-ID>
   <Iteration_query-def>gene-STM2483::NC_003197.2:2597692-2598820(+)__857-926</Iteration_query-def>
   <Iteration_query-len>22</Iteration_query-len>
 <Iteration_hits>
@@ -17887,7 +17887,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>234</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650589</Iteration_query-ID>
+  <Iteration_query-ID>Query_512567</Iteration_query-ID>
   <Iteration_query-def>gene-STM2483::NC_003197.2:2597692-2598820(+)__934-958</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -17906,7 +17906,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>235</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650590</Iteration_query-ID>
+  <Iteration_query-ID>Query_512568</Iteration_query-ID>
   <Iteration_query-def>gene-STM2488::NC_003197.2:2602990-2604041(-)__866-947</Iteration_query-def>
   <Iteration_query-len>26</Iteration_query-len>
 <Iteration_hits>
@@ -17953,7 +17953,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>236</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650591</Iteration_query-ID>
+  <Iteration_query-ID>Query_512569</Iteration_query-ID>
   <Iteration_query-def>gene-STM2490::NC_003197.2:2604999-2606108(+)__625-661</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -17972,7 +17972,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>237</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650592</Iteration_query-ID>
+  <Iteration_query-ID>Query_512570</Iteration_query-ID>
   <Iteration_query-def>gene-STM2494::NC_003197.2:2607969-2609433(+)__85-199</Iteration_query-def>
   <Iteration_query-len>37</Iteration_query-len>
 <Iteration_hits>
@@ -18019,7 +18019,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>238</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650593</Iteration_query-ID>
+  <Iteration_query-ID>Query_512571</Iteration_query-ID>
   <Iteration_query-def>gene-STM2502::NC_003197.2:2617006-2618548(+)__1387-1489</Iteration_query-def>
   <Iteration_query-len>33</Iteration_query-len>
 <Iteration_hits>
@@ -18122,7 +18122,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>239</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650594</Iteration_query-ID>
+  <Iteration_query-ID>Query_512572</Iteration_query-ID>
   <Iteration_query-def>gene-STM2510::NC_003197.2:2622803-2624450(-)__1084-1174</Iteration_query-def>
   <Iteration_query-len>29</Iteration_query-len>
 <Iteration_hits>
@@ -18197,7 +18197,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>240</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650595</Iteration_query-ID>
+  <Iteration_query-ID>Query_512573</Iteration_query-ID>
   <Iteration_query-def>gene-STM2514::NC_003197.2:2634401-2641874(-)__6049-6091</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -18216,7 +18216,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>241</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650596</Iteration_query-ID>
+  <Iteration_query-ID>Query_512574</Iteration_query-ID>
   <Iteration_query-def>gene-STM2520::NC_003197.2:2653047-2654236(-)__285-390</Iteration_query-def>
   <Iteration_query-len>34</Iteration_query-len>
 <Iteration_hits>
@@ -18235,7 +18235,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>242</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650597</Iteration_query-ID>
+  <Iteration_query-ID>Query_512575</Iteration_query-ID>
   <Iteration_query-def>gene-STM2526::NC_003197.2:2660069-2660621(-)__361-454</Iteration_query-def>
   <Iteration_query-len>30</Iteration_query-len>
 <Iteration_hits>
@@ -18310,7 +18310,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>243</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650598</Iteration_query-ID>
+  <Iteration_query-ID>Query_512576</Iteration_query-ID>
   <Iteration_query-def>gene-STM2536::NC_003197.2:2676117-2677647(-)__289-376</Iteration_query-def>
   <Iteration_query-len>28</Iteration_query-len>
 <Iteration_hits>
@@ -18329,7 +18329,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>244</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650599</Iteration_query-ID>
+  <Iteration_query-ID>Query_512577</Iteration_query-ID>
   <Iteration_query-def>gene-STM2536::NC_003197.2:2676117-2677647(-)__1271-1304</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -18348,7 +18348,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>245</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650600</Iteration_query-ID>
+  <Iteration_query-ID>Query_512578</Iteration_query-ID>
   <Iteration_query-def>gene-STM2640::NC_003197.2:2779430-2780006(-)__289-295</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -18367,7 +18367,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>246</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650601</Iteration_query-ID>
+  <Iteration_query-ID>Query_512579</Iteration_query-ID>
   <Iteration_query-def>gene-STM2669::NC_003197.2:2810346-2811477(-)__512-578</Iteration_query-def>
   <Iteration_query-len>21</Iteration_query-len>
 <Iteration_hits>
@@ -18386,7 +18386,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>247</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650602</Iteration_query-ID>
+  <Iteration_query-ID>Query_512580</Iteration_query-ID>
   <Iteration_query-def>gene-STM2685::NC_003197.2:2825076-2825714(+)__56-92</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -18405,7 +18405,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>248</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650603</Iteration_query-ID>
+  <Iteration_query-ID>Query_512581</Iteration_query-ID>
   <Iteration_query-def>gene-STM2782::NC_003197.2:2929598-2934593(+)__1128-1227</Iteration_query-def>
   <Iteration_query-len>32</Iteration_query-len>
 <Iteration_hits>
@@ -18452,7 +18452,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>249</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650604</Iteration_query-ID>
+  <Iteration_query-ID>Query_512582</Iteration_query-ID>
   <Iteration_query-def>gene-STM2782::NC_003197.2:2929598-2934593(+)__1419-1434</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -18471,7 +18471,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>250</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650605</Iteration_query-ID>
+  <Iteration_query-ID>Query_512583</Iteration_query-ID>
   <Iteration_query-def>gene-STM2813::NC_003197.2:2961124-2961655(+)__508-529</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -18490,7 +18490,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>251</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650606</Iteration_query-ID>
+  <Iteration_query-ID>Query_512584</Iteration_query-ID>
   <Iteration_query-def>gene-STM2826::NC_003197.2:2970954-2971374(-)__328-337</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -18509,7 +18509,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>252</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650607</Iteration_query-ID>
+  <Iteration_query-ID>Query_512585</Iteration_query-ID>
   <Iteration_query-def>gene-STM2866::NC_003197.2:3010973-3012113(-)__892-904</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -18528,7 +18528,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>253</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650608</Iteration_query-ID>
+  <Iteration_query-ID>Query_512586</Iteration_query-ID>
   <Iteration_query-def>gene-STM2866::NC_003197.2:3010973-3012113(-)__1106-1139</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -18547,7 +18547,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>254</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650609</Iteration_query-ID>
+  <Iteration_query-ID>Query_512587</Iteration_query-ID>
   <Iteration_query-def>gene-STM2871::NC_003197.2:3015002-3016081(-)__729-774</Iteration_query-def>
   <Iteration_query-len>14</Iteration_query-len>
 <Iteration_hits>
@@ -18594,7 +18594,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>255</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650610</Iteration_query-ID>
+  <Iteration_query-ID>Query_512588</Iteration_query-ID>
   <Iteration_query-def>gene-STM2874::NC_003197.2:3016348-3017735(-)__632-638</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -18613,7 +18613,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>256</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650611</Iteration_query-ID>
+  <Iteration_query-ID>Query_512589</Iteration_query-ID>
   <Iteration_query-def>gene-STM2875::NC_003197.2:3017842-3018772(+)__514-532</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -18632,7 +18632,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>257</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650612</Iteration_query-ID>
+  <Iteration_query-ID>Query_512590</Iteration_query-ID>
   <Iteration_query-def>gene-STM2876::NC_003197.2:3019862-3021524(+)__1583-1592</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -18651,7 +18651,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>258</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650613</Iteration_query-ID>
+  <Iteration_query-ID>Query_512591</Iteration_query-ID>
   <Iteration_query-def>gene-STM2877::NC_003197.2:3021541-3022024(+)__50-59</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -18670,7 +18670,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>259</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650614</Iteration_query-ID>
+  <Iteration_query-ID>Query_512592</Iteration_query-ID>
   <Iteration_query-def>gene-STM2877::NC_003197.2:3021541-3022024(+)__391-427</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -18689,7 +18689,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>260</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650615</Iteration_query-ID>
+  <Iteration_query-ID>Query_512593</Iteration_query-ID>
   <Iteration_query-def>gene-STM2878::NC_003197.2:3022077-3024088(-)__1391-1415</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -18708,7 +18708,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>261</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650616</Iteration_query-ID>
+  <Iteration_query-ID>Query_512594</Iteration_query-ID>
   <Iteration_query-def>gene-STM2885::NC_003197.2:3029120-3030904(-)__294-345</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -18755,7 +18755,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>262</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650617</Iteration_query-ID>
+  <Iteration_query-ID>Query_512595</Iteration_query-ID>
   <Iteration_query-def>gene-STM2885::NC_003197.2:3029120-3030904(-)__1233-1326</Iteration_query-def>
   <Iteration_query-len>30</Iteration_query-len>
 <Iteration_hits>
@@ -18774,7 +18774,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>263</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650618</Iteration_query-ID>
+  <Iteration_query-ID>Query_512596</Iteration_query-ID>
   <Iteration_query-def>gene-STM2891::NC_003197.2:3034341-3036262(-)__999-1035</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -18793,7 +18793,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>264</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650619</Iteration_query-ID>
+  <Iteration_query-ID>Query_512597</Iteration_query-ID>
   <Iteration_query-def>gene-STM2891::NC_003197.2:3034341-3036262(-)__1412-1475</Iteration_query-def>
   <Iteration_query-len>20</Iteration_query-len>
 <Iteration_hits>
@@ -18840,7 +18840,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>265</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650620</Iteration_query-ID>
+  <Iteration_query-ID>Query_512598</Iteration_query-ID>
   <Iteration_query-def>gene-STM2892::NC_003197.2:3035252-3036683(-)__541-580</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -18859,7 +18859,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>266</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650621</Iteration_query-ID>
+  <Iteration_query-ID>Query_512599</Iteration_query-ID>
   <Iteration_query-def>gene-STM2894::NC_003197.2:3036683-3038406(-)__962-1127</Iteration_query-def>
   <Iteration_query-len>54</Iteration_query-len>
 <Iteration_hits>
@@ -18906,7 +18906,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>267</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650622</Iteration_query-ID>
+  <Iteration_query-ID>Query_512600</Iteration_query-ID>
   <Iteration_query-def>gene-STM2894::NC_003197.2:3036683-3038406(-)__1373-1412</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -18925,7 +18925,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>268</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650623</Iteration_query-ID>
+  <Iteration_query-ID>Query_512601</Iteration_query-ID>
   <Iteration_query-def>gene-STM2894::NC_003197.2:3036683-3038406(-)__543-738</Iteration_query-def>
   <Iteration_query-len>64</Iteration_query-len>
 <Iteration_hits>
@@ -19084,7 +19084,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>269</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650624</Iteration_query-ID>
+  <Iteration_query-ID>Query_512602</Iteration_query-ID>
   <Iteration_query-def>gene-STM2894::NC_003197.2:3036683-3038406(-)__1478-1535</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -19103,7 +19103,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>270</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650625</Iteration_query-ID>
+  <Iteration_query-ID>Query_512603</Iteration_query-ID>
   <Iteration_query-def>gene-STM2896::NC_003197.2:3038406-3040488(-)__1708-1798</Iteration_query-def>
   <Iteration_query-len>29</Iteration_query-len>
 <Iteration_hits>
@@ -19150,7 +19150,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>271</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650626</Iteration_query-ID>
+  <Iteration_query-ID>Query_512604</Iteration_query-ID>
   <Iteration_query-def>gene-STM2952::NC_003197.2:3097370-3098751(-)__641-674</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -19169,7 +19169,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>272</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650627</Iteration_query-ID>
+  <Iteration_query-ID>Query_512605</Iteration_query-ID>
   <Iteration_query-def>gene-STM2968::NC_003197.2:3117887-3118848(+)__115-133</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -19188,7 +19188,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>273</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650628</Iteration_query-ID>
+  <Iteration_query-ID>Query_512606</Iteration_query-ID>
   <Iteration_query-def>gene-STM2991::NC_003197.2:3141361-3143532(-)__1353-1530</Iteration_query-def>
   <Iteration_query-len>58</Iteration_query-len>
 <Iteration_hits>
@@ -19319,7 +19319,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>274</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650629</Iteration_query-ID>
+  <Iteration_query-ID>Query_512607</Iteration_query-ID>
   <Iteration_query-def>gene-STM2994::NC_003197.2:3146113-3152717(-)__3062-3104</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -19366,7 +19366,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>275</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650630</Iteration_query-ID>
+  <Iteration_query-ID>Query_512608</Iteration_query-ID>
   <Iteration_query-def>gene-STM2994::NC_003197.2:3146113-3152717(-)__5688-5754</Iteration_query-def>
   <Iteration_query-len>21</Iteration_query-len>
 <Iteration_hits>
@@ -19385,7 +19385,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>276</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650631</Iteration_query-ID>
+  <Iteration_query-ID>Query_512609</Iteration_query-ID>
   <Iteration_query-def>gene-STM3001::NC_003197.2:3158022-3158823(-)__511-568</Iteration_query-def>
   <Iteration_query-len>18</Iteration_query-len>
 <Iteration_hits>
@@ -19488,7 +19488,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>277</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650632</Iteration_query-ID>
+  <Iteration_query-ID>Query_512610</Iteration_query-ID>
   <Iteration_query-def>gene-STM3009::NC_003197.2:3166682-3172700(-)__4686-4737</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -19563,7 +19563,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>278</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650633</Iteration_query-ID>
+  <Iteration_query-ID>Query_512611</Iteration_query-ID>
   <Iteration_query-def>gene-STM3009::NC_003197.2:3166682-3172700(-)__2889-2967</Iteration_query-def>
   <Iteration_query-len>25</Iteration_query-len>
 <Iteration_hits>
@@ -19610,7 +19610,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>279</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650634</Iteration_query-ID>
+  <Iteration_query-ID>Query_512612</Iteration_query-ID>
   <Iteration_query-def>gene-STM3053::NC_003197.2:3212142-3215016(-)__1657-1672</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -19629,7 +19629,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>280</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650635</Iteration_query-ID>
+  <Iteration_query-ID>Query_512613</Iteration_query-ID>
   <Iteration_query-def>gene-STM3067::NC_003197.2:3228429-3229290(-)__13-31</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -19648,7 +19648,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>281</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650636</Iteration_query-ID>
+  <Iteration_query-ID>Query_512614</Iteration_query-ID>
   <Iteration_query-def>gene-STM3067::NC_003197.2:3228429-3229290(-)__716-725</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -19667,7 +19667,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>282</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650637</Iteration_query-ID>
+  <Iteration_query-ID>Query_512615</Iteration_query-ID>
   <Iteration_query-def>gene-STM3070::NC_003197.2:3231882-3232929(-)__283-415</Iteration_query-def>
   <Iteration_query-len>43</Iteration_query-len>
 <Iteration_hits>
@@ -19686,7 +19686,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>283</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650638</Iteration_query-ID>
+  <Iteration_query-ID>Query_512616</Iteration_query-ID>
   <Iteration_query-def>gene-STM3070::NC_003197.2:3231882-3232929(-)__964-994</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -19705,7 +19705,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>284</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650639</Iteration_query-ID>
+  <Iteration_query-ID>Query_512617</Iteration_query-ID>
   <Iteration_query-def>gene-STM3076::NC_003197.2:3236398-3238390(-)__100-136</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -19724,7 +19724,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>285</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650640</Iteration_query-ID>
+  <Iteration_query-ID>Query_512618</Iteration_query-ID>
   <Iteration_query-def>gene-STM3076::NC_003197.2:3236398-3238390(-)__967-988</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -19743,7 +19743,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>286</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650641</Iteration_query-ID>
+  <Iteration_query-ID>Query_512619</Iteration_query-ID>
   <Iteration_query-def>gene-STM3078::NC_003197.2:3239524-3240649(-)__247-277</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -19762,7 +19762,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>287</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650642</Iteration_query-ID>
+  <Iteration_query-ID>Query_512620</Iteration_query-ID>
   <Iteration_query-def>gene-STM3078::NC_003197.2:3239524-3240649(-)__305-332</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -19781,7 +19781,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>288</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650643</Iteration_query-ID>
+  <Iteration_query-ID>Query_512621</Iteration_query-ID>
   <Iteration_query-def>gene-STM3106::NC_003197.2:3265487-3266722(-)__960-975</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -19800,7 +19800,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>289</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650644</Iteration_query-ID>
+  <Iteration_query-ID>Query_512622</Iteration_query-ID>
   <Iteration_query-def>gene-STM3108::NC_003197.2:3267491-3272779(-)__5130-5166</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -19819,7 +19819,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>290</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650645</Iteration_query-ID>
+  <Iteration_query-ID>Query_512623</Iteration_query-ID>
   <Iteration_query-def>gene-STM3114::NC_003197.2:3272779-3276386(-)__95-137</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -19838,7 +19838,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>291</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650646</Iteration_query-ID>
+  <Iteration_query-ID>Query_512624</Iteration_query-ID>
   <Iteration_query-def>gene-STM3139::NC_003197.2:3302353-3305352(-)__1044-1146</Iteration_query-def>
   <Iteration_query-len>33</Iteration_query-len>
 <Iteration_hits>
@@ -19913,7 +19913,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>292</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650647</Iteration_query-ID>
+  <Iteration_query-ID>Query_512625</Iteration_query-ID>
   <Iteration_query-def>gene-STM3148::NC_003197.2:3310493-3312650(-)__429-633</Iteration_query-def>
   <Iteration_query-len>67</Iteration_query-len>
 <Iteration_hits>
@@ -20072,7 +20072,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>293</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650648</Iteration_query-ID>
+  <Iteration_query-ID>Query_512626</Iteration_query-ID>
   <Iteration_query-def>gene-STM3148::NC_003197.2:3310493-3312650(-)__1949-2063</Iteration_query-def>
   <Iteration_query-len>37</Iteration_query-len>
 <Iteration_hits>
@@ -20203,7 +20203,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>294</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650649</Iteration_query-ID>
+  <Iteration_query-ID>Query_512627</Iteration_query-ID>
   <Iteration_query-def>gene-STM3148::NC_003197.2:3310493-3312650(-)__756-795</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -20222,7 +20222,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>295</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650650</Iteration_query-ID>
+  <Iteration_query-ID>Query_512628</Iteration_query-ID>
   <Iteration_query-def>gene-STM3148::NC_003197.2:3310493-3312650(-)__1657-1687</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -20241,7 +20241,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>296</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650651</Iteration_query-ID>
+  <Iteration_query-ID>Query_512629</Iteration_query-ID>
   <Iteration_query-def>gene-STM3148::NC_003197.2:3310493-3312650(-)__75-291</Iteration_query-def>
   <Iteration_query-len>71</Iteration_query-len>
 <Iteration_hits>
@@ -20288,7 +20288,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>297</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650652</Iteration_query-ID>
+  <Iteration_query-ID>Query_512630</Iteration_query-ID>
   <Iteration_query-def>gene-STM3148::NC_003197.2:3310493-3312650(-)__1429-1477</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -20307,7 +20307,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>298</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650653</Iteration_query-ID>
+  <Iteration_query-ID>Query_512631</Iteration_query-ID>
   <Iteration_query-def>gene-STM3152::NC_003197.2:3314330-3316280(-)__1930-1948</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -20326,7 +20326,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>299</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650654</Iteration_query-ID>
+  <Iteration_query-ID>Query_512632</Iteration_query-ID>
   <Iteration_query-def>gene-STM3153::NC_003197.2:3316280-3317054(-)__475-493</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -20345,7 +20345,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>300</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650655</Iteration_query-ID>
+  <Iteration_query-ID>Query_512633</Iteration_query-ID>
   <Iteration_query-def>gene-STM3159::NC_003197.2:3320015-3323051(-)__152-182</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -20364,7 +20364,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>301</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650656</Iteration_query-ID>
+  <Iteration_query-ID>Query_512634</Iteration_query-ID>
   <Iteration_query-def>gene-STM3173::NC_003197.2:3335959-3336953(-)__881-929</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -20383,7 +20383,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>302</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650657</Iteration_query-ID>
+  <Iteration_query-ID>Query_512635</Iteration_query-ID>
   <Iteration_query-def>gene-STM3176::NC_003197.2:3340260-3343968(-)__3280-3313</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -20402,7 +20402,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>303</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650658</Iteration_query-ID>
+  <Iteration_query-ID>Query_512636</Iteration_query-ID>
   <Iteration_query-def>gene-STM3181::NC_003197.2:3343968-3345888(-)__1411-1459</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -20449,7 +20449,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>304</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650659</Iteration_query-ID>
+  <Iteration_query-ID>Query_512637</Iteration_query-ID>
   <Iteration_query-def>gene-STM3201::NC_003197.2:3364046-3367007(-)__769-829</Iteration_query-def>
   <Iteration_query-len>19</Iteration_query-len>
 <Iteration_hits>
@@ -20496,7 +20496,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>305</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650660</Iteration_query-ID>
+  <Iteration_query-ID>Query_512638</Iteration_query-ID>
   <Iteration_query-def>gene-STM3202::NC_003197.2:3367007-3368374(-)__1221-1365</Iteration_query-def>
   <Iteration_query-len>47</Iteration_query-len>
 <Iteration_hits>
@@ -21383,7 +21383,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>306</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650661</Iteration_query-ID>
+  <Iteration_query-ID>Query_512639</Iteration_query-ID>
   <Iteration_query-def>gene-STM3204::NC_003197.2:3369227-3370469(+)__1189-1240</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -21402,7 +21402,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>307</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650662</Iteration_query-ID>
+  <Iteration_query-ID>Query_512640</Iteration_query-ID>
   <Iteration_query-def>gene-STM3207::NC_003197.2:3371958-3372570(+)__4-25</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -21421,7 +21421,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>308</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650663</Iteration_query-ID>
+  <Iteration_query-ID>Query_512641</Iteration_query-ID>
   <Iteration_query-def>gene-STM3217::NC_003197.2:3382761-3384282(-)__835-844</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -21440,7 +21440,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>309</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650664</Iteration_query-ID>
+  <Iteration_query-ID>Query_512642</Iteration_query-ID>
   <Iteration_query-def>gene-STM3235::NC_003197.2:3400018-3400915(-)__682-895</Iteration_query-def>
   <Iteration_query-len>70</Iteration_query-len>
 <Iteration_hits>
@@ -21879,7 +21879,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>310</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650665</Iteration_query-ID>
+  <Iteration_query-ID>Query_512643</Iteration_query-ID>
   <Iteration_query-def>gene-STM3281::NC_003197.2:3448259-3449253(-)__965-992</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -21898,7 +21898,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>311</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650666</Iteration_query-ID>
+  <Iteration_query-ID>Query_512644</Iteration_query-ID>
   <Iteration_query-def>gene-STM3284::NC_003197.2:3452050-3453616(-)__1196-1385</Iteration_query-def>
   <Iteration_query-len>62</Iteration_query-len>
 <Iteration_hits>
@@ -22113,7 +22113,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>312</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650667</Iteration_query-ID>
+  <Iteration_query-ID>Query_512645</Iteration_query-ID>
   <Iteration_query-def>gene-STM3288::NC_003197.2:3457849-3458512(-)__43-112</Iteration_query-def>
   <Iteration_query-len>22</Iteration_query-len>
 <Iteration_hits>
@@ -22132,7 +22132,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>313</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650668</Iteration_query-ID>
+  <Iteration_query-ID>Query_512646</Iteration_query-ID>
   <Iteration_query-def>gene-STM3288::NC_003197.2:3457849-3458512(-)__469-583</Iteration_query-def>
   <Iteration_query-len>37</Iteration_query-len>
 <Iteration_hits>
@@ -22151,7 +22151,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>314</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650669</Iteration_query-ID>
+  <Iteration_query-ID>Query_512647</Iteration_query-ID>
   <Iteration_query-def>gene-STM3311::NC_003197.2:3477606-3478162(-)__92-98</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -22170,7 +22170,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>315</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650670</Iteration_query-ID>
+  <Iteration_query-ID>Query_512648</Iteration_query-ID>
   <Iteration_query-def>gene-STM3317::NC_003197.2:3482538-3483643(+)__340-418</Iteration_query-def>
   <Iteration_query-len>25</Iteration_query-len>
 <Iteration_hits>
@@ -22189,7 +22189,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>316</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650671</Iteration_query-ID>
+  <Iteration_query-ID>Query_512649</Iteration_query-ID>
   <Iteration_query-def>gene-STM3317::NC_003197.2:3482538-3483643(+)__278-299</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -22208,7 +22208,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>317</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650672</Iteration_query-ID>
+  <Iteration_query-ID>Query_512650</Iteration_query-ID>
   <Iteration_query-def>gene-STM3438::NC_003197.2:3594648-3595563(-)__158-167</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -22227,7 +22227,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>318</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650673</Iteration_query-ID>
+  <Iteration_query-ID>Query_512651</Iteration_query-ID>
   <Iteration_query-def>gene-STM3493::NC_003197.2:3646636-3650194(+)__493-517</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -22246,7 +22246,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>319</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650674</Iteration_query-ID>
+  <Iteration_query-ID>Query_512652</Iteration_query-ID>
   <Iteration_query-def>gene-STM3504::NC_003197.2:3661136-3663900(+)__409-496</Iteration_query-def>
   <Iteration_query-len>28</Iteration_query-len>
 <Iteration_hits>
@@ -22349,7 +22349,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>320</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650675</Iteration_query-ID>
+  <Iteration_query-ID>Query_512653</Iteration_query-ID>
   <Iteration_query-def>gene-STM3514::NC_003197.2:3673923-3676317(-)__1229-1376</Iteration_query-def>
   <Iteration_query-len>48</Iteration_query-len>
 <Iteration_hits>
@@ -22536,7 +22536,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>321</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650676</Iteration_query-ID>
+  <Iteration_query-ID>Query_512654</Iteration_query-ID>
   <Iteration_query-def>gene-STM3515::NC_003197.2:3676910-3679616(+)__1345-1531</Iteration_query-def>
   <Iteration_query-len>61</Iteration_query-len>
 <Iteration_hits>
@@ -22667,7 +22667,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>322</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650677</Iteration_query-ID>
+  <Iteration_query-ID>Query_512655</Iteration_query-ID>
   <Iteration_query-def>gene-STM3515::NC_003197.2:3676910-3679616(+)__1033-1192</Iteration_query-def>
   <Iteration_query-len>52</Iteration_query-len>
 <Iteration_hits>
@@ -22994,7 +22994,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>323</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650678</Iteration_query-ID>
+  <Iteration_query-ID>Query_512656</Iteration_query-ID>
   <Iteration_query-def>gene-STM3517::NC_003197.2:3679981-3680242(-)__232-253</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -23013,7 +23013,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>324</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650679</Iteration_query-ID>
+  <Iteration_query-ID>Query_512657</Iteration_query-ID>
   <Iteration_query-def>gene-STM3517::NC_003197.2:3679981-3680242(-)__10-46</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -23032,7 +23032,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>325</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650680</Iteration_query-ID>
+  <Iteration_query-ID>Query_512658</Iteration_query-ID>
   <Iteration_query-def>gene-STM3543::NC_003197.2:3712178-3713303(-)__79-133</Iteration_query-def>
   <Iteration_query-len>17</Iteration_query-len>
 <Iteration_hits>
@@ -23191,7 +23191,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>326</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650681</Iteration_query-ID>
+  <Iteration_query-ID>Query_512659</Iteration_query-ID>
   <Iteration_query-def>gene-STM3543::NC_003197.2:3712178-3713303(-)__361-499</Iteration_query-def>
   <Iteration_query-len>45</Iteration_query-len>
 <Iteration_hits>
@@ -23210,7 +23210,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>327</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650682</Iteration_query-ID>
+  <Iteration_query-ID>Query_512660</Iteration_query-ID>
   <Iteration_query-def>gene-STM3567::NC_003197.2:3734513-3735938(-)__10-34</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -23229,7 +23229,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>328</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650683</Iteration_query-ID>
+  <Iteration_query-ID>Query_512661</Iteration_query-ID>
   <Iteration_query-def>gene-STM3568::NC_003197.2:3735938-3736793(-)__622-676</Iteration_query-def>
   <Iteration_query-len>17</Iteration_query-len>
 <Iteration_hits>
@@ -23248,7 +23248,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>329</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650684</Iteration_query-ID>
+  <Iteration_query-ID>Query_512662</Iteration_query-ID>
   <Iteration_query-def>gene-STM3568::NC_003197.2:3735938-3736793(-)__359-374</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -23267,7 +23267,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>330</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650685</Iteration_query-ID>
+  <Iteration_query-ID>Query_512663</Iteration_query-ID>
   <Iteration_query-def>gene-STM3576::NC_003197.2:3742455-3744853(+)__1441-1549</Iteration_query-def>
   <Iteration_query-len>35</Iteration_query-len>
 <Iteration_hits>
@@ -23286,7 +23286,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>331</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650686</Iteration_query-ID>
+  <Iteration_query-ID>Query_512664</Iteration_query-ID>
   <Iteration_query-def>gene-STM3589::NC_003197.2:3758507-3760004(+)__859-871</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -23305,7 +23305,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>332</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650687</Iteration_query-ID>
+  <Iteration_query-ID>Query_512665</Iteration_query-ID>
   <Iteration_query-def>gene-STM3590::NC_003197.2:3760143-3763186(-)__2739-2760</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -23324,7 +23324,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>333</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650688</Iteration_query-ID>
+  <Iteration_query-ID>Query_512666</Iteration_query-ID>
   <Iteration_query-def>gene-STM3591::NC_003197.2:3760866-3761301(+)__118-124</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -23343,7 +23343,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>334</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650689</Iteration_query-ID>
+  <Iteration_query-ID>Query_512667</Iteration_query-ID>
   <Iteration_query-def>gene-STM3594::NC_003197.2:3763951-3766175(-)__708-732</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -23362,7 +23362,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>335</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650690</Iteration_query-ID>
+  <Iteration_query-ID>Query_512668</Iteration_query-ID>
   <Iteration_query-def>gene-STM3597::NC_003197.2:3768604-3769957(+)__760-772</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -23381,7 +23381,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>336</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650691</Iteration_query-ID>
+  <Iteration_query-ID>Query_512669</Iteration_query-ID>
   <Iteration_query-def>gene-STM3598::NC_003197.2:3770003-3771105(-)__401-440</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -23400,7 +23400,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>337</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650692</Iteration_query-ID>
+  <Iteration_query-ID>Query_512670</Iteration_query-ID>
   <Iteration_query-def>gene-STM3599::NC_003197.2:3771105-3772478(-)__168-177</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -23419,7 +23419,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>338</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650693</Iteration_query-ID>
+  <Iteration_query-ID>Query_512671</Iteration_query-ID>
   <Iteration_query-def>gene-STM3611::NC_003197.2:3786595-3788574(-)__1675-1687</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -23438,7 +23438,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>339</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650694</Iteration_query-ID>
+  <Iteration_query-ID>Query_512672</Iteration_query-ID>
   <Iteration_query-def>gene-STM3646::NC_003197.2:3833698-3834673(+)__424-619</Iteration_query-def>
   <Iteration_query-len>64</Iteration_query-len>
 <Iteration_hits>
@@ -23625,7 +23625,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>340</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650695</Iteration_query-ID>
+  <Iteration_query-ID>Query_512673</Iteration_query-ID>
   <Iteration_query-def>gene-STM3646::NC_003197.2:3833698-3834673(+)__739-781</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -23644,7 +23644,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>341</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650696</Iteration_query-ID>
+  <Iteration_query-ID>Query_512674</Iteration_query-ID>
   <Iteration_query-def>gene-STM3651::NC_003197.2:3837747-3838685(-)__208-334</Iteration_query-def>
   <Iteration_query-len>41</Iteration_query-len>
 <Iteration_hits>
@@ -23663,7 +23663,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>342</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650697</Iteration_query-ID>
+  <Iteration_query-ID>Query_512675</Iteration_query-ID>
   <Iteration_query-def>gene-STM3656::NC_003197.2:3841860-3842910(-)__194-401</Iteration_query-def>
   <Iteration_query-len>68</Iteration_query-len>
 <Iteration_hits>
@@ -23738,7 +23738,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>343</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650698</Iteration_query-ID>
+  <Iteration_query-ID>Query_512676</Iteration_query-ID>
   <Iteration_query-def>gene-STM3661::NC_003197.2:3846478-3849402(-)__1552-1618</Iteration_query-def>
   <Iteration_query-len>21</Iteration_query-len>
 <Iteration_hits>
@@ -23757,7 +23757,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>344</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650699</Iteration_query-ID>
+  <Iteration_query-ID>Query_512677</Iteration_query-ID>
   <Iteration_query-def>gene-STM3680::NC_003197.2:3867984-3870857(-)__2181-2355</Iteration_query-def>
   <Iteration_query-len>57</Iteration_query-len>
 <Iteration_hits>
@@ -23888,7 +23888,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>345</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650700</Iteration_query-ID>
+  <Iteration_query-ID>Query_512678</Iteration_query-ID>
   <Iteration_query-def>gene-STM3685::NC_003197.2:3875278-3877415(+)__347-362</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -23907,7 +23907,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>346</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650701</Iteration_query-ID>
+  <Iteration_query-ID>Query_512679</Iteration_query-ID>
   <Iteration_query-def>gene-STM3685::NC_003197.2:3875278-3877415(+)__326-335</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -23926,7 +23926,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>347</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650702</Iteration_query-ID>
+  <Iteration_query-ID>Query_512680</Iteration_query-ID>
   <Iteration_query-def>gene-STM3685::NC_003197.2:3875278-3877415(+)__724-793</Iteration_query-def>
   <Iteration_query-len>22</Iteration_query-len>
 <Iteration_hits>
@@ -24001,7 +24001,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>348</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650703</Iteration_query-ID>
+  <Iteration_query-ID>Query_512681</Iteration_query-ID>
   <Iteration_query-def>gene-STM3700::NC_003197.2:3895028-3896515(-)__610-700</Iteration_query-def>
   <Iteration_query-len>29</Iteration_query-len>
 <Iteration_hits>
@@ -24020,7 +24020,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>349</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650704</Iteration_query-ID>
+  <Iteration_query-ID>Query_512682</Iteration_query-ID>
   <Iteration_query-def>gene-STM3709::NC_003197.2:3903928-3905125(-)__610-622</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -24039,7 +24039,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>350</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650705</Iteration_query-ID>
+  <Iteration_query-ID>Query_512683</Iteration_query-ID>
   <Iteration_query-def>gene-STM3718::NC_003197.2:3913526-3914545(-)__204-240</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -24058,7 +24058,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>351</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650706</Iteration_query-ID>
+  <Iteration_query-ID>Query_512684</Iteration_query-ID>
   <Iteration_query-def>gene-STM3718::NC_003197.2:3913526-3914545(-)__889-916</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -24077,7 +24077,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>352</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650707</Iteration_query-ID>
+  <Iteration_query-ID>Query_512685</Iteration_query-ID>
   <Iteration_query-def>gene-STM3719::NC_003197.2:3914545-3915694(-)__346-463</Iteration_query-def>
   <Iteration_query-len>38</Iteration_query-len>
 <Iteration_hits>
@@ -24180,7 +24180,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>353</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650708</Iteration_query-ID>
+  <Iteration_query-ID>Query_512686</Iteration_query-ID>
   <Iteration_query-def>gene-STM3719::NC_003197.2:3914545-3915694(-)__16-34</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -24199,7 +24199,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>354</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650709</Iteration_query-ID>
+  <Iteration_query-ID>Query_512687</Iteration_query-ID>
   <Iteration_query-def>gene-STM3722::NC_003197.2:3916749-3918905(-)__1038-1185</Iteration_query-def>
   <Iteration_query-len>48</Iteration_query-len>
 <Iteration_hits>
@@ -24386,7 +24386,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>355</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650710</Iteration_query-ID>
+  <Iteration_query-ID>Query_512688</Iteration_query-ID>
   <Iteration_query-def>gene-STM3746::NC_003197.2:3939830-3941281(-)__733-829</Iteration_query-def>
   <Iteration_query-len>31</Iteration_query-len>
 <Iteration_hits>
@@ -24517,7 +24517,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>356</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650711</Iteration_query-ID>
+  <Iteration_query-ID>Query_512689</Iteration_query-ID>
   <Iteration_query-def>gene-STM3748::NC_003197.2:3942775-3944485(+)__800-821</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -24536,7 +24536,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>357</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650712</Iteration_query-ID>
+  <Iteration_query-ID>Query_512690</Iteration_query-ID>
   <Iteration_query-def>gene-STM3755::NC_003197.2:3951744-3952782(+)__742-769</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -24555,7 +24555,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>358</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650713</Iteration_query-ID>
+  <Iteration_query-ID>Query_512691</Iteration_query-ID>
   <Iteration_query-def>gene-STM3763::NC_003197.2:3961553-3964499(-)__50-77</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -24574,7 +24574,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>359</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650714</Iteration_query-ID>
+  <Iteration_query-ID>Query_512692</Iteration_query-ID>
   <Iteration_query-def>gene-STM3764::NC_003197.2:3964499-3966648(-)__1340-1391</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -24621,7 +24621,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>360</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650715</Iteration_query-ID>
+  <Iteration_query-ID>Query_512693</Iteration_query-ID>
   <Iteration_query-def>gene-STM3842::NC_003197.2:4046437-4048084(+)__1597-1645</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -24640,7 +24640,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>361</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650716</Iteration_query-ID>
+  <Iteration_query-ID>Query_512694</Iteration_query-ID>
   <Iteration_query-def>gene-STM3862::NC_003197.2:4071065-4072755(-)__1139-1172</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -24659,7 +24659,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>362</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650717</Iteration_query-ID>
+  <Iteration_query-ID>Query_512695</Iteration_query-ID>
   <Iteration_query-def>gene-STM3869::NC_003197.2:4078548-4079078(-)__180-255</Iteration_query-def>
   <Iteration_query-len>24</Iteration_query-len>
 <Iteration_hits>
@@ -24678,7 +24678,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>363</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650718</Iteration_query-ID>
+  <Iteration_query-ID>Query_512696</Iteration_query-ID>
   <Iteration_query-def>gene-STM3880::NC_003197.2:4089606-4091671(+)__848-1028</Iteration_query-def>
   <Iteration_query-len>59</Iteration_query-len>
 <Iteration_hits>
@@ -24977,7 +24977,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>364</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650719</Iteration_query-ID>
+  <Iteration_query-ID>Query_512697</Iteration_query-ID>
   <Iteration_query-def>gene-STM3880::NC_003197.2:4089606-4091671(+)__1384-1459</Iteration_query-def>
   <Iteration_query-len>24</Iteration_query-len>
 <Iteration_hits>
@@ -24996,7 +24996,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>365</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650720</Iteration_query-ID>
+  <Iteration_query-ID>Query_512698</Iteration_query-ID>
   <Iteration_query-def>gene-STM3909::NC_003197.2:4117389-4119221(+)__952-985</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -25015,7 +25015,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>366</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650721</Iteration_query-ID>
+  <Iteration_query-ID>Query_512699</Iteration_query-ID>
   <Iteration_query-def>gene-STM3909::NC_003197.2:4117389-4119221(+)__578-836</Iteration_query-def>
   <Iteration_query-len>85</Iteration_query-len>
 <Iteration_hits>
@@ -25314,7 +25314,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>367</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650722</Iteration_query-ID>
+  <Iteration_query-ID>Query_512700</Iteration_query-ID>
   <Iteration_query-def>gene-STM3912::NC_003197.2:4119775-4121800(+)__1537-1576</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -25333,7 +25333,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>368</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650723</Iteration_query-ID>
+  <Iteration_query-ID>Query_512701</Iteration_query-ID>
   <Iteration_query-def>gene-STM3917::NC_003197.2:4125596-4127085(+)__445-472</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -25352,7 +25352,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>369</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650724</Iteration_query-ID>
+  <Iteration_query-ID>Query_512702</Iteration_query-ID>
   <Iteration_query-def>gene-STM3921::NC_003197.2:4130429-4132061(+)__19-118</Iteration_query-def>
   <Iteration_query-len>32</Iteration_query-len>
 <Iteration_hits>
@@ -25371,7 +25371,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>370</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650725</Iteration_query-ID>
+  <Iteration_query-ID>Query_512703</Iteration_query-ID>
   <Iteration_query-def>gene-STM3930::NC_003197.2:4139432-4140818(+)__914-1094</Iteration_query-def>
   <Iteration_query-len>59</Iteration_query-len>
 <Iteration_hits>
@@ -25586,7 +25586,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>371</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650726</Iteration_query-ID>
+  <Iteration_query-ID>Query_512704</Iteration_query-ID>
   <Iteration_query-def>gene-STM3930::NC_003197.2:4139432-4140818(+)__526-565</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -25605,7 +25605,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>372</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650727</Iteration_query-ID>
+  <Iteration_query-ID>Query_512705</Iteration_query-ID>
   <Iteration_query-def>gene-STM3951::NC_003197.2:4155553-4158187(+)__901-1192</Iteration_query-def>
   <Iteration_query-len>96</Iteration_query-len>
 <Iteration_hits>
@@ -25960,7 +25960,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>373</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650728</Iteration_query-ID>
+  <Iteration_query-ID>Query_512706</Iteration_query-ID>
   <Iteration_query-def>gene-STM3971::NC_003197.2:4178068-4180311(+)__1645-1672</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -25979,7 +25979,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>374</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650729</Iteration_query-ID>
+  <Iteration_query-ID>Query_512707</Iteration_query-ID>
   <Iteration_query-def>gene-STM3984::NC_003197.2:4191701-4193647(+)__782-803</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -25998,7 +25998,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>375</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650730</Iteration_query-ID>
+  <Iteration_query-ID>Query_512708</Iteration_query-ID>
   <Iteration_query-def>gene-STM3995::NC_003197.2:4202862-4203132(+)__28-76</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -26017,7 +26017,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>376</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650731</Iteration_query-ID>
+  <Iteration_query-ID>Query_512709</Iteration_query-ID>
   <Iteration_query-def>gene-STM4058::NC_003197.2:4268388-4280254(-)__9819-9837</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -26036,7 +26036,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>377</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650732</Iteration_query-ID>
+  <Iteration_query-ID>Query_512710</Iteration_query-ID>
   <Iteration_query-def>gene-STM4067::NC_003197.2:4277930-4278971(+)__187-337</Iteration_query-def>
   <Iteration_query-len>49</Iteration_query-len>
 <Iteration_hits>
@@ -26055,7 +26055,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>378</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650733</Iteration_query-ID>
+  <Iteration_query-ID>Query_512711</Iteration_query-ID>
   <Iteration_query-def>gene-STM4067::NC_003197.2:4277930-4278971(+)__161-191</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -26074,7 +26074,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>379</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650734</Iteration_query-ID>
+  <Iteration_query-ID>Query_512712</Iteration_query-ID>
   <Iteration_query-def>gene-STM4072::NC_003197.2:4280618-4282298(-)__793-856</Iteration_query-def>
   <Iteration_query-len>20</Iteration_query-len>
 <Iteration_hits>
@@ -26093,7 +26093,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>380</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650735</Iteration_query-ID>
+  <Iteration_query-ID>Query_512713</Iteration_query-ID>
   <Iteration_query-def>gene-STM4073::NC_003197.2:4282298-4286735(-)__3499-3568</Iteration_query-def>
   <Iteration_query-len>22</Iteration_query-len>
 <Iteration_hits>
@@ -26112,7 +26112,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>381</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650736</Iteration_query-ID>
+  <Iteration_query-ID>Query_512714</Iteration_query-ID>
   <Iteration_query-def>gene-STM4087::NC_003197.2:4295883-4297549(-)__902-977</Iteration_query-def>
   <Iteration_query-len>24</Iteration_query-len>
 <Iteration_hits>
@@ -26215,7 +26215,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>382</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650737</Iteration_query-ID>
+  <Iteration_query-ID>Query_512715</Iteration_query-ID>
   <Iteration_query-def>gene-STM4087::NC_003197.2:4295883-4297549(-)__942-1074</Iteration_query-def>
   <Iteration_query-len>43</Iteration_query-len>
 <Iteration_hits>
@@ -26318,7 +26318,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>383</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650738</Iteration_query-ID>
+  <Iteration_query-ID>Query_512716</Iteration_query-ID>
   <Iteration_query-def>gene-STM4106::NC_003197.2:4319595-4321776(+)__1412-1448</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -26337,7 +26337,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>384</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650739</Iteration_query-ID>
+  <Iteration_query-ID>Query_512717</Iteration_query-ID>
   <Iteration_query-def>gene-STM4150::NC_003197.2:4363549-4364673(+)__670-688</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -26356,7 +26356,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>385</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650740</Iteration_query-ID>
+  <Iteration_query-ID>Query_512718</Iteration_query-ID>
   <Iteration_query-def>gene-STM4153::NC_003197.2:4365920-4370025(+)__262-271</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -26375,7 +26375,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>386</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650741</Iteration_query-ID>
+  <Iteration_query-ID>Query_512719</Iteration_query-ID>
   <Iteration_query-def>gene-STM4154::NC_003197.2:4370025-4374290(+)__1549-1582</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -26394,7 +26394,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>387</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650742</Iteration_query-ID>
+  <Iteration_query-ID>Query_512720</Iteration_query-ID>
   <Iteration_query-def>gene-STM4154::NC_003197.2:4370025-4374290(+)__3352-3529</Iteration_query-def>
   <Iteration_query-len>58</Iteration_query-len>
 <Iteration_hits>
@@ -26665,7 +26665,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>388</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650743</Iteration_query-ID>
+  <Iteration_query-ID>Query_512721</Iteration_query-ID>
   <Iteration_query-def>gene-STM4176::NC_003197.2:4392474-4394064(-)__916-1027</Iteration_query-def>
   <Iteration_query-len>36</Iteration_query-len>
 <Iteration_hits>
@@ -26796,7 +26796,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>389</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650744</Iteration_query-ID>
+  <Iteration_query-ID>Query_512722</Iteration_query-ID>
   <Iteration_query-def>gene-STM4183::NC_003197.2:4402051-4403684(+)__1552-1561</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -26815,7 +26815,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>390</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650745</Iteration_query-ID>
+  <Iteration_query-ID>Query_512723</Iteration_query-ID>
   <Iteration_query-def>gene-STM4190::NC_003197.2:4414008-4414698(-)__562-595</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -26834,7 +26834,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>391</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650746</Iteration_query-ID>
+  <Iteration_query-ID>Query_512724</Iteration_query-ID>
   <Iteration_query-def>gene-STM4221::NC_003197.2:4440176-4442266(+)__1520-1532</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -26853,7 +26853,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>392</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650747</Iteration_query-ID>
+  <Iteration_query-ID>Query_512725</Iteration_query-ID>
   <Iteration_query-def>gene-STM4229::NC_003197.2:4449343-4450543(-)__415-433</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -26872,7 +26872,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>393</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650748</Iteration_query-ID>
+  <Iteration_query-ID>Query_512726</Iteration_query-ID>
   <Iteration_query-def>gene-STM4230::NC_003197.2:4450895-4452093(+)__883-925</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -26891,7 +26891,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>394</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650749</Iteration_query-ID>
+  <Iteration_query-ID>Query_512727</Iteration_query-ID>
   <Iteration_query-def>gene-STM4241::NC_003197.2:4461815-4462331(-)__260-380</Iteration_query-def>
   <Iteration_query-len>39</Iteration_query-len>
 <Iteration_hits>
@@ -26910,7 +26910,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>395</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650750</Iteration_query-ID>
+  <Iteration_query-ID>Query_512728</Iteration_query-ID>
   <Iteration_query-def>gene-STM4254::NC_003197.2:4473228-4476054(-)__715-883</Iteration_query-def>
   <Iteration_query-len>55</Iteration_query-len>
 <Iteration_hits>
@@ -27181,7 +27181,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>396</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650751</Iteration_query-ID>
+  <Iteration_query-ID>Query_512729</Iteration_query-ID>
   <Iteration_query-def>gene-STM4258::NC_003197.2:4478501-4480988(+)__469-508</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -27200,7 +27200,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>397</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650752</Iteration_query-ID>
+  <Iteration_query-ID>Query_512730</Iteration_query-ID>
   <Iteration_query-def>gene-STM4258::NC_003197.2:4478501-4480988(+)__295-313</Iteration_query-def>
   <Iteration_query-len>5</Iteration_query-len>
 <Iteration_hits>
@@ -27219,7 +27219,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>398</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650753</Iteration_query-ID>
+  <Iteration_query-ID>Query_512731</Iteration_query-ID>
   <Iteration_query-def>gene-STM4259::NC_003197.2:4479879-4481521(+)__157-166</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -27238,7 +27238,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>399</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650754</Iteration_query-ID>
+  <Iteration_query-ID>Query_512732</Iteration_query-ID>
   <Iteration_query-def>gene-STM4259::NC_003197.2:4479879-4481521(+)__505-511</Iteration_query-def>
   <Iteration_query-len>1</Iteration_query-len>
 <Iteration_hits>
@@ -27257,7 +27257,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>400</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650755</Iteration_query-ID>
+  <Iteration_query-ID>Query_512733</Iteration_query-ID>
   <Iteration_query-def>gene-STM4260::NC_003197.2:4481195-4482489(+)__964-1012</Iteration_query-def>
   <Iteration_query-len>15</Iteration_query-len>
 <Iteration_hits>
@@ -27276,7 +27276,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>401</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650756</Iteration_query-ID>
+  <Iteration_query-ID>Query_512734</Iteration_query-ID>
   <Iteration_query-def>gene-STM4261::NC_003197.2:4482489-4499208(+)__5473-5524</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -27295,7 +27295,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>402</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650757</Iteration_query-ID>
+  <Iteration_query-ID>Query_512735</Iteration_query-ID>
   <Iteration_query-def>gene-STM4261::NC_003197.2:4482489-4499208(+)__2575-2611</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -27314,7 +27314,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>403</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650758</Iteration_query-ID>
+  <Iteration_query-ID>Query_512736</Iteration_query-ID>
   <Iteration_query-def>gene-STM4261::NC_003197.2:4482489-4499208(+)__8042-8111</Iteration_query-def>
   <Iteration_query-len>22</Iteration_query-len>
 <Iteration_hits>
@@ -27333,7 +27333,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>404</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650759</Iteration_query-ID>
+  <Iteration_query-ID>Query_512737</Iteration_query-ID>
   <Iteration_query-def>gene-STM4277::NC_003197.2:4516119-4517580(+)__164-197</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -27352,7 +27352,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>405</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650760</Iteration_query-ID>
+  <Iteration_query-ID>Query_512738</Iteration_query-ID>
   <Iteration_query-def>gene-STM4277::NC_003197.2:4516119-4517580(+)__295-535</Iteration_query-def>
   <Iteration_query-len>79</Iteration_query-len>
 <Iteration_hits>
@@ -27399,7 +27399,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>406</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650761</Iteration_query-ID>
+  <Iteration_query-ID>Query_512739</Iteration_query-ID>
   <Iteration_query-def>gene-STM4289::NC_003197.2:4530182-4530633(-)__233-242</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -27418,7 +27418,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>407</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650762</Iteration_query-ID>
+  <Iteration_query-ID>Query_512740</Iteration_query-ID>
   <Iteration_query-def>gene-STM4289::NC_003197.2:4530182-4530633(-)__390-450</Iteration_query-def>
   <Iteration_query-len>19</Iteration_query-len>
 <Iteration_hits>
@@ -27437,7 +27437,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>408</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650763</Iteration_query-ID>
+  <Iteration_query-ID>Query_512741</Iteration_query-ID>
   <Iteration_query-def>gene-STM4292::NC_003197.2:4533734-4536176(-)__2203-2218</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -27456,7 +27456,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>409</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650764</Iteration_query-ID>
+  <Iteration_query-ID>Query_512742</Iteration_query-ID>
   <Iteration_query-def>gene-STM4295::NC_003197.2:4537653-4538712(-)__305-371</Iteration_query-def>
   <Iteration_query-len>21</Iteration_query-len>
 <Iteration_hits>
@@ -28875,7 +28875,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>410</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650765</Iteration_query-ID>
+  <Iteration_query-ID>Query_512743</Iteration_query-ID>
   <Iteration_query-def>gene-STM4298::NC_003197.2:4542413-4543769(+)__1036-1057</Iteration_query-def>
   <Iteration_query-len>6</Iteration_query-len>
 <Iteration_hits>
@@ -28894,7 +28894,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>411</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650766</Iteration_query-ID>
+  <Iteration_query-ID>Query_512744</Iteration_query-ID>
   <Iteration_query-def>gene-STM4299::NC_003197.2:4543852-4545283(+)__701-731</Iteration_query-def>
   <Iteration_query-len>9</Iteration_query-len>
 <Iteration_hits>
@@ -28913,7 +28913,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>412</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650767</Iteration_query-ID>
+  <Iteration_query-ID>Query_512745</Iteration_query-ID>
   <Iteration_query-def>gene-STM4305::NC_003197.2:4551973-4554325(+)__1727-1760</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -28932,7 +28932,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>413</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650768</Iteration_query-ID>
+  <Iteration_query-ID>Query_512746</Iteration_query-ID>
   <Iteration_query-def>gene-STM4323::NC_003197.2:4567397-4569424(-)__187-202</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -28951,7 +28951,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>414</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650769</Iteration_query-ID>
+  <Iteration_query-ID>Query_512747</Iteration_query-ID>
   <Iteration_query-def>gene-STM4327::NC_003197.2:4572698-4574789(+)__794-818</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -28970,7 +28970,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>415</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650770</Iteration_query-ID>
+  <Iteration_query-ID>Query_512748</Iteration_query-ID>
   <Iteration_query-def>gene-STM4329::NC_003197.2:4574789-4575126(+)__280-325</Iteration_query-def>
   <Iteration_query-len>14</Iteration_query-len>
 <Iteration_hits>
@@ -28989,7 +28989,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>416</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650771</Iteration_query-ID>
+  <Iteration_query-ID>Query_512749</Iteration_query-ID>
   <Iteration_query-def>gene-STM4330::NC_003197.2:4575126-4576998(+)__1279-1288</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -29008,7 +29008,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>417</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650772</Iteration_query-ID>
+  <Iteration_query-ID>Query_512750</Iteration_query-ID>
   <Iteration_query-def>gene-STM4340::NC_003197.2:4582494-4582864(-)__38-104</Iteration_query-def>
   <Iteration_query-len>21</Iteration_query-len>
 <Iteration_hits>
@@ -29055,7 +29055,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>418</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650773</Iteration_query-ID>
+  <Iteration_query-ID>Query_512751</Iteration_query-ID>
   <Iteration_query-def>gene-STM4340::NC_003197.2:4582494-4582864(-)__303-369</Iteration_query-def>
   <Iteration_query-len>21</Iteration_query-len>
 <Iteration_hits>
@@ -29102,7 +29102,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>419</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650774</Iteration_query-ID>
+  <Iteration_query-ID>Query_512752</Iteration_query-ID>
   <Iteration_query-def>gene-STM4342::NC_003197.2:4583270-4588157(-)__4816-4876</Iteration_query-def>
   <Iteration_query-len>19</Iteration_query-len>
 <Iteration_hits>
@@ -29121,7 +29121,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>420</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650775</Iteration_query-ID>
+  <Iteration_query-ID>Query_512753</Iteration_query-ID>
   <Iteration_query-def>gene-STM4366::NC_003197.2:4609110-4610615(+)__268-319</Iteration_query-def>
   <Iteration_query-len>16</Iteration_query-len>
 <Iteration_hits>
@@ -29168,7 +29168,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>421</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650776</Iteration_query-ID>
+  <Iteration_query-ID>Query_512754</Iteration_query-ID>
   <Iteration_query-def>gene-STM4366::NC_003197.2:4609110-4610615(+)__1009-1018</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -29187,7 +29187,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>422</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650777</Iteration_query-ID>
+  <Iteration_query-ID>Query_512755</Iteration_query-ID>
   <Iteration_query-def>gene-STM4366::NC_003197.2:4609110-4610615(+)__976-991</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -29206,7 +29206,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>423</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650778</Iteration_query-ID>
+  <Iteration_query-ID>Query_512756</Iteration_query-ID>
   <Iteration_query-def>gene-STM4409::NC_003197.2:4646067-4651389(+)__424-448</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -29225,7 +29225,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>424</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650779</Iteration_query-ID>
+  <Iteration_query-ID>Query_512757</Iteration_query-ID>
   <Iteration_query-def>gene-STM4420::NC_003197.2:4663120-4663930(-)__749-788</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -29244,7 +29244,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>425</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650780</Iteration_query-ID>
+  <Iteration_query-ID>Query_512758</Iteration_query-ID>
   <Iteration_query-def>gene-STM4420::NC_003197.2:4663120-4663930(-)__109-124</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -29263,7 +29263,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>426</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650781</Iteration_query-ID>
+  <Iteration_query-ID>Query_512759</Iteration_query-ID>
   <Iteration_query-def>gene-STM4420::NC_003197.2:4663120-4663930(-)__688-724</Iteration_query-def>
   <Iteration_query-len>11</Iteration_query-len>
 <Iteration_hits>
@@ -29282,7 +29282,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>427</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650782</Iteration_query-ID>
+  <Iteration_query-ID>Query_512760</Iteration_query-ID>
   <Iteration_query-def>gene-STM4460::NC_003197.2:4703987-4704958(-)__661-685</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -29301,7 +29301,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>428</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650783</Iteration_query-ID>
+  <Iteration_query-ID>Query_512761</Iteration_query-ID>
   <Iteration_query-def>gene-STM4470::NC_003197.2:4712934-4713351(+)__280-292</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -29320,7 +29320,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>429</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650784</Iteration_query-ID>
+  <Iteration_query-ID>Query_512762</Iteration_query-ID>
   <Iteration_query-def>gene-STM4489::NC_003197.2:4731980-4735496(+)__784-838</Iteration_query-def>
   <Iteration_query-len>17</Iteration_query-len>
 <Iteration_hits>
@@ -29339,7 +29339,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>430</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650785</Iteration_query-ID>
+  <Iteration_query-ID>Query_512763</Iteration_query-ID>
   <Iteration_query-def>gene-STM4490::NC_003197.2:4735592-4736582(+)__691-736</Iteration_query-def>
   <Iteration_query-len>14</Iteration_query-len>
 <Iteration_hits>
@@ -29358,7 +29358,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>431</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650786</Iteration_query-ID>
+  <Iteration_query-ID>Query_512764</Iteration_query-ID>
   <Iteration_query-def>gene-STM4492::NC_003197.2:4738789-4741389(-)__2478-2517</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -29377,7 +29377,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>432</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650787</Iteration_query-ID>
+  <Iteration_query-ID>Query_512765</Iteration_query-ID>
   <Iteration_query-def>gene-STM4497::NC_003197.2:4750655-4752682(-)__1138-1150</Iteration_query-def>
   <Iteration_query-len>3</Iteration_query-len>
 <Iteration_hits>
@@ -29396,7 +29396,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>433</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650788</Iteration_query-ID>
+  <Iteration_query-ID>Query_512766</Iteration_query-ID>
   <Iteration_query-def>gene-STM4525::NC_003197.2:4779029-4780619(-)__553-568</Iteration_query-def>
   <Iteration_query-len>4</Iteration_query-len>
 <Iteration_hits>
@@ -29415,7 +29415,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>434</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650789</Iteration_query-ID>
+  <Iteration_query-ID>Query_512767</Iteration_query-ID>
   <Iteration_query-def>gene-STM4528::NC_003197.2:4785666-4790099(+)__408-417</Iteration_query-def>
   <Iteration_query-len>2</Iteration_query-len>
 <Iteration_hits>
@@ -29434,7 +29434,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>435</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650790</Iteration_query-ID>
+  <Iteration_query-ID>Query_512768</Iteration_query-ID>
   <Iteration_query-def>gene-STM4539::NC_003197.2:4797493-4806134(+)__188-212</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -29453,7 +29453,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>436</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650791</Iteration_query-ID>
+  <Iteration_query-ID>Query_512769</Iteration_query-ID>
   <Iteration_query-def>gene-STM4539::NC_003197.2:4797493-4806134(+)__1332-1419</Iteration_query-def>
   <Iteration_query-len>28</Iteration_query-len>
 <Iteration_hits>
@@ -29472,7 +29472,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>437</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650792</Iteration_query-ID>
+  <Iteration_query-ID>Query_512770</Iteration_query-ID>
   <Iteration_query-def>gene-STM4539::NC_003197.2:4797493-4806134(+)__895-922</Iteration_query-def>
   <Iteration_query-len>8</Iteration_query-len>
 <Iteration_hits>
@@ -29491,7 +29491,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>438</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650793</Iteration_query-ID>
+  <Iteration_query-ID>Query_512771</Iteration_query-ID>
   <Iteration_query-def>gene-STM4539::NC_003197.2:4797493-4806134(+)__388-412</Iteration_query-def>
   <Iteration_query-len>7</Iteration_query-len>
 <Iteration_hits>
@@ -29510,7 +29510,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>439</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650794</Iteration_query-ID>
+  <Iteration_query-ID>Query_512772</Iteration_query-ID>
   <Iteration_query-def>gene-STM4561::NC_003197.2:4815896-4816624(+)__661-694</Iteration_query-def>
   <Iteration_query-len>10</Iteration_query-len>
 <Iteration_hits>
@@ -29529,7 +29529,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>440</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650795</Iteration_query-ID>
+  <Iteration_query-ID>Query_512773</Iteration_query-ID>
   <Iteration_query-def>gene-STM4580::NC_003197.2:4835826-4839016(+)__1165-1207</Iteration_query-def>
   <Iteration_query-len>13</Iteration_query-len>
 <Iteration_hits>
@@ -29548,7 +29548,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>441</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650796</Iteration_query-ID>
+  <Iteration_query-ID>Query_512774</Iteration_query-ID>
   <Iteration_query-def>gene-STM4585::NC_003197.2:4842039-4842687(+)__337-376</Iteration_query-def>
   <Iteration_query-len>12</Iteration_query-len>
 <Iteration_hits>
@@ -29567,7 +29567,7 @@
 </Iteration>
 <Iteration>
   <Iteration_iter-num>442</Iteration_iter-num>
-  <Iteration_query-ID>Query_2650797</Iteration_query-ID>
+  <Iteration_query-ID>Query_512775</Iteration_query-ID>
   <Iteration_query-def>gene-STM4598::NC_003197.2:4855387-4857450(-)__1062-1125</Iteration_query-def>
   <Iteration_query-len>20</Iteration_query-len>
 <Iteration_hits>

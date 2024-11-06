@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2024-09-13 15:26:12
-@modify date 2024-10-30 10:35:59
+@modify date 2024-11-06 20:46:19
 @desc        RIBOSS module for finding ORFs
 """
 
@@ -12,6 +12,7 @@
 
 
 import os, re, time, argparse, csv, gzip, logging.config, subprocess
+import numpy as np
 import pandas as pd 
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -254,22 +255,18 @@ def operon_distribution(op, displot_prefix, log=False):
         * displot and jointgrid as PDFs
     """
     
-    sns.displot(op['count'], height=3, log_scale=log)
+    sns.displot(op['count'], height=3)
     plt.title('Operons predicted from transcriptome assembly')
     plt.xlabel('Number of ORFs per mRNA')
     plt.savefig(displot_prefix + '.operon_dist.pdf', bbox_inches='tight')
-    
-    sns.set_style("ticks")
-    g = sns.JointGrid(data=op, x='count', y='length', height=3)
-    g.plot_joint(sns.scatterplot)
-    g.plot_marginals(sns.boxplot, fliersize=2)
-    g.set_axis_labels(xlabel='Number of ORFs per mRNA', ylabel='mRNA length')
-    
+
+    plt.figure(figsize=(3,3))
+    sns.boxplot(data=op, x='count', y='length')
     if log==True:
-        g.ax_joint.set_xscale('log')
-        g.ax_joint.set_yscale('log')
-        
-    plt.savefig(displot_prefix + '.operon_scatter.pdf', bbox_inches='tight')
+        plt.yscale('log')
+    plt.xlabel('Number of ORFs per mRNA')
+    plt.ylabel('mRNA length')
+    plt.savefig(displot_prefix + '.operon_boxplot.pdf', bbox_inches='tight')
     
     logging.info('plotted the distribution of operons as ' + displot_prefix + '.operon_dist.pdf and ' + displot_prefix + '.operon_scatter.pdf')
     
@@ -305,6 +302,8 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None,
     df['End'] = df.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('-').apply(lambda x: x[1]).str.split('(').apply(lambda x: x[0]).astype(int)
     df['Strand'] = df.tid.str.split(':').apply(lambda x: x[pos+2]).str.split('(').apply(lambda x: x[1]).str.replace(')','')
     df_ = df
+    df_['length'] = df_.seq.apply(len)
+    df_ = df_[(df_.Strand=='+') | (df_.Strand=='-')].drop('seq',axis=1)
     
     pbar = tqdm.pandas(desc="finding all ORFs       ", unit_scale = True)
     df['ORF_range'] = df.seq.progress_apply(lambda x: top_3_frames(x ,start_codon))
@@ -372,8 +371,8 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None,
 
     cds = cds[['tid','start_codon','ORF_start','ORF_end','ORF_length','ORF_type']]
     
-    df = pd.concat([cds, oorf, oporf, sorf]).drop_duplicates(['tid','start_codon','ORF_start','ORF_end','ORF_length'])
-    df = pd.merge(df.drop(['Chromosome','Start','End','Strand'], axis=1), orf)
+    d = pd.concat([cds, oorf, oporf, sorf]).drop_duplicates(['tid','start_codon','ORF_start','ORF_end','ORF_length'])
+    df = pd.merge(d.drop(['Chromosome','Start','End','Strand'], axis=1), orf)
 
     # Export CDS_range
     fname = filename(tx_assembly, None, outdir)
@@ -383,10 +382,7 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None,
     cds_range.to_csv(fname + '.cds_range.txt', header=None, index=None, sep='\t')
 
     #  Plot the distribution of operons
-    df_ = pr.PyRanges(df_)
-    cds_ = pr.PyRanges(cds_)
-    cdstx_ = cds_.join(df_)
-    cdstx_.length = cdstx_.df['seq'].apply(len)
+    cdstx_ = pr.PyRanges(cds_).join(pr.PyRanges(df_), strandedness='same')
     op = cdstx_.df.value_counts(['tid','length']).reset_index()
     
     operon_distribution(op, fname, log)
@@ -396,4 +392,4 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None,
     logging.info('saved operons and ORFs as ' + fname + '.operon_finder.pkl.gz')
     logging.info('saved CDS range as ' + fname + '.cds_range.txt')
     
-    return cds_range, df
+    return op, cds_range, df
