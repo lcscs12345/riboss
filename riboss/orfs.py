@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2024-09-13 15:26:12
-@modify date 2024-11-06 20:46:19
+@modify date 2024-11-07 19:09:46
 @desc        RIBOSS module for finding ORFs
 """
 
@@ -392,4 +392,4 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None,
     logging.info('saved operons and ORFs as ' + fname + '.operon_finder.pkl.gz')
     logging.info('saved CDS range as ' + fname + '.cds_range.txt')
     
-    return cdstx_, op, cds_range, df
+    return cdstx_, cds_range, df
