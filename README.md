@@ -28,6 +28,8 @@ conda install -y \
     biopython htslib samtools bedtools pyranges minimap2 star tqdm jupyter \
     ucsc-gtftogenepred ucsc-bedtogenepred ucsc-genepredtobed ucsc-bedsort ucsc-bedtobigbed \
     pyfaidx rseqc
+conda activate riboss 
+conda install bioconda::bowtie2 -y
 conda env export > environment.yml -->
 
 #### Install RIBOSS

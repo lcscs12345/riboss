@@ -392,4 +392,4 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None,
     logging.info('saved operons and ORFs as ' + fname + '.operon_finder.pkl.gz')
     logging.info('saved CDS range as ' + fname + '.cds_range.txt')
     
-    return op, cds_range, df
+    return cdstx_, op, cds_range, df

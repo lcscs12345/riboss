@@ -775,32 +775,38 @@ def riboss(superkingdom, df, riboprof_base, tx_assembly, fasta, bed,
 
         for ot in tb.ORF_type_x.unique():
             # BLAST hits
-            start_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x==ot]['start_rprofile_x'].tolist()), axis=0)
-            stop_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x==ot]['stop_rprofile_x'].tolist()), axis=0)
-            frames = [0,1,2] * int(start_rprofile.shape[0]/3)
-            if start_rprofile.shape[0]-len(frames)==-1:
-                frames = frames[:-1]
-            elif start_rprofile.shape[0]-len(frames)==1:
-                frames = frames + [1]
+            if blastp_hits[blastp_hits.ORF_type_x==ot].shape[0]>0:
+                start_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x==ot]['start_rprofile_x'].tolist()), axis=0)
+                stop_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x==ot]['stop_rprofile_x'].tolist()), axis=0)
+                frames = [0,1,2] * int(start_rprofile.shape[0]/3)
+                if start_rprofile.shape[0]-len(frames)==-1:
+                    frames = frames[:-1]
+                elif start_rprofile.shape[0]-len(frames)==1:
+                    frames = frames + [1]
+                    
+                blastp_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
+                blastp_rp['Position from predicted start codon'] = blastp_rp.index -utr
+                blastp_rp['Position to stop codon'] = blastp_rp.index-blastp_rp.index.stop -utr
+                predicted_orf_profile(blastp_rp, blastp_hits[blastp_hits.ORF_type_x==ot], utr, str(ot) + 's with BLASTP hits', fname)
+            else:
+                pass
                 
-            blastp_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
-            blastp_rp['Position from predicted start codon'] = blastp_rp.index -utr
-            blastp_rp['Position to stop codon'] = blastp_rp.index-blastp_rp.index.stop -utr
-            predicted_orf_profile(blastp_rp, blastp_hits[blastp_hits.ORF_type_x==ot], utr, str(ot) + 's with BLASTP hits', fname)
-            
             # no BLAST hits
-            start_rprofile = np.sum(np.array(no_hits[no_hits.ORF_type_x==ot]['start_rprofile_x'].tolist()), axis=0)
-            stop_rprofile = np.sum(np.array(no_hits[no_hits.ORF_type_x==ot]['stop_rprofile_x'].tolist()), axis=0)
-            frames = [0,1,2] * int(start_rprofile.shape[0]/3)
-            if start_rprofile.shape[0]-len(frames)==-1:
-                frames = frames[:-1]
-            elif start_rprofile.shape[0]-len(frames)==1:
-                frames = frames + [1]
-                
-            no_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
-            no_rp['Position from predicted start codon'] = no_rp.index -utr
-            no_rp['Position to stop codon'] = no_rp.index-no_rp.index.stop -utr
-            predicted_orf_profile(no_rp, no_hits[no_hits.ORF_type_x==ot], utr, str(ot) + 's with no BLASTP hits', fname)
+            if no_hits[no_hits.ORF_type_x==ot].shape[0]>0:
+                start_rprofile = np.sum(np.array(no_hits[no_hits.ORF_type_x==ot]['start_rprofile_x'].tolist()), axis=0)
+                stop_rprofile = np.sum(np.array(no_hits[no_hits.ORF_type_x==ot]['stop_rprofile_x'].tolist()), axis=0)
+                frames = [0,1,2] * int(start_rprofile.shape[0]/3)
+                if start_rprofile.shape[0]-len(frames)==-1:
+                    frames = frames[:-1]
+                elif start_rprofile.shape[0]-len(frames)==1:
+                    frames = frames + [1]
+                    
+                no_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
+                no_rp['Position from predicted start codon'] = no_rp.index -utr
+                no_rp['Position to stop codon'] = no_rp.index-no_rp.index.stop -utr
+                predicted_orf_profile(no_rp, no_hits[no_hits.ORF_type_x==ot], utr, str(ot) + 's with no BLASTP hits', fname)
+            else:
+                pass
     
         hits.drop(['start', 'end'], axis=1, inplace=True)
         hits.to_csv(fname + '.sig.blastp.csv', index=None)
