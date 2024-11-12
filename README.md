@@ -14,7 +14,6 @@ RIBOSS consists of Python modules for analysis of ribosome profiling data for pr
 wget https://github.com/conda-forge/miniforge/releases/download/24.7.1-2/Miniforge3-24.7.1-2-Linux-x86_64.sh
 bash Miniforge3-24.7.1-2-Linux-x86_64.sh -b -p $HOME/miniforge3
 eval "$(/$HOME/miniforge3/bin/conda shell.bash hook)"
-conda env create -f environment.yml
 ```
 
 <!-- conda create -n riboss -y
@@ -35,10 +34,12 @@ conda env export > environment.yml -->
 #### Install RIBOSS
 
 ```
-conda activate riboss
 git clone https://github.com/lcscs12345/riboss.git
+cd riboss
+conda env create -f environment.yml
+conda activate riboss
 DIRNAME=`which python | xargs dirname`
-cp riboss/bin/riboprof $DIRNAME
+cp bin/riboprof $DIRNAME
 chmod +x $DIRNAME/riboprof
 ```
 
