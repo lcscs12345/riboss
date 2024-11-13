@@ -60,7 +60,7 @@ from riboss.orfs import translate
 na='ATGGTCTGA'
 translate(na)
 ```
-For details see [`styphimurium.ipynb`](https://github.com/lcscs12345/riboss/blob/master/styphimurium.ipynb)
+You should see `'MV'`. For detail usage, see [`styphimurium.ipynb`](https://github.com/lcscs12345/riboss/blob/master/styphimurium.ipynb)
 
 #### To reproduce plots in the manuscript
 
