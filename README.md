@@ -41,7 +41,7 @@ conda activate riboss # your terminal prompt will show (riboss) bash-5.1$
 DIRNAME=`which python | xargs dirname`
 cp bin/riboprof $DIRNAME
 chmod +x $DIRNAME/riboprof
-pip install -e .
+pip install -e . # editable mode
 ```
 
 <!-- pip install git+git://github.com/lcscs12345/riboss.git#egg=riboss -->
