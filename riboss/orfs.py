@@ -42,8 +42,8 @@ logging.config.dictConfig(DEFAULT_LOGGING)
 
 
 CODON_TO_AA={'TTT':'F','TCT':'S','TAT':'Y','TGT':'C','TTC':'F','TCC':'S',\
-             'TAC':'Y','TGC':'C','TTA':'L','TCA':'S','TAA':'stop',\
-             'TGA':'stop','TTG':'L','TCG':'S','TAG':'stop','TGG':'W',\
+             'TAC':'Y','TGC':'C','TTA':'L','TCA':'S','TAA':'*',\
+             'TGA':'*','TTG':'L','TCG':'S','TAG':'*','TGG':'W',\
              'CTT':'L','CCT':'P','CAT':'H','CGT':'R','CTC':'L','CCC':'P',\
              'CAC':'H','CGC':'R','CTA':'L','CCA':'P','CAA':'Q','CGA':'R',\
              'CTG':'L','CCG':'P','CAG':'Q','CGG':'R','ATT':'I','ACT':'T',\
@@ -56,7 +56,9 @@ CODON_TO_AA={'TTT':'F','TCT':'S','TAT':'Y','TGT':'C','TTC':'F','TCC':'S',\
 
 
 def translate(seq):
-    seq = seq[:-3]
+    if seq[-3:] in ['TAA','TGA','TAG']:
+        seq = seq[:-3]
+        
     length = (len(seq)- len(seq)%3)
     split_func = lambda seq, n: [seq[i:i+n] for\
                                     i in range(0, length, n)]
