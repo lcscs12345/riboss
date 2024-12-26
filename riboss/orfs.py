@@ -22,6 +22,7 @@ from Bio import SeqIO
 from .wrapper import filename
 import pyranges as pr
 from tqdm import tqdm
+from .wrapper import fasta_to_dataframe
 
 
 DEFAULT_LOGGING = {
@@ -68,16 +69,6 @@ def translate(seq):
         aa+=CODON_TO_AA[c]
     return aa
 
-
-    
-def fasta_to_dataframe(seq):
-    fasta_df = pd.read_csv(seq, sep='>', lineterminator='>', header=None)
-    df = fasta_df[0].str.split('\n', n=1, expand=True)
-    df[1] = df[1].replace('\n','', regex=True)
-    df = df[df[1] != '']
-    df = df.dropna()
-    df.columns = ['tid','seq']
-    return df
     
 
 

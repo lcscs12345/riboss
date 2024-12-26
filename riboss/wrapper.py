@@ -13,6 +13,7 @@
 import subprocess, os, sys, logging.config
 from io import StringIO
 import pandas as pd
+import os
 
 
 
@@ -127,6 +128,17 @@ def transcriptome_assembly(superkingdom, genome, long_reads, short_reads=None, s
 
 
 
+def fasta_to_dataframe(seq):
+    fasta_df = pd.read_csv(seq, sep='>', lineterminator='>', header=None)
+    df = fasta_df[0].str.split('\n', n=1, expand=True)
+    df[1] = df[1].replace('\n','', regex=True)
+    df = df[df[1] != '']
+    df = df.dropna()
+    df.columns = ['tid','seq']
+    return df
+
+    
+
 def build_star_index(
         fasta_path,
         index,
@@ -154,7 +166,17 @@ def build_star_index(
           * cmd: command to execute for alignment
           * output: name of output file alignment is written to
     """
+
+    fname = filename(fasta_path)
+    fasta = fasta_to_dataframe(fasta_path)
+    fasta['tid'] = '>' + fasta.tid.str.split('|').str[0]
     
+    if 'gz' in fasta_path:
+        fasta.to_csv(fname, sep='\n', header=None, index=None) 
+    else:
+        os.rename(fname, fname + '.original.fasta')
+        fasta.to_csv(fasta_path, sep='\n', header=None, index=None) 
+        
     program = [star]
     options = [
         '--runMode', mode,
