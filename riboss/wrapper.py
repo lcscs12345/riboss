@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-10-10 16:49:00
-@modify date 2024-12-26 16:32:17
+@modify date 2024-12-26 16:41:14
 @desc        RIBOSS module for binary wrappers
 """
 
@@ -174,18 +174,20 @@ def build_star_index(
     if '.gz' in fasta_path:
         fasta.to_csv(fname, sep='\n', header=None, index=None)
         logging.info('cleaned up fasta headers and saved as ' + fname)
+        fastafile = fname
     else:
         os.rename(fasta_path, fname + '.original.fasta')
         fasta.to_csv(fasta_path, sep='\n', header=None, index=None) 
         logging.info('renamed ' + fasta_path + ' as ' + fname + '.original.fasta')
         logging.info('cleaned up fasta headers and saved as ' + fasta_path)
+        fastafile = fasta_path
         
     program = [star]
     options = [
         '--runMode', mode,
         '--runThreadN', str(num_threads),
         '--genomeDir', index,
-        '--genomeFastaFiles', fasta_path,
+        '--genomeFastaFiles', fastafile,
         '--genomeSAindexNbases', str(nbases), 
         '--genomeChrBinNbits', str(nbits)
         ]
