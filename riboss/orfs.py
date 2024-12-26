@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2024-09-13 15:26:12
-@modify date 2024-11-07 19:09:46
+@modify date 2024-12-26 15:53:36
 @desc        RIBOSS module for finding ORFs
 """
 
@@ -125,13 +125,13 @@ def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", 
     path, ext = os.path.splitext(annotation)
     genepred = path + '.gp'
 
-    if ext=='gtf':
+    if 'gtf' in annotation:
         subprocess.run(['gtfToGenePred', annotation, genepred], check=True)
-    elif (ext=='gff') | (ext=='gff3'):
+    elif ('gff' in annotation) | ('gff3' in annotation):
         subprocess.run(['gff3ToGenePred', annotation, genepred], check=True)
-    elif ext=='bed':
+    elif 'bed' in annotation:
         subprocess.run(['bedToGenePred', annotation, genepred], check=True)
-    elif ext=='gp':
+    elif 'gp' in annotation:
         pass
         
     gp = pd.read_csv(genepred, sep='\t', header=None)
