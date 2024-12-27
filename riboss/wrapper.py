@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-10-10 16:49:00
-@modify date 2024-12-27 15:08:29
+@modify date 2024-12-27 17:21:34
 @desc        RIBOSS module for binary wrappers
 """
 
@@ -270,7 +270,10 @@ def align_short_reads(
         
     subprocess.run(cmd, check=True)
 
-    bam = read1.split(os.extsep)[0] + 'Aligned.out.bam'
+    if sam_type.split()[1]=='SortedByCoordinate':
+        bam = prefix + 'Aligned.sortedByCoord.out.bam'    
+    elif sam_type.split()[1]=='Unsorted':
+        bam = prefix + 'Aligned.out.bam'
     
     if os.path.exists(bam):
         logging.info('saved alignment to ' + bam)
