@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2024-09-14 10:42:41
-@modify date 2024-10-28 11:16:38
+@modify date 2024-12-27 20:54:27
 @desc        RIBOSS module for analysing aligned ribosome footprints
 """
 
@@ -164,6 +164,7 @@ def footprint_summary(cds_range, sample, quality='best', offset_method='5p', adj
     top_footprint = top_footprint.loc[top_footprint.index.repeat(footprint_stats.shape[0])].reset_index(drop=True)
     footprint_stats = pd.concat([top_footprint,footprint_stats], axis=1)
     footprint_stats.columns = ['top_footprint','tab_x','footprint_len','tab_y']
+    footprint_stats = footprint_stats[(footprint_stats.tab_x.apply(len)==3) & (footprint_stats.tab_y.apply(len)==3)].copy()
     footprint_stats = contingency_tables(footprint_stats)
     stats = statistical_test(footprint_stats, 1000)
     
