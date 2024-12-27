@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-10-10 16:49:00
-@modify date 2024-12-26 16:41:14
+@modify date 2024-12-27 15:08:29
 @desc        RIBOSS module for binary wrappers
 """
 
@@ -169,7 +169,7 @@ def build_star_index(
 
     fname = filename(fasta_path)
     fasta = fasta_to_dataframe(fasta_path)
-    fasta['tid'] = '>' + fasta.tid.str.split('|').str[0]
+    fasta['tid'] = '>' + fasta.tid.str.split().str[0].split('|').str[0]
     
     if '.gz' in fasta_path:
         fasta.to_csv(fname, sep='\n', header=None, index=None)
@@ -206,7 +206,6 @@ def align_short_reads(
         read1,
         prefix,
         index,
-        # clip_3p_adapter_seq=None,
         star='STAR',
         mode='alignReads',
         num_threads=4,
@@ -216,9 +215,10 @@ def align_short_reads(
         filter_multimap_nmax=255,
         filter_mismatch_nmax=1,
         filter_intron_motifs='RemoveNoncanonical',
-        sam_type='BAM Unsorted',
-        sam_mode='NoQS',
-        sam_attributes='NH NM',        
+        sam_type='BAM SortedByCoordinate',
+        # sam_mode='NoQS',
+        # sam_attributes='NH NM',
+        clip_3p_adapter_seq=None     
         ):
     """
     Wrapper to run STAR aligner.
@@ -237,8 +237,8 @@ def align_short_reads(
           * filter_mismatch_nmax: (default: 1)
           * filter_intron_motifs: filter alignments based on intron motifs (default: RemoveNoncanonical)
           * sam_type: output SAM file type (default: BAM SortedByCoordinate)
-          * sam_mode: (default: NoQS)
-          * sam_attributes: (default: NH NM)           
+          # * sam_mode: (default: NoQS)
+          # * sam_attributes: (default: NH NM)           
 
     Output:
           * output: BAM filename with prefix + Aligned.out.bam
@@ -252,18 +252,22 @@ def align_short_reads(
         '--genomeDir', index,
         '--runThreadN', str(num_threads),
         '--readFilesCommand', read_files_command,
-        # '--clip3pAdapterSeq', clip_3p_adapter_seq,
         '--seedSearchLmax', str(seed_search_lmax),
         '--outFilterMultimapScoreRange', str(filter_multimap_score_range),
         '--outFilterMultimapNmax', str(filter_multimap_nmax),
         '--outFilterMismatchNmax', str(filter_mismatch_nmax),
         '--outFilterIntronMotifs', filter_intron_motifs,
         '--outSAMtype', sam_type.split()[0], sam_type.split()[1],
-        '--outSAMmode', sam_mode,
-        '--outSAMattributes', sam_attributes.split()[0], sam_attributes.split()[1]
+        # '--outSAMmode', sam_mode,
+        # '--outSAMattributes', sam_attributes.split()[0], sam_attributes.split()[1]
         ]
     
-    cmd = program + options
+    
+    if clip_3p_adapter_seq!=None:
+        cmd = program + options + ['--clip3pAdapterSeq', str(clip_3p_adapter_seq)]
+    else:
+        cmd = program + options
+        
     subprocess.run(cmd, check=True)
 
     bam = read1.split(os.extsep)[0] + 'Aligned.out.bam'
