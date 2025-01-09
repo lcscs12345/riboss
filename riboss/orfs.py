@@ -57,7 +57,7 @@ CODON_TO_AA={'TTT':'F','TCT':'S','TAT':'Y','TGT':'C','TTC':'F','TCC':'S',\
 
 
 def translate(seq):
-    if seq[-3:] in ['TAA','TGA','TAG']:
+    if seq[-3:] in ['TAA','TGA','TAG','taa','tga','tag']:
         seq = seq[:-3]
         
     length = (len(seq)- len(seq)%3)
@@ -66,7 +66,7 @@ def translate(seq):
     codons = split_func(seq, 3)
     aa = ''
     for c in codons:
-        aa+=CODON_TO_AA[c]
+        aa+=CODON_TO_AA[c.upper()]
     return aa
 
     
