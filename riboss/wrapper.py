@@ -146,7 +146,8 @@ def build_star_index(
         mode='genomeGenerate',
         num_threads=4,
         nbases=7,
-        nbits=11
+        nbits=11,
+        delim=None,
         ):
     """
     Wrapper to generate STAR index
@@ -169,7 +170,7 @@ def build_star_index(
 
     fname = filename(fasta_path)
     fasta = fasta_to_dataframe(fasta_path)
-    fasta['tid'] = '>' + fasta.tid.str.split().str[0].split('|').str[0]
+    fasta['tid'] = '>' + fasta.tid.str.split().str[0].str.split(delim).str[0]
     
     if '.gz' in fasta_path:
         fasta.to_csv(fname, sep='\n', header=None, index=None)
