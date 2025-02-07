@@ -6,7 +6,7 @@ from riboss import __version__
 setup(
     name='riboss',
     version=__version__,
-    description='Comparing translation of open reading frames within individual transcripts',
+    description='Comparing translational potential of open reading frames within individual transcripts',
 
     url='https://github.com/lcscs12345/riboss',
     author='CS Lim',

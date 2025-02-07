@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2025-02-07 14:34:21
+@modify date 2025-02-07 21:37:26
 @desc        Main RIBOSS module
 """
 
@@ -707,8 +707,14 @@ def orfs_to_biggenepred(orf_ranges, df, fai, big_fname, orf_range_col=None, orf_
     """
     
     df_ranges = pd.merge(orf_ranges,df)
-    df_ranges['Start'] = df_ranges.apply(lambda x: x['exons'][x[orf_range_col][0]], axis=1)
-    df_ranges['End'] = df_ranges.apply(lambda x: x['exons'][x[orf_range_col][1]-1] +1, axis=1)
+    dfp = df_ranges[df_ranges.Strand=='+'].copy()
+    dfp['Start'] = dfp.apply(lambda x: x['exons'][x[orf_range_col][0]], axis=1)
+    dfp['End'] = dfp.apply(lambda x: x['exons'][x[orf_range_col][1]-1] +1, axis=1)
+    dfm = df_ranges[df_ranges.Strand=='-'].copy()
+    dfm['End'] = dfm.apply(lambda x: sorted(x['exons'], reverse=True)[x[orf_range_col][0]] +1, axis=1)
+    dfm['Start'] = dfm.apply(lambda x: sorted(x['exons'], reverse=True)[x[orf_range_col][1]-1], axis=1)
+    df_ranges = pd.concat([dfp, dfm])
+
     b = df_ranges[['Chromosome','tid','Strand',orf_type_col,orf_range_col,'exons','Start','End']].copy()
     b = b.explode('exons')
     b['oid'] = b.tid + '__' + b[orf_range_col].str[0].astype(str) + '-' + b[orf_range_col].str[1].astype(str)
@@ -768,7 +774,7 @@ def orfs_to_biggenepred(orf_ranges, df, fai, big_fname, orf_range_col=None, orf_
             
     os.remove(chromsizes)
     os.remove(bas)
-    
+
 
     
 def profile_anomaly(bedgraph, bb, bed, fasta, scatterplot_prefix=None):
