@@ -35,15 +35,23 @@ logging.config.dictConfig(DEFAULT_LOGGING)
 
 
 
-def filename(infname, outfname=None, outdir=None):
+def filename(infname, outfname=None, outdir=None, pathbase=False):
     if outdir:
         os.makedirs(outdir, exist_ok=True)
-        fname = os.path.basename(infname)
-        fname = outdir + '/' + os.path.splitext(fname)[0]
-        if outfname:
-            fname = fname.replace('//','/') + '.' + outfname
+        if pathbase==False:
+            fname = os.path.basename(infname)
+            fname = outdir + '/' + os.path.splitext(fname)[0]
+            if outfname:
+                fname = fname.replace('//','/') + '.' + outfname
+            else:
+                fname = fname.replace('//','/')
         else:
-            fname = fname.replace('//','/')
+            path, ext = os.path.split(infname)
+            fname = path + '/' + ext.split(os.extsep)[0]
+            if outfname:
+                fname = fname.replace('//','/') + outfname
+            else:
+                fname = fname.replace('//','/')
     else:
         if outfname:
             fname = './' + outfname
@@ -53,7 +61,7 @@ def filename(infname, outfname=None, outdir=None):
     return fname
 
 
-    
+
 def transcriptome_assembly(superkingdom, genome, long_reads, short_reads=None, strandness=None, num_threads=4, trim=True,
                            min_length=100, coverage=1, single_exon_coverage=1.5, fraction=0.1, outdir=None):
     """
@@ -204,7 +212,7 @@ def build_star_index(
 
 
 def align_short_reads(
-        read1,
+        reads,
         prefix,
         index,
         star='STAR',
@@ -225,7 +233,7 @@ def align_short_reads(
     Wrapper to run STAR aligner.
 
     Input:
-          * read1: full path to the read 1 FASTQ file (required)
+          * reads: str if single-end, a list of paired-end (required)
           * prefix: the prefix to use for output files (required)
           * index: full path to the directory containing STAR genome index files (required)
           * star: full path to STAR (default: STAR)
@@ -246,28 +254,54 @@ def align_short_reads(
     """
     
     program = [star]
-    options = [
-        '--runMode', mode,
-        '--readFilesIn', read1,# read2,
-        '--outFileNamePrefix', prefix,
-        '--genomeDir', index,
-        '--runThreadN', str(num_threads),
-        '--readFilesCommand', read_files_command,
-        '--seedSearchLmax', str(seed_search_lmax),
-        '--outFilterMultimapScoreRange', str(filter_multimap_score_range),
-        '--outFilterMultimapNmax', str(filter_multimap_nmax),
-        '--outFilterMismatchNmax', str(filter_mismatch_nmax),
-        '--outFilterIntronMotifs', filter_intron_motifs,
-        '--outSAMtype', sam_type.split()[0], sam_type.split()[1],
-        # '--outSAMmode', sam_mode,
-        # '--outSAMattributes', sam_attributes.split()[0], sam_attributes.split()[1]
-        ]
-    
-    
-    if clip_3p_adapter_seq!=None:
-        cmd = program + options + ['--clip3pAdapterSeq', str(clip_3p_adapter_seq)]
+
+    if type(reads)==str:
+        options = [
+            '--runMode', mode,
+            '--readFilesIn', reads,# read2,
+            '--outFileNamePrefix', prefix,
+            '--genomeDir', index,
+            '--runThreadN', str(num_threads),
+            '--readFilesCommand', read_files_command,
+            '--seedSearchLmax', str(seed_search_lmax),
+            '--outFilterMultimapScoreRange', str(filter_multimap_score_range),
+            '--outFilterMultimapNmax', str(filter_multimap_nmax),
+            '--outFilterMismatchNmax', str(filter_mismatch_nmax),
+            '--outFilterIntronMotifs', filter_intron_motifs,
+            '--outSAMtype', sam_type.split()[0], sam_type.split()[1],
+            # '--outSAMattributes', sam_attributes.split()[0], sam_attributes.split()[1]
+            ]                
+        if clip_3p_adapter_seq!=None:
+            cmd = program + options + ['--clip3pAdapterSeq', str(clip_3p_adapter_seq)]
+        else:
+            cmd = program + options
+            logging.warning('Adapter sequence is not provided! Please use the clip_3p_adapter_seq argument if it has not been trimmed.')
+        
+    elif type(reads)==list:
+        options = [
+            '--runMode', mode,
+            '--readFilesIn', reads[0], reads[1],
+            '--outFileNamePrefix', prefix,
+            '--genomeDir', index,
+            '--runThreadN', str(num_threads),
+            '--readFilesCommand', read_files_command,
+            '--seedSearchLmax', str(seed_search_lmax),
+            '--outFilterMultimapScoreRange', str(filter_multimap_score_range),
+            '--outFilterMultimapNmax', str(filter_multimap_nmax),
+            '--outFilterMismatchNmax', str(filter_mismatch_nmax),
+            '--outFilterIntronMotifs', filter_intron_motifs,
+            '--outSAMtype', sam_type.split()[0], sam_type.split()[1],
+            # '--outSAMattributes', sam_attributes.split()[0], sam_attributes.split()[1]
+            ]   
+        if clip_3p_adapter_seq!=None:
+            cmd = program + options + ['--clip3pAdapterSeq', str(clip_3p_adapter_seq), str(clip_3p_adapter_seq), 
+                                       '--clip3pAdapterMMp', str(0.1), str(0.1)]
+        else:
+            cmd = program + options
+            logging.warning('Adapter sequence is not provided! Please use the clip_3p_adapter_seq argument if it has not been trimmed.')
     else:
-        cmd = program + options
+        logging.error('Read input must be a string or a list!')
+
         
     subprocess.run(cmd, check=True)
 
@@ -285,12 +319,12 @@ def align_short_reads(
 
 
 
-def quantify_transcripts(read1, fasta_path, index=None):
+def quantify_transcripts(reads, fasta_path, adapter=None, index=None, outdir=None):
     """
     Build pufferfish index and count reads by mRNA isoforms using Salmon.
 
     Input:
-        * read1: single-end read
+        * reads: str if single-end, a list if paired-end
         * fasta_path: path or fasta file
         * index: path for index
 
@@ -300,29 +334,87 @@ def quantify_transcripts(read1, fasta_path, index=None):
     
     build_index = ['salmon','index',
                    '-t', fasta_path, 
-                   '-i', index + '_puff']
-
-    quant_dir = read1.split(os.extsep)[0] + '_salmon_quant/'
-    quant = ['salmon','quant',
-             '-l', 'A', 
-             '-i', index + '_puff', 
-             '-r', read1,
-             '-o', quant_dir, '-q']
-    
+                   '-i', index]
     if index!=None:
-        if os.path.isdir(index + '_puff/') is False:
-            subprocess.run(build_index, check=True)
-            subprocess.run(quant, check=True)
+        subprocess.run(build_index, check=True)
+        logging.info('saved index to ' + index)
     else:
+        logging.warning('No index generated!')
+        
+    
+    if type(reads)==str:
+        quant_dir = filename(reads, outfname='_salmon_quant/', outdir=outdir, pathbase=True)
+        
+        if adapter:
+            trim_fastq = filename(reads, outfname='_trimmed.fastq.gz', outdir=outdir, pathbase=True)
+            trim = ['fastp',
+                '-i', reads,
+                '-o', trim_fastq,
+                '-q', '10',
+                '-w', '8',
+                '-a', adapter]        
+            subprocess.run(trim, check=True)
+            
+            quant = ['salmon','quant',
+                 '-l', 'A', 
+                 '-i', index, 
+                 '-r', trim_fastq,
+                 '-o', quant_dir, '-q']
+            
+        else:
+            quant = ['salmon','quant',
+                 '-l', 'A', 
+                 '-i', index, 
+                 '-r', reads,
+                 '-o', quant_dir, '-q']
+            logging.warning('No adapter trimming! Consider trimming if low number of transcripts quantified.\n')
+        
+        subprocess.run(quant, check=True)
+        
+    elif type(reads)==list:
+        read1 = reads[0]
+        read2 = reads[0]
+        
+        quant_dir = filename(read1, outfname='_salmon_quant/', outdir=outdir, pathbase=True)
+
+        if adapter:
+            trim_fastqs = [filename(i, outdir=outdir, pathbase=True) for i in reads]
+            trim = ['fastp',
+                    '-i', reads[0],
+                    '-I', reads[1],
+                    '-o', trim_fastqs[0] + '_trimmed_1.fastq.gz',
+                    '-O', trim_fastqs[1] + '_trimmed_2.fastq.gz',
+                    '-q', '10',
+                    '-w', '8',
+                    '-a', adapter]
+            subprocess.run(trim, check=True)
+            
+            quant = ['salmon','quant',
+                 '-l', 'A', 
+                 '-i', index, 
+                 '-1', trim_fastqs[0] + '_trimmed_1.fastq.gz',
+                 '-2', trim_fastqs[1] + '_trimmed_2.fastq.gz',
+                 '-o', quant_dir, '-q']
+        else:
+            quant = ['salmon','quant',
+                 '-l', 'A', 
+                 '-i', index, 
+                 '-1', reads[0],
+                 '-2', reads[1],
+                 '-o', quant_dir, '-q']
+            logging.warning('No adapter trimming! Consider trimming if low number of transcripts quantified.\n')
+        
         subprocess.run(quant, check=True)
 
-    if os.path.isdir(index + '_puff/'):
-        logging.info('saved index to ' + index + '_puff/')
     else:
-        logging.error('No index generated!')
-
+        logging.error('Read input must be a string of a list!')
+        
     if os.path.isdir(quant_dir):
         logging.info('saved read counts to ' + quant_dir)
+        sf = pd.read_csv(quant_dir + 'quant.sf', sep='\t')
+        total_tx = str(sf.shape[0])
+        quant_tx = str(sf[sf.NumReads!=0].shape[0])
+        logging.info('quantified ' + quant_tx + ' of ' + total_tx + ' transcripts')
     else:
         logging.error('No quant.sf generated!')
 
@@ -380,13 +472,11 @@ def riboprofiler(
     elif (os.path.isdir(out)!=True) & (os.path.isdir(os.path.split(out)[0])!=True):
         os.makedirs(os.path.split(out)[0])
     
-    # cmd = ' '.join(cmd) + '\n'
-    # with open('rp.sh','w') as sh:
-    #     sh.write(cmd)
+    if os.path.isfile(ribobam) & os.path.isfile(mrnabam) & os.path.isfile(fasta) & os.path.isfile(cds_range_file) & os.path.isfile(sf):
+        subprocess.run(' '.join(cmd), check=True, shell=True)
+    else:
+        logging.error('Missing input file(s)!')
         
-    # subprocess.run('chmod +x rp.sh', check=True, shell=True)
-    subprocess.run(' '.join(cmd), check=True, shell=True)
-    
     if os.path.exists(out + '.base'):
         logging.info('saved main output as ' + out + '.base')
     else:

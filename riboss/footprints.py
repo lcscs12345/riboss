@@ -123,9 +123,10 @@ def footprint_summary(cds_range, sample, quality='best', offset_method='5p', adj
     
     if isinstance(cds_range, str):
         cds = pd.read_csv(cds_range, sep='\t', header=None)
-        cds.columns = ['tid','CDS_start','CDS_end']
     elif isinstance(cds_range, pd.DataFrame):
         cds = cds_range
+    
+    cds.columns = ['tid','CDS_start','CDS_end']
         
     df = pd.DataFrame(sample)
     df.columns = ['tid','read']
@@ -140,8 +141,7 @@ def footprint_summary(cds_range, sample, quality='best', offset_method='5p', adj
         
     dt = pd.merge(cds,df,on='tid')
     adj = int(adj)
-    fplen = pd.DataFrame({'footprint_len':range(28-6,28+4), 'offset':range(adj-6,adj+4)})
-
+    
     if offset_method=='5p':     
         dt['adj_start'] = dt.pos - dt.CDS_start + adj
         dt['adj_end'] = dt.pos - dt.CDS_end + adj
@@ -156,55 +156,7 @@ def footprint_summary(cds_range, sample, quality='best', offset_method='5p', adj
     frame_stats = dt[(dt.frame>=0) & (dt['adj_start']<=90) & (dt['adj_start']>=-30)].copy()
     frame_stats = frame_stats.groupby(['footprint_len','frame']).count().reset_index()[['footprint_len','frame','tid']]
     frame_stats.columns = ['footprint_len','frame','counts']
-    
-    best = frame_stats[frame_stats.frame==0].sort_values('counts', ascending=False).head(1).footprint_len.values[0]
-    
-    footprint_stats = frame_stats.groupby('footprint_len')['counts'].apply(list).reset_index()
-    top_footprint = footprint_stats[footprint_stats.footprint_len==best]
-    top_footprint = top_footprint.loc[top_footprint.index.repeat(footprint_stats.shape[0])].reset_index(drop=True)
-    footprint_stats = pd.concat([top_footprint,footprint_stats], axis=1)
-    footprint_stats.columns = ['top_footprint','tab_x','footprint_len','tab_y']
-    footprint_stats = footprint_stats[(footprint_stats.tab_x.apply(len)==3) & (footprint_stats.tab_y.apply(len)==3)].copy()
-    footprint_stats = contingency_tables(footprint_stats)
-    stats = statistical_test(footprint_stats, 1000)
-    
-    if quality=='best':
-        best = pd.DataFrame({'footprint_len':[best]})
-        fplen = pd.merge(best, fplen)
-    elif quality=='good':
-        good = stats[(stats.adj_posthoc_pval.apply(lambda x: x[0]>0.01)) | (footprint_stats.odds_ratio.apply(lambda x: x.statistic)<2)][['footprint_len']]
-        fplen = pd.merge(good, fplen)
-    else:
-        sys.exit('Please provide footprint quality!')
-    
-    fplen.to_csv(offset_prefix + '.offset.txt', sep='\t', index=None, header=None)
-    logging.info('saved selected footprint sizes with an offset as ' + offset_prefix + '.offset.txt')
-    
-    selected_footprints = pd.merge(dt,fplen)
 
-    if offset_method=='5p':
-        selected_footprints['adj_start'] = selected_footprints.pos - selected_footprints.CDS_start + selected_footprints.offset
-        selected_footprints['adj_end'] = selected_footprints.pos - selected_footprints.CDS_end + selected_footprints.offset
-    
-    elif offset_method=='3p':
-        selected_footprints['adj_start'] = selected_footprints.pos - selected_footprints.CDS_start + selected_footprints.footprint_len - selected_footprints.offset
-        selected_footprints['adj_end'] = selected_footprints.pos - selected_footprints.CDS_end + selected_footprints.footprint_len - selected_footprints.offset
-        
-    return stats, frame_stats, selected_footprints
-
-
-
-def heatmap_periodicity(frame_stats, heatmap_prefix):
-    """
-    Plot heatmaps by frames. Using frame_stats dataframe from footprint_summary.
-    
-    Input:
-        * frame_stats: dataframe from footprint_summary (required)
-        * heatmap_prefix: filename prefix for heatmaps (required)
-    Output:
-        * heatmaps as PDFs
-    """
-    
     pv = frame_stats.pivot(columns='frame', index='footprint_len', values='counts').sort_values('footprint_len', ascending=False)
     pv['all counts'] = pv[[0,1,2]].values.tolist()
     pv['% counts by footprints'] = pv['all counts'].apply(lambda x: [i/np.sum(x) for i in x])
@@ -216,6 +168,79 @@ def heatmap_periodicity(frame_stats, heatmap_prefix):
     pv[0] = pv['% counts'].apply(lambda x: x[0])
     pv[1] = pv['% counts'].apply(lambda x: x[1])
     pv[2] = pv['% counts'].apply(lambda x: x[2])
+    pv.dropna(inplace=True)
+    pv['frame_max'] = pv['all counts'].apply(lambda x: np.argmax(x))
+    
+    fplen = pd.DataFrame({'footprint_len':range(28-6,28+173), 'offset':range(adj-6,adj+173)})
+    fplen['frame_max'] = fplen.offset%3
+    pv = pd.merge(pv, fplen, on='footprint_len')
+    
+    f0x = pv.value_counts('frame_max_x').reset_index().sort_values('frame_max_x').iloc[0]['count']
+    f0y = pv.value_counts('frame_max_y').reset_index().sort_values('frame_max_y').iloc[0]['count']
+    if f0x>f0y:
+        pv.offset = adj
+    elif f0x==f0y:
+        pv = pv[pv.frame_max_x==pv.frame_max_y].copy()
+    else:
+        pv = pv[pv.frame_max_x==pv.frame_max_y].copy()
+        logging.warning('The default adj=' + str(adj) + ' for footprint offset is not suitable! Try a different offset value, for example adj=13 or adj=11.')
+        
+    try:
+        best = frame_stats.sort_values('counts', ascending=False).head(1).footprint_len.values[0]
+        if best>35:
+            logging.warning('The most abundant footprint size is' + str(best) + ' and longer than expected!')
+        
+        footprint_stats = frame_stats.groupby('footprint_len')['counts'].apply(list).reset_index()
+        top_footprint = footprint_stats[footprint_stats.footprint_len==best]
+        top_footprint = top_footprint.loc[top_footprint.index.repeat(footprint_stats.shape[0])].reset_index(drop=True)
+        footprint_stats = pd.concat([top_footprint,footprint_stats], axis=1)
+        footprint_stats.columns = ['top_footprint','tab_x','footprint_len','tab_y']
+        footprint_stats = footprint_stats[(footprint_stats.tab_x.apply(len)==3) & (footprint_stats.tab_y.apply(len)==3)].copy()
+        footprint_stats = contingency_tables(footprint_stats)
+        stats,_ = statistical_test(footprint_stats, 1000)
+        
+        if quality=='best':
+            best = pd.DataFrame({'footprint_len':[best]})
+            fplen = pd.merge(best, pv[['footprint_len','offset']])
+        elif quality=='good':
+            good = stats[(stats.adj_posthoc_pval.apply(lambda x: x[0]>0.01)) | (stats.odds_ratio.apply(lambda x: x.statistic)<2)].copy()[['footprint_len']]
+            fplen = pd.merge(good, pv[['footprint_len','offset']])
+        else:
+            sys.exit('Please provide footprint quality!')
+        
+        fplen.to_csv(offset_prefix + '.offset.txt', sep='\t', index=None, header=None)
+        logging.info('saved selected footprint sizes with an offset as ' + offset_prefix + '.offset.txt')
+        
+        selected_footprints = pd.merge(dt,fplen)
+    
+        if offset_method=='5p':
+            selected_footprints['adj_start'] = selected_footprints.pos - selected_footprints.CDS_start + selected_footprints.offset
+            selected_footprints['adj_end'] = selected_footprints.pos - selected_footprints.CDS_end + selected_footprints.offset
+        
+        elif offset_method=='3p':
+            selected_footprints['adj_start'] = selected_footprints.pos - selected_footprints.CDS_start + selected_footprints.footprint_len - selected_footprints.offset
+            selected_footprints['adj_end'] = selected_footprints.pos - selected_footprints.CDS_end + selected_footprints.footprint_len - selected_footprints.offset
+    
+        pv.drop(['frame_max_x','frame_max_y'], axis=1, inplace=True)
+        pv.set_index('footprint_len', inplace=True)
+    
+    except:
+        logging.error('Reads are longer than 200 nt! Are you sure that this is a ribosome profiling library?')
+    
+    return stats, pv, selected_footprints
+
+
+
+def heatmap_periodicity(pv, heatmap_prefix):
+    """
+    Plot heatmaps by frames. Using frame_stats dataframe from footprint_summary.
+    
+    Input:
+        * frame_stats: dataframe from footprint_summary (required)
+        * heatmap_prefix: filename prefix for heatmaps (required)
+    Output:
+        * heatmaps as PDFs
+    """
     
     if re.search('Aligned.out',heatmap_prefix):
         bam = heatmap_prefix.replace('Aligned.out','')
@@ -287,24 +312,29 @@ def footprint_periodicity(selected_footprints, downsampling, barplot_prefix, yli
     else:
         bam = barplot_prefix
         bam = os.path.basename(bam)
-        
-    g = sns.FacetGrid(df_start, col='footprint_len', height=3, sharey=False, ylim=ylim) 
-    g.map_dataframe(sns.histplot, x='adj_start', hue='frame', discrete=True)
-    g.set(xlabel=None)
-    g.set_titles(col_template='{col_name}-nt')
-    g.fig.suptitle(str(int(downsampling*100)) + '% of footprints sampled from ' + bam, y=1.05)
-    g.fig.supxlabel('Footprint positions from start codons',fontsize='medium')
-    plt.savefig(barplot_prefix + '.start_codon.pdf', bbox_inches='tight')
-    
-    g = sns.FacetGrid(df_end, col='footprint_len', height=3, sharey=False, ylim=ylim) 
-    g.map_dataframe(sns.histplot, x='adj_end', hue='frame', discrete=True)
-    g.set(xlabel=None)
-    g.set_titles(col_template='{col_name}-nt')
-    g.fig.suptitle(str(int(downsampling*100)) + '% footprints sampled from ' + bam, y=1.05)
-    g.fig.supxlabel('Footprint positions from stop codons',fontsize='medium')
-    plt.savefig(barplot_prefix + '.stop_codon.pdf', bbox_inches='tight')
 
-    logging.info('saved metagene plots as ' + barplot_prefix + '.start_codon.pdf and ' + barplot_prefix + '.stop_codon.pdf')
+    if (df_start.shape[0]>0) & (df_end.shape[0]>0):
+        g = sns.FacetGrid(df_start, col='footprint_len', height=3, sharey=False, ylim=ylim, xlim=(-21,21)) 
+        g.map_dataframe(sns.histplot, x='adj_start', hue='frame', discrete=True)
+        g.set(xlabel=None)
+        g.set_titles(col_template='{col_name}-nt')
+        g.fig.suptitle(str(downsampling*100) + '% of footprints sampled from ' + bam, y=1.05)
+        g.fig.supxlabel('Footprint positions from start codons',fontsize='medium')
+        plt.savefig(barplot_prefix + '.start_codon.pdf', bbox_inches='tight')
+        
+        g = sns.FacetGrid(df_end, col='footprint_len', height=3, sharey=False, ylim=ylim, xlim=(-21,21)) 
+        g.map_dataframe(sns.histplot, x='adj_end', hue='frame', discrete=True)
+        g.set(xlabel=None)
+        g.set_titles(col_template='{col_name}-nt')
+        g.fig.suptitle(str(downsampling*100) + '% footprints sampled from ' + bam, y=1.05)
+        g.fig.supxlabel('Footprint positions from stop codons',fontsize='medium')
+        plt.savefig(barplot_prefix + '.stop_codon.pdf', bbox_inches='tight')
+        
+        logging.info('saved metagene plots as ' + barplot_prefix + '.start_codon.pdf and ' + barplot_prefix + '.stop_codon.pdf')
+        
+    else:
+        logging.warning(bam + ' have insufficient mapped reads for plotting! This is likely due to longer than expected read length.')
+        
     
 
 
