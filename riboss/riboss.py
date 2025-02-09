@@ -382,12 +382,12 @@ def boss(df, tx_assembly, boss_prefix, padj_method='fdr_bh', tie=False, num_simu
     fo = f[f.ORF_type_y.isna()].copy()
     fo['boss'] = 'default'
     fo['odds_ratio'] = np.inf
-    fo = fo[['tid','boss','start_codon_x','ORF_range_x','ORF_type_x','tab_x','start_rprofile_x']]
+    fo = fo[['tid','boss','start_codon_x','ORF_range_x','ORF_type_x','tab_x','odds_ratio','start_rprofile_x']]
     
     fm = f[f.ORF_type_x.isna()].copy()
     fm['boss'] = 'default'
     fm['odds_ratio'] = 0
-    fm = fm[['tid','boss','start_codon_y','ORF_range_y','ORF_type_y','tab_y','start_rprofile_y']]
+    fm = fm[['tid','boss','start_codon_y','ORF_range_y','ORF_type_y','tab_y','odds_ratio','start_rprofile_y']]
 
     # ORFs with opponents
     f.dropna(inplace=True)
