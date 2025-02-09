@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2024-09-14 10:42:41
-@modify date 2024-12-27 20:54:27
+@modify date 2025-02-09 20:12:51
 @desc        RIBOSS module for analysing aligned ribosome footprints
 """
 
@@ -101,7 +101,7 @@ def bam_sampling(bamfile, fraction=0.1):
 
 
 
-def footprint_summary(cds_range, sample, quality='best', offset_method='5p', adj=12, min_size=25, max_size=35, offset_prefix=None):
+def footprint_summary(cds_range, sample, quality='best', offset_method='5p', adj=12, min_size=None, max_size=None, offset_prefix=None):
     """
     Compare the periodicity of ribosome footprint by sizes using odds ratio and chi-square post-hoc test.
     All vs the most abundant footprint size.
@@ -137,8 +137,24 @@ def footprint_summary(cds_range, sample, quality='best', offset_method='5p', adj
     df = df[~df.footprint_len.str.contains('S')]
     df['pos'] = df.pos.astype(int) -1
     df['footprint_len'] = df.footprint_len.astype(int)
-    df = df[(df.footprint_len>=int(min_size)) & (df.footprint_len<=int(max_size))]
+    
+    if min_size==None:
+        min_size = np.min(df.footprint_len.tolist())
+        logging.info('use ' + str(min_size) + ' as minimum footprint length.')
         
+    if max_size==None:
+        max_size = np.max(df.footprint_len.tolist())
+        if max_size<40:
+            logging.info('use ' + str(max_size) + ' as the maximum footprint length.')
+        elif max_size>=50:
+            logging.warning('Use ' + str(max_size) + ' as the maximum footprint length!')
+            
+        df = df[(df.footprint_len>=int(min_size)) & (df.footprint_len<=int(max_size))]
+        
+    else:
+        df = df[(df.footprint_len>=int(25)) & (df.footprint_len<=int(35))]
+
+
     dt = pd.merge(cds,df,on='tid')
     adj = int(adj)
     
@@ -156,7 +172,11 @@ def footprint_summary(cds_range, sample, quality='best', offset_method='5p', adj
     frame_stats = dt[(dt.frame>=0) & (dt['adj_start']<=90) & (dt['adj_start']>=-30)].copy()
     frame_stats = frame_stats.groupby(['footprint_len','frame']).count().reset_index()[['footprint_len','frame','tid']]
     frame_stats.columns = ['footprint_len','frame','counts']
-
+    
+    total_fp = np.sum(frame_stats['counts'].tolist())
+    if total_fp<100:
+        logging.warning('Total fragment counts are ' + str(total_fp) + '! Metagene plots might not be generated.')
+    
     pv = frame_stats.pivot(columns='frame', index='footprint_len', values='counts').sort_values('footprint_len', ascending=False)
     pv['all counts'] = pv[[0,1,2]].values.tolist()
     pv['% counts by footprints'] = pv['all counts'].apply(lambda x: [i/np.sum(x) for i in x])
@@ -171,7 +191,7 @@ def footprint_summary(cds_range, sample, quality='best', offset_method='5p', adj
     pv.dropna(inplace=True)
     pv['frame_max'] = pv['all counts'].apply(lambda x: np.argmax(x))
     
-    fplen = pd.DataFrame({'footprint_len':range(28-6,28+173), 'offset':range(adj-6,adj+173)})
+    fplen = pd.DataFrame({'footprint_len':range(28-6,28+73), 'offset':range(adj-6,adj+73)})
     fplen['frame_max'] = fplen.offset%3
     pv = pd.merge(pv, fplen, on='footprint_len')
     
@@ -188,7 +208,7 @@ def footprint_summary(cds_range, sample, quality='best', offset_method='5p', adj
     try:
         best = frame_stats.sort_values('counts', ascending=False).head(1).footprint_len.values[0]
         if best>35:
-            logging.warning('The most abundant footprint size is' + str(best) + ' and longer than expected!')
+            logging.warning('The most abundant footprint size is ' + str(best) + ' and longer than expected!')
         
         footprint_stats = frame_stats.groupby('footprint_len')['counts'].apply(list).reset_index()
         top_footprint = footprint_stats[footprint_stats.footprint_len==best]
@@ -197,13 +217,18 @@ def footprint_summary(cds_range, sample, quality='best', offset_method='5p', adj
         footprint_stats.columns = ['top_footprint','tab_x','footprint_len','tab_y']
         footprint_stats = footprint_stats[(footprint_stats.tab_x.apply(len)==3) & (footprint_stats.tab_y.apply(len)==3)].copy()
         footprint_stats = contingency_tables(footprint_stats)
-        stats,_ = statistical_test(footprint_stats, 1000)
+
+        f,xf = statistical_test(footprint_stats, 1000)
         
         if quality=='best':
             best = pd.DataFrame({'footprint_len':[best]})
             fplen = pd.merge(best, pv[['footprint_len','offset']])
         elif quality=='good':
-            good = stats[(stats.adj_posthoc_pval.apply(lambda x: x[0]>0.01)) | (stats.odds_ratio.apply(lambda x: x.statistic)<2)].copy()[['footprint_len']]
+            if f.shape[0]>0:
+                good = f[(f.adj_posthoc_pval.apply(lambda x: x[0]>0.01)) | (f.odds_ratio.apply(lambda x: x.statistic)<2)].copy()[['footprint_len']]
+            else:
+                xf['odds_ratio'] = xf.odds_ratio.apply(lambda x: x.statistic)
+                good = xf.sort_values('odds_ratio', ascending=False)[['footprint_len']]    
             fplen = pd.merge(good, pv[['footprint_len','offset']])
         else:
             sys.exit('Please provide footprint quality!')
@@ -223,12 +248,13 @@ def footprint_summary(cds_range, sample, quality='best', offset_method='5p', adj
     
         pv.drop(['frame_max_x','frame_max_y'], axis=1, inplace=True)
         pv.set_index('footprint_len', inplace=True)
+        
+        return f, pv, selected_footprints
     
-    except:
-        logging.error('Reads are longer than 200 nt! Are you sure that this is a ribosome profiling library?')
-    
-    return stats, pv, selected_footprints
-
+    except Exception as e:
+        logging.exception('Reads are longer than expected! Are you sure that this is a ribosome profiling library? Here are the statistics by reading frame.')
+        print(frame_stats)
+        pass
 
 
 def heatmap_periodicity(pv, heatmap_prefix):
@@ -363,11 +389,22 @@ def analyse_footprints(offset_method, adj, bam, downsampling, cds_range, quality
     sample = bam_sampling(bam, downsampling)
 
     if quality=='best':
-        stats,fp,df = footprint_summary(cds_range, sample, 'best', offset_method, adj, min_size, max_size, fname)
+        try:
+            stats,fp,df = footprint_summary(cds_range, sample, 'best', offset_method, adj=adj, min_size=min_size, max_size=max_size, offset_prefix=fname)
+            heatmap_periodicity(fp, fname)
+            footprint_periodicity(df, downsampling, fname, ylim=ylim) # metagene plots
+        except Exception as e:
+            logging.exception('Reads are longer than expected! Are you sure that this is a ribosome profiling library?')
+            pass
     elif quality=='good':
-        stats,fp,df = footprint_summary(cds_range, sample, 'good', offset_method, adj, min_size, max_size, fname)
+        try:
+            stats,fp,df = footprint_summary(cds_range, sample, 'good', offset_method, adj=adj, min_size=min_size, max_size=max_size, offset_prefix=fname)
+            heatmap_periodicity(fp, fname)
+            footprint_periodicity(df, downsampling, fname, ylim=ylim) # metagene plots
+        except Exception as e:
+            logging.exception('Reads are longer than expected! Are you sure that this is a ribosome profiling library?')
+            pass
         
-    heatmap_periodicity(fp, fname)
-    footprint_periodicity(df, downsampling, fname, ylim=ylim) # metagene plots
+
     
     return stats

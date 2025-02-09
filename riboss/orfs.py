@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2024-09-13 15:26:12
-@modify date 2024-12-26 15:53:36
+@modify date 2025-02-07 14:06:05
 @desc        RIBOSS module for finding ORFs
 """
 
@@ -57,7 +57,8 @@ CODON_TO_AA={'TTT':'F','TCT':'S','TAT':'Y','TGT':'C','TTC':'F','TCC':'S',\
 
 
 def translate(seq):
-    if seq[-3:].upper() in ['TAA','TGA','TAG']:
+    seq = seq.upper()
+    if seq[-3:] in ['TAA','TAG','TGA']:
         seq = seq[:-3]
         
     length = (len(seq)- len(seq)%3)
@@ -66,36 +67,38 @@ def translate(seq):
     codons = split_func(seq, 3)
     aa = ''
     for c in codons:
-        aa+=CODON_TO_AA[c.upper()]
+        aa+=CODON_TO_AA[c]
     return aa
 
     
 
 
 def all_orf(seq):
+    seq = seq.upper()
     triplet = ""
     for i in range(0, len(seq)-2, 3):
         triplet = seq[i:(i+3)]
-        if triplet in ["TAG", "TAA", "TGA"]:
+        if triplet in ['TAA', 'TAG', 'TGA']:
             return seq[:i+3]
     return seq
 
 
 
 def top_3_frames(seq, start_codon):
+    seq = seq.upper()
     positions = []
     orf = ""
     for i in range(0, len(seq)):
         triplet = seq[i:i+3]
         if type(start_codon)==str:
-            if (triplet==start_codon):
+            if (triplet==start_codon.upper()):
                 orf = all_orf(seq[i:])
                 l = len(orf)
                 l -= l % +3
                 positions.append([start_codon, i, i + l])
         else:
             for codon in start_codon:
-                if (triplet==codon):
+                if (triplet==codon.upper()):
                     orf = all_orf(seq[i:])
                     l = len(orf)
                     l -= l % +3
@@ -107,11 +110,11 @@ def top_3_frames(seq, start_codon):
 def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", "CTG", "GTG", "TTG"]):
     """
     Input:
-        * annotation: gene annotation file in GTF, GFF3, GenePred, or BED format 
+        * annotation: gene annotation file in GTF, GFF3 or BED format 
         * fasta: genome fasta file (required)
         * ncrna: remove noncoding RNAs from analysis
         * outdir: output directory (default: None)
-        * start_codon: any triplets (default: ATG, CTG, GTG and TTG)
+        * start_codon: any triplets. If a list is given, it should be sorted from high to low abundance in the species of interest (default: ATG, GTG, TTG, CTG)
     Output:
         * cds_range: as input for analyse_footprints
         * orf: as input for riboss
@@ -131,11 +134,8 @@ def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", 
         subprocess.run(['gff3ToGenePred', annotation, genepred], check=True)
     elif 'bed' in annotation:
         subprocess.run(['bedToGenePred', annotation, genepred], check=True)
-    elif ('genepred' in annotation) | ('gp' in annotation) | ('txt' in annotation):
-        subprocess.run(['genePredToBed', annotation, genepred + '.test'], check=True)
-        os.remove(genepred + '.test')
-    else:
-        logging.error('Annotation format not recognised! Please use .gtf, .gff, .bed or .genepred (.gp or .txt).')
+    elif 'gp' in annotation:
+        pass
         
     gp = pd.read_csv(genepred, sep='\t', header=None)
     
@@ -170,6 +170,7 @@ def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", 
     df['ORF_range'] = df['ORF_range'].apply(lambda x: [x[1],x[2]])
     df['ORF_start'] = df.ORF_range.apply(lambda x: x[0])
     df['ORF_end'] = df.ORF_range.apply(lambda x: x[1])
+    df['ORF_length'] = df.ORF_end - df.ORF_start
     
     pbar = tqdm.pandas(desc="converting coordinates ", unit_scale=True, ncols=100)
     df_plus = df[df.Strand=='+'].copy()
@@ -226,11 +227,21 @@ def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", 
     
     df = pd.concat([oorf, orf]).drop_duplicates(['Name','start_codon','ORF_start','ORF_end'])
     df = pd.concat([df, inframe]).drop_duplicates(['Name','start_codon','ORF_start','ORF_end'], keep=False)
+    
+    if type(start_codon)==list:
+        ds = []
+        for i in start_codon:
+            ds.append(df[df.start_codon==i].sort_values('ORF_length', ascending=False))
+        df = pd.concat(ds)
+    else:
+        df = df.sort_values('ORF_length').drop_duplicates(['Name','ORF_end'])
+        
+    df.drop_duplicates(['Name','ORF_end'], inplace=True)
     df = pd.concat([cds, df]).drop_duplicates(['Name','start_codon','ORF_start','ORF_end'])
     df = df.drop(['fasta_header','Strand_b','frame_plus','frame_minus','Start_b','End_b'], axis=1).rename(columns={'Name':'tid'})
     df['ORF_length'] = df.ORF_range.apply(lambda x: x[1]-x[0])
     df.to_pickle(fname + '.orf_finder.pkl.gz')
-
+    
     logging.info('found ' + str(df.shape[0]) + ' ORFs in ' + 
           str(round((time.perf_counter()-start_time)/60)) + ' min ' +
           str(round((time.perf_counter()-start_time)%60)) + ' s')
@@ -238,7 +249,7 @@ def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", 
     logging.info('saved sequences as ' + fname + '.gp')
     logging.info('saved sequences as ' + fname + '.orf_finder.pkl.gz')
     logging.info('saved CDS range as ' + fname + '.cds_range.txt')
-    
+
     return cds_range, df
 
 
@@ -273,7 +284,7 @@ def operon_distribution(op, displot_prefix, log=False):
 
 
 def operon_finder(tx_assembly, bed, outdir=None, delim=None, 
-                  start_codon=["ATG", "CTG", "GTG", "TTG"], 
+                  start_codon=["ATG", "GTG", "TTG", "CTG"], 
                   ncrna=False,log=False):
     """
     Predict operons from transcriptome.
@@ -283,7 +294,7 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None,
         * bed: converted from gff3, e.g. from NCBI Genome Assembly (required)
         * outdir: output directory (default: None)
         * delim: use :: for tx_assembly extracted using bedtools getfasta -name flag, as this appends name (column #4) to the genomic coordinates (default: None)
-        * start_codon: any triplets (default: ATG, CTG, GTG and TTG)
+        * start_codon: any triplets. If a list is given, it should be sorted from high to low abundance in the species of interest (default: ATG, GTG, TTG, CTG)
         * ncrna: remove noncoding RNAs from analysis
     Output:
         * cds_range: as input for analyse_footprints
@@ -305,7 +316,7 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None,
     df_['length'] = df_.seq.apply(len)
     df_ = df_[(df_.Strand=='+') | (df_.Strand=='-')].drop('seq',axis=1)
     
-    pbar = tqdm.pandas(desc="finding all ORFs       ", unit_scale=True, ncols=100)
+    pbar = tqdm.pandas(desc="finding all ORFs       ", unit_scale=True, ncols=100)
     df['ORF_range'] = df.seq.progress_apply(lambda x: top_3_frames(x ,start_codon))
     df = df.explode('ORF_range')
     df = df.dropna(axis=0).reset_index(drop=True)
@@ -371,7 +382,18 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None,
 
     cds = cds[['tid','start_codon','ORF_start','ORF_end','ORF_length','ORF_type']]
     
-    d = pd.concat([cds, oorf, oporf, sorf]).drop_duplicates(['tid','start_codon','ORF_start','ORF_end','ORF_length'])
+    d = pd.concat([oorf, oporf, sorf])
+    
+    if type(start_codon)==list:
+        ds = []
+        for i in start_codon:
+            ds.append(d[d.start_codon==i].sort_values('ORF_length', ascending=False))
+        d = pd.concat(ds)
+    else:
+        d = d.sort_values('ORF_length', ascending=False)
+        
+    d.drop_duplicates(['tid','ORF_end'], inplace=True)
+    d = pd.concat([cds, d]).drop_duplicates(['tid','start_codon','ORF_start','ORF_end','ORF_length'])
     df = pd.merge(d.drop(['Chromosome','Start','End','Strand'], axis=1), orf)
 
     # Export CDS_range

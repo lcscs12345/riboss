@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2025-02-07 21:37:26
+@modify date 2025-02-09 20:11:29
 @desc        Main RIBOSS module
 """
 
@@ -121,6 +121,9 @@ def base_to_bedgraph(superkingdom, base, bedgraph_prefix, profile=None, genepred
         df['End'] = df['range'].apply(lambda x: x[1]).astype(int) +1
         df[profile] = df['range'].apply(lambda x: x[0]).astype(int)
         df.drop('range', axis=1, inplace=True)               
+    
+    else:
+        logging.error('Please check your spelling! Only Archaea, Bacteria, or Eukaryota is acceptable superkingdom.')
         
     # Split by strands
     df = df[df[profile]>0].copy()
@@ -169,7 +172,8 @@ def base_to_bedgraph(superkingdom, base, bedgraph_prefix, profile=None, genepred
         return bg
     elif superkingdom=='Eukaryota':
         return gc, bg
-
+    else:
+        logging.error('Please check your spelling! Only Archaea, Bacteria, or Eukaryota is acceptable superkingdom.')
 
 
 def parse_ribomap(superkingdom, base, genepred=None, ncrna=False, delim=None, outdir=None):
@@ -213,7 +217,8 @@ def parse_ribomap(superkingdom, base, genepred=None, ncrna=False, delim=None, ou
             gc, bg = base_to_bedgraph(superkingdom, p, base, profile=p.columns[1], genepred=genepred, ncrna=ncrna, delim=None, outdir=outdir)
             bgs.append(bg)
             return gc, bgs, profiles
-
+        else:
+            logging.error('Please check your spelling! Only Archaea, Bacteria, or Eukaryota is acceptable superkingdom.')
 
 
 def footprint_counts(df, d, gencode=None):
@@ -258,11 +263,12 @@ def footprint_counts(df, d, gencode=None):
     dt['start_pos'] = dt[[profile,'start_pos']].values.tolist()
     dt['start_rprofile'] = dt.start_pos.apply(lambda x: [x[0][i] for i in x[1]])
 
-    # filter rprofile by frames
+    # filter rprofile by frames. At least 10 footprints mapped to all 3 frames, and the number of footprints mapped to frame0 must be > frame1.
     dt['frame0'] = dt.periodicity.apply(lambda x: x[0])
     dt['frame1'] = dt.periodicity.apply(lambda x: x[1])
-    dt['frame2'] = dt.periodicity.apply(lambda x: x[2])    
+    dt['frame2'] = dt.periodicity.apply(lambda x: x[2])
     dt = dt[(dt.frame0 + dt.frame1 + dt.frame2>10) & (dt.frame0>dt.frame1) & (dt.frame0>dt.frame2)].reset_index(drop=True)
+    
     # prioritise start_rprofile>0
     d1 = dt[dt.start_rprofile.apply(lambda x: x[0])>0].sort_values(['start_codon','ORF_start','tid'])
     d0 = dt[dt.start_rprofile.apply(lambda x: x[0])==0].sort_values(['start_codon','ORF_start','tid'])
@@ -308,10 +314,10 @@ def statistical_test(df, num_simulations=1000, padj_method='fdr_bh'):
     # calculate odds ratios
     df['odds_ratio'] = df['tab'].apply(lambda x: odds_ratio(x[1]))
     
-    # perform (chi-square test, num_simulations bootstrap, post-hoc test) or (boschloo-exact test)
+    # perform (chi-square test, num_simulations bootstrap, post-hoc test), or (boschloo-exact test) if counts were zeros
     pbar = tqdm.pandas(desc="comparing periodicity  ", ncols=100)#, mininterval=10, maxinterval=200, miniters=int(df.shape[0]/10))
     
-    f = df[(df.tab.apply(lambda x: x[1][0][0]>x[1][0][1])) & (df.tab.apply(lambda x: x[1][1][0]>x[1][1][1]))].copy()
+    f = df[(df.tab.apply(lambda x: x[1][0][0]>x[1][0][1])) | (df.tab.apply(lambda x: x[1][1][0]>x[1][1][1]))].copy()
     f['result'] = f.tab.progress_apply(lambda x: chi_square_posthoc(x[0],num_simulations) if np.sum(x[0], axis=0).all()==True else stats.boschloo_exact(x[1]))
     f['statistical test'] = f['result'].apply(lambda x: 'ChiSquare' if type(x)==SimpleNamespace else 'BoschlooExact')
     
@@ -343,7 +349,7 @@ def statistical_test(df, num_simulations=1000, padj_method='fdr_bh'):
     else:
         f = chi
     
-    xf = df[(df.tab.apply(lambda x: x[1][0][0]<x[1][0][1])) | (df.tab.apply(lambda x: x[1][1][0]<x[1][1][1]))].copy()
+    xf = df[(df.tab.apply(lambda x: x[1][0][0]<x[1][0][1])) & (df.tab.apply(lambda x: x[1][1][0]<x[1][1][1]))].copy()
 
     logging.disable(logging.NOTSET)
     
@@ -371,13 +377,22 @@ def boss(df, tx_assembly, boss_prefix, padj_method='fdr_bh', tie=False, num_simu
     m = df[df.ORF_type=='mORF'].reset_index(drop=True)
     o = df[df.ORF_type!='mORF'].reset_index(drop=True)
     f = pd.merge(o, m, on='tid', how='outer')
-    noo = f[f.start_codon_x.isna()].reset_index(drop=True)
-    noo['boss'] = noo['ORF_type_y']
-    nom = f[f.start_codon_y.isna()].reset_index(drop=True)
-    nom['boss'] = nom['ORF_type_x']
-    f = pd.merge(o, m, on='tid')
+
+    # ORFs win by default wihout opponents
+    fo = f[f.ORF_type_y.isna()].copy()
+    fo['boss'] = 'default'
+    fo['odds_ratio'] = np.inf
+    fo = fo[['tid','boss','start_codon_x','ORF_range_x','ORF_type_x','tab_x','start_rprofile_x']]
+    
+    fm = f[f.ORF_type_x.isna()].copy()
+    fm['boss'] = 'default'
+    fm['odds_ratio'] = 0
+    fm = fm[['tid','boss','start_codon_y','ORF_range_y','ORF_type_y','tab_y','start_rprofile_y']]
+
+    # ORFs with opponents
+    f.dropna(inplace=True)
     f = contingency_tables(f)
-    f, xf = statistical_test(f, num_simulations, padj_method=padj_method)    
+    f, xf = statistical_test(f, num_simulations, padj_method=padj_method)
 
     # Are mORFs the boss?
     f.reset_index(drop=True, inplace=True)
@@ -388,20 +403,20 @@ def boss(df, tx_assembly, boss_prefix, padj_method='fdr_bh', tie=False, num_simu
     boss_y['boss'] = boss_y['ORF_type_y']
     boss = pd.concat([boss_x,boss_y,f]).reset_index().drop_duplicates('index')
     boss['boss'] = boss['boss'].fillna('tie')
-    boss = pd.concat([boss,noo,nom,xf])
+    boss = pd.concat([boss,xf]).fillna('lacks periodicity')
+    boss['odds_ratio'] = boss.odds_ratio.apply(lambda x: x.statistic)    
+    boss = pd.concat([boss,fo,fm]).reset_index(drop=True)
+    boss = boss[['tid', 'boss', 'start_codon_x', 'start_codon_y', 'ORF_range_x', 'ORF_type_x', 'start_rprofile_x', 'ORF_range_y', 'ORF_type_y','start_rprofile_y', 'tab', 'odds_ratio', 'statistical test', 'result']]
+    # boss.dropna(subset=['odds_ratio'],inplace=True)
+    # boss.reset_index(drop=True, inplace=True)
 
-    boss = boss[['tid', 'boss', 'start_codon_x', 'start_codon_y', 'ORF_range_x', 'ORF_type_x', 'ORF_range_y', 'ORF_type_y', 'tab', 'odds_ratio', 'statistical test', 'result']]
-        
+
     fname = filename(boss_prefix, 'riboss', outdir)
-    
-    boss.dropna(inplace=True)
-    boss.reset_index(drop=True, inplace=True)
-    boss['odds_ratio'] = boss.odds_ratio.apply(lambda x: x.statistic)
     boss.to_csv(fname + '.csv', index=None)
     
     with open(fname + '.boss.pkl', 'wb') as fl:
         cloudpickle.dump(boss, fl)
-        logging.info('saved RIBOSS stats as ' + fname + '.pkl and ' + fname + '.csv')
+        logging.info('saved RIBOSS stats as ' + fname + '.boss.pkl and ' + fname + '.boss.csv')
         
     # extract significant results        
     chi = boss[(boss['statistical test']=='ChiSquare') & (boss.boss!='tie')].reset_index(drop=True)
@@ -424,7 +439,7 @@ def boss(df, tx_assembly, boss_prefix, padj_method='fdr_bh', tie=False, num_simu
         sig = pr.PyRanges(sig)
         sig.dna = pr.get_sequence(sig, tx_assembly)
         sig.aa = sig.dna.apply(lambda x: translate(x))
-        sig.oid = sig.Chromosome.astype(str) + '__' + sig.Start.astype(str) + '-' + sig.End.astype(str)
+        sig.oid = sig.Chromosome.astype(str) + '__' + sig.Start.astype(int).astype(str) + '-' + sig.End.astype(int).astype(str)
         sig.fa = ('>' + sig.oid + '\n' + sig.aa).tolist()
         sig = sig.df
     
@@ -604,9 +619,9 @@ def operons_to_biggenepred(orf, df, bed, fai, big_fname, delim=None):
     
     orf = orf.rename(columns={'start_codon':'start_codon_x','ORF_start':'start','ORF_end':'end'}).drop('ORF_length', axis=1)
     toporf = pd.merge(orf, df)
-    toporf['name2'] = toporf.Chromosome.astype(str) + ':' + toporf['Start'].astype(str) + '-' + toporf['End'].astype(str) + '(' + toporf.Strand.astype(str) + ')' 
+    toporf['name2'] = toporf.Chromosome.astype(str) + ':' + toporf['Start'].astype(int).astype(str) + '-' + toporf['End'].astype(int).astype(str) + '(' + toporf.Strand.astype(int).astype(str) + ')' 
     toporf['reserved'] = '255,128,0'
-    toporf['blockCount'] = 1 #TO DO
+    toporf['blockCount'] = 1
     toporf['blockSizes'] = toporf.ORF_range_x.apply(lambda x: x[1]-x[0])
     toporf['chromStarts'] = 0
     toporf['cdsStartStat'] = 'none'
@@ -705,7 +720,8 @@ def orfs_to_biggenepred(orf_ranges, df, fai, big_fname, orf_range_col=None, orf_
     Output:
         * bigGenePred for RIBOSS hits
     """
-    
+
+    df = df[~df[orf_type_col].isna()].copy()
     df_ranges = pd.merge(orf_ranges,df)
     dfp = df_ranges[df_ranges.Strand=='+'].copy()
     dfp['Start'] = dfp.apply(lambda x: x['exons'][x[orf_range_col][0]], axis=1)
@@ -717,7 +733,7 @@ def orfs_to_biggenepred(orf_ranges, df, fai, big_fname, orf_range_col=None, orf_
 
     b = df_ranges[['Chromosome','tid','Strand',orf_type_col,orf_range_col,'exons','Start','End']].copy()
     b = b.explode('exons')
-    b['oid'] = b.tid + '__' + b[orf_range_col].str[0].astype(str) + '-' + b[orf_range_col].str[1].astype(str)
+    b['oid'] = b.tid + '__' + b[orf_range_col].str[0].astype(int).astype(str) + '-' + b[orf_range_col].str[1].astype(int).astype(str)
     b = b[(b.exons>=b.Start) & (b.exons<b.End)].drop(orf_range_col, axis=1).copy()
     
     bgroupby = b.groupby(['Chromosome','tid','Strand',orf_type_col,'Start','End','oid'])['exons'].apply(list).reset_index()
@@ -748,8 +764,19 @@ def orfs_to_biggenepred(orf_ranges, df, fai, big_fname, orf_range_col=None, orf_
     faidx = pd.read_csv(fai, sep='\t', header=None)
     chromsizes = os.path.splitext(fai)[0] + '.chrom.sizes'
     faidx[[0,1]].to_csv(chromsizes, header=None, index=None, sep='\t')
-
-    bas = os.path.split(big_fname)[0] + '/bigGenePred.as'
+    
+    bpath = os.path.split(big_fname)[0]
+    if (len(bpath)==0) & (os.path.exists(bpath)==False):
+        bas =  'bigGenePred.as'
+    elif os.path.exists(bpath)==True:
+        bas = bpath + '/bigGenePred.as'
+    else:
+        try:
+            os.makedirs(bpath)
+            bas = bpath + '/bigGenePred.as'
+        except Exception as e:
+            logging.exception('No permission to create a new directory! Please check the output filename.')
+        
     subprocess.run(['wget','https://genome.ucsc.edu/goldenpath/help/examples/bigGenePred.as',
                     '-O', bas], check=True)
     
@@ -898,6 +925,8 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
         _, bases = parse_ribomap(superkingdom, riboprof_base, ncrna=ncrna, delim=delim, outdir=outdir)
     elif superkingdom=='Eukaryota':
         gc, _, bases = parse_ribomap(superkingdom, riboprof_base, genepred=genepred, ncrna=ncrna, delim=None, outdir=outdir)
+    else:
+        logging.error('Please check your spelling! Only Archaea, Bacteria, or Eukaryota is acceptable superkingdrom')
         
     if profile=='Ribosome profiling':
         prof = 0
@@ -915,13 +944,13 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
         if tie==True:
             _ = operons_to_biggenepred(df, boss_df[boss_df.boss!='mORF'], bed, fai, fname + '.boss_tie', delim)
         else:
-            _ = operons_to_biggenepred(df, boss_df[(boss_df.boss!='mORF') & (boss_df.boss!='tie')], bed, fai, fname + '.boss', delim)
+            _ = operons_to_biggenepred(df, boss_df[(boss_df.boss!='mORF') & (boss_df.boss!='tie') & (boss_df.boss!='lacks periodicity')], bed, fai, fname + '.boss', delim)
     elif superkingdom=='Eukaryota':
         _ = orfs_to_biggenepred(gc, sig, fai, fname + '.sig', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
         if tie==True:
             _ = orfs_to_biggenepred(gc, boss_df[boss_df.boss!='mORF'], fai, fname + '.boss_tie', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
         else:
-            _ = orfs_to_biggenepred(gc, boss_df[(boss_df.boss!='mORF') & (boss_df.boss!='tie')], fai, fname + '.boss', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
+            _ = orfs_to_biggenepred(gc, boss_df[(boss_df.boss!='mORF') & (boss_df.boss!='tie') & (boss_df.boss!='lacks periodicity')], fai, fname + '.boss', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
             
     if run_blastp==True:
         if superkingdom in ['Archaea','Bacteria']:
