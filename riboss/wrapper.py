@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-10-10 16:49:00
-@modify date 2024-12-27 17:21:34
+@modify date 2025-02-15 20:53:43
 @desc        RIBOSS module for binary wrappers
 """
 
@@ -20,12 +20,26 @@ import os
 DEFAULT_LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'detailed': {
+            'format': '%(asctime)s - %(levelname)s - %(name)s - %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'detailed'
+        },
+    },
     'loggers': {
         '': {
             'level': 'INFO',
+            'handlers': ['console'],
         },
         'another.module': {
             'level': 'ERROR',
+            'handlers': ['console'],
         },
     }
 }
@@ -327,7 +341,7 @@ def quantify_transcripts(reads, fasta_path, adapter=None, index=None, outdir=Non
         * reads: str if single-end, a list if paired-end
         * fasta_path: path or fasta file
         * index: path for index
-
+        * index_exist: build index if False.
     Output:
         * [prefix]_puff and [prefix]_salmont_quant
     """
@@ -335,11 +349,23 @@ def quantify_transcripts(reads, fasta_path, adapter=None, index=None, outdir=Non
     build_index = ['salmon','index',
                    '-t', fasta_path, 
                    '-i', index]
-    if index!=None:
-        subprocess.run(build_index, check=True)
-        logging.info('saved index to ' + index)
+
+    if index is not None:
+        if os.path.exists(index):  # Check if index exists (file or directory)
+            if os.path.isdir(index):
+                logging.info('index directory ' + index + ' exists.')
+            else:  # index is a file
+                logging.error(index + ' file exists. Consider renaming or moving it if you intend to build an index.')
+                sys.exit(1)
+        else:  # index doesn't exist
+            try:
+                subprocess.run(build_index, check=True)
+                logging.info('saved index to ' + index)
+            except OSError as e:
+                logging.error(f'Error creating index directory: {e}. Check for permission')
+                sys.exit(1)    
     else:
-        logging.warning('No index generated!')
+        logging.error('No index path provided!')
         
     
     if type(reads)==str:
@@ -378,6 +404,7 @@ def quantify_transcripts(reads, fasta_path, adapter=None, index=None, outdir=Non
         quant_dir = filename(read1, outfname='_salmon_quant/', outdir=outdir, pathbase=True)
 
         if adapter:
+            logging.info('trim adapter sequences from reads')
             trim_fastqs = [filename(i, outdir=outdir, pathbase=True) for i in reads]
             trim = ['fastp',
                     '-i', reads[0],

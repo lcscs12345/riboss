@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2025-02-09 20:11:29
+@modify date 2025-02-15 20:53:55
 @desc        Main RIBOSS module
 """
 
@@ -31,7 +31,7 @@ from Bio.Blast import NCBIWWW
 from Bio import Entrez as ez
 from pyfaidx import Faidx
 from io import StringIO
-from .chisquare import chi_square_posthoc
+from .chisquare import chi_square_posthoc, g_test_posthoc
 from .orfs import orf_finder, translate, CODON_TO_AA
 from .wrapper import filename, merge_scores
 from .read import read_blast_xml
@@ -308,8 +308,13 @@ def contingency_tables(df, tab_x='tab_x', tab_y='tab_y'):
     
 
 
-def statistical_test(df, num_simulations=1000, padj_method='fdr_bh'):
-
+def statistical_test(df, num_simulations=1000, method='g', padj_method='fdr_bh'):
+    """
+    Input:
+        * method: G-test (g) or chi-square test (chi). Default: g (G-test).
+        * padj_method: p-value correction method. Default: fdr_bh (for other options see statsmodels multipletests).
+    """
+    
     logging.disable(logging.INFO)
     # calculate odds ratios
     df['odds_ratio'] = df['tab'].apply(lambda x: odds_ratio(x[1]))
@@ -318,43 +323,54 @@ def statistical_test(df, num_simulations=1000, padj_method='fdr_bh'):
     pbar = tqdm.pandas(desc="comparing periodicity  ", ncols=100)#, mininterval=10, maxinterval=200, miniters=int(df.shape[0]/10))
     
     f = df[(df.tab.apply(lambda x: x[1][0][0]>x[1][0][1])) | (df.tab.apply(lambda x: x[1][1][0]>x[1][1][1]))].copy()
-    f['result'] = f.tab.progress_apply(lambda x: chi_square_posthoc(x[0],num_simulations) if np.sum(x[0], axis=0).all()==True else stats.boschloo_exact(x[1]))
-    f['statistical test'] = f['result'].apply(lambda x: 'ChiSquare' if type(x)==SimpleNamespace else 'BoschlooExact')
     
-    # p-value correction
-    pval = f['result'].apply(lambda x: x.pvalue).tolist()
-    f['adj_pval'] = multipletests(pval, method=padj_method)[1]
+    if f.shape[0]>0:
+        
+        if method=='chi':
+            f['result'] = f.tab.progress_apply(lambda x: chi_square_posthoc(x[0],num_simulations=num_simulations) if np.sum(x[0], axis=0).all()==True else stats.boschloo_exact(x[1]))
+            f['statistical test'] = f['result'].apply(lambda x: 'ChiSquare' if type(x)==SimpleNamespace else 'BoschlooExact')
+        elif method=='g':
+            f['result'] = f.progress_apply(lambda x: g_test_posthoc(x['tab'][0], num_simulations=num_simulations), axis=1)
+            f['statistical test'] = 'ChiSquare'
+            
+        # p-value correction
+        pval = f['result'].apply(lambda x: x.pvalue).tolist()
+        f['adj_pval'] = multipletests(pval, method=padj_method)[1]
+        
+        chi = f[f['statistical test']=='ChiSquare'].reset_index(drop=True)
+        chi['statistic'] = chi['result'].apply(lambda x: x.statistic)
+        chi['adjusted_residuals'] = chi['result'].apply(lambda x: x.adjusted_residuals)
+        bootstrap_pval = chi['result'].apply(lambda x: x.bootstrap_pvalue).tolist()
+        chi['adj_bootstrap_pval'] = multipletests(bootstrap_pval, method=padj_method)[1]
+        posthoc_pval = np.concatenate(chi['result'].apply(lambda x: x.posthoc_pvalues).tolist()).ravel()
+        chi['adj_posthoc_pval'] = multipletests(posthoc_pval, method=padj_method)[1].reshape(chi.shape[0], 2).tolist()
+        
+        ChiSquareResult = namedtuple('ChiSquareResult', ['statistic', 'adjusted_pvalue', 'adjusted_bootstrap_pvalue', 'adjusted_residuals','adjusted_posthoc_pvalues'])
+        chi['result'] = chi[['statistic','adj_pval','adj_bootstrap_pval','adjusted_residuals','adj_posthoc_pval']].values.tolist()
+        chi['result'] = chi['result'].apply(lambda x: ChiSquareResult(x[0],x[1],x[2],x[3],x[4]))
+        
+        be = f[f['statistical test']=='BoschlooExact'].reset_index(drop=True)
+        be['statistic'] = be['result'].apply(lambda x: x.statistic)
+        be['result'] = be[['statistic','adj_pval']].values.tolist()
+        
+        BoschlooExactResult = namedtuple('BoschlooExactResult', ['statistic', 'adjusted_pvalue'])
+        be['result'] = be['result'].apply(lambda x: BoschlooExactResult(x[0],x[1]))
+        
+        if be.shape[0]>0:
+            f = pd.concat([chi,be])
+        else:
+            f = chi
+        
+        xf = df[(df.tab.apply(lambda x: x[1][0][0]<x[1][0][1])) & (df.tab.apply(lambda x: x[1][1][0]<x[1][1][1]))].copy()
     
-    chi = f[f['statistical test']=='ChiSquare'].reset_index(drop=True)
-    chi['statistic'] = chi['result'].apply(lambda x: x.statistic)
-    chi['posthoc_statistic'] = chi['result'].apply(lambda x: x.posthoc_statistic)
-    bootstrap_pval = chi['result'].apply(lambda x: x.bootstrap_pvalue).tolist()
-    chi['adj_bootstrap_pval'] = multipletests(bootstrap_pval, method=padj_method)[1]
-    posthoc_pval = np.concatenate(chi['result'].apply(lambda x: x.posthoc_pvalue).tolist()).ravel()
-    chi['adj_posthoc_pval'] = multipletests(posthoc_pval, method=padj_method)[1].reshape(chi.shape[0], 3).tolist()
+        logging.disable(logging.NOTSET)
+        
+        return f, xf
     
-    ChiSquareResult = namedtuple('ChiSquareResult', ['statistic', 'adjusted_pvalue', 'adjusted_bootstrap_pvalue', 'posthoc_statistic','adjusted_posthoc_pvalue'])
-    chi['result'] = chi[['statistic','adj_pval','adj_bootstrap_pval','posthoc_statistic','adj_posthoc_pval']].values.tolist()
-    chi['result'] = chi['result'].apply(lambda x: ChiSquareResult(x[0],x[1],x[2],x[3],x[4]))
-    
-    be = f[f['statistical test']=='BoschlooExact'].reset_index(drop=True)
-    be['statistic'] = be['result'].apply(lambda x: x.statistic)
-    be['result'] = be[['statistic','adj_pval']].values.tolist()
-    
-    BoschlooExactResult = namedtuple('BoschlooExactResult', ['statistic', 'adjusted_pvalue'])
-    be['result'] = be['result'].apply(lambda x: BoschlooExactResult(x[0],x[1]))
-    
-    if be.shape[0]>0:
-        f = pd.concat([chi,be])
     else:
-        f = chi
-    
-    xf = df[(df.tab.apply(lambda x: x[1][0][0]<x[1][0][1])) & (df.tab.apply(lambda x: x[1][1][0]<x[1][1][1]))].copy()
+        logging.warning('No periodicity detected!')
 
-    logging.disable(logging.NOTSET)
-    
-    return f, xf
-
+        return None, None
 
 
 def boss(df, tx_assembly, boss_prefix, padj_method='fdr_bh', tie=False, num_simulations=1000, outdir=None):  
@@ -392,6 +408,7 @@ def boss(df, tx_assembly, boss_prefix, padj_method='fdr_bh', tie=False, num_simu
     # ORFs with opponents
     f.dropna(inplace=True)
     f = contingency_tables(f)
+    
     f, xf = statistical_test(f, num_simulations, padj_method=padj_method)
 
     # Are mORFs the boss?
@@ -407,8 +424,6 @@ def boss(df, tx_assembly, boss_prefix, padj_method='fdr_bh', tie=False, num_simu
     boss['odds_ratio'] = boss.odds_ratio.apply(lambda x: x.statistic)    
     boss = pd.concat([boss,fo,fm]).reset_index(drop=True)
     boss = boss[['tid', 'boss', 'start_codon_x', 'start_codon_y', 'ORF_range_x', 'ORF_type_x', 'start_rprofile_x', 'ORF_range_y', 'ORF_type_y','start_rprofile_y', 'tab', 'odds_ratio', 'statistical test', 'result']]
-    # boss.dropna(subset=['odds_ratio'],inplace=True)
-    # boss.reset_index(drop=True, inplace=True)
 
 
     fname = filename(boss_prefix, 'riboss', outdir)
@@ -423,10 +438,10 @@ def boss(df, tx_assembly, boss_prefix, padj_method='fdr_bh', tie=False, num_simu
     be = boss[(boss['statistical test']=='BoschlooExact') & (boss.boss!='tie')].reset_index(drop=True)
     
     if tie==True:
-        chi = chi[(chi.result.apply(lambda x: x.adjusted_posthoc_pvalue[0])<0.05) & (chi.boss!='mORF')].reset_index(drop=True)
+        chi = chi[(chi.result.apply(lambda x: x.adjusted_posthoc_pvalues[0])<0.05) & (chi.boss!='mORF')].reset_index(drop=True)
         be = be[be.result.apply(lambda x: x.adjusted_pvalue<0.05)].reset_index(drop=True)
     else:
-        chi = chi[(chi.result.apply(lambda x: x.adjusted_posthoc_pvalue[0])<0.05) & (chi.boss!='tie') & (chi.boss!='mORF')].reset_index(drop=True)
+        chi = chi[(chi.result.apply(lambda x: x.adjusted_posthoc_pvalues[0])<0.05) & (chi.boss!='tie') & (chi.boss!='mORF')].reset_index(drop=True)
         be = be[be.result.apply(lambda x: x.adjusted_pvalue<0.05) & (be.boss!='tie')].reset_index(drop=True)
         
     sig = pd.concat([chi,be])
@@ -485,7 +500,7 @@ def blastp(sig, blastp_prefix, email=None, outdir=None):
     logging.info('finished BLASTP in ' + 
           str(round((time.perf_counter()-start_time)/60)) + ' min ' +
           str(round((time.perf_counter()-start_time)%60)) + ' s')
-    logging.info('saved BLASTP results for RIBOSS hits as ' + fname + '.sig.blastp.xml')
+    logging.info('saved blastp results for RIBOSS hits as ' + fname + '.sig.blastp.xml')
 
     df = read_blast_xml(fname + '.sig.blastp.xml')   
     
@@ -493,13 +508,13 @@ def blastp(sig, blastp_prefix, email=None, outdir=None):
 
 
 
-def efetch(acc, tries=5, sleep=1, email=None, api_key=None):
-    """
-    Fetch Identical Protein Groups (IPG) from NCBI.
-    
-    Input: 
+
+def efetch(acc, verbose=False, tries=5, sleep=1, email=None, api_key=None):
+    """Fetch Identical Protein Groups (IPG) from NCBI.
+
+    Input:
         * acc: a single or a list or 1D array of NCBI accession numbers (required)
-        * tries: number of attempts (default=5) 
+        * tries: number of attempts (default=5)
         * sleep: pause time seconds (default=1)
         * email: email address (default=None)
         * api_key: NCBI API key https://support.nlm.nih.gov/knowledgebase/article/KA-05317/en-us (default=None)
@@ -507,57 +522,86 @@ def efetch(acc, tries=5, sleep=1, email=None, api_key=None):
     Output:
         * ipg: dataframe for IPG
     """
-    
+
     start_time = time.perf_counter()
-    
-    if email!=None:
+
+    if email:
         ez.email = email
-    if api_key!=None:
+    if api_key:
         ez.api_key = api_key
-    
-    logging.info('efetch IPG for ' + str(len(acc)) + ' accession numbers')
-    
-    if type(acc)==str:
-        
-        tries = tries
+
+    logging.info(f'efetch IPG for {len(acc) if isinstance(acc, (list, np.ndarray)) else 1} accession numbers')
+
+    if isinstance(acc, str):
         for n in range(tries):
             try:
-                # logging.info('efetching IPG for ' + acc)
+                if verbose:
+                    logging.info(f'efetching IPG for {acc}')
                 e = ez.efetch(db="protein", id=acc, rettype="ipg", retmode="txt")
-                ipg = pd.read_csv(StringIO(e.read().decode('utf-8')), sep='\t', header=None)
-            except HTTPError:
-                if n < tries - 1: # i is zero indexed
+                try:
+                    ipg = pd.read_csv(StringIO(e.read().decode('utf-8')), sep='\t', header=None)
+                    return ipg  # Return immediately if successful
+                except pd.errors.ParserError as pe:  # Catch ParserError specifically
+                    response_text = e.read().decode('utf-8')
+                    logging.error(f"ParserError for {acc}: {pe}")  # Log the exception
+                    logging.error(f"Raw Response for {acc}:\n{response_text}") # Log the raw response
+                    return None
+            except HTTPError as e:
+                if n < tries - 1:
+                    time.sleep(sleep)
                     continue
                 else:
-                    raise
-            break
-    
-    elif (type(list(acc))==list) | (type(acc)==np.ndarray):
+                    logging.error(f"Failed to fetch IPG for {acc} after {tries} tries: {e}")
+                    return None  # Return None if all tries fail
+
+    elif isinstance(acc, (list, np.ndarray)):
         entries = []
         for i in acc:
-            
-            tries = tries
             for n in range(tries):
                 try:
-                    # logging.info('efetching IPG for ' + i)
+                    if verbose:
+                        logging.info(f'efetching IPG for {i}')
                     e = ez.efetch(db="protein", id=i, rettype="ipg", retmode="txt")
-                    e = pd.read_csv(StringIO(e.read().decode('utf-8')), sep='\t', header=None)
-                    entries.append(e)
-                    time.sleep(sleep)
-                except HTTPError:
-                    if n < tries - 1: # i is zero indexed
+                    try:
+                        ipg = pd.read_csv(StringIO(e.read().decode('utf-8')), sep='\t', header=None)
+                        entries.append(ipg)
+                        break  # Exit inner loop if successful
+                    except pd.errors.ParserError as pe:  # Catch ParserError specifically
+                        response_text = e.read().decode('utf-8')
+                        logging.error(f"ParserError for {i}: {pe}")  # Log the exception
+                        logging.error(f"Raw Response for {i}:\n{response_text}") # Log the raw response
+                        entries.append(pd.DataFrame())  # Append empty DataFrame
+                        break  # Exit the try loop
+                except HTTPError as e:
+                    if n < tries - 1:
+                        time.sleep(sleep)
                         continue
                     else:
-                        raise
-                break
+                        logging.error(f"Failed to fetch IPG for {i} after {tries} tries: {e}")
+                        entries.append(pd.DataFrame())  # Append empty DataFrame
+
+        ipg = pd.concat(entries, ignore_index=True)
+        # ipg = ipg[~ipg[0].str.contains('not')].copy()
         
-        ipg = pd.concat(entries)
+        if ipg.empty and all(df.empty for df in entries):  # Check if ipg is empty after concatenating and all entries are empty
+            logging.warning("efetch returned an empty DataFrame as all accessions failed.")
+            return None  # Or return an empty DataFrame with the expected columns
+        elif ipg.empty:
+            logging.warning("efetch returned a DataFrame with only failed accessions.")
+            return ipg  # Return DataFrame containing only failures
+        elif any(df.empty for df in entries):
+            logging.warning("efetch returned a DataFrame with partial data due to some failed accessions.")
+            return ipg  # Return DataFrame containing partial data
+
+        return ipg  # Return ipg outside the loop
+
+    else:
+        raise TypeError("acc must be a string, list, or numpy array")
+
+    logging.info(f'finished efetch in {round((time.perf_counter()-start_time)/60)} min {round((time.perf_counter()-start_time)%60)} s')
+
+    return None
     
-    logging.info('finished efetch in ' + 
-          str(round((time.perf_counter()-start_time)/60)) + ' min ' +
-          str(round((time.perf_counter()-start_time)%60)) + ' s')
-    
-    return ipg
 
 
 
@@ -867,17 +911,18 @@ def profile_anomaly(bedgraph, bb, bed, fasta, scatterplot_prefix=None):
 
 
 
-def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly, 
-           genepred=None, ncrna=None, bed=None, 
+
+def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
+           genepred=None, ncrna=None, bed=None,
            orf_range_col=None,
-           utr=30, padj_method='fdr_bh', tie=False, num_simulations=1000, 
-           run_blastp=False, run_efetch=False, 
-           tries=5, sleep=1, 
-           email=None, api_key=None, 
+           utr=30, padj_method='fdr_bh', tie=False, num_simulations=1000,
+           run_blastp=False, run_efetch=False, verbose=False,
+           tries=5, sleep=1,
+           email=None, api_key=None,
            delim=None, outdir=None):
-    
+
     """
-    This wrapper is the main RIBOSS function, which 
+    RIBOSS pipeline wrapper
     - compares the translatability of ORFs within individual transcripts, 
     - runs BLASTP for statistically significant results, 
     - create annotation tracks and metagene plots for novel ORFs, and 
@@ -906,9 +951,8 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
         * hits: dataframes for significant RIBOSS results with BLASTP hits
         * BLASTP hits as CSV, JSON and the top hits as pickle, and metagene plots for unannotated ORFs with BLAST hits and no hits as PDFs.
     """
-    
-    fname = filename(riboprof_base, 'riboss', outdir)
 
+    fname = filename(riboprof_base, 'riboss', outdir)
     basename, ext = os.path.splitext(fasta)
     if (ext=='.gz') & (os.path.isfile(fasta)):
         subprocess.run(['gunzip', fasta], check=True)
@@ -921,130 +965,157 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
     fai = fasta + '.fai'
     fa = Faidx(fasta)
 
-    if superkingdom in ['Archaea','Bacteria']:
-        _, bases = parse_ribomap(superkingdom, riboprof_base, ncrna=ncrna, delim=delim, outdir=outdir)
-    elif superkingdom=='Eukaryota':
-        gc, _, bases = parse_ribomap(superkingdom, riboprof_base, genepred=genepred, ncrna=ncrna, delim=None, outdir=outdir)
-    else:
-        logging.error('Please check your spelling! Only Archaea, Bacteria, or Eukaryota is acceptable superkingdrom')
-        
-    if profile=='Ribosome profiling':
-        prof = 0
-    elif profile=='RNA-seq':
-        prof = 1
-    else:
-        logging.error('Profile must be either "Ribosome profiling" or "RNA-seq"!')
-        
-    dt = footprint_counts(df, bases[prof])
-    sig, boss_df = boss(dt, tx_assembly, riboprof_base, padj_method=padj_method, tie=tie, num_simulations=num_simulations, outdir=outdir)
-
-    # get bigBed, BED, and GenePred
-    if superkingdom in ['Archaea','Bacteria']:
-        _ = operons_to_biggenepred(df, sig, bed, fai, fname + '.sig', delim)
-        if tie==True:
-            _ = operons_to_biggenepred(df, boss_df[boss_df.boss!='mORF'], bed, fai, fname + '.boss_tie', delim)
+    try:
+        if superkingdom in ['Archaea', 'Bacteria']:
+            _, bases = parse_ribomap(superkingdom, riboprof_base, ncrna=ncrna, delim=delim, outdir=outdir)
+        elif superkingdom == 'Eukaryota':
+            gc, _, bases = parse_ribomap(superkingdom, riboprof_base, genepred=genepred, ncrna=ncrna, delim=None, outdir=outdir)
         else:
-            _ = operons_to_biggenepred(df, boss_df[(boss_df.boss!='mORF') & (boss_df.boss!='tie') & (boss_df.boss!='lacks periodicity')], bed, fai, fname + '.boss', delim)
-    elif superkingdom=='Eukaryota':
-        _ = orfs_to_biggenepred(gc, sig, fai, fname + '.sig', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
-        if tie==True:
-            _ = orfs_to_biggenepred(gc, boss_df[boss_df.boss!='mORF'], fai, fname + '.boss_tie', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
+            raise ValueError('Invalid superkingdom.')
+    except Exception as e:
+        logging.error(f"parse_ribomap error: {e}")
+        return None, None, None, None, None
+
+    try:
+        if profile == 'Ribosome profiling':
+            prof = 0
+            prof_type = 'rprofile'
+        elif profile == 'RNA-seq':
+            prof = 1
+            prof_type = 'mprofile'
         else:
-            _ = orfs_to_biggenepred(gc, boss_df[(boss_df.boss!='mORF') & (boss_df.boss!='tie') & (boss_df.boss!='lacks periodicity')], fai, fname + '.boss', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
-            
-    if run_blastp==True:
-        if superkingdom in ['Archaea','Bacteria']:
-            refseq = 'NP_|WP_'
-        elif superkingdom=='Eukaryota':
-            refseq = 'NP_|XP_'
+            raise ValueError('Invalid profile.')
 
-        blast = blastp(sig, riboprof_base, email, outdir)
-        blast.to_pickle(fname + '.sig.blastp.pkl.gz')
-        
-        hits = pd.merge(sig, blast.rename(columns={'query':'oid'}), on='oid', how='outer').reset_index(drop=True)
-        
-        # export cleaner results as pickle
-        chits = hits.drop(['boss','odds_ratio','statistical test','result','hit_id','hit_def','e_value','xml'], axis=1)
-        rhits = chits.dropna()[chits.dropna().title.str.contains(refseq)]
-        tophits = pd.concat([rhits, chits.sort_values('bits', ascending=False)]).drop_duplicates('oid')
-        tophits.to_pickle(fname + '.tophits.pkl.gz')
-        
-        # if superkingdom in ['Archaea','Bacteria']:
-        #     bb = operons_to_biggenepred(df, tophits, bed, fai, fname + '.tophits', delim)
-        #     # _ = profile_anomaly(bedgraph, bb, bed, fasta, fname)
-        # elif superkingdom=='Eukaryota':
-        #     bb = orfs_to_biggenepred(gc, tophits, fai, fname + '.tophits', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
+        dt = footprint_counts(df, bases[prof])
+    except Exception as e:
+        logging.error(f"footprint_counts error: {e}")
+        return None, None, None, None, None
 
-        # plot top hits
-        tb = pd.merge(tophits, bases[prof][['tid','rprofile']])
-        tb['start'] = tb['start'] - utr
-        tb['end'] = tb['end'] + utr
-        tb['ORF_rprofile_x'] = tb[['rprofile','start','end']].values.tolist()
-        tb['ORF_rprofile_x'] = tb.ORF_rprofile_x.apply(lambda x: x[0][x[1]:x[2]])
-        tb['zeros'] = (np.max(tb.end - tb.start) - tb.ORF_rprofile_x.apply(len))
-        tb['ORF_rprofile_x'] = tb[['ORF_rprofile_x','zeros']].values.tolist()
-        tb['start_rprofile_x'] = tb['ORF_rprofile_x'].apply(lambda x: x[0] + (x[1]*[0]))
-        tb['stop_rprofile_x'] = tb['ORF_rprofile_x'].apply(lambda x: (x[1]*[0]) + x[0])
-        blastp_hits = tb[~pd.isnull(tb).any(axis=1)].copy()
-        no_hits = tb[pd.isnull(tb).any(axis=1)].copy()
+    try:
+        sig, boss_df = boss(dt, tx_assembly, riboprof_base, padj_method=padj_method, tie=tie, num_simulations=num_simulations, outdir=outdir)
+        if sig.empty:
+            logging.warning("Significant ORFs DataFrame is empty.")
+            return boss_df, sig, None, None, None
+    except Exception as e:
+        logging.error(f"boss error: {e}")
+        return None, None, None, None, None
 
-        for ot in tb.ORF_type_x.unique():
-            # BLAST hits
-            if blastp_hits[blastp_hits.ORF_type_x==ot].shape[0]>0:
-                start_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x==ot]['start_rprofile_x'].tolist()), axis=0)
-                stop_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x==ot]['stop_rprofile_x'].tolist()), axis=0)
-                frames = [0,1,2] * int(start_rprofile.shape[0]/3)
-                if start_rprofile.shape[0]-len(frames)==-1:
-                    frames = frames[:-1]
-                elif start_rprofile.shape[0]-len(frames)==1:
-                    frames = frames + [1]
-                    
-                blastp_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
-                blastp_rp['Position from predicted start codon'] = blastp_rp.index -utr
-                blastp_rp['Position to stop codon'] = blastp_rp.index-blastp_rp.index.stop -utr
-                predicted_orf_profile(blastp_rp, blastp_hits[blastp_hits.ORF_type_x==ot], utr, str(ot) + 's with BLASTP hits', fname)
+    try:
+        if superkingdom in ['Archaea', 'Bacteria']:
+            _ = operons_to_biggenepred(df, sig, bed, fai, fname + '.sig', delim)
+            if tie:
+                _ = operons_to_biggenepred(df, boss_df[boss_df.boss != 'mORF'], bed, fai, fname + '.boss_tie', delim)
             else:
-                pass
+                _ = operons_to_biggenepred(df, boss_df[(boss_df.boss != 'mORF') & (boss_df.boss != 'tie') & (boss_df.boss != 'lacks periodicity')], bed, fai, fname + '.boss', delim)
+        elif superkingdom == 'Eukaryota':
+            _ = orfs_to_biggenepred(gc, sig, fai, fname + '.sig', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
+            if tie:
+                _ = orfs_to_biggenepred(gc, boss_df[boss_df.boss != 'mORF'], fai, fname + '.boss_tie', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
+            else:
+                _ = orfs_to_biggenepred(gc, boss_df[(boss_df.boss != 'mORF') & (boss_df.boss != 'tie') & (boss_df.boss != 'lacks periodicity')], fai, fname + '.boss', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
+    except Exception as e:
+        logging.error(f"bigBed/GenePred error: {e}")
+        return boss_df, sig, None, None, None
+
+    blast = None
+    ipg = None
+    tophits = None
+    no_hits = None
+
+    if superkingdom in ['Archaea', 'Bacteria']:
+        refseq = 'NP_|WP_'
+    elif superkingdom == 'Eukaryota':
+        refseq = 'NP_|XP_'
+    else:
+        raise ValueError('Invalid superkingdom.')
+        
+    if run_blastp:
+        try:
+            blast = blastp(sig, riboprof_base, email, outdir)
+            blast.to_pickle(fname + '.sig.blastp.pkl.gz')
+
+            hits = pd.merge(sig, blast.rename(columns={'query': 'oid'}), on='oid', how='outer').reset_index(drop=True)
+
+            chits = hits.drop(['boss', 'odds_ratio', 'statistical test', 'result', 'hit_id', 'hit_def', 'e_value', 'xml'], axis=1)
+            rhits = chits.dropna()[chits.dropna().title.str.contains(refseq)]
+            tophits = pd.concat([rhits, chits.sort_values('bits', ascending=False)]).drop_duplicates('oid')
+            tophits.to_pickle(fname + '.tophits.pkl.gz')
+
+            tb = pd.merge(tophits, bases[prof][['tid', prof_type]])
+            tb['start'] = tb['start'] - utr
+            tb['end'] = tb['end'] + utr
+            
+            orf_prof = 'ORF_' + prof_type + '_x'
+            tb[orf_prof] = tb[[prof_type, 'start', 'end']].values.tolist()
+            tb[orf_prof] = tb[orf_prof].apply(lambda x: x[0][x[1]:x[2]])
+            tb['zeros'] = (np.max(tb.end - tb.start) - tb[orf_prof].apply(len))
+            tb[orf_prof] = tb[[orf_prof, 'zeros']].values.tolist()
+            tb['start_rprofile_x'] = tb[orf_prof].apply(lambda x: x[0] + (x[1] * [0]))
+            tb['stop_rprofile_x'] = tb[orf_prof].apply(lambda x: (x[1] * [0]) + x[0])
+            blastp_hits = tb[~pd.isnull(tb).any(axis=1)].copy()
+            no_hits = tb[pd.isnull(tb).any(axis=1)].copy()
+
+            for ot in tb.ORF_type_x.unique():
+                # BLAST hits
+                if blastp_hits[blastp_hits.ORF_type_x == ot].shape[0] > 0:
+                    start_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x == ot]['start_rprofile_x'].tolist()), axis=0)
+                    stop_rprofile = np.sum(np.array(blastp_hits[blastp_hits.ORF_type_x == ot]['stop_rprofile_x'].tolist()), axis=0)
+                    frames = [0, 1, 2] * int(start_rprofile.shape[0] / 3)
+                    if start_rprofile.shape[0] - len(frames) == -1:
+                        frames = frames[:-1]
+                    elif start_rprofile.shape[0] - len(frames) == 1:
+                        frames = frames + [1]
+
+                    blastp_rp = pd.DataFrame({'Ribosome profile from start codon': start_rprofile, 'Ribosome profile to stop codon': stop_rprofile, 'Frames': frames})
+                    blastp_rp['Position from predicted start codon'] = blastp_rp.index - utr
+                    blastp_rp['Position to stop codon'] = blastp_rp.index - blastp_rp.index.stop - utr
+                    predicted_orf_profile(blastp_rp, blastp_hits[blastp_hits.ORF_type_x == ot], utr, str(ot) + 's with BLASTP hits', fname)
+                else:
+                    pass
+
+                # no BLAST hits
+                if no_hits[no_hits.ORF_type_x == ot].shape[0] > 0:
+                    start_rprofile = np.sum(np.array(no_hits[no_hits.ORF_type_x == ot]['start_rprofile_x'].tolist()), axis=0)
+                    stop_rprofile = np.sum(np.array(no_hits[no_hits.ORF_type_x == ot]['stop_rprofile_x'].tolist()), axis=0)
+                    frames = [0, 1, 2] * int(start_rprofile.shape[0] / 3)
+                    if start_rprofile.shape[0] - len(frames) == -1:
+                        frames = frames[:-1]
+                    elif start_rprofile.shape[0] - len(frames) == 1:
+                        frames = frames + [1]
+
+                    no_rp = pd.DataFrame({'Ribosome profile from start codon': start_rprofile, 'Ribosome profile to stop codon': stop_rprofile, 'Frames': frames})
+                    no_rp['Position from predicted start codon'] = no_rp.index - utr
+                    no_rp['Position to stop codon'] = no_rp.index - no_rp.index.stop - utr
+                    predicted_orf_profile(no_rp, no_hits[no_hits.ORF_type_x == ot], utr, str(ot) + 's with no BLASTP hits', fname)
+                else:
+                    pass
+
+            hits.drop(['start', 'end'], axis=1, inplace=True)
+            hits.to_csv(fname + '.sig.blastp.csv', index=None)
+            hits.to_json(fname + '.sig.blastp.json', index=None)
+
+            logging.info('saved blastp results for RIBOSS hits as ' + fname + '.tophits.pkl.gz, ' + fname + '.sig.blastp.csv, ' + fname + '.sig.blastp.json, and ' + fname + '.sig.blastp.pkl.gz')
+            
+            
+            if run_efetch:
+                try:
+                    w = blast.dropna()[blast.dropna().accession.str.contains(refseq)].accession.unique()
+                    t = tophits.accession.dropna().unique()
+                    acc = np.unique(np.concatenate([w, t]))
+                    ipg = efetch(acc, verbose=verbose, tries=tries, sleep=sleep, email=email, api_key=api_key)
+
+                    if ipg is None:
+                        logging.error("efetch returned None!")
+                    else:
+                        ipg.to_pickle(fname + '.sig.ipg.pkl.gz')
+                        return boss_df, sig, blast, tophits, ipg
+                    
+                except Exception as e:
+                    logging.warning(f"efetch failed: {e}")
+                    
+            else:
+                return boss_df, sig, blast, tophits, None
                 
-            # no BLAST hits
-            if no_hits[no_hits.ORF_type_x==ot].shape[0]>0:
-                start_rprofile = np.sum(np.array(no_hits[no_hits.ORF_type_x==ot]['start_rprofile_x'].tolist()), axis=0)
-                stop_rprofile = np.sum(np.array(no_hits[no_hits.ORF_type_x==ot]['stop_rprofile_x'].tolist()), axis=0)
-                frames = [0,1,2] * int(start_rprofile.shape[0]/3)
-                if start_rprofile.shape[0]-len(frames)==-1:
-                    frames = frames[:-1]
-                elif start_rprofile.shape[0]-len(frames)==1:
-                    frames = frames + [1]
-                    
-                no_rp = pd.DataFrame({'Ribosome profile from start codon':start_rprofile,'Ribosome profile to stop codon':stop_rprofile,'Frames':frames})
-                no_rp['Position from predicted start codon'] = no_rp.index -utr
-                no_rp['Position to stop codon'] = no_rp.index-no_rp.index.stop -utr
-                predicted_orf_profile(no_rp, no_hits[no_hits.ORF_type_x==ot], utr, str(ot) + 's with no BLASTP hits', fname)
-            else:
-                pass
-    
-        hits.drop(['start', 'end'], axis=1, inplace=True)
-        hits.to_csv(fname + '.sig.blastp.csv', index=None)
-        hits.to_json(fname + '.sig.blastp.json', index=None)
-        
-        logging.info('saved BLASTP results for RIBOSS hits as ' + fname + '.tophits.pkl.gz, ' + fname + '.sig.blastp.csv, ' + fname + '.sig.blastp.json, and ' + fname + '.sig.blastp.pkl.gz')
+        except Exception as e:
+            logging.error(f"BLASTP analysis error: {e}")
 
-        
-        if (run_blastp==True) & (run_efetch==True):
-            w = blast.dropna()[blast.dropna().accession.str.contains(refseq)].accession.unique()
-            t = tophits.accession.dropna().unique()
-            acc = np.unique(np.concatenate([w, t]))
-            ipg = efetch(acc, tries, sleep, email, api_key)
-            ipg.to_pickle(fname + '.sig.ipg.pkl.gz')
-            
-            return ipg, tophits, blast, sig, boss_df
-            
-        elif (run_blastp==True) & (run_efetch==False): 
-            logging.info('saved BLASTP results for RIBOSS hits as ' + fname + '.tophits.pkl.gz, ' + fname + '.sig.blastp.csv, ' + fname + '.sig.blastp.json, and ' + fname + '.sig.blastp.pkl.gz')
-            return tophits, blast, sig, boss_df
-            
-        elif (run_blastp==False) & (run_efetch==True):
-             logging.error('Please enable BLASTP!')
-            
-    else:
-        return sig, boss_df
