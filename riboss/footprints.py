@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2024-09-14 10:42:41
-@modify date 2025-02-09 20:12:51
+@modify date 2025-02-17 19:16:01
 @desc        RIBOSS module for analysing aligned ribosome footprints
 """
 
@@ -324,6 +324,9 @@ def footprint_periodicity(selected_footprints, downsampling, barplot_prefix, yli
         ymax = selected_footprints[(selected_footprints.adj_start<=21) & (selected_footprints.adj_start>=-21)].value_counts(['footprint_len','adj_start']).iloc[0]
         ymax -= ymax % -100
         ylim=(0,ymax)
+
+    selected_footprints = selected_footprints.sort_values('footprint_len').copy()
+    selected_footprints['footprint_len'] = selected_footprints['footprint_len'].astype(str) + '-nt with offset=' + selected_footprints['offset'].astype(str)
     
     fl_start = set(selected_footprints[(selected_footprints.adj_start<=21) & (selected_footprints.adj_start>=-21)].footprint_len.unique())
     fl_end = set(selected_footprints[(selected_footprints.adj_end<=21) & (selected_footprints.adj_end>=-21)].footprint_len.unique())
@@ -380,7 +383,7 @@ def analyse_footprints(offset_method, adj, bam, downsampling, cds_range, quality
         * ylim: option to use the same ylim for all barplots (default=None)
         
     Output:
-        * stats: RIBOSS statistics
+        * stat: RIBOSS statistics
         * heatmaps and metagene plots as PDFs
     """
 
@@ -390,7 +393,7 @@ def analyse_footprints(offset_method, adj, bam, downsampling, cds_range, quality
 
     if quality=='best':
         try:
-            stats,fp,df = footprint_summary(cds_range, sample, 'best', offset_method, adj=adj, min_size=min_size, max_size=max_size, offset_prefix=fname)
+            stat,fp,df = footprint_summary(cds_range, sample, 'best', offset_method, adj=adj, min_size=min_size, max_size=max_size, offset_prefix=fname)
             heatmap_periodicity(fp, fname)
             footprint_periodicity(df, downsampling, fname, ylim=ylim) # metagene plots
         except Exception as e:
@@ -398,7 +401,7 @@ def analyse_footprints(offset_method, adj, bam, downsampling, cds_range, quality
             pass
     elif quality=='good':
         try:
-            stats,fp,df = footprint_summary(cds_range, sample, 'good', offset_method, adj=adj, min_size=min_size, max_size=max_size, offset_prefix=fname)
+            stat,fp,df = footprint_summary(cds_range, sample, 'good', offset_method, adj=adj, min_size=min_size, max_size=max_size, offset_prefix=fname)
             heatmap_periodicity(fp, fname)
             footprint_periodicity(df, downsampling, fname, ylim=ylim) # metagene plots
         except Exception as e:
@@ -407,4 +410,4 @@ def analyse_footprints(offset_method, adj, bam, downsampling, cds_range, quality
         
 
     
-    return stats
+    return stat

@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2025-02-15 20:53:55
+@modify date 2025-02-17 19:16:36
 @desc        Main RIBOSS module
 """
 
@@ -661,12 +661,14 @@ def operons_to_biggenepred(orf, df, bed, fai, big_fname, delim=None):
         * bigGenePred for RIBOSS hits 
     """
     
-    orf = orf.rename(columns={'start_codon':'start_codon_x','ORF_start':'start','ORF_end':'end'}).drop('ORF_length', axis=1)
+    orf = orf.rename(columns={'start_codon':'start_codon_x','ORF_start':'start','ORF_end':'end'})#.drop('ORF_length', axis=1)
     toporf = pd.merge(orf, df)
-    toporf['name2'] = toporf.Chromosome.astype(str) + ':' + toporf['Start'].astype(int).astype(str) + '-' + toporf['End'].astype(int).astype(str) + '(' + toporf.Strand.astype(int).astype(str) + ')' 
+    toporf['Name'] = toporf.Chromosome.astype(str) + ':' + toporf['Start'].astype(int).astype(str) + '-' + toporf['End'].astype(int).astype(str) + '(' + toporf.Strand.astype(str) + ')'
+    toporf['name2'] = toporf['Name']
+    toporf['score'] = 0
     toporf['reserved'] = '255,128,0'
     toporf['blockCount'] = 1
-    toporf['blockSizes'] = toporf.ORF_range_x.apply(lambda x: x[1]-x[0])
+    # toporf['blockSizes'] = toporf.ORF_range_x.apply(lambda x: x[1]-x[0])
     toporf['chromStarts'] = 0
     toporf['cdsStartStat'] = 'none'
     toporf['cdsEndStat'] = 'none'
@@ -674,34 +676,35 @@ def operons_to_biggenepred(orf, df, bed, fai, big_fname, delim=None):
     toporf['type'] = 'none'
     toporf['geneType'] = 'none'
     
-    # BLASTP hits
-    ob = toporf[~toporf.title.isna()].copy()
-    ob['Name'] = ob.title.str.split().str[0].str.split('|').str[1] + '__' + ob.ORF_type_x + '-BLASTP'
+    # # BLASTP hits
+    # ob = toporf[~toporf.title.isna()].copy()
+    # ob['Name'] = ob.title.str.split().str[0].str.split('|').str[1] + '__' + ob.ORF_type_x + '-BLASTP'
     
-    # No hits
-    on = toporf[toporf.title.isna()].copy()
-    on['bits'] = 0
+    # # No hits
+    # on = toporf[toporf.title.isna()].copy()
+    # on['bits'] = 0
     
-    cds = pd.read_csv(bed, sep='\t', header=None)
-    # cds_ = cds
-    cds = cds[[0,1,2,5,3]].drop_duplicates()
-    cds.columns = ['Chromosome','Start','End','Strand','Name']
+    # cds = pd.read_csv(bed, sep='\t', header=None)
+    # # cds_ = cds
+    # cds = cds[[0,1,2,5,3]].drop_duplicates()
+    # cds.columns = ['Chromosome','Start','End','Strand','Name']
     
-    # oORFs
-    ono = pr.PyRanges(on).join(pr.PyRanges(cds), strandedness='same').df
-    ono['Strand'] = ono.Strand.astype(str)
-    ono['Name'] = ono.name2 + '__' + ono.ORF_type_x + '-Ref'
+    # # oORFs
+    # ono = pr.PyRanges(on).join(pr.PyRanges(cds), strandedness='same').df
+    # ono['Strand'] = ono.Strand.astype(str)
+    # ono['Name'] = ono.name2 + '__' + ono.ORF_type_x + '-Ref'
     
-    # sORFs
-    ons = pd.concat([ono,on]).drop_duplicates(['Chromosome','Start','End','Strand'], keep=False)
-    ons['Name'] = ons.name2 + '__' + ons.ORF_type_x
+    # # sORFs
+    # ons = pd.concat([ono,on]).drop_duplicates(['Chromosome','Start','End','Strand'], keep=False)
+    # ons['Name'] = ons.name2 + '__' + ons.ORF_type_x
 
     # Create a dataframe for pre-bigGenePred
-    bb = pd.concat([ob,ono,ons])[['Chromosome','Start','End','Name','bits','Strand','Start','End','reserved','blockCount','blockSizes',
-     'chromStarts','name2','cdsStartStat','cdsEndStat','exonFrames','type','Name','name2','geneType','ORF_type_x']]
-    bb['bits'] = bb.bits.astype(int)
+    # pd.concat([ob,ono,ons])
+    bb = toporf[['Chromosome','Start','End','Name','score','Strand','Start','End','reserved','blockCount','ORF_length',
+     'chromStarts','name2','cdsStartStat','cdsEndStat','exonFrames','type','Name','name2','geneType','ORF_type_x']].copy()
+    # bb['bits'] = bb.bits.astype(int)
     bb.drop_duplicates(inplace=True)
-    bb.columns = ['Chromosome','Start','End','Name','bits','Strand','thickStart','thickEnd','reserved','blockCount','blockSizes',
+    bb.columns = ['Chromosome','Start','End','Name','score','Strand','thickStart','thickEnd','reserved','blockCount','blockSizes',
                   'chromStarts','name2','cdsStartStat','cdsEndStat','exonFrames','type','geneName','geneName2','geneType','ORF_type_x']
     
     # Prepare required files for making bigGenePred
@@ -725,8 +728,8 @@ def operons_to_biggenepred(orf, df, bed, fai, big_fname, delim=None):
         subprocess.run(['bedToBigBed','-as=' + bas,
                         '-type=bed12+8', pre, chromsizes, bgp], check=True)
     
-        os.remove(bed)        
-        os.remove(pre)
+        # os.remove(bed)        
+        # os.remove(pre)
         
         if os.path.exists(bgp):
             logging.info('saved bigGenePred for RIBOSS hits as ' + bgp)
@@ -913,7 +916,7 @@ def profile_anomaly(bedgraph, bb, bed, fasta, scatterplot_prefix=None):
 
 
 def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
-           genepred=None, ncrna=None, bed=None,
+           ncrna=None, bed=None,
            orf_range_col=None,
            utr=30, padj_method='fdr_bh', tie=False, num_simulations=1000,
            run_blastp=False, run_efetch=False, verbose=False,
@@ -932,10 +935,14 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
         * superkingdom: Archaea, Bacteria or Eukaryota (required)
         * df: dataframe from orf_finder/operon_finder (required)
         * riboprof_base: dataframe from parse_ribomap (required)
-        * tx_assembly: transcript fasta file extracted using bedtools getfasta. Headers with genomic coordinates (required)
+        * profile: ribo or rna (required)
         * fasta: genome fasta file (required)
+        * tx_assembly: transcript fasta file extracted using bedtools getfasta. Headers with genomic coordinates (required)
+        * ncrna: include ncRNAs (default=None)
         * bed: genome BED file (required)
+        * orf_range_col: select ORF_range_x or ORF_range_y (default=None)
         * utr: padding for metagene plot (default=30)
+        * padj_method: statsmodels multipletests (default=fdr_bh)
         * tie: if adjusted p-values between ORFs is not significant (default=False)
         * num_simulations: number of simulations (default=1000)
         * run_blastp: run BLASTP for significant RIBOSS results (default=False)
@@ -954,6 +961,7 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
 
     fname = filename(riboprof_base, 'riboss', outdir)
     basename, ext = os.path.splitext(fasta)
+
     if (ext=='.gz') & (os.path.isfile(fasta)):
         subprocess.run(['gunzip', fasta], check=True)
         fasta = basename
@@ -961,7 +969,7 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
         fasta = basename
     else:
         pass
-        
+
     fai = fasta + '.fai'
     fa = Faidx(fasta)
 
@@ -969,6 +977,9 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
         if superkingdom in ['Archaea', 'Bacteria']:
             _, bases = parse_ribomap(superkingdom, riboprof_base, ncrna=ncrna, delim=delim, outdir=outdir)
         elif superkingdom == 'Eukaryota':
+            bn, ex = os.path.splitext(bed)
+            genepred = bn + '.gp'
+            subprocess.run(['bedToGenePred', bed, genepred], check=True)
             gc, _, bases = parse_ribomap(superkingdom, riboprof_base, genepred=genepred, ncrna=ncrna, delim=None, outdir=outdir)
         else:
             raise ValueError('Invalid superkingdom.')
@@ -977,10 +988,10 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
         return None, None, None, None, None
 
     try:
-        if profile == 'Ribosome profiling':
+        if profile == 'ribo':
             prof = 0
             prof_type = 'rprofile'
-        elif profile == 'RNA-seq':
+        elif profile == 'rna':
             prof = 1
             prof_type = 'mprofile'
         else:
@@ -1004,15 +1015,15 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
         if superkingdom in ['Archaea', 'Bacteria']:
             _ = operons_to_biggenepred(df, sig, bed, fai, fname + '.sig', delim)
             if tie:
-                _ = operons_to_biggenepred(df, boss_df[boss_df.boss != 'mORF'], bed, fai, fname + '.boss_tie', delim)
+                _ = operons_to_biggenepred(df[df.ORF_type!='mORF'], boss_df[boss_df.boss!='mORF'], bed, fai, fname + '.boss_tie', delim)
             else:
-                _ = operons_to_biggenepred(df, boss_df[(boss_df.boss != 'mORF') & (boss_df.boss != 'tie') & (boss_df.boss != 'lacks periodicity')], bed, fai, fname + '.boss', delim)
+                _ = operons_to_biggenepred(df[df.ORF_type!='mORF'], boss_df[(boss_df.boss!='mORF') & (boss_df.boss!='tie') & (boss_df.boss!='lacks periodicity')], bed, fai, fname + '.boss', delim)
         elif superkingdom == 'Eukaryota':
             _ = orfs_to_biggenepred(gc, sig, fai, fname + '.sig', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
             if tie:
-                _ = orfs_to_biggenepred(gc, boss_df[boss_df.boss != 'mORF'], fai, fname + '.boss_tie', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
+                _ = orfs_to_biggenepred(gc, boss_df[boss_df.boss!='mORF'], fai, fname + '.boss_tie', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
             else:
-                _ = orfs_to_biggenepred(gc, boss_df[(boss_df.boss != 'mORF') & (boss_df.boss != 'tie') & (boss_df.boss != 'lacks periodicity')], fai, fname + '.boss', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
+                _ = orfs_to_biggenepred(gc, boss_df[(boss_df.boss!='mORF') & (boss_df.boss!='tie') & (boss_df.boss!='lacks periodicity')], fai, fname + '.boss', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
     except Exception as e:
         logging.error(f"bigBed/GenePred error: {e}")
         return boss_df, sig, None, None, None

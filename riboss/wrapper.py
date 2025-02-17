@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-10-10 16:49:00
-@modify date 2025-02-15 20:53:43
+@modify date 2025-02-17 19:16:31
 @desc        RIBOSS module for binary wrappers
 """
 
@@ -17,29 +17,42 @@ import os
 
 
 
+# DEFAULT_LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'detailed': {
+#             'format': '%(asctime)s - %(levelname)s - %(name)s - %(message)s',
+#             'datefmt': '%Y-%m-%d %H:%M:%S'
+#         },
+#     },
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'detailed'
+#         },
+#     },
+#     'loggers': {
+#         '': {
+#             'level': 'INFO',
+#             'handlers': ['console'],
+#         },
+#         'another.module': {
+#             'level': 'ERROR',
+#             'handlers': ['console'],
+#         },
+#     }
+# }
+
 DEFAULT_LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'formatters': {
-        'detailed': {
-            'format': '%(asctime)s - %(levelname)s - %(name)s - %(message)s',
-            'datefmt': '%Y-%m-%d %H:%M:%S'
-        },
-    },
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'formatter': 'detailed'
-        },
-    },
     'loggers': {
         '': {
             'level': 'INFO',
-            'handlers': ['console'],
         },
         'another.module': {
             'level': 'ERROR',
-            'handlers': ['console'],
         },
     }
 }
@@ -76,7 +89,7 @@ def filename(infname, outfname=None, outdir=None, pathbase=False):
 
 
 
-def transcriptome_assembly(superkingdom, genome, long_reads, short_reads=None, strandness=None, num_threads=4, trim=True,
+def transcriptome_assembly(superkingdom, genome, long_reads, short_reads=None, strandness=None, annotation=None, num_threads=4, trim=True,
                            min_length=100, coverage=1, single_exon_coverage=1.5, fraction=0.1, outdir=None):
     """
     Assembly transcriptome using long reads or a mix of short and long reads.
@@ -86,6 +99,7 @@ def transcriptome_assembly(superkingdom, genome, long_reads, short_reads=None, s
         * genome: genomic fasta file (required)
         * long_reads: BAM file for PacBio or Oxford Nanopore long reads (required)
         * short_reads: BAM file for Illumina long reads (default: None)
+        * annotation: reference annotation in GTF (default: None)
         * strandness: rf assumes a stranded library fr-firststrand, fr assumes a stranded library fr-secondstrand (default: None)
         * outdir: output directory (default: None)
 
@@ -117,9 +131,19 @@ def transcriptome_assembly(superkingdom, genome, long_reads, short_reads=None, s
     
     if short_reads!=None:
         cmd = cmd + ['--mix', short_reads,long_reads, '--' + strandness]
-        # subprocess.run(, check=True)
     else:
         cmd = cmd + ['-L', long_reads]
+    
+    if annotation!=None:
+        basename, ext = os.path.splitext(annotation)
+        if (ext=='.gz') & (os.path.isfile(annotation)):
+            subprocess.run(['gunzip', annotation], check=True)
+            annotation = basename
+        elif os.path.isfile(basename):
+            annotation = basename
+        else:
+            pass
+        cmd = cmd + ['-G', annotation]
         
     if trim==False:
         cmd = cmd + ['-t']
@@ -145,7 +169,10 @@ def transcriptome_assembly(superkingdom, genome, long_reads, short_reads=None, s
         logging.error('No results generated!')
         
     os.remove(fname + '.gp')
-
+    
+    if annotation!=None:
+        subprocess.run(['gzip', annotation], check=True)
+    
     return fname + '.transcripts.fa', fname + '.gtf'
 
 
@@ -333,117 +360,117 @@ def align_short_reads(
 
 
 
-def quantify_transcripts(reads, fasta_path, adapter=None, index=None, outdir=None):
+
+def quantify_transcripts(reads, fasta_path, adapter=None, index_prefix=None, outdir=None, overwrite=False):
     """
     Build pufferfish index and count reads by mRNA isoforms using Salmon.
 
     Input:
         * reads: str if single-end, a list if paired-end
-        * fasta_path: path or fasta file
-        * index: path for index
-        * index_exist: build index if False.
+        * fasta_path: path to FASTA file
+        * index_prefix: prefix for index path
+        * outdir: output directory
+        * overwrite: whether or not to overwrite index (Default: False)
+
     Output:
         * [prefix]_puff and [prefix]_salmont_quant
     """
-    
-    build_index = ['salmon','index',
-                   '-t', fasta_path, 
-                   '-i', index]
 
-    if index is not None:
-        if os.path.exists(index):  # Check if index exists (file or directory)
-            if os.path.isdir(index):
-                logging.info('index directory ' + index + ' exists.')
-            else:  # index is a file
-                logging.error(index + ' file exists. Consider renaming or moving it if you intend to build an index.')
-                sys.exit(1)
-        else:  # index doesn't exist
-            try:
-                subprocess.run(build_index, check=True)
-                logging.info('saved index to ' + index)
-            except OSError as e:
-                logging.error(f'Error creating index directory: {e}. Check for permission')
-                sys.exit(1)    
-    else:
+    if not index_prefix:
         logging.error('No index path provided!')
-        
-    
-    if type(reads)==str:
+        sys.exit(1)
+
+    index = index_prefix + '_puff'
+    build_index = ['salmon', 'index', '-t', fasta_path, '-i', index]
+
+    index_exists = os.path.exists(index)
+    index_is_dir = os.path.isdir(index)
+
+    if index_exists:
+        if index_is_dir:
+            logging.info(f'Index directory {index} exists.')
+        else:  # index is a file
+            logging.warning(f'{index} file exists. Consider renaming or moving it.')
+            # sys.exit(1)  # Consider if you want to exit here
+    elif overwrite:
+        try:
+            subprocess.run(build_index, check=True)
+            logging.info(f'Saved index to {index}')
+        except OSError as e:
+            logging.error(f'Error creating index: {e}. Check permissions and Salmon installation.')
+            sys.exit(1)
+    else:  # index doesn't exist and not overwriting
+        try:
+            subprocess.run(build_index, check=True)
+            logging.info(f'Saved index to {index}')
+        except OSError as e:
+            logging.error(f'Error creating index: {e}. Check permissions and Salmon installation.')
+            sys.exit(1)
+
+
+    if isinstance(reads, str):  # Single-end reads
         quant_dir = filename(reads, outfname='_salmon_quant/', outdir=outdir, pathbase=True)
-        
+        quant_args = ['salmon', 'quant', '-l', 'A', '-i', index, '-o', quant_dir, '-q']
+
         if adapter:
             trim_fastq = filename(reads, outfname='_trimmed.fastq.gz', outdir=outdir, pathbase=True)
-            trim = ['fastp',
-                '-i', reads,
-                '-o', trim_fastq,
-                '-q', '10',
-                '-w', '8',
-                '-a', adapter]        
+            trim = ['fastp', '-i', reads, '-o', trim_fastq, '-q', '10', '-w', '8', '-a', adapter]
             subprocess.run(trim, check=True)
-            
-            quant = ['salmon','quant',
-                 '-l', 'A', 
-                 '-i', index, 
-                 '-r', trim_fastq,
-                 '-o', quant_dir, '-q']
-            
+            quant_args.extend(['-r', trim_fastq])
         else:
-            quant = ['salmon','quant',
-                 '-l', 'A', 
-                 '-i', index, 
-                 '-r', reads,
-                 '-o', quant_dir, '-q']
+            quant_args.extend(['-r', reads])
             logging.warning('No adapter trimming! Consider trimming if low number of transcripts quantified.\n')
-        
-        subprocess.run(quant, check=True)
-        
-    elif type(reads)==list:
-        read1 = reads[0]
-        read2 = reads[0]
-        
+
+        try:
+            subprocess.run(quant_args, check=True)
+        except subprocess.CalledProcessError as e:
+            logging.error(f"Salmon quantification failed: {e}")
+            sys.exit(1)
+
+
+    elif isinstance(reads, list):  # Paired-end reads
+        if len(reads) != 2:
+            logging.error("For paired-end reads, provide a list of two file paths.")
+            sys.exit(1)
+
+        read1, read2 = reads  # Unpack read files
         quant_dir = filename(read1, outfname='_salmon_quant/', outdir=outdir, pathbase=True)
+        quant_args = ['salmon', 'quant', '-l', 'A', '-i', index, '-o', quant_dir, '-q']
 
         if adapter:
-            logging.info('trim adapter sequences from reads')
             trim_fastqs = [filename(i, outdir=outdir, pathbase=True) for i in reads]
-            trim = ['fastp',
-                    '-i', reads[0],
-                    '-I', reads[1],
+            trim = ['fastp', '-i', reads[0], '-I', reads[1],
                     '-o', trim_fastqs[0] + '_trimmed_1.fastq.gz',
                     '-O', trim_fastqs[1] + '_trimmed_2.fastq.gz',
-                    '-q', '10',
-                    '-w', '8',
-                    '-a', adapter]
+                    '-q', '10', '-w', '8', '-a', adapter]
             subprocess.run(trim, check=True)
-            
-            quant = ['salmon','quant',
-                 '-l', 'A', 
-                 '-i', index, 
-                 '-1', trim_fastqs[0] + '_trimmed_1.fastq.gz',
-                 '-2', trim_fastqs[1] + '_trimmed_2.fastq.gz',
-                 '-o', quant_dir, '-q']
+            quant_args.extend(['-1', trim_fastqs[0] + '_trimmed_1.fastq.gz',
+                               '-2', trim_fastqs[1] + '_trimmed_2.fastq.gz'])
         else:
-            quant = ['salmon','quant',
-                 '-l', 'A', 
-                 '-i', index, 
-                 '-1', reads[0],
-                 '-2', reads[1],
-                 '-o', quant_dir, '-q']
+            quant_args.extend(['-1', reads[0], '-2', reads[1]])
             logging.warning('No adapter trimming! Consider trimming if low number of transcripts quantified.\n')
-        
-        subprocess.run(quant, check=True)
+
+        try:
+            subprocess.run(quant_args, check=True)
+        except subprocess.CalledProcessError as e:
+            logging.error(f"Salmon quantification failed: {e}")
+            sys.exit(1)
 
     else:
-        logging.error('Read input must be a string of a list!')
-        
+        logging.error('Read input must be a string or a list!')
+        sys.exit(1)
+
     if os.path.isdir(quant_dir):
-        logging.info('saved read counts to ' + quant_dir)
-        sf = pd.read_csv(quant_dir + 'quant.sf', sep='\t')
-        total_tx = str(sf.shape[0])
-        quant_tx = str(sf[sf.NumReads!=0].shape[0])
-        logging.info('quantified ' + quant_tx + ' of ' + total_tx + ' transcripts')
+        logging.info(f'Saved read counts to {quant_dir}')
+        sf = pd.read_csv(os.path.join(quant_dir, 'quant.sf'), sep='\t') # Use os.path.join
+        total_tx = sf.shape[0]
+        quant_tx = sf[sf['NumReads'] != 0].shape[0] # Use string indexing
+        logging.info(f'Quantified {quant_tx} of {total_tx} transcripts')
+        return quant_dir # Return the quantification directory
+
     else:
         logging.error('No quant.sf generated!')
+        return None  # Return None if quant.sf is not generated
 
 
 
