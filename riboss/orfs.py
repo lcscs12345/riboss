@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2024-09-13 15:26:12
-@modify date 2025-02-07 14:06:05
+@modify date 2025-02-18 20:48:12
 @desc        RIBOSS module for finding ORFs
 """
 
