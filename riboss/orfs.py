@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2024-09-13 15:26:12
-@modify date 2025-02-18 20:48:12
+@modify date 2025-02-19 14:22:57
 @desc        RIBOSS module for finding ORFs
 """
 
@@ -73,18 +73,19 @@ def translate(seq):
     
 
 
-def all_orf(seq):
+def all_orf(seq, stop_codon=False):
     seq = seq.upper()
     triplet = ""
     for i in range(0, len(seq)-2, 3):
         triplet = seq[i:(i+3)]
         if triplet in ['TAA', 'TAG', 'TGA']:
             return seq[:i+3]
-    return seq
+    if stop_codon==False:
+        return seq
 
 
 
-def top_3_frames(seq, start_codon):
+def top_3_frames(seq, start_codon, stop_codon=False):
     seq = seq.upper()
     positions = []
     orf = ""
@@ -92,26 +93,28 @@ def top_3_frames(seq, start_codon):
         triplet = seq[i:i+3]
         if type(start_codon)==str:
             if (triplet==start_codon.upper()):
-                orf = all_orf(seq[i:])
-                l = len(orf)
-                l -= l % +3
-                positions.append([start_codon, i, i + l])
+                orf = all_orf(seq[i:], stop_codon=stop_codon)
+                if orf is not None:
+                    l = len(orf)
+                    l -= l % +3
+                    positions.append([start_codon, i, i + l])
         else:
             for codon in start_codon:
                 if (triplet==codon.upper()):
-                    orf = all_orf(seq[i:])
-                    l = len(orf)
-                    l -= l % +3
-                    positions.append([codon, i, i + l])
+                    orf = all_orf(seq[i:], stop_codon=stop_codon)
+                    if orf is not None:
+                        l = len(orf)
+                        l -= l % +3
+                        positions.append([codon, i, i + l])
     return positions
 
 
 
-def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", "CTG", "GTG", "TTG"]):
+def orf_finder(annotation, tx, ncrna=False, outdir=None, start_codon=["ATG", "CTG", "GTG", "TTG"], stop_codon=False):
     """
     Input:
         * annotation: gene annotation file in GTF, GFF3 or BED format 
-        * fasta: genome fasta file (required)
+        * tx: transcript fasta file (required)
         * ncrna: remove noncoding RNAs from analysis
         * outdir: output directory (default: None)
         * start_codon: any triplets. If a list is given, it should be sorted from high to low abundance in the species of interest (default: ATG, GTG, TTG, CTG)
@@ -127,7 +130,8 @@ def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", 
     
     path, ext = os.path.splitext(annotation)
     genepred = path + '.gp'
-
+    bed = path + '.gp'
+    
     if 'gtf' in annotation:
         subprocess.run(['gtfToGenePred', annotation, genepred], check=True)
     elif ('gff' in annotation) | ('gff3' in annotation):
@@ -136,7 +140,7 @@ def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", 
         subprocess.run(['bedToGenePred', annotation, genepred], check=True)
     elif 'gp' in annotation:
         pass
-        
+    
     gp = pd.read_csv(genepred, sep='\t', header=None)
     
     if ncrna==False:
@@ -147,12 +151,12 @@ def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", 
     gp['exons'] = gp[[8,9]].values.tolist()
     gp['exons'] = gp.exons.apply(lambda x: list(zip(x[0],x[1])))
     
-    # get transcript sequence
-    exons = gp.explode('exons')
-    exons['Start'] = exons.exons.apply(lambda x: x[0])
-    exons['End'] = exons.exons.apply(lambda x: x[1])
-    exons.rename(columns = {1:'Chromosome',2:'Strand',0:'Name'}, inplace=True)
-    seq = pr.get_transcript_sequence(pr.PyRanges(exons), group_by='Name', path=fasta)
+    # # get transcript sequence
+    # exons = gp.explode('exons')
+    # exons['Start'] = exons.exons.apply(lambda x: x[0])
+    # exons['End'] = exons.exons.apply(lambda x: x[1])
+    # exons.rename(columns = {1:'Chromosome',2:'Strand',0:'Name'}, inplace=True)
+    # seq = pr.get_transcript_sequence(pr.PyRanges(exons), group_by='Name', path=fasta)    
     
     # get individual positions as lists
     gp['exons'] = gp.exons.apply(lambda x: [list(range(i[0],i[1])) for i in x])
@@ -160,10 +164,16 @@ def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", 
     
     df = gp[[1,3,4,0,2,5,6,'exons']]
     df.columns = ['Chromosome','Start','End','Name','Strand','start','end','exons']
+
+    seq = fasta_to_dataframe(tx)
+    seq.columns = ['Name','Sequence']
+
     df = pd.merge(df, seq)
-    
+    if df.shape[0]==0:
+        logging.error('Error while merging annotation and fasta sequence header! Make sure that the name column for annotation ID.')
+
     pbar = tqdm.pandas(desc="finding all ORFs       ", unit_scale=True, ncols=100)
-    df['ORF_range'] = df.Sequence.progress_apply(lambda x: top_3_frames(x, start_codon))
+    df['ORF_range'] = df.Sequence.progress_apply(lambda x: top_3_frames(x, start_codon, stop_codon=stop_codon))
     df = df.explode('ORF_range')
     df = df.dropna(axis=0).reset_index(drop=True)
     df['start_codon'] = df['ORF_range'].apply(lambda x: x[0])
@@ -240,6 +250,21 @@ def orf_finder(annotation, fasta, ncrna=False, outdir=None, start_codon=["ATG", 
     df = pd.concat([cds, df]).drop_duplicates(['Name','start_codon','ORF_start','ORF_end'])
     df = df.drop(['fasta_header','Strand_b','frame_plus','frame_minus','Start_b','End_b'], axis=1).rename(columns={'Name':'tid'})
     df['ORF_length'] = df.ORF_range.apply(lambda x: x[1]-x[0])
+
+    # remove in-frame ORFs again
+    morfs = pr.PyRanges(df[df.ORF_type=='mORF'])
+    norfs = pr.PyRanges(df[df.ORF_type!='mORF'])
+    
+    cdsorf = norfs.join(morfs).df
+    cdsorf['frame_plus'] = (cdsorf.Start-cdsorf.Start_b)%3
+    cdsorf['frame_minus'] = (cdsorf.End-cdsorf.End_b)%3
+    inframe = cdsorf[(cdsorf.frame_plus==0) | (cdsorf.frame_minus==0)].copy()
+    
+    df = pd.concat([df,inframe]).drop_duplicates(['Chromosome', 'tid', 'Strand', 'start_codon', 'ORF_start',
+           'ORF_end', 'ORF_length', 'Start', 'End', 'ORF_type'], keep=False)
+    df = df[['Chromosome', 'tid', 'Strand', 'ORF_range', 'start_codon', 'ORF_start',
+           'ORF_end', 'ORF_length', 'Start', 'End', 'ORF_type']].reset_index(drop=True)
+
     df.to_pickle(fname + '.orf_finder.pkl.gz')
     
     logging.info('found ' + str(df.shape[0]) + ' ORFs in ' + 
@@ -284,7 +309,7 @@ def operon_distribution(op, displot_prefix, log=False):
 
 
 def operon_finder(tx_assembly, bed, outdir=None, delim=None, 
-                  start_codon=["ATG", "GTG", "TTG", "CTG"], 
+                  start_codon=["ATG", "GTG", "TTG", "CTG"], stop_codon=False,
                   ncrna=False,log=False):
     """
     Predict operons from transcriptome.
@@ -317,7 +342,7 @@ def operon_finder(tx_assembly, bed, outdir=None, delim=None,
     df_ = df_[(df_.Strand=='+') | (df_.Strand=='-')].drop('seq',axis=1)
     
     pbar = tqdm.pandas(desc="finding all ORFs       ", unit_scale=True, ncols=100)
-    df['ORF_range'] = df.seq.progress_apply(lambda x: top_3_frames(x ,start_codon))
+    df['ORF_range'] = df.seq.progress_apply(lambda x: top_3_frames(x ,start_codon, stop_codon=stop_codon))
     df = df.explode('ORF_range')
     df = df.dropna(axis=0).reset_index(drop=True)
     df['start_codon'] = df['ORF_range'].apply(lambda x: x[0])
