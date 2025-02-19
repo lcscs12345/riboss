@@ -251,19 +251,19 @@ def orf_finder(annotation, tx, ncrna=False, outdir=None, start_codon=["ATG", "CT
     df = df.drop(['fasta_header','Strand_b','frame_plus','frame_minus','Start_b','End_b'], axis=1).rename(columns={'Name':'tid'})
     df['ORF_length'] = df.ORF_range.apply(lambda x: x[1]-x[0])
 
-    # remove in-frame ORFs again
-    morfs = pr.PyRanges(df[df.ORF_type=='mORF'])
-    norfs = pr.PyRanges(df[df.ORF_type!='mORF'])
+    # # remove in-frame ORFs again
+    # morfs = pr.PyRanges(df[df.ORF_type=='mORF'])
+    # norfs = pr.PyRanges(df[df.ORF_type!='mORF'])
     
-    cdsorf = norfs.join(morfs).df
-    cdsorf['frame_plus'] = (cdsorf.Start-cdsorf.Start_b)%3
-    cdsorf['frame_minus'] = (cdsorf.End-cdsorf.End_b)%3
-    inframe = cdsorf[(cdsorf.frame_plus==0) | (cdsorf.frame_minus==0)].copy()
+    # cdsorf = norfs.join(morfs).df
+    # cdsorf['frame_plus'] = (cdsorf.Start-cdsorf.Start_b)%3
+    # cdsorf['frame_minus'] = (cdsorf.End-cdsorf.End_b)%3
+    # inframe = cdsorf[(cdsorf.frame_plus==0) | (cdsorf.frame_minus==0)].copy()
     
-    df = pd.concat([df,inframe]).drop_duplicates(['Chromosome', 'tid', 'Strand', 'start_codon', 'ORF_start',
-           'ORF_end', 'ORF_length', 'Start', 'End', 'ORF_type'], keep=False)
-    df = df[['Chromosome', 'tid', 'Strand', 'ORF_range', 'start_codon', 'ORF_start',
-           'ORF_end', 'ORF_length', 'Start', 'End', 'ORF_type']].reset_index(drop=True)
+    # df = pd.concat([df,inframe]).drop_duplicates(['Chromosome', 'tid', 'Strand', 'start_codon', 'ORF_start',
+    #        'ORF_end', 'ORF_length', 'Start', 'End', 'ORF_type'], keep=False)
+    # df = df[['Chromosome', 'tid', 'Strand', 'ORF_range', 'start_codon', 'ORF_start',
+    #        'ORF_end', 'ORF_length', 'Start', 'End', 'ORF_type']].reset_index(drop=True)
 
     df.to_pickle(fname + '.orf_finder.pkl.gz')
     
