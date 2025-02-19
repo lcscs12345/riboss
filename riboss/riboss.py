@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2025-02-17 19:16:36
+@modify date 2025-02-19 21:52:50
 @desc        Main RIBOSS module
 """
 
@@ -112,15 +112,21 @@ def base_to_bedgraph(superkingdom, base, bedgraph_prefix, profile=None, genepred
         gp['exons'] = gp.exons.apply(lambda x: list(zip(x[0],x[1])))
         gp['exons'] = gp.exons.apply(lambda x: [list(range(i[0],i[1])) for i in x])
         gp['exons'] = gp.exons.apply(lambda x: [j for i in x for j in i])
+        
         gc = gp[[0,1,2,'exons']].rename(columns={0:'tid',1:'Chromosome',2:'Strand'})
-
+        gcp = gc[gc.Strand=='+'].copy()
+        gcm = gc[gc.Strand=='-'].copy()
+        gcm['exons'] = gcm['exons'].apply(lambda x: list(reversed(x)))
+        gc = pd.concat([gcp,gcm])
+        
         df = pd.merge(df,gc).copy()
         df['range'] = df.apply(lambda x: list(zip(x[profile],x['exons'])), axis=1)
-        df = df.explode('range')[['tid','Chromosome','Strand','range']]
+        df = df.explode('range')[['tid','Chromosome','Strand','range']]        
         df['Start'] = df['range'].apply(lambda x: x[1]).astype(int)
         df['End'] = df['range'].apply(lambda x: x[1]).astype(int) +1
+
         df[profile] = df['range'].apply(lambda x: x[0]).astype(int)
-        df.drop('range', axis=1, inplace=True)               
+        df.drop('range', axis=1, inplace=True)             
     
     else:
         logging.error('Please check your spelling! Only Archaea, Bacteria, or Eukaryota is acceptable superkingdom.')
@@ -132,17 +138,17 @@ def base_to_bedgraph(superkingdom, base, bedgraph_prefix, profile=None, genepred
     df_merged = pd.merge(plus,minus, on=['Chromosome','Start','End'])
     
     if df_merged.shape[0]!=0:
-        plus.to_csv(fname + '.plus.bg', index=None, header=None, sep='\t')
-        bg = merge_scores(fname + '.plus.bg')
-        f = open(fname + '.plus.bg', 'w')
-        f.write('track type=bedGraph name="Plus strand" description="Ribosome profile" visibility=full color=0,0,0 priority=20\n')
+        plus.to_csv(fname + '.bg', index=None, header=None, sep='\t')
+        bg = merge_scores(fname + '.bg')
+        f = open(fname + '.' + profile + '.plus.bg', 'w')
+        f.write('track type=bedGraph name="Plus strand" description="' + profile + '" visibility=full color=0,0,0 priority=20\n')
         bg.to_csv(f, index=None, header=None, sep='\t', mode='a')
         f.close()
         
-        minus.to_csv(fname + '.minus.bg', index=None, header=None, sep='\t')
-        bg_ = merge_scores(fname + '.minus.bg')
-        f = open(fname + '.minus.bg', 'w')
-        f.write('track type=bedGraph name="Minus strand" description="Ribosome profile" visibility=full color=0,0,0 priority=20\n')
+        minus.to_csv(fname + '.bg', index=None, header=None, sep='\t')
+        bg_ = merge_scores(fname + '.bg')
+        f = open(fname + '.' + profile + '.minus.bg', 'w')
+        f.write('track type=bedGraph name="Minus strand" description="'+ profile + '" visibility=full color=0,0,0 priority=20\n')
         bg_.to_csv(f, index=None, header=None, sep='\t', mode='a')
         f.close()
 
@@ -151,22 +157,23 @@ def base_to_bedgraph(superkingdom, base, bedgraph_prefix, profile=None, genepred
         if bg[bg[0].str.contains('ERROR')].shape[0]!=0:
             logging.error('Failed generating BedGraph!')        
         else:
-            logging.info('saved ribosome profiles as ' + fname + '.plus.bg and ' + fname + '.minus.bg')
+            logging.info('saved ' + profile + ' as ' + fname + '.' + profile + '.plus.bg and ' + fname + '.' + profile + '.minus.bg')
             
     else:
         df[['Chromosome','Start','End',profile]].to_csv(fname + '.bg', index=None, header=None, sep='\t')
         bg = merge_scores(fname + '.bg')
-        f = open(fname + '.bg', 'w')
-        f.write('track type=bedGraph name="riboprof" description="Ribosome profile" visibility=full color=0,0,0 priority=20\n')
+        f = open(fname + '.' + profile  + '.bg', 'w')
+        f.write('track type=bedGraph name="riboprof" description="' + profile + '" visibility=full color=0,0,0 priority=20\n')
         bg.to_csv(f, index=None, header=None, sep='\t', mode='a')
         f.close()
         
         if bg[bg[0].str.contains('ERROR')].shape[0]!=0:
             logging.error('Failed generating BedGraph!')
         else:
-            logging.info('saved ribosome profiles as ' + fname + '.bg')
+            logging.info('saved ' + profile + ' as ' + fname + '.' + profile + '.bg')
     
     bg.columns = ['Chromosome','Start','End',profile]
+    os.remove(fname + '.bg')
     
     if superkingdom in ['Archaea','Bacteria']:
         return bg
@@ -370,7 +377,6 @@ def statistical_test(df, num_simulations=1000, method='g', padj_method='fdr_bh')
     else:
         logging.warning('No periodicity detected!')
 
-        return None, None
 
 
 def boss(df, tx_assembly, boss_prefix, padj_method='fdr_bh', tie=False, num_simulations=1000, outdir=None):  
@@ -985,7 +991,6 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
             raise ValueError('Invalid superkingdom.')
     except Exception as e:
         logging.error(f"parse_ribomap error: {e}")
-        return None, None, None, None, None
 
     try:
         if profile == 'ribo':
@@ -1000,17 +1005,16 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
         dt = footprint_counts(df, bases[prof])
     except Exception as e:
         logging.error(f"footprint_counts error: {e}")
-        return None, None, None, None, None
 
     try:
         sig, boss_df = boss(dt, tx_assembly, riboprof_base, padj_method=padj_method, tie=tie, num_simulations=num_simulations, outdir=outdir)
         if sig.empty:
             logging.warning("Significant ORFs DataFrame is empty.")
-            return boss_df, sig, None, None, None
+            return boss_df, sig
     except Exception as e:
         logging.error(f"boss error: {e}")
-        return None, None, None, None, None
-
+        sys.exit(1)
+        
     try:
         if superkingdom in ['Archaea', 'Bacteria']:
             _ = operons_to_biggenepred(df, sig, bed, fai, fname + '.sig', delim)
@@ -1026,12 +1030,7 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
                 _ = orfs_to_biggenepred(gc, boss_df[(boss_df.boss!='mORF') & (boss_df.boss!='tie') & (boss_df.boss!='lacks periodicity')], fai, fname + '.boss', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
     except Exception as e:
         logging.error(f"bigBed/GenePred error: {e}")
-        return boss_df, sig, None, None, None
 
-    blast = None
-    ipg = None
-    tophits = None
-    no_hits = None
 
     if superkingdom in ['Archaea', 'Bacteria']:
         refseq = 'NP_|WP_'
@@ -1125,8 +1124,10 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
                     logging.warning(f"efetch failed: {e}")
                     
             else:
-                return boss_df, sig, blast, tophits, None
+                return boss_df, sig, blast, tophits
                 
         except Exception as e:
             logging.error(f"BLASTP analysis error: {e}")
 
+    else:
+        return boss_df, sig
