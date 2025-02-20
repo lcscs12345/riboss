@@ -812,7 +812,7 @@ def orfs_to_biggenepred(orf_ranges, df, fai, big_fname, orf_range_col=None, orf_
     boss_gp['Starts'] = boss_gp['Starts'].apply(lambda x: ','.join([str(i) for i in sorted(x)])) + ','
     boss_gp['Ends'] = boss_gp['Ends'].apply(lambda x: ','.join([str(i) for i in sorted(x)])) + ','
     boss_gp = boss_gp[['oid','Chromosome','Strand','Start','End','Start','End','exonCount','Starts','Ends',orf_type_col]]
-    
+
     # Prepare required files for making bigGenePred
     faidx = pd.read_csv(fai, sep='\t', header=None)
     chromsizes = os.path.splitext(fai)[0] + '.chrom.sizes'

@@ -12,6 +12,7 @@
 
 
 import os, re, time, argparse, csv, gzip, logging.config, subprocess
+from io import StringIO
 import numpy as np
 import pandas as pd 
 import seaborn as sns
@@ -130,7 +131,7 @@ def orf_finder(annotation, tx, ncrna=False, outdir=None, start_codon=["ATG", "CT
     
     path, ext = os.path.splitext(annotation)
     genepred = path + '.gp'
-    bed = path + '.gp'
+    bed = path + '.bed'
     
     if 'gtf' in annotation:
         subprocess.run(['gtfToGenePred', annotation, genepred], check=True)
@@ -140,7 +141,8 @@ def orf_finder(annotation, tx, ncrna=False, outdir=None, start_codon=["ATG", "CT
         subprocess.run(['bedToGenePred', annotation, genepred], check=True)
     elif 'gp' in annotation:
         pass
-    
+
+    subprocess.run(['genePredToBed', genepred, bed], check=True)
     gp = pd.read_csv(genepred, sep='\t', header=None)
     
     if ncrna==False:
@@ -217,7 +219,7 @@ def orf_finder(annotation, tx, ncrna=False, outdir=None, start_codon=["ATG", "CT
     uorf['ORF_type'] = 'uORF'
     
     # find dORFs
-    dorf = df[((df.genomic_start>=df.end) & (df.Strand=='+')) | ((df.genomic_end<=df.end) & (df.Strand=='-'))]
+    dorf = df[((df.genomic_start>=df.end) & (df.Strand=='+')) | ((df.genomic_end<=df.start) & (df.Strand=='-'))]
     dorf = dorf.drop(['Start','End','start','end','genomic_range','Sequence'], axis=1).copy()
     dorf.rename(columns={'genomic_start':'Start','genomic_end':'End'}, inplace=True)
     dorf['ORF_type'] = 'dORF'
@@ -235,7 +237,7 @@ def orf_finder(annotation, tx, ncrna=False, outdir=None, start_codon=["ATG", "CT
     oorf = oorf.drop(['Start', 'End'], axis=1).rename(columns={'Start_b':'Start', 'End_b':'End'})
     oorf['ORF_type'] = 'oORF'
     
-    df = pd.concat([oorf, orf]).drop_duplicates(['Name','start_codon','ORF_start','ORF_end'])
+    df = pd.concat([uorf, oorf, dorf]).drop_duplicates(['Name','start_codon','ORF_start','ORF_end'])
     df = pd.concat([df, inframe]).drop_duplicates(['Name','start_codon','ORF_start','ORF_end'], keep=False)
     
     if type(start_codon)==list:
@@ -265,7 +267,33 @@ def orf_finder(annotation, tx, ncrna=False, outdir=None, start_codon=["ATG", "CT
     # df = df[['Chromosome', 'tid', 'Strand', 'ORF_range', 'start_codon', 'ORF_start',
     #        'ORF_end', 'ORF_length', 'Start', 'End', 'ORF_type']].reset_index(drop=True)
 
+    # Get actual oORFs. Remove those located within introns
+    oorfs = df[df.ORF_type=='oORF'].copy()
+    oorfs['Start'] = oorfs.Start.astype(int)
+    oorfs['End'] = oorfs.End.astype(int)
+    oorfs['oid'] = oorfs.tid + '__' + oorfs.ORF_range.str[0].astype(int).astype(str) + '-' + oorfs.ORF_range.str[1].astype(int).astype(str)
+    oorfs[['Chromosome','Start','End','oid','ORF_length','Strand']].to_csv('oorfs.bed', sep='\t', header=None, index=None)
+    # BED12 without UTRs
+    morfs = pd.read_csv(bed, sep='\t', header=None)
+    morfs[[0,6,7,3,4,5,6,7,8,9,10,11]].to_csv('morfs.bed', sep='\t', header=None, index=None)
+    # actual oORFs
+    results = subprocess.run(['bedtools','intersect','-a','oorfs.bed','-b','morfs.bed','-s','-split','-wo'],
+                   stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+
+    oorf_ids = pd.read_csv(StringIO(results.stdout), sep='\t', header=None)
+    if oorf_ids.shape[0]>0:
+        oorf_ids = oorf_ids[[3]]
+        
+    oorf_ids['tid'] = oorf_ids[3].str.split('__').str[0]
+    oorf_ids['ORF_start'] = oorf_ids[3].str.split('__').str[1].str.split('-').str[0].astype(int)
+    oorf_ids['ORF_end'] = oorf_ids[3].str.split('__').str[1].str.split('-').str[1].astype(int)
+    oorf_ids = oorf_ids[['tid','ORF_start','ORF_end']]
+    oorfs = pd.merge(oorfs,oorf_ids).drop('oid', axis=1)
+    df = pd.concat([df[df.ORF_type!='oORF'],oorfs]).reset_index(drop=True)
+    
     df.to_pickle(fname + '.orf_finder.pkl.gz')
+    os.remove('morfs.bed')
+    os.remove('oorfs.bed')
     
     logging.info('found ' + str(df.shape[0]) + ' ORFs in ' + 
           str(round((time.perf_counter()-start_time)/60)) + ' min ' +
