@@ -123,7 +123,7 @@ def base_to_bedgraph(superkingdom, base, bedgraph_prefix, profile=None, genepred
         df['range'] = df.apply(lambda x: list(zip(x[profile],x['exons'])), axis=1)
         df = df.explode('range')[['tid','Chromosome','Strand','range']]
         if lowercase:
-            df['Chromosome'] = df.Chromosome.str.lower()
+            df['Chromosome'] = df.Chromosome.str.replace('Chr','chr')
         df['Start'] = df['range'].apply(lambda x: x[1]).astype(int)
         df['End'] = df['range'].apply(lambda x: x[1]).astype(int) +1
 
@@ -817,13 +817,13 @@ def orfs_to_biggenepred(orf_ranges, df, fai, big_fname, orf_range_col=None, orf_
     boss_gp['Ends'] = boss_gp['Ends'].apply(lambda x: ','.join([str(i) for i in sorted(x)])) + ','
     boss_gp = boss_gp[['oid','Chromosome','Strand','Start','End','Start','End','exonCount','Starts','Ends',orf_type_col]]
     if lowercase:
-        boss_gp['Chromosome'] = boss_gp.Chromosome.str.lower()
+        boss_gp['Chromosome'] = boss_gp.Chromosome.str.replace('Chr','chr')
         
     # Prepare required files for making bigGenePred
     faidx = pd.read_csv(fai, sep='\t', header=None)
     chromsizes = os.path.splitext(fai)[0] + '.chrom.sizes'
     if lowercase:
-        faidx[0] = faidx[0].str.lower()
+        faidx[0] = faidx[0].str.replace('Chr','chr')
     faidx[[0,1]].to_csv(chromsizes, header=None, index=None, sep='\t')
     
     bpath = os.path.split(big_fname)[0]
