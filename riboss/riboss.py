@@ -57,7 +57,7 @@ logging.config.dictConfig(DEFAULT_LOGGING)
 
 
 
-def base_to_bedgraph(superkingdom, base, bedgraph_prefix, profile=None, genepred=None, ncrna=False, delim=None, outdir=None):
+def base_to_bedgraph(superkingdom, base, bedgraph_prefix, profile=None, genepred=None, ncrna=False, lowercase=False, delim=None, outdir=None):
     """
     Convert a dataframe from parse_ribomap to BedGraph format.
 
@@ -121,7 +121,9 @@ def base_to_bedgraph(superkingdom, base, bedgraph_prefix, profile=None, genepred
         
         df = pd.merge(df,gc).copy()
         df['range'] = df.apply(lambda x: list(zip(x[profile],x['exons'])), axis=1)
-        df = df.explode('range')[['tid','Chromosome','Strand','range']]        
+        df = df.explode('range')[['tid','Chromosome','Strand','range']]
+        if lowercase:
+            df['Chromosome'] = df.Chromosome.str.lower()
         df['Start'] = df['range'].apply(lambda x: x[1]).astype(int)
         df['End'] = df['range'].apply(lambda x: x[1]).astype(int) +1
 
@@ -183,7 +185,7 @@ def base_to_bedgraph(superkingdom, base, bedgraph_prefix, profile=None, genepred
         logging.error('Please check your spelling! Only Archaea, Bacteria, or Eukaryota is acceptable superkingdom.')
 
 
-def parse_ribomap(superkingdom, base, genepred=None, ncrna=False, delim=None, outdir=None):
+def parse_ribomap(superkingdom, base, genepred=None, ncrna=False, delim=None, lowercase=False, outdir=None):
     """
     Parse a ribomap/riboprof base file into a dataframe.
     
@@ -221,7 +223,7 @@ def parse_ribomap(superkingdom, base, genepred=None, ncrna=False, delim=None, ou
             return bgs, profiles
             
         elif superkingdom=='Eukaryota':
-            gc, bg = base_to_bedgraph(superkingdom, p, base, profile=p.columns[1], genepred=genepred, ncrna=ncrna, delim=None, outdir=outdir)
+            gc, bg = base_to_bedgraph(superkingdom, p, base, profile=p.columns[1], genepred=genepred, ncrna=ncrna, lowercase=lowercase, delim=None, outdir=outdir)
             bgs.append(bg)
             return gc, bgs, profiles
         else:
@@ -762,7 +764,7 @@ def group_ranges(L):
 
 
 
-def orfs_to_biggenepred(orf_ranges, df, fai, big_fname, orf_range_col=None, orf_type_col=None):
+def orfs_to_biggenepred(orf_ranges, df, fai, big_fname, orf_range_col=None, orf_type_col=None, lowercase=False):
     """
     Create UCSC bigGenePred for RIBOSS top hits for Eukaryota.
 
@@ -814,10 +816,14 @@ def orfs_to_biggenepred(orf_ranges, df, fai, big_fname, orf_range_col=None, orf_
     boss_gp['Starts'] = boss_gp['Starts'].apply(lambda x: ','.join([str(i) for i in sorted(x)])) + ','
     boss_gp['Ends'] = boss_gp['Ends'].apply(lambda x: ','.join([str(i) for i in sorted(x)])) + ','
     boss_gp = boss_gp[['oid','Chromosome','Strand','Start','End','Start','End','exonCount','Starts','Ends',orf_type_col]]
-
+    if lowercase:
+        boss_gp['Chromosome'] = boss_gp.Chromosome.str.lower()
+        
     # Prepare required files for making bigGenePred
     faidx = pd.read_csv(fai, sep='\t', header=None)
     chromsizes = os.path.splitext(fai)[0] + '.chrom.sizes'
+    if lowercase:
+        faidx[0] = faidx[0].str.lower()
     faidx[[0,1]].to_csv(chromsizes, header=None, index=None, sep='\t')
     
     bpath = os.path.split(big_fname)[0]
@@ -924,7 +930,7 @@ def profile_anomaly(bedgraph, bb, bed, fasta, scatterplot_prefix=None):
 
 
 def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
-           ncrna=None, bed=None,
+           ncrna=None, bed=None, lowercase=False,
            orf_range_col=None,
            utr=30, padj_method='fdr_bh', tie=False, num_simulations=1000,
            run_blastp=False, run_efetch=False, verbose=False,
@@ -988,7 +994,7 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
             bn, ex = os.path.splitext(bed)
             genepred = bn + '.gp'
             subprocess.run(['bedToGenePred', bed, genepred], check=True)
-            gc, _, bases = parse_ribomap(superkingdom, riboprof_base, genepred=genepred, ncrna=ncrna, delim=None, outdir=outdir)
+            gc, _, bases = parse_ribomap(superkingdom, riboprof_base, genepred=genepred, ncrna=ncrna, lowercase=lowercase, delim=None, outdir=outdir)
         else:
             raise ValueError('Invalid superkingdom.')
     except Exception as e:
@@ -1025,11 +1031,12 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
             else:
                 _ = operons_to_biggenepred(df[df.ORF_type!='mORF'], boss_df[(boss_df.boss!='mORF') & (boss_df.boss!='tie') & (boss_df.boss!='lacks periodicity')], bed, fai, fname + '.boss', delim)
         elif superkingdom == 'Eukaryota':
-            _ = orfs_to_biggenepred(gc, sig, fai, fname + '.sig', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
+            _ = orfs_to_biggenepred(gc, sig, fai, fname + '.sig', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x', lowercase=lowercase)
             if tie:
-                _ = orfs_to_biggenepred(gc, boss_df[boss_df.boss!='mORF'], fai, fname + '.boss_tie', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
+                _ = orfs_to_biggenepred(gc, boss_df[boss_df.boss!='mORF'], fai, fname + '.boss_tie', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x', lowercase=lowercase)
             else:
-                _ = orfs_to_biggenepred(gc, boss_df[(boss_df.boss!='mORF') & (boss_df.boss!='tie') & (boss_df.boss!='lacks periodicity')], fai, fname + '.boss', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x')
+                _ = orfs_to_biggenepred(gc, boss_df[(boss_df.boss!='mORF') & (boss_df.boss!='tie') & (boss_df.boss!='lacks periodicity')], 
+                                        fai, fname + '.boss', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x', lowercase=lowercase)
     except Exception as e:
         logging.error(f"bigBed/GenePred error: {e}")
 
