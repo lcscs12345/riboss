@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2025-02-19 21:52:50
+@modify date 2025-02-21 13:41:56
 @desc        Main RIBOSS module
 """
 
@@ -126,7 +126,7 @@ def base_to_bedgraph(superkingdom, base, bedgraph_prefix, profile=None, genepred
         df['End'] = df['range'].apply(lambda x: x[1]).astype(int) +1
 
         df[profile] = df['range'].apply(lambda x: x[0]).astype(int)
-        df.drop('range', axis=1, inplace=True)             
+        df.drop('range', axis=1, inplace=True)           
     
     else:
         logging.error('Please check your spelling! Only Archaea, Bacteria, or Eukaryota is acceptable superkingdom.')
@@ -669,7 +669,9 @@ def operons_to_biggenepred(orf, df, bed, fai, big_fname, delim=None):
     
     orf = orf.rename(columns={'start_codon':'start_codon_x','ORF_start':'start','ORF_end':'end'})#.drop('ORF_length', axis=1)
     toporf = pd.merge(orf, df)
-    toporf['Name'] = toporf.Chromosome.astype(str) + ':' + toporf['Start'].astype(int).astype(str) + '-' + toporf['End'].astype(int).astype(str) + '(' + toporf.Strand.astype(str) + ')'
+    toporf['Start'] = toporf['Start'].astype(int)
+    toporf['End'] = toporf['End'].astype(int)
+    toporf['Name'] = toporf.Chromosome.astype(str) + ':' + toporf['Start'].astype(str) + '-' + toporf['End'].astype(str) + '(' + toporf.Strand.astype(str) + ')'
     toporf['name2'] = toporf['Name']
     toporf['score'] = 0
     toporf['reserved'] = '255,128,0'
@@ -777,11 +779,11 @@ def orfs_to_biggenepred(orf_ranges, df, fai, big_fname, orf_range_col=None, orf_
     df = df[~df[orf_type_col].isna()].copy()
     df_ranges = pd.merge(orf_ranges,df)
     dfp = df_ranges[df_ranges.Strand=='+'].copy()
-    dfp['Start'] = dfp.apply(lambda x: x['exons'][x[orf_range_col][0]], axis=1)
-    dfp['End'] = dfp.apply(lambda x: x['exons'][x[orf_range_col][1]-1] +1, axis=1)
+    dfp['Start'] = dfp.apply(lambda x: x['exons'][x[orf_range_col][0]], axis=1).astype(int)
+    dfp['End'] = dfp.apply(lambda x: x['exons'][x[orf_range_col][1]-1] +1, axis=1).astype(int)
     dfm = df_ranges[df_ranges.Strand=='-'].copy()
-    dfm['End'] = dfm.apply(lambda x: sorted(x['exons'], reverse=True)[x[orf_range_col][0]] +1, axis=1)
-    dfm['Start'] = dfm.apply(lambda x: sorted(x['exons'], reverse=True)[x[orf_range_col][1]-1], axis=1)
+    dfm['End'] = dfm.apply(lambda x: sorted(x['exons'], reverse=True)[x[orf_range_col][0]] +1, axis=1).astype(int)
+    dfm['Start'] = dfm.apply(lambda x: sorted(x['exons'], reverse=True)[x[orf_range_col][1]-1], axis=1).astype(int)
     df_ranges = pd.concat([dfp, dfm])
 
     b = df_ranges[['Chromosome','tid','Strand',orf_type_col,orf_range_col,'exons','Start','End']].copy()
@@ -1014,7 +1016,7 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
     except Exception as e:
         logging.error(f"boss error: {e}")
         sys.exit(1)
-        
+
     try:
         if superkingdom in ['Archaea', 'Bacteria']:
             _ = operons_to_biggenepred(df, sig, bed, fai, fname + '.sig', delim)
