@@ -1,12 +1,20 @@
 ![logo](doc/riboss_logo.svg)
 
-## Comparing translation of open reading frames within individual transcripts
+## Comparing the translational potential of open reading frames within individual transcripts
 
 Ribosome profiling is routinely used for discovering actively translated ORFs. Standard ribosome profiling involves RNase digestion of ribosome-protected mRNA fragments, followed by sucrose gradient fractionation, and RNA sequencing (RNA-seq).
 
 As ribosomes progress along the mRNA codon-by-codon, they generate a characteristic triplet periodicity profile in the footprint data. Triplet periodicity can be used to determine the correct reading frame for the translated ORFs and distinguish true translation events from background noise.
 
-RIBOSS consists of Python modules for analysis of ribosome profiling data for prokaryotes and eukaryotes. See the use cases and benchmarking results [here](https://github.com/lcscs12345/riboss_paper).
+RIBOSS is a Python package that integrates long- and short-read RNA sequencing data for reference-guided transcriptome assembly with ribosome profiling data to identify and characterise novel translational events beyond annotated regions. See the use cases and benchmarking results [here](https://github.com/lcscs12345/riboss_paper).
+
+**Key Features:**
+
+* **Long-Read Integration:** RIBOSS integrates long-read RNA sequencing data to improve transcriptome assembly and enhance the identification of novel translational events.
+* **Assessment of Translational Potential:** RIBOSS quantitatively assesses the relative translational potential of non-canonical ORFs compared to annotated ORFs, enabling users to infer their regulatory roles.
+* **Peptide Identification:** Users can optionally enable BLASTP searches and efetch to identify peptides encoded by non-canonical ORFs.
+* **Prokaryotic and Eukaryotic Support:** RIBOSS is designed to handle ribosome profiling data from both prokaryotic and eukaryotic species.
+
 
 ![Flow Chart](doc/flow_chart.svg)
 
