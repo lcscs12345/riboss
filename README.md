@@ -2,6 +2,10 @@
 
 ## Comparing translation of open reading frames within individual transcripts
 
+Ribosome profiling is routinely used for discovering actively translated ORFs. Standard ribosome profiling involves RNase digestion of ribosome-protected mRNA fragments, followed by sucrose gradient fractionation, and RNA sequencing (RNA-seq).
+
+As ribosomes progress along the mRNA codon-by-codon, they generate a characteristic triplet periodicity profile in the footprint data. Triplet periodicity can be used to determine the correct reading frame for the translated ORFs and distinguish true translation events from background noise.
+
 RIBOSS consists of Python modules for analysis of ribosome profiling data for prokaryotes and eukaryotes. See the use cases and benchmarking results [here](https://github.com/lcscs12345/riboss_paper).
 
 ![Flow Chart](doc/flow_chart.svg)
@@ -64,6 +68,7 @@ translate(na)
 You should see `'MV'`.
 
 ### References:
-
-- Lim, C. S., & Brown, C. M. (2024). RIBOSS detects novel translational events by combining long- and short-read transcriptome and translatome profiling. _BioRxiv_, DOI: [10.1101/2024.11.07.622529](https://doi.org/10.1101/2024.11.07.622529)
+- Ingolia, N. T., Hussmann, J. A., & Weissman, J. S. (2019) Ribosome Profiling: Global Views of Translation. Cold Spring Harb. Perspect. Biol., 11. DOI: [10.1101/cshperspect.a032698](https://doi.org/10.1101/cshperspect.a032698)
+- Ingolia, N. T., Ghaemmaghami, S., Newman, J. R. S., & Weissman, J. S. (2009) Genome-wide analysis in vivo of translation with nucleotide resolution using ribosome profiling. Science, 324: 218–223. DOI: [10.1126/science.1168978](https://doi.org/10.1126/science.1168978)
+- Lim, C. S., & Brown, C. M. (2024). RIBOSS detects novel translational events by combining long- and short-read transcriptome and translatome profiling. _BioRxiv_. DOI: [10.1101/2024.11.07.622529](https://doi.org/10.1101/2024.11.07.622529)
 - Lim, C.S., Wardell, S.J.T., Kleffmann, T. & Brown, C.M. (2018) The exon-intron gene structure upstream of the initiation codon predicts translation efficiency. _Nucleic Acids Res_, 46:4575-4591. DOI: [10.1093/nar/gky282](https://doi.org/10.1093/nar/gky282)
