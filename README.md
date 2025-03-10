@@ -14,6 +14,7 @@ RIBOSS is a Python package that integrates long- and short-read RNA sequencing d
 * **Assessment of Translational Potential:** RIBOSS quantitatively assesses the relative translational potential of non-canonical ORFs compared to annotated ORFs, enabling users to infer their regulatory roles.
 * **Peptide Identification:** Users can optionally enable BLASTP searches and efetch to identify peptides encoded by non-canonical ORFs.
 * **Prokaryotic and Eukaryotic Support:** RIBOSS is designed to handle ribosome profiling data from both prokaryotic and eukaryotic species.
+* **Standard Output Files:** RIBOSS generates output files in standard formats (BED12, genePred, bigGenePred, and bedGraph) compatible with widely used tools like BEDTools, UCSC Genome Browser, IGV, and Artemis.
 
 
 ![Flow Chart](doc/flow_chart.svg)
