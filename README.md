@@ -49,7 +49,7 @@ conda env export > environment.yml -->
 ```
 git clone https://github.com/lcscs12345/riboss.git
 cd riboss
-conda config --set channel_priority flexible # if using a newer Miniforge version. This is because newer conda versions (>=4.6) introduced a strict channel priority feature. See  https://conda-forge.org/docs/user/tipsandtricks/
+conda config --set channel_priority flexible # required if channel_priority was set to strict. See  https://conda-forge.org/docs/user/tipsandtricks/
 conda env create -f environment.yml
 
 conda activate riboss # your terminal prompt will show (riboss) bash-5.1$
