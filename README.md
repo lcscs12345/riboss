@@ -24,9 +24,14 @@ RIBOSS is a Python package that integrates long- and short-read RNA sequencing d
 #### Install Miniforge3 and create a conda environment
 
 ```
+# On Linux
 wget https://github.com/conda-forge/miniforge/releases/download/24.7.1-2/Miniforge3-24.7.1-2-Linux-x86_64.sh
 bash Miniforge3-24.7.1-2-Linux-x86_64.sh -b -p $HOME/miniforge3
 eval "$(/$HOME/miniforge3/bin/conda shell.bash hook)" # your terminal prompt will show (base) bash-5.1$
+
+# Not tested on MacOS.
+# Miniforge3 for ARM: https://github.com/conda-forge/miniforge/releases/download/24.7.1-2/Mambaforge-24.7.1-2-MacOSX-arm64.sh
+# Miniforge3 for x86: https://github.com/conda-forge/miniforge/releases/download/24.7.1-2/Mambaforge-24.7.1-2-MacOSX-x86_64.sh
 ```
 
 <!-- conda create -n riboss -y
@@ -50,6 +55,9 @@ conda env export > environment.yml -->
 git clone https://github.com/lcscs12345/riboss.git
 cd riboss
 conda env create -f environment.yml
+# if some packages are excluded by strict repo priority, run conda config --set channel_priority flexible
+# https://forum.qiime2.org/t/installation-of-qiime2-successful-but-cant-activate-due-to-inability-in-finding-conda-enviroment/26017/2
+
 conda activate riboss # your terminal prompt will show (riboss) bash-5.1$
 DIRNAME=`which python | xargs dirname`
 cp bin/riboprof $DIRNAME
