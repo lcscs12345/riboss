@@ -49,7 +49,7 @@ conda env export > environment.yml -->
 ```
 git clone https://github.com/lcscs12345/riboss.git
 cd riboss
-conda config --set channel_priority flexible # required if channel_priority was set to strict. See  https://conda-forge.org/docs/user/tipsandtricks/
+conda config --set channel_priority flexible # required if channel_priority was set to strict. See https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html
 conda env create -f environment.yml
 
 conda activate riboss # your terminal prompt will show (riboss) bash-5.1$
