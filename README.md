@@ -29,9 +29,9 @@ wget https://github.com/conda-forge/miniforge/releases/download/24.7.1-2/Minifor
 bash Miniforge3-24.7.1-2-Linux-x86_64.sh -b -p $HOME/miniforge3
 eval "$(/$HOME/miniforge3/bin/conda shell.bash hook)" # your terminal prompt will show (base) bash-5.1$
 
-# Not tested on MacOS.
-# Miniforge3 for ARM: https://github.com/conda-forge/miniforge/releases/download/24.7.1-2/Mambaforge-24.7.1-2-MacOSX-arm64.sh
-# Miniforge3 for x86: https://github.com/conda-forge/miniforge/releases/download/24.7.1-2/Mambaforge-24.7.1-2-MacOSX-x86_64.sh
+# On MacOS. Not tested for Intel's x86.
+# Miniforge3 for ARM: https://github.com/conda-forge/miniforge/releases/download/24.7.1-2/Miniforge3-24.7.1-2-MacOSX-arm64.sh
+# Miniforge3 for x86: https://github.com/conda-forge/miniforge/releases/download/24.7.1-2/Miniforge3-24.7.1-2-MacOSX-x86_64.sh
 ```
 
 <!-- conda create -n riboss -y
@@ -54,8 +54,8 @@ conda env export > environment.yml -->
 ```
 git clone https://github.com/lcscs12345/riboss.git
 cd riboss
-conda env create -f environment.yml --no-channel-priority
-# if using a newer Miniforge version, the flag --no-channel-priority is required. This is because newer conda versions (>=4.6) introduced a strict channel priority feature. See  https://conda-forge.org/docs/user/tipsandtricks/
+conda config --set channel_priority flexible # if using a newer Miniforge version. This is because newer conda versions (>=4.6) introduced a strict channel priority feature. See  https://conda-forge.org/docs/user/tipsandtricks/
+conda env create -f environment.yml
 
 conda activate riboss # your terminal prompt will show (riboss) bash-5.1$
 DIRNAME=`which python | xargs dirname`
