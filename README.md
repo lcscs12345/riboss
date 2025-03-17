@@ -55,6 +55,7 @@ conda env export > environment.yml -->
 git clone https://github.com/lcscs12345/riboss.git
 cd riboss
 conda env create -f environment.yml --no-channel-priority
+# if using a newer Miniforge version, the flag --no-channel-priority is required. This is because newer conda versions (>=4.6) introduced a strict channel priority feature. See  https://conda-forge.org/docs/user/tipsandtricks/
 
 conda activate riboss # your terminal prompt will show (riboss) bash-5.1$
 DIRNAME=`which python | xargs dirname`
