@@ -54,9 +54,7 @@ conda env export > environment.yml -->
 ```
 git clone https://github.com/lcscs12345/riboss.git
 cd riboss
-conda env create -f environment.yml
-# if some packages are excluded by strict repo priority, run conda config --set channel_priority flexible
-# https://forum.qiime2.org/t/installation-of-qiime2-successful-but-cant-activate-due-to-inability-in-finding-conda-enviroment/26017/2
+conda env create -f environment.yml --no-channel-priority
 
 conda activate riboss # your terminal prompt will show (riboss) bash-5.1$
 DIRNAME=`which python | xargs dirname`
