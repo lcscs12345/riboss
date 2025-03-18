@@ -22,7 +22,7 @@ RIBOSS is a Python package that integrates long- and short-read RNA sequencing d
 ### User guide
 
 #### Install Miniforge3 on Linux
-
+RIBOSS currently only supports Linux systems.
 ```
 wget https://github.com/conda-forge/miniforge/releases/download/24.7.1-2/Miniforge3-24.7.1-2-Linux-x86_64.sh
 bash Miniforge3-24.7.1-2-Linux-x86_64.sh -b -p $HOME/miniforge3
