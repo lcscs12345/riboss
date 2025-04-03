@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2025-04-03 13:19:46
+@modify date 2025-04-03 14:22:44
 @desc        Main RIBOSS module
 """
 
@@ -440,17 +440,17 @@ def boss(df, tx_assembly, boss_prefix, padj_method='fdr_bh', tie=False, num_simu
     with open(fname + '.boss.pkl', 'wb') as fl:
         cloudpickle.dump(boss, fl)
         logging.info('saved RIBOSS stats as ' + fname + '.boss.pkl and ' + fname + '.boss.csv')
-        
-    # extract significant results        
-    chi = boss[(boss['statistical test']=='ChiSquare')].reset_index(drop=True) # & (boss.boss!='tie')
+             
+    chi = boss[(boss['statistical test']=='ChiSquare')].reset_index(drop=True)
     be = boss[(boss['statistical test']=='BoschlooExact')].reset_index(drop=True)
     
     if tie==True:
-        chi = chi[(chi.result.apply(lambda x: x.adjusted_posthoc_pvalues[0])<0.05) & (chi.boss!='mORF')].reset_index(drop=True)
-        be = be[be.result.apply(lambda x: x.adjusted_pvalue<0.05)].reset_index(drop=True)
+        chi = chi[(chi.boss=='tie') | (chi.boss!='mORF')].reset_index(drop=True)
+        be = be[(be.boss=='tie') | (be.boss!='mORF')].reset_index(drop=True)
     else:
+        # extract significant results
         chi = chi[(chi.result.apply(lambda x: x.adjusted_posthoc_pvalues[0])<0.05) & (chi.boss!='tie') & (chi.boss!='mORF')].reset_index(drop=True)
-        be = be[be.result.apply(lambda x: x.adjusted_pvalue<0.05) & (be.boss!='tie')].reset_index(drop=True)
+        be = be[be.result.apply(lambda x: x.adjusted_pvalue<0.05) & (be.boss!='tie') & (be.boss!='mORF')].reset_index(drop=True)
         
     sig = pd.concat([chi,be])
     if sig.shape[0]>0:    
