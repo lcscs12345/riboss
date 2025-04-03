@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2025-02-21 13:41:56
+@modify date 2025-04-03 13:19:46
 @desc        Main RIBOSS module
 """
 
@@ -442,8 +442,8 @@ def boss(df, tx_assembly, boss_prefix, padj_method='fdr_bh', tie=False, num_simu
         logging.info('saved RIBOSS stats as ' + fname + '.boss.pkl and ' + fname + '.boss.csv')
         
     # extract significant results        
-    chi = boss[(boss['statistical test']=='ChiSquare') & (boss.boss!='tie')].reset_index(drop=True)
-    be = boss[(boss['statistical test']=='BoschlooExact') & (boss.boss!='tie')].reset_index(drop=True)
+    chi = boss[(boss['statistical test']=='ChiSquare')].reset_index(drop=True) # & (boss.boss!='tie')
+    be = boss[(boss['statistical test']=='BoschlooExact')].reset_index(drop=True)
     
     if tie==True:
         chi = chi[(chi.result.apply(lambda x: x.adjusted_posthoc_pvalues[0])<0.05) & (chi.boss!='mORF')].reset_index(drop=True)
