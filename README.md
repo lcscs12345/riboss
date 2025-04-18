@@ -1,6 +1,6 @@
 ![logo](doc/riboss_logo.svg)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![DOI](https://joss.theoj.org/papers/10.21105/joss.03941/status.svg)](https://doi.org/10.1093/bib/bbaf164)
 
 ## Comparing the translational potential of open reading frames within individual transcripts
 
