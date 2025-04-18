@@ -1,6 +1,7 @@
 ![logo](doc/riboss_logo.svg)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![python](https://img.shields.io/badge/python-3.12%2B-blue?style=flat&logo=python&logoColor=white)](https://www.python.org)
 
 ## Comparing the translational potential of open reading frames within individual transcripts
 
