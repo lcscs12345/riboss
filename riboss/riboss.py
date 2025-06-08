@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2025-04-03 14:22:44
+@modify date 2025-06-08 14:31:46
 @desc        Main RIBOSS module
 """
 
@@ -957,7 +957,7 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
         * orf_range_col: select ORF_range_x or ORF_range_y (default=None)
         * utr: padding for metagene plot (default=30)
         * padj_method: statsmodels multipletests (default=fdr_bh)
-        * tie: if adjusted p-values between ORFs is not significant (default=False)
+        * tie: if adjusted p-values between ORFs is not significant. Use 'Disabled' to get annotations for all unannotated ORFs (default=False)
         * num_simulations: number of simulations (default=1000)
         * run_blastp: run BLASTP for significant RIBOSS results (default=False)
         * run_efetch: run efetch for top BLASTP hits including RefSeq (default=False)
@@ -1026,12 +1026,16 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
     try:
         if superkingdom in ['Archaea', 'Bacteria']:
             _ = operons_to_biggenepred(df, sig, bed, fai, fname + '.sig', delim)
+            if tie=='Disable':
+                _ = operons_to_biggenepred(df, boss_df, bed, fai, fname + '.all', delim)
             if tie:
                 _ = operons_to_biggenepred(df[df.ORF_type!='mORF'], boss_df[boss_df.boss!='mORF'], bed, fai, fname + '.boss_tie', delim)
             else:
                 _ = operons_to_biggenepred(df[df.ORF_type!='mORF'], boss_df[(boss_df.boss!='mORF') & (boss_df.boss!='tie') & (boss_df.boss!='lacks periodicity')], bed, fai, fname + '.boss', delim)
         elif superkingdom == 'Eukaryota':
             _ = orfs_to_biggenepred(gc, sig, fai, fname + '.sig', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x', lowercase=lowercase)
+            if tie=='Disable':
+                _ = orfs_to_biggenepred(gc, boss_df, fai, fname + '.all', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x', lowercase=lowercase)
             if tie:
                 _ = orfs_to_biggenepred(gc, boss_df[boss_df.boss!='mORF'], fai, fname + '.boss_tie', orf_range_col='ORF_range_x', orf_type_col='ORF_type_x', lowercase=lowercase)
             else:
