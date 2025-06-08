@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-09-15 17:40:16
-@modify date 2025-06-08 14:31:46
+@modify date 2025-06-08 14:36:54
 @desc        Main RIBOSS module
 """
 
@@ -957,7 +957,7 @@ def riboss(superkingdom, df, riboprof_base, profile, fasta, tx_assembly,
         * orf_range_col: select ORF_range_x or ORF_range_y (default=None)
         * utr: padding for metagene plot (default=30)
         * padj_method: statsmodels multipletests (default=fdr_bh)
-        * tie: if adjusted p-values between ORFs is not significant. Use 'Disabled' to get annotations for all unannotated ORFs (default=False)
+        * tie: if adjusted p-values between ORFs is not significant. Use 'Disable' to get annotations for all unannotated ORFs (default=False)
         * num_simulations: number of simulations (default=1000)
         * run_blastp: run BLASTP for significant RIBOSS results (default=False)
         * run_efetch: run efetch for top BLASTP hits including RefSeq (default=False)
