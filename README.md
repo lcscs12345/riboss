@@ -81,6 +81,33 @@ translate(na)
 
 You should see `'MV'`.
 
+#### Column description of the main RIBOSS output (riboss.boss.pkl)
+
+| column | name             | description                                                                                                                                                               |
+|--------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1      | tid              | Transcript ID.                                                                                                                                                            |
+| 2      | boss             | ORF that have a greater translational potential compared to canonical ORFs.                                                                                               |
+| 3      | start_codon_x    | Start codon of x, where x is non-canonical ORF (see [Figure](#Fig-1) below).                                                                                              |
+| 4      | start_codon_y    | Start codon of y, where x is canonical ORF (see [Figure](#Fig-1) below).                                                                                                  |
+| 5      | ORF_range_x      | Transcript level position of x [start, end].                                                                                                                              |
+| 6      | ORF_type_x       | ORF types of x.                                                                                                                                                           | 
+| 7      | start_rprofile_x | Ribosome profiles around the start codon                                                                                                                                  |
+| 8      | ORF_range_y      | Transcript level position of x [start, end].                                                                                                                              |
+| 9      | ORF_type_y       | ORF types of y.                                                                                                                                                           |
+| 10     | start_rprofile_y | Ribosome profiles around the start codon                                                                                                                                  |
+| 11     | tab              | 2 x 3 and 2 x 2 contingency table for footprint counts. See Notes below.                                                                                                  | 
+| 12     | odds_ratio       | The odds of x being translated.                                                                                                                                           |
+| 13     | statistical test | G-test with bootstrap and post hoc test for 2 x 3 contingency table or Boschloo exact test for 2 x 2 contingency table                                                    |     
+| 14     | result           | G-tests' results (statistic, adjusted_pvalue, adjusted_bootstrap_pvalue, adjusted_residuals, adjusted_posthoc_pvalues) or Boschloo exact test result (statistic, pvalue). |
+
+Notes:
+- The contingency tables in tab is always `[Non-canonical ORFs, Canonical ORFs]`.
+- The 2 x 3 contingency table summerises the footprint counts mapped to frames 0, 1, and 2 as `[[F0, F1, F2], [F0, F1, F2]]`.
+- The 2 x 2 contingency table summerises the footprint counts mapped to frames 0, 1 and 2 as `[[F0, F1 + F2], [F0, F1 + F2]]`. Pseudocount of 1 is added to zeroes to avoid odds ratio infinity when carrying out the Boschloo exact test.
+
+<a id="Fig-1"></a>
+![Fig-1](doc/bbaf164f1.jpeg)
+
 ### References:
 - Ingolia, N. T., Hussmann, J. A., & Weissman, J. S. (2019) Ribosome Profiling: Global Views of Translation. Cold Spring Harb. Perspect. Biol., 11. DOI: [10.1101/cshperspect.a032698](https://doi.org/10.1101/cshperspect.a032698)
 - Ingolia, N. T., Ghaemmaghami, S., Newman, J. R. S., & Weissman, J. S. (2009) Genome-wide analysis in vivo of translation with nucleotide resolution using ribosome profiling. Science, 324: 218–223. DOI: [10.1126/science.1168978](https://doi.org/10.1126/science.1168978)
