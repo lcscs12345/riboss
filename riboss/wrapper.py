@@ -4,7 +4,7 @@
 """
 @author      CS Lim
 @create date 2020-10-10 16:49:00
-@modify date 2025-02-17 19:16:31
+@modify date 2025-08-05 11:01:02
 @desc        RIBOSS module for binary wrappers
 """
 
@@ -251,6 +251,13 @@ def build_star_index(
         logging.error('No index generated!')
 
 
+def get_magic_number(filepath):
+    """Safely reads the first two bytes of a file."""
+    if not os.path.isfile(filepath) or os.path.getsize(filepath) < 2:
+        raise TypeError("Invalid Read file path!")
+    with open(filepath, 'rb') as f:
+        return f.read(2)
+    
 
 def align_short_reads(
         reads,
@@ -302,8 +309,7 @@ def align_short_reads(
             '--readFilesIn', reads,# read2,
             '--outFileNamePrefix', prefix,
             '--genomeDir', index,
-            '--runThreadN', str(num_threads),
-            '--readFilesCommand', read_files_command,
+            '--runThreadN', str(num_threads), 
             '--seedSearchLmax', str(seed_search_lmax),
             '--outFilterMultimapScoreRange', str(filter_multimap_score_range),
             '--outFilterMultimapNmax', str(filter_multimap_nmax),
@@ -311,7 +317,15 @@ def align_short_reads(
             '--outFilterIntronMotifs', filter_intron_motifs,
             '--outSAMtype', sam_type.split()[0], sam_type.split()[1],
             # '--outSAMattributes', sam_attributes.split()[0], sam_attributes.split()[1]
-            ]                
+            ]
+        
+        magic_number = get_magic_number(reads)
+        if magic_number == b'\x1f\x8b':
+            print("Read file in gzip")
+            options = options + ['--readFilesCommand', read_files_command]
+        else:
+            logging.warning(f'{reads} has not been compressed as gzip. Processing with mapping')
+            
         if clip_3p_adapter_seq!=None:
             cmd = program + options + ['--clip3pAdapterSeq', str(clip_3p_adapter_seq)]
         else:
@@ -325,7 +339,6 @@ def align_short_reads(
             '--outFileNamePrefix', prefix,
             '--genomeDir', index,
             '--runThreadN', str(num_threads),
-            '--readFilesCommand', read_files_command,
             '--seedSearchLmax', str(seed_search_lmax),
             '--outFilterMultimapScoreRange', str(filter_multimap_score_range),
             '--outFilterMultimapNmax', str(filter_multimap_nmax),
@@ -333,7 +346,16 @@ def align_short_reads(
             '--outFilterIntronMotifs', filter_intron_motifs,
             '--outSAMtype', sam_type.split()[0], sam_type.split()[1],
             # '--outSAMattributes', sam_attributes.split()[0], sam_attributes.split()[1]
-            ]   
+            ]
+        
+        magic_numbers = [get_magic_number(filepath) for filepath in reads]
+        is_all_gzip = all(mn == b'\x1f\x8b' for mn in magic_numbers)
+
+        if is_all_gzip:
+            options = options + ['--readFilesCommand', read_files_command]
+        else:
+            logging.warning(f'{reads} have not been compressed as gzip. Processing with mapping')
+            
         if clip_3p_adapter_seq!=None:
             cmd = program + options + ['--clip3pAdapterSeq', str(clip_3p_adapter_seq), str(clip_3p_adapter_seq), 
                                        '--clip3pAdapterMMp', str(0.1), str(0.1)]
