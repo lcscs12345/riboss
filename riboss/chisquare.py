@@ -5,7 +5,7 @@
 @author      CS Lim
 @create date 2020-09-15 17:40:16
 @modify date 2025-02-15 20:55:07
-@desc        Main RIBOSS module
+@desc        RIBOSS statistical module
 """
 
 
