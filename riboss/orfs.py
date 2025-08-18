@@ -310,6 +310,7 @@ def orf_finder(annotation, tx, ncrna=False, outdir=None, start_codon=["ATG", "CT
     df.to_pickle(fname + '.orf_finder.pkl.gz')
     os.remove('morfs.bed')
     os.remove('oorfs.bed')
+    os.remove('orfs.bed')
     
     logging.info('found ' + str(df.shape[0]) + ' ORFs in ' + 
           str(round((time.perf_counter()-start_time)/60)) + ' min ' +
