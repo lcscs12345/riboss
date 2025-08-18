@@ -60,8 +60,11 @@ def flatten_orfs(df_or_path, gtf_path):
     xorfs = pr.PyRanges(agg[~agg.Score.str.contains("mORF")])
     remove = xorfs.overlap(morfs, strandedness=False)
     xorfs = pd.concat([xorfs.df, remove.df]).drop_duplicates(keep=False)
-
-    orf_df = pd.concat([morfs.df, xorfs]).sort_values(by=["Chromosome", "Start", "Name"])
+    
+    morfs = morfs.df
+    morfs["Score"] = "mORF"
+    
+    orf_df = pd.concat([morfs, xorfs]).sort_values(by=["Chromosome", "Start", "Name"])
     orf_df = orf_df[["Chromosome", "Start", "End", "Name", "Score", "Strand"]].copy()
 
     gt_map.columns = ["name", "transcript_id"]
