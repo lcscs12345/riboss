@@ -14,7 +14,7 @@ import subprocess, os, sys, logging.config
 from io import StringIO
 import pandas as pd
 import os
-
+from Bio import SeqIO
 
 
 # DEFAULT_LOGGING = {
@@ -184,10 +184,21 @@ def fasta_to_dataframe(seq):
     df = df[df[1] != '']
     df = df.dropna()
     df.columns = ['tid','seq']
+    df['tid'] = df['tid'].str.split('|').str[0]
     return df
 
     
 
+def fasta_record_generator(fasta_path):
+    """
+    Reads a FASTA file and yields each record as a dictionary.
+    """
+    handle = partial(gzip.open, mode='rt') if fasta_path.endswith('.gz') else open
+    with handle(fasta_path, 'r') as f:
+        for record in SeqIO.parse(f, 'fasta'):
+            yield {'Name': record.id, 'Sequence': str(record.seq)}
+            
+            
 def build_star_index(
         fasta_path,
         index,
