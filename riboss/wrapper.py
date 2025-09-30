@@ -425,7 +425,8 @@ def quantify_transcripts(reads, fasta_path, adapter=None, index_prefix=None, out
         else:  # index is a file
             logging.warning(f'{index} file exists. Consider renaming or moving it.')
             # sys.exit(1)  # Consider if you want to exit here
-    elif overwrite:
+    
+    if overwrite:
         try:
             subprocess.run(build_index, check=True)
             logging.info(f'Saved index to {index}')
