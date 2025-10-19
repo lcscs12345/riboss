@@ -184,7 +184,7 @@ def fasta_to_dataframe(seq):
     df = df[df[1] != '']
     df = df.dropna()
     df.columns = ['tid','seq']
-    df['tid'] = df['tid'].str.split('|').str[0]
+    df['tid'] = df['tid'].str.split(r'[| ]').str[0]
     return df
 
     
